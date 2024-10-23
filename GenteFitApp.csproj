@@ -36,9 +36,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +58,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\Actividad.cs">
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Actividades.cs" />
+    <Compile Include="Modelo\Cliente.cs">
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Clientes.cs" />
+    <Compile Include="Modelo\Diagrama_clases.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diagrama_clases.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Diagrama_clases.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Diagrama_clases.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Horario.cs">
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Horarios.cs" />
+    <Compile Include="Modelo\ListaEspera.cs">
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\ListasEspera.cs" />
+    <Compile Include="Modelo\Monitor.cs">
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Monitores.cs" />
+    <Compile Include="Modelo\Reserva.cs">
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Reservas.cs" />
+    <Compile Include="Modelo\Usuario.cs">
+      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Usuarios.cs" />
     <Compile Include="Vista\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +119,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Modelo\Diagrama_clases.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Diagrama_clases.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelo\Diagrama_clases.edmx.diagram">
+      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -84,7 +142,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controlador\" />
-    <Folder Include="Modelo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modelo\Diagrama_clases.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
+      <LastGenOutput>Diagrama_clases.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Modelo\Diagrama_clases.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
+      <LastGenOutput>Diagrama_clases.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

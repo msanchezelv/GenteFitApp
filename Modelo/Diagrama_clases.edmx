@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GenteFitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="idActividad" />
+          </Key>
+          <Property Name="idActividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="descripcion" Type="text" />
+          <Property Name="nivelIntensidad" Type="varchar" MaxLength="50" />
+          <Property Name="sala" Type="int" />
+          <Property Name="plazasDisponibles" Type="int" />
+          <Property Name="idMonitor" Type="int" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="15" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="idHorario" />
+          </Key>
+          <Property Name="idHorario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="diaSemana" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="horaInicio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="horaFin" Type="time" Precision="7" Nullable="false" />
+          <Property Name="idActividad" Type="int" />
+        </EntityType>
+        <EntityType Name="ListaEspera">
+          <Key>
+            <PropertyRef Name="idListaEspera" />
+          </Key>
+          <Property Name="idListaEspera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idActividad" Type="int" />
+          <Property Name="idHorario" Type="int" />
+          <Property Name="idCliente" Type="int" />
+          <Property Name="posicion" Type="int" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="idMonitor" />
+          </Key>
+          <Property Name="idMonitor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idActividad" Type="int" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="idReserva" />
+          </Key>
+          <Property Name="idReserva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCliente" Type="int" />
+          <Property Name="idHorario" Type="int" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="contraseña" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="rol" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Actividad__idMon__4222D4EF">
+          <End Role="Monitor" Type="Self.Monitor" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monitor">
+              <PropertyRef Name="idMonitor" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="idMonitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__idUsuar__3E52440B">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horario__idActiv__44FF419A">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="0..1" />
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="idActividad" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="idActividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaEspe__idAct__4BAC3F29">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="0..1" />
+          <End Role="ListaEspera" Type="Self.ListaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="idActividad" />
+            </Principal>
+            <Dependent Role="ListaEspera">
+              <PropertyRef Name="idActividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaEspe__idCli__4D94879B">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="ListaEspera" Type="Self.ListaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="ListaEspera">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaEspe__idHor__4CA06362">
+          <End Role="Horario" Type="Self.Horario" Multiplicity="0..1" />
+          <End Role="ListaEspera" Type="Self.ListaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horario">
+              <PropertyRef Name="idHorario" />
+            </Principal>
+            <Dependent Role="ListaEspera">
+              <PropertyRef Name="idHorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Monitor__idActiv__412EB0B6">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="0..1" />
+          <End Role="Monitor" Type="Self.Monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="idActividad" />
+            </Principal>
+            <Dependent Role="Monitor">
+              <PropertyRef Name="idActividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reserva__idClien__47DBAE45">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reserva__idHorar__48CFD27E">
+          <End Role="Horario" Type="Self.Horario" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horario">
+              <PropertyRef Name="idHorario" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="idHorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GenteFitModelStoreContainer">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListaEspera" EntityType="Self.ListaEspera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Monitor" EntityType="Self.Monitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reserva" EntityType="Self.Reserva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Actividad__idMon__4222D4EF" Association="Self.FK__Actividad__idMon__4222D4EF">
+            <End Role="Monitor" EntitySet="Monitor" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__idUsuar__3E52440B" Association="Self.FK__Cliente__idUsuar__3E52440B">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horario__idActiv__44FF419A" Association="Self.FK__Horario__idActiv__44FF419A">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaEspe__idAct__4BAC3F29" Association="Self.FK__ListaEspe__idAct__4BAC3F29">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="ListaEspera" EntitySet="ListaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaEspe__idCli__4D94879B" Association="Self.FK__ListaEspe__idCli__4D94879B">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ListaEspera" EntitySet="ListaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaEspe__idHor__4CA06362" Association="Self.FK__ListaEspe__idHor__4CA06362">
+            <End Role="Horario" EntitySet="Horario" />
+            <End Role="ListaEspera" EntitySet="ListaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Monitor__idActiv__412EB0B6" Association="Self.FK__Monitor__idActiv__412EB0B6">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Monitor" EntitySet="Monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reserva__idClien__47DBAE45" Association="Self.FK__Reserva__idClien__47DBAE45">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reserva__idHorar__48CFD27E" Association="Self.FK__Reserva__idHorar__48CFD27E">
+            <End Role="Horario" EntitySet="Horario" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GenteFitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="idActividad" />
+          </Key>
+          <Property Name="idActividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nivelIntensidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sala" Type="Int32" />
+          <Property Name="plazasDisponibles" Type="Int32" />
+          <Property Name="idMonitor" Type="Int32" />
+          <NavigationProperty Name="Monitor" Relationship="Self.FK__Actividad__idMon__4222D4EF" FromRole="Actividad" ToRole="Monitor" />
+          <NavigationProperty Name="Horario" Relationship="Self.FK__Horario__idActiv__44FF419A" FromRole="Actividad" ToRole="Horario" />
+          <NavigationProperty Name="ListaEspera" Relationship="Self.FK__ListaEspe__idAct__4BAC3F29" FromRole="Actividad" ToRole="ListaEspera" />
+          <NavigationProperty Name="Monitor1" Relationship="Self.FK__Monitor__idActiv__412EB0B6" FromRole="Actividad" ToRole="Monitor" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="idUsuario" Type="Int32" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Cliente__idUsuar__3E52440B" FromRole="Cliente" ToRole="Usuario" />
+          <NavigationProperty Name="ListaEspera" Relationship="Self.FK__ListaEspe__idCli__4D94879B" FromRole="Cliente" ToRole="ListaEspera" />
+          <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__idClien__47DBAE45" FromRole="Cliente" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="idHorario" />
+          </Key>
+          <Property Name="idHorario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diaSemana" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="horaInicio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="horaFin" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="idActividad" Type="Int32" />
+          <NavigationProperty Name="Actividad" Relationship="Self.FK__Horario__idActiv__44FF419A" FromRole="Horario" ToRole="Actividad" />
+          <NavigationProperty Name="ListaEspera" Relationship="Self.FK__ListaEspe__idHor__4CA06362" FromRole="Horario" ToRole="ListaEspera" />
+          <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__idHorar__48CFD27E" FromRole="Horario" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="ListaEspera">
+          <Key>
+            <PropertyRef Name="idListaEspera" />
+          </Key>
+          <Property Name="idListaEspera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idActividad" Type="Int32" />
+          <Property Name="idHorario" Type="Int32" />
+          <Property Name="idCliente" Type="Int32" />
+          <Property Name="posicion" Type="Int32" />
+          <NavigationProperty Name="Actividad" Relationship="Self.FK__ListaEspe__idAct__4BAC3F29" FromRole="ListaEspera" ToRole="Actividad" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__ListaEspe__idCli__4D94879B" FromRole="ListaEspera" ToRole="Cliente" />
+          <NavigationProperty Name="Horario" Relationship="Self.FK__ListaEspe__idHor__4CA06362" FromRole="ListaEspera" ToRole="Horario" />
+        </EntityType>
+        <EntityType Name="Monitor">
+          <Key>
+            <PropertyRef Name="idMonitor" />
+          </Key>
+          <Property Name="idMonitor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idActividad" Type="Int32" />
+          <NavigationProperty Name="Actividad" Relationship="Self.FK__Actividad__idMon__4222D4EF" FromRole="Monitor" ToRole="Actividad" />
+          <NavigationProperty Name="Actividad1" Relationship="Self.FK__Monitor__idActiv__412EB0B6" FromRole="Monitor" ToRole="Actividad" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="idReserva" />
+          </Key>
+          <Property Name="idReserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCliente" Type="Int32" />
+          <Property Name="idHorario" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Reserva__idClien__47DBAE45" FromRole="Reserva" ToRole="Cliente" />
+          <NavigationProperty Name="Horario" Relationship="Self.FK__Reserva__idHorar__48CFD27E" FromRole="Reserva" ToRole="Horario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contraseña" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__idUsuar__3E52440B" FromRole="Usuario" ToRole="Cliente" />
+        </EntityType>
+        <Association Name="FK__Actividad__idMon__4222D4EF">
+          <End Role="Monitor" Type="Self.Monitor" Multiplicity="0..1" />
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Monitor">
+              <PropertyRef Name="idMonitor" />
+            </Principal>
+            <Dependent Role="Actividad">
+              <PropertyRef Name="idMonitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horario__idActiv__44FF419A">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="0..1" />
+          <End Role="Horario" Type="Self.Horario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="idActividad" />
+            </Principal>
+            <Dependent Role="Horario">
+              <PropertyRef Name="idActividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaEspe__idAct__4BAC3F29">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="0..1" />
+          <End Role="ListaEspera" Type="Self.ListaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="idActividad" />
+            </Principal>
+            <Dependent Role="ListaEspera">
+              <PropertyRef Name="idActividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Monitor__idActiv__412EB0B6">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="0..1" />
+          <End Role="Monitor" Type="Self.Monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="idActividad" />
+            </Principal>
+            <Dependent Role="Monitor">
+              <PropertyRef Name="idActividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__idUsuar__3E52440B">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaEspe__idCli__4D94879B">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="ListaEspera" Type="Self.ListaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="ListaEspera">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reserva__idClien__47DBAE45">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ListaEspe__idHor__4CA06362">
+          <End Role="Horario" Type="Self.Horario" Multiplicity="0..1" />
+          <End Role="ListaEspera" Type="Self.ListaEspera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horario">
+              <PropertyRef Name="idHorario" />
+            </Principal>
+            <Dependent Role="ListaEspera">
+              <PropertyRef Name="idHorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reserva__idHorar__48CFD27E">
+          <End Role="Horario" Type="Self.Horario" Multiplicity="0..1" />
+          <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horario">
+              <PropertyRef Name="idHorario" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="idHorario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GenteFitEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Horario" EntityType="Self.Horario" />
+          <EntitySet Name="ListaEspera" EntityType="Self.ListaEspera" />
+          <EntitySet Name="Monitor" EntityType="Self.Monitor" />
+          <EntitySet Name="Reserva" EntityType="Self.Reserva" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__Actividad__idMon__4222D4EF" Association="Self.FK__Actividad__idMon__4222D4EF">
+            <End Role="Monitor" EntitySet="Monitor" />
+            <End Role="Actividad" EntitySet="Actividad" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horario__idActiv__44FF419A" Association="Self.FK__Horario__idActiv__44FF419A">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Horario" EntitySet="Horario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaEspe__idAct__4BAC3F29" Association="Self.FK__ListaEspe__idAct__4BAC3F29">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="ListaEspera" EntitySet="ListaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Monitor__idActiv__412EB0B6" Association="Self.FK__Monitor__idActiv__412EB0B6">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="Monitor" EntitySet="Monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__idUsuar__3E52440B" Association="Self.FK__Cliente__idUsuar__3E52440B">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaEspe__idCli__4D94879B" Association="Self.FK__ListaEspe__idCli__4D94879B">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ListaEspera" EntitySet="ListaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reserva__idClien__47DBAE45" Association="Self.FK__Reserva__idClien__47DBAE45">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ListaEspe__idHor__4CA06362" Association="Self.FK__ListaEspe__idHor__4CA06362">
+            <End Role="Horario" EntitySet="Horario" />
+            <End Role="ListaEspera" EntitySet="ListaEspera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reserva__idHorar__48CFD27E" Association="Self.FK__Reserva__idHorar__48CFD27E">
+            <End Role="Horario" EntitySet="Horario" />
+            <End Role="Reserva" EntitySet="Reserva" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GenteFitModelStoreContainer" CdmEntityContainer="GenteFitEntities2">
+          <EntitySetMapping Name="Actividad">
+            <EntityTypeMapping TypeName="GenteFitModel.Actividad">
+              <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nivelIntensidad" ColumnName="nivelIntensidad" />
+                <ScalarProperty Name="sala" ColumnName="sala" />
+                <ScalarProperty Name="plazasDisponibles" ColumnName="plazasDisponibles" />
+                <ScalarProperty Name="idMonitor" ColumnName="idMonitor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="GenteFitModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horario">
+            <EntityTypeMapping TypeName="GenteFitModel.Horario">
+              <MappingFragment StoreEntitySet="Horario">
+                <ScalarProperty Name="idHorario" ColumnName="idHorario" />
+                <ScalarProperty Name="diaSemana" ColumnName="diaSemana" />
+                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+                <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+                <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListaEspera">
+            <EntityTypeMapping TypeName="GenteFitModel.ListaEspera">
+              <MappingFragment StoreEntitySet="ListaEspera">
+                <ScalarProperty Name="idListaEspera" ColumnName="idListaEspera" />
+                <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+                <ScalarProperty Name="idHorario" ColumnName="idHorario" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="posicion" ColumnName="posicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Monitor">
+            <EntityTypeMapping TypeName="GenteFitModel.Monitor">
+              <MappingFragment StoreEntitySet="Monitor">
+                <ScalarProperty Name="idMonitor" ColumnName="idMonitor" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reserva">
+            <EntityTypeMapping TypeName="GenteFitModel.Reserva">
+              <MappingFragment StoreEntitySet="Reserva">
+                <ScalarProperty Name="idReserva" ColumnName="idReserva" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="idHorario" ColumnName="idHorario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="GenteFitModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
