@@ -154,7 +154,7 @@
             // Boton_Salir
             // 
             this.Boton_Salir.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Salir.Location = new System.Drawing.Point(654, 595);
+            this.Boton_Salir.Location = new System.Drawing.Point(628, 583);
             this.Boton_Salir.Name = "Boton_Salir";
             this.Boton_Salir.Size = new System.Drawing.Size(176, 32);
             this.Boton_Salir.TabIndex = 8;
