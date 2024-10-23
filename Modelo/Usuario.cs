@@ -29,5 +29,46 @@ namespace GenteFitApp.Modelo
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cliente> Cliente { get; set; }
+
+        public Usuario ObtenerUsuario(string idUsuario, string contraseña)
+{
+    Usuario usuario = null;
+    string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+
+    using (SqlConnection connection = new SqlConnection(connectionString))
+    {
+        string query = "SELECT idUsuario, nombre, apellido, email, rol FROM Usuario WHERE email = @Email AND contraseña = @Contraseña";
+
+        using (SqlCommand command = new SqlCommand(query, connection))
+        {
+            command.Parameters.AddWithValue("@Email", email);
+            command.Parameters.AddWithValue("@Contraseña", contraseña);
+
+            connection.Open();
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    usuario = new Usuario
+                    {
+                        idUsuario = (int)reader["idUsuario"],
+                        nombre = reader["nombre"].ToString(),
+                        apellido = reader["apellido"].ToString(),
+                        email = reader["email"].ToString(),
+                        contraseña = reader["contraseña"].ToString(),
+                        rol = reader["rol"].ToString()
+                    };
+                }
+            }
+        }
+    }
+
+    return usuario;
+}
+
+        public static implicit operator Usuario(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
