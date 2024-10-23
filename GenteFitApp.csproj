@@ -102,6 +102,24 @@
     <Compile Include="Vista\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\PrincipalAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\PrincipalAdmin.Designer.cs">
+      <DependentUpon>PrincipalAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\PrincipalCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\PrincipalCliente.Designer.cs">
+      <DependentUpon>PrincipalCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Registrar.Designer.cs">
+      <DependentUpon>Registrar.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -114,6 +132,15 @@
     </Compile>
     <EmbeddedResource Include="Vista\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\PrincipalAdmin.resx">
+      <DependentUpon>PrincipalAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\PrincipalCliente.resx">
+      <DependentUpon>PrincipalCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\Registrar.resx">
+      <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Modelo\Diagrama_clases.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
