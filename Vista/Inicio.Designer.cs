@@ -31,7 +31,7 @@
             this.titulopagina = new System.Windows.Forms.Label();
             this.label_IdUsuario = new System.Windows.Forms.Label();
             this.Box_UserId = new System.Windows.Forms.TextBox();
-            this.BoxContraseña = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Label_contraseña = new System.Windows.Forms.Label();
             this.Boton_Entrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -68,15 +68,14 @@
             this.Box_UserId.Name = "Box_UserId";
             this.Box_UserId.Size = new System.Drawing.Size(644, 20);
             this.Box_UserId.TabIndex = 4;
-            this.Box_UserId.TextChanged += new System.EventHandler(this.Box_UserId_TextChanged);
             // 
-            // BoxPassword
+            // textBox1
             // 
-            this.BoxPassword.Location = new System.Drawing.Point(100, 350);
-            this.BoxPassword.Name = "BoxContraseña";
-            this.BoxPassword.Size = new System.Drawing.Size(644, 20);
-            this.BoxPassword.TabIndex = 6;
-            this.BoxPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.Location = new System.Drawing.Point(100, 350);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(644, 20);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Label_contraseña
             // 
@@ -128,7 +127,7 @@
             this.ClientSize = new System.Drawing.Size(841, 716);
             this.Controls.Add(this.linkContraseñaOlvidada);
             this.Controls.Add(this.Boton_Entrar);
-            this.Controls.Add(this.BoxContraseña);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Label_contraseña);
             this.Controls.Add(this.Box_UserId);
             this.Controls.Add(this.label_IdUsuario);
@@ -149,7 +148,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_IdUsuario;
         private System.Windows.Forms.TextBox Box_UserId;
-        private System.Windows.Forms.TextBox BoxContraseña;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Label_contraseña;
         private System.Windows.Forms.Button Boton_Entrar;
         private System.Windows.Forms.LinkLabel linkContraseñaOlvidada;
