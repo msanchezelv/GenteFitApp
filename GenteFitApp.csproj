@@ -60,6 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\ControladorInicioSesion.cs" />
+    <Compile Include="masterDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>masterDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Actividad.cs">
       <DependentUpon>Diagrama_clases.tt</DependentUpon>
     </Compile>
@@ -98,6 +103,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\02Clientes\ReservarActividades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\02Clientes\ReservarActividades.Designer.cs">
+      <DependentUpon>ReservarActividades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\03Actividades\AgregarActividades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +167,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Vista\02Clientes\ReservarActividades.resx">
+      <DependentUpon>ReservarActividades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\03Actividades\AgregarActividades.resx">
       <DependentUpon>AgregarActividades.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +198,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Diagrama_clases.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="masterDataSet.xsc">
+      <DependentUpon>masterDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="masterDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>masterDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="masterDataSet.xss">
+      <DependentUpon>masterDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Modelo\Diagrama_clases.edmx.diagram">
       <DependentUpon>Diagrama_clases.edmx</DependentUpon>
     </None>
@@ -202,7 +227,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Vista\02Clientes\" />
     <Folder Include="Vista\04Reservas\" />
     <Folder Include="Vista\05ListaEpera\" />
   </ItemGroup>
