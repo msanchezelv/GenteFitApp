@@ -6,7 +6,7 @@ namespace GenteFitApp.Controlador
 {
     public class ControladorInicioSesion
     {
-        private string connectionString = @"Data Source=DESKTOP-6VP8HCF;Initial Catalog=GenteFit;Integrated Security=True"; // Cambia esta cadena de conexión según sea necesario
+        private string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True"; // Cambia esta cadena de conexión según sea necesario
 
         // Método para comprobar las credenciales
         public string ComprobarCredenciales(int idUsuario, string contraseña)
