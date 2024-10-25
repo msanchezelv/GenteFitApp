@@ -8,26 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GenteFitApp.Vista
+namespace GenteFitApp.Vista._02Clientes
 {
-    public partial class Registrar : Form
+    public partial class RegistrarCliente : Form
     {
-        public Registrar()
+        public RegistrarCliente()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Boton_nuevoCliente_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Boton_Entrar_Click(object sender, EventArgs e)
+        private void Boton_nuevoEmpleado_Click(object sender, EventArgs e)
         {
 
         }

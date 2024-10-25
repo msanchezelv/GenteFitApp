@@ -29,25 +29,29 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobreNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxReservas = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Gestion_Reservas = new System.Windows.Forms.Button();
-            this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.sobreNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBoxReservas.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.perfilToolStripMenuItem,
             this.reservasToolStripMenuItem,
@@ -55,9 +59,15 @@
             this.sobreNosotrosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(845, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(831, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // perfilToolStripMenuItem
+            // 
+            this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.perfilToolStripMenuItem.Text = "Perfil";
             // 
             // reservasToolStripMenuItem
             // 
@@ -94,6 +104,18 @@
             this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
             // 
+            // comprasToolStripMenuItem
+            // 
+            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.comprasToolStripMenuItem.Text = "Compras";
+            // 
+            // sobreNosotrosToolStripMenuItem
+            // 
+            this.sobreNosotrosToolStripMenuItem.Name = "sobreNosotrosToolStripMenuItem";
+            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.sobreNosotrosToolStripMenuItem.Text = "Sobre nosotros";
+            // 
             // groupBoxReservas
             // 
             this.groupBoxReservas.Controls.Add(this.Boton_Abrir_Gestion_Reservas);
@@ -116,18 +138,6 @@
             this.Boton_Abrir_Gestion_Reservas.UseVisualStyleBackColor = true;
             this.Boton_Abrir_Gestion_Reservas.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Reservas_Click);
             // 
-            // perfilToolStripMenuItem
-            // 
-            this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.perfilToolStripMenuItem.Text = "Perfil";
-            // 
-            // comprasToolStripMenuItem
-            // 
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.comprasToolStripMenuItem.Text = "Compras";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
@@ -137,7 +147,8 @@
             this.groupBox1.Size = new System.Drawing.Size(743, 100);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Gestión de reservas";
+            this.groupBox1.Text = "Reservas";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // button1
             // 
@@ -145,21 +156,36 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(713, 53);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Abrir gestión de reservas";
+            this.button1.Text = "Ver mis reservas";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // sobreNosotrosToolStripMenuItem
+            // groupBox2
             // 
-            this.sobreNosotrosToolStripMenuItem.Name = "sobreNosotrosToolStripMenuItem";
-            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
-            this.sobreNosotrosToolStripMenuItem.Text = "Sobre nosotros";
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Font = new System.Drawing.Font("Futura Lt BT", 14F);
+            this.groupBox2.Location = new System.Drawing.Point(24, 316);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(743, 100);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Perfil";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(14, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(713, 53);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Abrir perfil de usuario";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // PrincipalCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(845, 716);
+            this.ClientSize = new System.Drawing.Size(831, 559);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxReservas);
             this.Controls.Add(this.menuStrip1);
@@ -169,6 +195,7 @@
             this.menuStrip1.PerformLayout();
             this.groupBoxReservas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +216,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem sobreNosotrosToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
     }
 }
