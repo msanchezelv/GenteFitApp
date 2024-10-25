@@ -9,7 +9,7 @@ namespace GenteFitApp.Controlador
 {
     internal class ControladorRegistroCliente
     {
-        internal string connectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+        internal string connectionString = "DESKTOP-0P1J4U5\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
 
         // Método para registrar un cliente
         public bool RegistrarCliente(string nombre, string apellidos, string email, string contraseña, string direccion, string telefono)
