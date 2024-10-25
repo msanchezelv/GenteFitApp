@@ -73,7 +73,6 @@
             this.groupBoxClientes.TabIndex = 12;
             this.groupBoxClientes.TabStop = false;
             this.groupBoxClientes.Text = "Editar actividad";
-            this.groupBoxClientes.Enter += new System.EventHandler(this.groupBoxClientes_Enter);
             // 
             // buttonUpdateActividad
             // 

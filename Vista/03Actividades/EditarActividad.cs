@@ -16,10 +16,5 @@ namespace GenteFitApp.Vista
         {
             InitializeComponent();
         }
-
-        private void groupBoxClientes_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -1,58 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GenteFitApp.Vista;
+using System.Data.SqlClient;
+using GenteFitApp.Modelo;
 
 namespace GenteFitApp.Controlador
 {
     public class ControladorInicioSesion
     {
-        public void IniciarSesion(Usuario usuarioActual, Form formularioActual)
+        private string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True"; // Cambia esta cadena de conexión según sea necesario
+
+        // Método para comprobar las credenciales
+        public string ComprobarCredenciales(int idUsuario, string contraseña)
         {
-            if (usuarioActual != null)
+            string mensaje = string.Empty;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                MessageBox.Show("Inicio de sesión exitoso. Bienvenido " + usuarioActual.nombre);
-
-                switch (usuarioActual.rol)
+                string query = "SELECT idUsuario, nombre, apellido, email, contraseña, rol FROM Usuario WHERE idUsuario = @idUsuario";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    case "Administrador":
-                        PrincipalAdmin adminForm = new PrincipalAdmin();
-                        adminForm.Show();
-                        formularioActual.Hide();
-                        break;
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
 
-                    case "Cliente":
-                        PrincipalCliente clienteForm = new PrincipalCliente();
-                        clienteForm.Show();
-                        formularioActual.Hide();
-                        break;
+                    connection.Open();
 
-                    case "Encargado":
-                        PrincipalEncargado encargadoForm = new PrincipalEncargado();
-                        encargadoForm.Show();
-                        formularioActual.Hide();
-                        break;
-
-                    case "Recepcionista":
-                        PrincipalRecepcionista recepcionistaForm = new PrincipalRecepcionista();
-                        recepcionistaForm.Show();
-                        formularioActual.Hide();
-                        break;
-
-                    default:
-                        MessageBox.Show("Usuario no registrado. Por favor, regístrese.");
-                        Registrar nuevoUsuarioForm = new Registrar();
-                        nuevoUsuarioForm.Show();
-                        formularioActual.Hide();
-                        break;
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Usuario encontrado
+                            if (reader["contraseña"].ToString() == contraseña)
+                            {
+                                // Contraseña correcta
+                                mensaje = $"Inicio de sesión exitoso. Bienvenido {reader["nombre"]}";
+                            }
+                            else
+                            {
+                                // Contraseña incorrecta
+                                mensaje = "Contraseña incorrecta.";
+                            }
+                        }
+                        else
+                        {
+                            // Usuario no encontrado
+                            mensaje = "Usuario no encontrado. ¿Registrar nuevo usuario? S/N";
+                        }
+                    }
                 }
             }
-            else
+
+            return mensaje;
+        }
+
+        // Método para obtener un usuario basado en el ID y la contraseña.
+        public Usuario ObtenerUsuario(int idUsuario, string contraseña)
+        {
+            Usuario usuario = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                MessageBox.Show("Usuario o contraseña incorrectos.");
+                string query = "SELECT idUsuario, nombre, apellido, email, rol FROM Usuario WHERE idUsuario = @idUsuario AND contraseña = @contraseña";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    command.Parameters.AddWithValue("@contraseña", contraseña);
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuario = new Usuario
+                            {
+                                idUsuario = (int)reader["idUsuario"],
+                                nombre = reader["nombre"].ToString(),
+                                apellido = reader["apellido"].ToString(),
+                                email = reader["email"].ToString(),
+                                rol = reader["rol"].ToString()
+                            };
+                        }
+                    }
+                }
             }
+
+            return usuario;
         }
     }
 }
