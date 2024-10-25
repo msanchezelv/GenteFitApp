@@ -62,6 +62,7 @@
     <Compile Include="Controlador\ControladorInicioSesion.cs" />
     <Compile Include="Controlador\ControladorRegistro.cs" />
     <Compile Include="Controlador\ControladorRegistroCliente.cs" />
+    <Compile Include="Controlador\XMLManager.cs" />
     <Compile Include="Modelo\Actividad.cs">
       <DependentUpon>Diagrama_clases.tt</DependentUpon>
     </Compile>
