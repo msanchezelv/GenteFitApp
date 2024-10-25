@@ -1,4 +1,6 @@
-﻿namespace GenteFitApp.Vista
+﻿using System;
+
+namespace GenteFitApp.Vista
 {
     partial class Registrar
     {
@@ -36,19 +38,23 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.titulopagina = new System.Windows.Forms.Label();
             this.textBoxcontraseña = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelcontraseña = new System.Windows.Forms.Label();
             this.textBoxApellidos = new System.Windows.Forms.TextBox();
             this.label_apellidos = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.labelemail = new System.Windows.Forms.Label();
             this.Boton_nuevoEmpleado = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Boton_nuevoCliente
             // 
             this.Boton_nuevoCliente.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_nuevoCliente.Location = new System.Drawing.Point(95, 571);
+            this.Boton_nuevoCliente.Location = new System.Drawing.Point(95, 748);
             this.Boton_nuevoCliente.Name = "Boton_nuevoCliente";
             this.Boton_nuevoCliente.Size = new System.Drawing.Size(176, 32);
             this.Boton_nuevoCliente.TabIndex = 13;
@@ -118,15 +124,15 @@
             this.textBoxcontraseña.Size = new System.Drawing.Size(644, 20);
             this.textBoxcontraseña.TabIndex = 18;
             // 
-            // label1
+            // labelcontraseña
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.label1.Location = new System.Drawing.Point(93, 487);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 16);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Contraseña";
+            this.labelcontraseña.AutoSize = true;
+            this.labelcontraseña.Font = new System.Drawing.Font("Futura Lt BT", 10F);
+            this.labelcontraseña.Location = new System.Drawing.Point(93, 487);
+            this.labelcontraseña.Name = "labelcontraseña";
+            this.labelcontraseña.Size = new System.Drawing.Size(74, 16);
+            this.labelcontraseña.TabIndex = 17;
+            this.labelcontraseña.Text = "Contraseña";
             // 
             // textBoxApellidos
             // 
@@ -169,26 +175,64 @@
             // Boton_nuevoEmpleado
             // 
             this.Boton_nuevoEmpleado.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_nuevoEmpleado.Location = new System.Drawing.Point(563, 571);
+            this.Boton_nuevoEmpleado.Location = new System.Drawing.Point(564, 748);
             this.Boton_nuevoEmpleado.Name = "Boton_nuevoEmpleado";
             this.Boton_nuevoEmpleado.Size = new System.Drawing.Size(176, 32);
             this.Boton_nuevoEmpleado.TabIndex = 23;
             this.Boton_nuevoEmpleado.Text = "Nuevo empleado";
             this.Boton_nuevoEmpleado.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(96, 611);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(644, 20);
+            this.textBox1.TabIndex = 31;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Futura Lt BT", 10F);
+            this.label2.Location = new System.Drawing.Point(94, 595);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Dirección";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(96, 559);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(644, 20);
+            this.textBox2.TabIndex = 29;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Futura Lt BT", 10F);
+            this.label3.Location = new System.Drawing.Point(93, 543);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 16);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Teléfono";
+            // 
             // Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(832, 709);
+            this.ClientSize = new System.Drawing.Size(797, 819);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Boton_nuevoEmpleado);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.labelemail);
             this.Controls.Add(this.textBoxApellidos);
             this.Controls.Add(this.label_apellidos);
             this.Controls.Add(this.textBoxcontraseña);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelcontraseña);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.titulopagina);
             this.Controls.Add(this.Boton_nuevoCliente);
@@ -204,6 +248,16 @@
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
         private System.Windows.Forms.Button Boton_nuevoCliente;
         private System.Windows.Forms.TextBox textBoxNombre;
@@ -213,11 +267,15 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label titulopagina;
         private System.Windows.Forms.TextBox textBoxcontraseña;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelcontraseña;
         private System.Windows.Forms.TextBox textBoxApellidos;
         private System.Windows.Forms.Label label_apellidos;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label labelemail;
         private System.Windows.Forms.Button Boton_nuevoEmpleado;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
