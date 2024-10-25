@@ -58,7 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modelo\Actividad.cs">
+    <Compile Include="Controlador\ControladorInicioSesion.cs" />
+	<Compile Include="Modelo\Actividad.cs">
       <DependentUpon>Diagrama_clases.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Cliente.cs">
@@ -138,10 +139,10 @@
     <Compile Include="Vista\01Inicio\PrincipalRecepcionista.Designer.cs">
       <DependentUpon>PrincipalRecepcionista.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\02Clientes\Registrar.cs">
+    <Compile Include="Vista\01Inicio\Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\02Clientes\Registrar.Designer.cs">
+    <Compile Include="Vista\01Inicio\Registrar.Designer.cs">
       <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -175,7 +176,7 @@
     <EmbeddedResource Include="Vista\01Inicio\PrincipalRecepcionista.resx">
       <DependentUpon>PrincipalRecepcionista.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\02Clientes\Registrar.resx">
+    <EmbeddedResource Include="Vista\01Inicio\Registrar.resx">
       <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Modelo\Diagrama_clases.edmx">
@@ -200,7 +201,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controlador\" />
+    <Folder Include="Vista\02Clientes\" />
     <Folder Include="Vista\04Reservas\" />
     <Folder Include="Vista\05ListaEpera\" />
   </ItemGroup>
@@ -219,6 +220,7 @@
       <DependentUpon>Diagrama_clases.edmx</DependentUpon>
       <LastGenOutput>Diagrama_clases.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\ojo.png" />
     <Content Include="Vista\Logo-GenteFit-Negro.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

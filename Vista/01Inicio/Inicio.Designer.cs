@@ -34,8 +34,10 @@
             this.BoxPassword = new System.Windows.Forms.TextBox();
             this.Label_contraseña = new System.Windows.Forms.Label();
             this.Boton_Entrar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkContraseñaOlvidada = new System.Windows.Forms.LinkLabel();
+            this.Boton_MostrarContraseña = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Boton_MostrarContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +51,6 @@
             this.titulopagina.TabIndex = 0;
             this.titulopagina.Text = "Benvenid@ a GenteFit";
             this.titulopagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.titulopagina.Click += new System.EventHandler(this.label1_Click);
             // 
             // label_IdUsuario
             // 
@@ -100,16 +101,6 @@
             this.Boton_Entrar.UseVisualStyleBackColor = true;
             this.Boton_Entrar.Click += new System.EventHandler(this.Boton_Entrar_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GenteFitApp.Properties.Resources.Logo_GenteFit_Negro;
-            this.pictureBox1.Location = new System.Drawing.Point(335, 125);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(136, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // linkContraseñaOlvidada
             // 
             this.linkContraseñaOlvidada.AutoSize = true;
@@ -120,12 +111,34 @@
             this.linkContraseñaOlvidada.TabStop = true;
             this.linkContraseñaOlvidada.Text = "¿Has olvidado la contraseña?";
             // 
+            // Boton_MostrarContraseña
+            // 
+            this.Boton_MostrarContraseña.BackColor = System.Drawing.Color.Transparent;
+            this.Boton_MostrarContraseña.Image = global::GenteFitApp.Properties.Resources.ojo;
+            this.Boton_MostrarContraseña.Location = new System.Drawing.Point(746, 350);
+            this.Boton_MostrarContraseña.Name = "Boton_MostrarContraseña";
+            this.Boton_MostrarContraseña.Size = new System.Drawing.Size(21, 20);
+            this.Boton_MostrarContraseña.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Boton_MostrarContraseña.TabIndex = 9;
+            this.Boton_MostrarContraseña.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GenteFitApp.Properties.Resources.Logo_GenteFit_Negro;
+            this.pictureBox1.Location = new System.Drawing.Point(335, 125);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(136, 122);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(841, 716);
+            this.Controls.Add(this.Boton_MostrarContraseña);
             this.Controls.Add(this.linkContraseñaOlvidada);
             this.Controls.Add(this.Boton_Entrar);
             this.Controls.Add(this.BoxPassword);
@@ -137,6 +150,7 @@
             this.Name = "Inicio";
             this.Text = "W";
             this.Load += new System.EventHandler(this.Inicio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Boton_MostrarContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,5 +167,6 @@
         private System.Windows.Forms.Label Label_contraseña;
         private System.Windows.Forms.Button Boton_Entrar;
         private System.Windows.Forms.LinkLabel linkContraseñaOlvidada;
+        private System.Windows.Forms.PictureBox Boton_MostrarContraseña;
     }
 }
