@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using GenteFitApp.Modelo;
 
 namespace GenteFitApp.controlador
@@ -8,74 +10,58 @@ namespace GenteFitApp.controlador
     {
         internal string connectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
 
-        // Método para registrar un usuario general
-        internal bool RegistrarUsuario(string nombre, string apellidos, string email)
+        // Método para registrar un usuario general con rol
+        public bool RegistrarUsuario(string nombre, string apellidos, string email, string contraseña, string rol)
         {
-            // Validar los campos
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellidos) || string.IsNullOrEmpty(email))
+            using (var connection = new SqlConnection(connectionString))
             {
-                throw new ArgumentException("Los campos obligatorios no pueden estar vacíos.");
-            }
+                connection.Open();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "INSERT INTO Usuarios (Nombre, Apellidos, Email) VALUES (@Nombre, @Apellidos, @Email)";
+                
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                string query = "INSERT INTO usuario (nombre, apellido, email, contraseña, rol) VALUES (@nombre, @apellido, @email, @contraseña, @rol)";
+                using (var command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Nombre", nombre);
-                    command.Parameters.AddWithValue("@Apellidos", apellidos);
-                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@nombre", nombre);
+                    command.Parameters.AddWithValue("@apellido", apellidos);
+                    command.Parameters.AddWithValue("@email", email);
+                    command.Parameters.AddWithValue("@contraseña", contraseña);
+                    command.Parameters.AddWithValue("@rol", rol);
 
-                    try
-                    {
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        return true; // Registro exitoso
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Error al registrar el usuario: " + ex.Message);
-                    }
+                    int filasAfectadas = command.ExecuteNonQuery();
+                    return filasAfectadas > 0;
                 }
             }
         }
 
-        // Método para registrar un cliente
-        internal bool RegistrarCliente(string nombre, string apellidos, string email, string contraseña, string telefono, string direccion)
+        // Método para hashear la contraseña (opcional, pero recomendado)
+        private string HashContraseña(string contraseña)
         {
-            // Validar los campos
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellidos) || 
-                string.IsNullOrEmpty(email) || string.IsNullOrEmpty(contraseña))
+            using (var sha256 = SHA256.Create())
             {
-                throw new ArgumentException("Los campos obligatorios no pueden estar vacíos.");
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(contraseña));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
             }
+        }
 
+        internal int ObtenerProximoIdUsuario()
+        {
+            int proximoId = 1;
+            string query = "SELECT ISNULL(MAX(idUsuario), 0) + 1 FROM Usuario";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Usuarios (Nombre, Apellidos, Email, Contraseña, Telefono, Direccion) VALUES (@Nombre, @Apellidos, @Email, @Contraseña, @Telefono, @Direccion)";
-
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Nombre", nombre);
-                    command.Parameters.AddWithValue("@Apellidos", apellidos);
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Contraseña", contraseña);
-                    command.Parameters.AddWithValue("@Telefono", telefono);
-                    command.Parameters.AddWithValue("@Direccion", direccion);
-
-                    try
-                    {
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        return true; // Registro exitoso
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("Error al registrar el cliente: " + ex.Message);
-                    }
+                    connection.Open();
+                    proximoId = (int)command.ExecuteScalar();
                 }
             }
+            return proximoId;
         }
     }
 }

@@ -32,50 +32,49 @@ namespace GenteFitApp.Modelo
         public virtual ICollection<Cliente> Cliente { get; set; }
 
         public Usuario ObtenerUsuario(int idUsuario, string contraseña)
-{
-    Usuario usuario = null;
-    string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
-
-    using (SqlConnection connection = new SqlConnection(connectionString))
-    {
-        // Consulta SQL para obtener el usuario por idUsuario y contraseña
-        string query = "SELECT idUsuario, nombre, apellido, email, rol FROM Usuario WHERE idUsuario = @IdUsuario AND contraseña = @Contraseña";
-
-        using (SqlCommand command = new SqlCommand(query, connection))
-        {
-            // Agregar parámetros para evitar inyecciones SQL
-            command.Parameters.AddWithValue("@IdUsuario", idUsuario);
-            command.Parameters.AddWithValue("@Contraseña", contraseña);
-
-            // Abrir la conexión a la base de datos
-            connection.Open();
-
-            // Ejecutar el lector de datos
-            using (SqlDataReader reader = command.ExecuteReader())
             {
-                if (reader.Read())
+                Usuario usuario = null;
+                string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    // Crear un objeto Usuario a partir de los datos obtenidos
-                    usuario = new Usuario
+                    // Consulta SQL para obtener el usuario por idUsuario y contraseña
+                    string query = "SELECT idUsuario, nombre, apellido, email, rol FROM Usuario WHERE idUsuario = @IdUsuario AND contraseña = @Contraseña";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        idUsuario = (int)reader["idUsuario"],
-                        nombre = reader["nombre"].ToString(),
-                        apellido = reader["apellido"].ToString(),
-                        email = reader["email"].ToString(),
-                        contraseña = contraseña,
-                        rol = reader["rol"].ToString()
-                    };
+                        // Agregar parámetros para evitar inyecciones SQL
+                        command.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        command.Parameters.AddWithValue("@Contraseña", contraseña);
+
+                        // Abrir la conexión a la base de datos
+                        connection.Open();
+
+                        // Ejecutar el lector de datos
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Crear un objeto Usuario a partir de los datos obtenidos
+                                usuario = new Usuario
+                                {
+                                    idUsuario = (int)reader["idUsuario"],
+                                    nombre = reader["nombre"].ToString(),
+                                    apellido = reader["apellido"].ToString(),
+                                    email = reader["email"].ToString(),
+                                    contraseña = contraseña,
+                                    rol = reader["rol"].ToString()
+                                };
+                            }
+                        }
+                    }
                 }
+                return usuario; // Retorna el objeto Usuario o null si no se encontró
             }
-        }
-    }
-    return usuario; // Retorna el objeto Usuario o null si no se encontró
-}
-
-
-        public static implicit operator Usuario(string v)
-        {
+            
+            public static implicit operator Usuario(string v)
+            {
             throw new NotImplementedException();
-        }
-    }
+            }
+            }
 }

@@ -41,20 +41,16 @@ namespace GenteFitApp.Vista
             this.labelcontraseña = new System.Windows.Forms.Label();
             this.textBoxApellidos = new System.Windows.Forms.TextBox();
             this.label_apellidos = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxemail = new System.Windows.Forms.TextBox();
             this.labelemail = new System.Windows.Forms.Label();
-            this.Boton_nuevoEmpleado = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxRolEmpleado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Boton_nuevoCliente
             // 
             this.Boton_nuevoCliente.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_nuevoCliente.Location = new System.Drawing.Point(95, 748);
+            this.Boton_nuevoCliente.Location = new System.Drawing.Point(96, 563);
             this.Boton_nuevoCliente.Name = "Boton_nuevoCliente";
             this.Boton_nuevoCliente.Size = new System.Drawing.Size(176, 32);
             this.Boton_nuevoCliente.TabIndex = 13;
@@ -140,7 +136,6 @@ namespace GenteFitApp.Vista
             this.textBoxApellidos.Name = "textBoxApellidos";
             this.textBoxApellidos.Size = new System.Drawing.Size(644, 20);
             this.textBoxApellidos.TabIndex = 20;
-            this.textBoxApellidos.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label_apellidos
             // 
@@ -152,14 +147,13 @@ namespace GenteFitApp.Vista
             this.label_apellidos.TabIndex = 19;
             this.label_apellidos.Text = "Apellidos";
             this.label_apellidos.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label_apellidos.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox3
+            // textBoxemail
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 450);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(644, 20);
-            this.textBox3.TabIndex = 22;
+            this.textBoxemail.Location = new System.Drawing.Point(96, 450);
+            this.textBoxemail.Name = "textBoxemail";
+            this.textBoxemail.Size = new System.Drawing.Size(644, 20);
+            this.textBoxemail.TabIndex = 22;
             // 
             // labelemail
             // 
@@ -172,62 +166,29 @@ namespace GenteFitApp.Vista
             this.labelemail.Text = "E-mail";
             this.labelemail.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // Boton_nuevoEmpleado
+            // comboBoxRolEmpleado
             // 
-            this.Boton_nuevoEmpleado.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_nuevoEmpleado.Location = new System.Drawing.Point(564, 748);
-            this.Boton_nuevoEmpleado.Name = "Boton_nuevoEmpleado";
-            this.Boton_nuevoEmpleado.Size = new System.Drawing.Size(176, 32);
-            this.Boton_nuevoEmpleado.TabIndex = 23;
-            this.Boton_nuevoEmpleado.Text = "Nuevo empleado";
-            this.Boton_nuevoEmpleado.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(96, 611);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(644, 20);
-            this.textBox1.TabIndex = 31;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.label2.Location = new System.Drawing.Point(94, 595);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Dirección";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(96, 559);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(644, 20);
-            this.textBox2.TabIndex = 29;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.label3.Location = new System.Drawing.Point(93, 543);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 16);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Teléfono";
+            this.comboBoxRolEmpleado.Font = new System.Drawing.Font("Futura Lt BT", 12F);
+            this.comboBoxRolEmpleado.FormattingEnabled = true;
+            this.comboBoxRolEmpleado.Items.AddRange(new object[] {
+            "Recepcionista",
+            "Encargado",
+            "Administrador"});
+            this.comboBoxRolEmpleado.Location = new System.Drawing.Point(567, 563);
+            this.comboBoxRolEmpleado.Name = "comboBoxRolEmpleado";
+            this.comboBoxRolEmpleado.Size = new System.Drawing.Size(172, 27);
+            this.comboBoxRolEmpleado.TabIndex = 24;
+            this.comboBoxRolEmpleado.Text = "Nuevo empleado";
+            this.comboBoxRolEmpleado.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Registrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(797, 819);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.Boton_nuevoEmpleado);
-            this.Controls.Add(this.textBox3);
+            this.ClientSize = new System.Drawing.Size(797, 644);
+            this.Controls.Add(this.comboBoxRolEmpleado);
+            this.Controls.Add(this.textBoxemail);
             this.Controls.Add(this.labelemail);
             this.Controls.Add(this.textBoxApellidos);
             this.Controls.Add(this.label_apellidos);
@@ -248,15 +209,12 @@ namespace GenteFitApp.Vista
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
 
         #endregion
         private System.Windows.Forms.Button Boton_nuevoCliente;
@@ -270,12 +228,11 @@ namespace GenteFitApp.Vista
         private System.Windows.Forms.Label labelcontraseña;
         private System.Windows.Forms.TextBox textBoxApellidos;
         private System.Windows.Forms.Label label_apellidos;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxemail;
         private System.Windows.Forms.Label labelemail;
-        private System.Windows.Forms.Button Boton_nuevoEmpleado;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelDir;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxRolEmpleado;
     }
 }
