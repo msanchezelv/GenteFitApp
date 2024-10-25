@@ -50,9 +50,9 @@ namespace GenteFitApp.Vista
             // Boton_nuevoCliente
             // 
             this.Boton_nuevoCliente.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_nuevoCliente.Location = new System.Drawing.Point(96, 563);
+            this.Boton_nuevoCliente.Location = new System.Drawing.Point(95, 563);
             this.Boton_nuevoCliente.Name = "Boton_nuevoCliente";
-            this.Boton_nuevoCliente.Size = new System.Drawing.Size(176, 32);
+            this.Boton_nuevoCliente.Size = new System.Drawing.Size(176, 27);
             this.Boton_nuevoCliente.TabIndex = 13;
             this.Boton_nuevoCliente.Text = "Nuevo cliente";
             this.Boton_nuevoCliente.UseVisualStyleBackColor = true;

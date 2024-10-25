@@ -11,9 +11,11 @@ namespace GenteFitApp.Modelo
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Reserva
     {
+        [Key]
         public int idReserva { get; set; }
         public Nullable<int> idCliente { get; set; }
         public Nullable<int> idHorario { get; set; }
