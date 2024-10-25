@@ -4,8 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using GenteFitApp.Vista;
-
 namespace GenteFitApp
 {
     internal static class Program
@@ -18,7 +16,7 @@ namespace GenteFitApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio());
+            Application.Run(new Form1());
         }
     }
 }

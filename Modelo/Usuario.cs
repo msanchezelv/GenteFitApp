@@ -7,13 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
 namespace GenteFitApp.Modelo
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.SqlClient;
-
     
     public partial class Usuario
     {
@@ -33,7 +30,7 @@ namespace GenteFitApp.Modelo
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cliente> Cliente { get; set; }
 
-public Usuario ObtenerUsuario(int idUsuario, string contraseña)
+        public Usuario ObtenerUsuario(int idUsuario, string contraseña)
 {
     Usuario usuario = null;
     string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
@@ -71,7 +68,7 @@ public Usuario ObtenerUsuario(int idUsuario, string contraseña)
             }
         }
     }
-    return usuario;
+    return usuario; // Retorna el objeto Usuario o null si no se encontró
 }
 
 
