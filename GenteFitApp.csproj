@@ -97,52 +97,59 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vista\03Actividades\AgregarActividades.cs">
+    <Compile Include="Vista\AgregarActividades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\03Actividades\AgregarActividades.Designer.cs">
+    <Compile Include="Vista\AgregarActividades.Designer.cs">
       <DependentUpon>AgregarActividades.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\03Actividades\EditarActividad.cs">
+    <Compile Include="Vista\EditarActividad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\03Actividades\EditarActividad.Designer.cs">
+    <Compile Include="Vista\EditarActividad.Designer.cs">
       <DependentUpon>EditarActividad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\01Inicio\Inicio.cs">
+    <Compile Include="Vista\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\01Inicio\Inicio.Designer.cs">
+    <Compile Include="Vista\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalAdmin.cs">
+    <Compile Include="Vista\PrincipalAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalAdmin.Designer.cs">
+    <Compile Include="Vista\PrincipalAdmin.Designer.cs">
       <DependentUpon>PrincipalAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalCliente.cs">
+    <Compile Include="Vista\PrincipalCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalCliente.Designer.cs">
+    <Compile Include="Vista\PrincipalCliente.Designer.cs">
       <DependentUpon>PrincipalCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalEncargado.cs">
+    <Compile Include="Vista\PrincipalEncargado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalEncargado.Designer.cs">
+    <Compile Include="Vista\PrincipalEncargado.Designer.cs">
       <DependentUpon>PrincipalEncargado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalRecepcionista.cs">
+    <Compile Include="Vista\PrincipalRecepcionista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\01Inicio\PrincipalRecepcionista.Designer.cs">
+    <Compile Include="Vista\PrincipalRecepcionista.Designer.cs">
       <DependentUpon>PrincipalRecepcionista.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Vista\01Inicio\Registrar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vista\01Inicio\Registrar.Designer.cs">
+=======
+    <Compile Include="Vista\Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\Registrar.Designer.cs">
+>>>>>>> parent of cad8b2a (Checks)
       <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -155,28 +162,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Vista\03Actividades\AgregarActividades.resx">
+    <EmbeddedResource Include="Vista\AgregarActividades.resx">
       <DependentUpon>AgregarActividades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\03Actividades\EditarActividad.resx">
+    <EmbeddedResource Include="Vista\EditarActividad.resx">
       <DependentUpon>EditarActividad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\01Inicio\Inicio.resx">
+    <EmbeddedResource Include="Vista\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\01Inicio\PrincipalAdmin.resx">
+    <EmbeddedResource Include="Vista\PrincipalAdmin.resx">
       <DependentUpon>PrincipalAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\01Inicio\PrincipalCliente.resx">
+    <EmbeddedResource Include="Vista\PrincipalCliente.resx">
       <DependentUpon>PrincipalCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\01Inicio\PrincipalEncargado.resx">
+    <EmbeddedResource Include="Vista\PrincipalEncargado.resx">
       <DependentUpon>PrincipalEncargado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\01Inicio\PrincipalRecepcionista.resx">
+    <EmbeddedResource Include="Vista\PrincipalRecepcionista.resx">
       <DependentUpon>PrincipalRecepcionista.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Vista\01Inicio\Registrar.resx">
+=======
+    <EmbeddedResource Include="Vista\Registrar.resx">
+>>>>>>> parent of cad8b2a (Checks)
       <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Modelo\Diagrama_clases.edmx">
@@ -201,9 +212,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="Vista\02Clientes\" />
     <Folder Include="Vista\04Reservas\" />
     <Folder Include="Vista\05ListaEpera\" />
+=======
+    <Folder Include="Controlador\" />
+>>>>>>> parent of cad8b2a (Checks)
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
