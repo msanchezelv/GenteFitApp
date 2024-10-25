@@ -11,7 +11,9 @@ namespace GenteFitApp.Modelo
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Data.SqlClient;
+    using System.Windows.Forms;
+
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

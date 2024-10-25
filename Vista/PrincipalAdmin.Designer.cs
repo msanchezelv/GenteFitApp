@@ -30,13 +30,32 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actividadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarActividadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monitoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarMonitoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxClientes = new System.Windows.Forms.GroupBox();
-            this.Boton_Salir = new System.Windows.Forms.Button();
             this.Boton_Abrir_Gestion_Clientes = new System.Windows.Forms.Button();
+            this.Boton_Salir = new System.Windows.Forms.Button();
             this.groupBoxReservas = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Gestion_Reservas = new System.Windows.Forms.Button();
             this.groupBoxAct = new System.Windows.Forms.GroupBox();
@@ -45,25 +64,6 @@
             this.Boton_Abrir_Gestion_Monitores = new System.Windows.Forms.Button();
             this.groupBoxUsuarios = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Gestion_Usuarios = new System.Windows.Forms.Button();
-            this.añadirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarActividadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarMonitoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxClientes.SuspendLayout();
             this.groupBoxReservas.SuspendLayout();
@@ -74,6 +74,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesToolStripMenuItem,
             this.reservasToolStripMenuItem,
@@ -82,7 +83,7 @@
             this.usuariosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(842, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,8 +95,32 @@
             this.eliminarClienteToolStripMenuItem,
             this.consultarClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(65, 21);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // añadirClienteToolStripMenuItem
+            // 
+            this.añadirClienteToolStripMenuItem.Name = "añadirClienteToolStripMenuItem";
+            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
+            this.añadirClienteToolStripMenuItem.Text = "Añadir cliente";
+            // 
+            // editarClienteToolStripMenuItem
+            // 
+            this.editarClienteToolStripMenuItem.Name = "editarClienteToolStripMenuItem";
+            this.editarClienteToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
+            this.editarClienteToolStripMenuItem.Text = "Editar cliente";
+            // 
+            // eliminarClienteToolStripMenuItem
+            // 
+            this.eliminarClienteToolStripMenuItem.Name = "eliminarClienteToolStripMenuItem";
+            this.eliminarClienteToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
+            this.eliminarClienteToolStripMenuItem.Text = "Eliminar cliente";
+            // 
+            // consultarClientesToolStripMenuItem
+            // 
+            this.consultarClientesToolStripMenuItem.Name = "consultarClientesToolStripMenuItem";
+            this.consultarClientesToolStripMenuItem.Size = new System.Drawing.Size(184, 24);
+            this.consultarClientesToolStripMenuItem.Text = "Consultar clientes";
             // 
             // reservasToolStripMenuItem
             // 
@@ -105,8 +130,32 @@
             this.consultarReservasToolStripMenuItem,
             this.consultarListaDeEsperaToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(72, 21);
             this.reservasToolStripMenuItem.Text = "Reservas";
+            // 
+            // añadirReservaToolStripMenuItem
+            // 
+            this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
+            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
+            // 
+            // cancelarReservaToolStripMenuItem
+            // 
+            this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
+            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
+            // 
+            // consultarReservasToolStripMenuItem
+            // 
+            this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
+            this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
+            // 
+            // consultarListaDeEsperaToolStripMenuItem
+            // 
+            this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
+            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(227, 24);
+            this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
             // 
             // actividadesToolStripMenuItem
             // 
@@ -116,8 +165,32 @@
             this.eliminarActividadToolStripMenuItem,
             this.consultarActividadesToolStripMenuItem});
             this.actividadesToolStripMenuItem.Name = "actividadesToolStripMenuItem";
-            this.actividadesToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.actividadesToolStripMenuItem.Size = new System.Drawing.Size(86, 21);
             this.actividadesToolStripMenuItem.Text = "Actividades";
+            // 
+            // añadirActividadToolStripMenuItem
+            // 
+            this.añadirActividadToolStripMenuItem.Name = "añadirActividadToolStripMenuItem";
+            this.añadirActividadToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.añadirActividadToolStripMenuItem.Text = "Añadir actividad";
+            // 
+            // modificarActividadToolStripMenuItem
+            // 
+            this.modificarActividadToolStripMenuItem.Name = "modificarActividadToolStripMenuItem";
+            this.modificarActividadToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.modificarActividadToolStripMenuItem.Text = "Modificar actividad";
+            // 
+            // eliminarActividadToolStripMenuItem
+            // 
+            this.eliminarActividadToolStripMenuItem.Name = "eliminarActividadToolStripMenuItem";
+            this.eliminarActividadToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.eliminarActividadToolStripMenuItem.Text = "Eliminar actividad";
+            // 
+            // consultarActividadesToolStripMenuItem
+            // 
+            this.consultarActividadesToolStripMenuItem.Name = "consultarActividadesToolStripMenuItem";
+            this.consultarActividadesToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.consultarActividadesToolStripMenuItem.Text = "Consultar actividades";
             // 
             // monitoresToolStripMenuItem
             // 
@@ -127,8 +200,32 @@
             this.eliminarMonitorToolStripMenuItem,
             this.consultarMonitoresToolStripMenuItem});
             this.monitoresToolStripMenuItem.Name = "monitoresToolStripMenuItem";
-            this.monitoresToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.monitoresToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
             this.monitoresToolStripMenuItem.Text = "Monitores";
+            // 
+            // añadirMonitorToolStripMenuItem
+            // 
+            this.añadirMonitorToolStripMenuItem.Name = "añadirMonitorToolStripMenuItem";
+            this.añadirMonitorToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
+            this.añadirMonitorToolStripMenuItem.Text = "Añadir monitor";
+            // 
+            // editarMonitorToolStripMenuItem
+            // 
+            this.editarMonitorToolStripMenuItem.Name = "editarMonitorToolStripMenuItem";
+            this.editarMonitorToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
+            this.editarMonitorToolStripMenuItem.Text = "Editar monitor";
+            // 
+            // eliminarMonitorToolStripMenuItem
+            // 
+            this.eliminarMonitorToolStripMenuItem.Name = "eliminarMonitorToolStripMenuItem";
+            this.eliminarMonitorToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
+            this.eliminarMonitorToolStripMenuItem.Text = "Eliminar monitor";
+            // 
+            // consultarMonitoresToolStripMenuItem
+            // 
+            this.consultarMonitoresToolStripMenuItem.Name = "consultarMonitoresToolStripMenuItem";
+            this.consultarMonitoresToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
+            this.consultarMonitoresToolStripMenuItem.Text = "Consultar monitores";
             // 
             // usuariosToolStripMenuItem
             // 
@@ -137,13 +234,31 @@
             this.editarUsuarioToolStripMenuItem,
             this.eliminarUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(71, 21);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
+            // añadirUsuarioToolStripMenuItem
+            // 
+            this.añadirUsuarioToolStripMenuItem.Name = "añadirUsuarioToolStripMenuItem";
+            this.añadirUsuarioToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.añadirUsuarioToolStripMenuItem.Text = "Añadir usuario";
+            // 
+            // editarUsuarioToolStripMenuItem
+            // 
+            this.editarUsuarioToolStripMenuItem.Name = "editarUsuarioToolStripMenuItem";
+            this.editarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.editarUsuarioToolStripMenuItem.Text = "Editar usuario";
+            // 
+            // eliminarUsuarioToolStripMenuItem
+            // 
+            this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
+            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar usuario";
             // 
             // groupBoxClientes
             // 
             this.groupBoxClientes.Controls.Add(this.Boton_Abrir_Gestion_Clientes);
-            this.groupBoxClientes.Font = new System.Drawing.Font("Futura Lt BT", 14F);
+            this.groupBoxClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBoxClientes.Location = new System.Drawing.Point(30, 48);
             this.groupBoxClientes.Name = "groupBoxClientes";
             this.groupBoxClientes.Size = new System.Drawing.Size(774, 86);
@@ -151,9 +266,19 @@
             this.groupBoxClientes.TabStop = false;
             this.groupBoxClientes.Text = "Gestión de clientes";
             // 
+            // Boton_Abrir_Gestion_Clientes
+            // 
+            this.Boton_Abrir_Gestion_Clientes.Location = new System.Drawing.Point(14, 29);
+            this.Boton_Abrir_Gestion_Clientes.Name = "Boton_Abrir_Gestion_Clientes";
+            this.Boton_Abrir_Gestion_Clientes.Size = new System.Drawing.Size(745, 39);
+            this.Boton_Abrir_Gestion_Clientes.TabIndex = 0;
+            this.Boton_Abrir_Gestion_Clientes.Text = " ";
+            this.Boton_Abrir_Gestion_Clientes.UseVisualStyleBackColor = true;
+            this.Boton_Abrir_Gestion_Clientes.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Boton_Salir
             // 
-            this.Boton_Salir.Font = new System.Drawing.Font("Futura Lt BT", 12F);
+            this.Boton_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Boton_Salir.Location = new System.Drawing.Point(628, 583);
             this.Boton_Salir.Name = "Boton_Salir";
             this.Boton_Salir.Size = new System.Drawing.Size(176, 32);
@@ -162,20 +287,10 @@
             this.Boton_Salir.UseVisualStyleBackColor = true;
             this.Boton_Salir.Click += new System.EventHandler(this.Boton_Entrar_Click);
             // 
-            // Boton_Abrir_Gestion_Clientes
-            // 
-            this.Boton_Abrir_Gestion_Clientes.Location = new System.Drawing.Point(14, 29);
-            this.Boton_Abrir_Gestion_Clientes.Name = "Boton_Abrir_Gestion_Clientes";
-            this.Boton_Abrir_Gestion_Clientes.Size = new System.Drawing.Size(745, 39);
-            this.Boton_Abrir_Gestion_Clientes.TabIndex = 0;
-            this.Boton_Abrir_Gestion_Clientes.Text = "Abrir gestión de clientes";
-            this.Boton_Abrir_Gestion_Clientes.UseVisualStyleBackColor = true;
-            this.Boton_Abrir_Gestion_Clientes.Click += new System.EventHandler(this.button1_Click);
-            // 
             // groupBoxReservas
             // 
             this.groupBoxReservas.Controls.Add(this.Boton_Abrir_Gestion_Reservas);
-            this.groupBoxReservas.Font = new System.Drawing.Font("Futura Lt BT", 14F);
+            this.groupBoxReservas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBoxReservas.Location = new System.Drawing.Point(30, 154);
             this.groupBoxReservas.Name = "groupBoxReservas";
             this.groupBoxReservas.Size = new System.Drawing.Size(774, 84);
@@ -195,7 +310,7 @@
             // groupBoxAct
             // 
             this.groupBoxAct.Controls.Add(this.Boton_Abrir_Gestion_Actividades);
-            this.groupBoxAct.Font = new System.Drawing.Font("Futura Lt BT", 14F);
+            this.groupBoxAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBoxAct.Location = new System.Drawing.Point(30, 259);
             this.groupBoxAct.Name = "groupBoxAct";
             this.groupBoxAct.Size = new System.Drawing.Size(774, 86);
@@ -215,7 +330,7 @@
             // groupBoxMonitores
             // 
             this.groupBoxMonitores.Controls.Add(this.Boton_Abrir_Gestion_Monitores);
-            this.groupBoxMonitores.Font = new System.Drawing.Font("Futura Lt BT", 14F);
+            this.groupBoxMonitores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBoxMonitores.Location = new System.Drawing.Point(30, 370);
             this.groupBoxMonitores.Name = "groupBoxMonitores";
             this.groupBoxMonitores.Size = new System.Drawing.Size(774, 88);
@@ -236,7 +351,7 @@
             // groupBoxUsuarios
             // 
             this.groupBoxUsuarios.Controls.Add(this.Boton_Abrir_Gestion_Usuarios);
-            this.groupBoxUsuarios.Font = new System.Drawing.Font("Futura Lt BT", 14F);
+            this.groupBoxUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.groupBoxUsuarios.Location = new System.Drawing.Point(30, 482);
             this.groupBoxUsuarios.Name = "groupBoxUsuarios";
             this.groupBoxUsuarios.Size = new System.Drawing.Size(774, 81);
@@ -252,120 +367,6 @@
             this.Boton_Abrir_Gestion_Usuarios.TabIndex = 0;
             this.Boton_Abrir_Gestion_Usuarios.Text = "Abrir gestión de usuarios";
             this.Boton_Abrir_Gestion_Usuarios.UseVisualStyleBackColor = true;
-            // 
-            // añadirClienteToolStripMenuItem
-            // 
-            this.añadirClienteToolStripMenuItem.Name = "añadirClienteToolStripMenuItem";
-            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.añadirClienteToolStripMenuItem.Text = "Añadir cliente";
-            // 
-            // editarClienteToolStripMenuItem
-            // 
-            this.editarClienteToolStripMenuItem.Name = "editarClienteToolStripMenuItem";
-            this.editarClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarClienteToolStripMenuItem.Text = "Editar cliente";
-            // 
-            // eliminarClienteToolStripMenuItem
-            // 
-            this.eliminarClienteToolStripMenuItem.Name = "eliminarClienteToolStripMenuItem";
-            this.eliminarClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eliminarClienteToolStripMenuItem.Text = "Eliminar cliente";
-            // 
-            // consultarClientesToolStripMenuItem
-            // 
-            this.consultarClientesToolStripMenuItem.Name = "consultarClientesToolStripMenuItem";
-            this.consultarClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.consultarClientesToolStripMenuItem.Text = "Consultar clientes";
-            // 
-            // añadirReservaToolStripMenuItem
-            // 
-            this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
-            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
-            // 
-            // cancelarReservaToolStripMenuItem
-            // 
-            this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
-            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
-            // 
-            // consultarReservasToolStripMenuItem
-            // 
-            this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
-            this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
-            // 
-            // consultarListaDeEsperaToolStripMenuItem
-            // 
-            this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
-            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
-            // 
-            // añadirActividadToolStripMenuItem
-            // 
-            this.añadirActividadToolStripMenuItem.Name = "añadirActividadToolStripMenuItem";
-            this.añadirActividadToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.añadirActividadToolStripMenuItem.Text = "Añadir actividad";
-            // 
-            // modificarActividadToolStripMenuItem
-            // 
-            this.modificarActividadToolStripMenuItem.Name = "modificarActividadToolStripMenuItem";
-            this.modificarActividadToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.modificarActividadToolStripMenuItem.Text = "Modificar actividad";
-            // 
-            // eliminarActividadToolStripMenuItem
-            // 
-            this.eliminarActividadToolStripMenuItem.Name = "eliminarActividadToolStripMenuItem";
-            this.eliminarActividadToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.eliminarActividadToolStripMenuItem.Text = "Eliminar actividad";
-            // 
-            // consultarActividadesToolStripMenuItem
-            // 
-            this.consultarActividadesToolStripMenuItem.Name = "consultarActividadesToolStripMenuItem";
-            this.consultarActividadesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.consultarActividadesToolStripMenuItem.Text = "Consultar actividades";
-            // 
-            // añadirMonitorToolStripMenuItem
-            // 
-            this.añadirMonitorToolStripMenuItem.Name = "añadirMonitorToolStripMenuItem";
-            this.añadirMonitorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.añadirMonitorToolStripMenuItem.Text = "Añadir monitor";
-            // 
-            // editarMonitorToolStripMenuItem
-            // 
-            this.editarMonitorToolStripMenuItem.Name = "editarMonitorToolStripMenuItem";
-            this.editarMonitorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.editarMonitorToolStripMenuItem.Text = "Editar monitor";
-            // 
-            // eliminarMonitorToolStripMenuItem
-            // 
-            this.eliminarMonitorToolStripMenuItem.Name = "eliminarMonitorToolStripMenuItem";
-            this.eliminarMonitorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.eliminarMonitorToolStripMenuItem.Text = "Eliminar monitor";
-            // 
-            // consultarMonitoresToolStripMenuItem
-            // 
-            this.consultarMonitoresToolStripMenuItem.Name = "consultarMonitoresToolStripMenuItem";
-            this.consultarMonitoresToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.consultarMonitoresToolStripMenuItem.Text = "Consultar monitores";
-            // 
-            // añadirUsuarioToolStripMenuItem
-            // 
-            this.añadirUsuarioToolStripMenuItem.Name = "añadirUsuarioToolStripMenuItem";
-            this.añadirUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.añadirUsuarioToolStripMenuItem.Text = "Añadir usuario";
-            // 
-            // editarUsuarioToolStripMenuItem
-            // 
-            this.editarUsuarioToolStripMenuItem.Name = "editarUsuarioToolStripMenuItem";
-            this.editarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarUsuarioToolStripMenuItem.Text = "Editar usuario";
-            // 
-            // eliminarUsuarioToolStripMenuItem
-            // 
-            this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar usuario";
             // 
             // PrincipalAdmin
             // 
