@@ -11,6 +11,7 @@ namespace GenteFitApp.Modelo
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.SqlClient;
     
     public partial class Usuario
     {
@@ -68,7 +69,7 @@ namespace GenteFitApp.Modelo
             }
         }
     }
-    return usuario; // Retorna el objeto Usuario o null si no se encontró
+    return usuario;
 }
 
 
