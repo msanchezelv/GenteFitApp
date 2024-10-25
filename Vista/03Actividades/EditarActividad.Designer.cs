@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBoxClientes = new System.Windows.Forms.GroupBox();
-            this.buttonUpdateActividad = new System.Windows.Forms.Button();
             this.Boton_eliminarActividad = new System.Windows.Forms.Button();
             this.textBoxmonitor = new System.Windows.Forms.TextBox();
             this.labelMonitor = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxsala = new System.Windows.Forms.TextBox();
             this.labelsala = new System.Windows.Forms.Label();
+            this.buttonUpdateActividad = new System.Windows.Forms.Button();
             this.groupBoxClientes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,18 +72,7 @@
             this.groupBoxClientes.Size = new System.Drawing.Size(774, 641);
             this.groupBoxClientes.TabIndex = 12;
             this.groupBoxClientes.TabStop = false;
-            this.groupBoxClientes.Text = "Editar actividad";
-            this.groupBoxClientes.Enter += new System.EventHandler(this.groupBoxClientes_Enter);
-            // 
-            // buttonUpdateActividad
-            // 
-            this.buttonUpdateActividad.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.buttonUpdateActividad.Location = new System.Drawing.Point(24, 543);
-            this.buttonUpdateActividad.Name = "buttonUpdateActividad";
-            this.buttonUpdateActividad.Size = new System.Drawing.Size(176, 32);
-            this.buttonUpdateActividad.TabIndex = 37;
-            this.buttonUpdateActividad.Text = "Guardar";
-            this.buttonUpdateActividad.UseVisualStyleBackColor = true;
+            this.groupBoxClientes.Text = "Agregar actividad";
             // 
             // Boton_eliminarActividad
             // 
@@ -216,6 +205,16 @@
             this.labelsala.Size = new System.Drawing.Size(33, 16);
             this.labelsala.TabIndex = 27;
             this.labelsala.Text = "Sala";
+            // 
+            // buttonUpdateActividad
+            // 
+            this.buttonUpdateActividad.Font = new System.Drawing.Font("Futura Lt BT", 12F);
+            this.buttonUpdateActividad.Location = new System.Drawing.Point(24, 543);
+            this.buttonUpdateActividad.Name = "buttonUpdateActividad";
+            this.buttonUpdateActividad.Size = new System.Drawing.Size(176, 32);
+            this.buttonUpdateActividad.TabIndex = 37;
+            this.buttonUpdateActividad.Text = "Guardar";
+            this.buttonUpdateActividad.UseVisualStyleBackColor = true;
             // 
             // EditarActividad
             // 
