@@ -1,4 +1,5 @@
-﻿using GenteFitApp.Modelo;
+﻿using GenteFitApp.Controlador;
+using GenteFitApp.Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,12 @@ namespace GenteFitApp.Vista
 {
     public partial class Inicio : Form
     {
-        private Usuario usuarioActual;
+        ControladorInicioSesion controladorInicioSesion = new ControladorInicioSesion();
 
         public Inicio()
         {
             InitializeComponent();
-            usuarioActual = new Usuario();
+            BoxPassword.PasswordChar = '*';
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -44,67 +45,35 @@ namespace GenteFitApp.Vista
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            usuarioActual.contraseña = BoxPassword.Text;
+            
 
         }
 
         private void Boton_Entrar_Click(object sender, EventArgs e)
         {
-            try
+            int userId;
+            if (int.TryParse(Box_UserId.Text, out userId))
             {
-                int idUsuario;
-                if (!int.TryParse(Box_UserId.Text, out idUsuario))
-                {
-                    MessageBox.Show("El ID de usuario no puede estar vacio.");
-                    return;
-                }
+                string password = BoxPassword.Text;
 
-                string contraseña = BoxPassword.Text;
+                string mensaje = controladorInicioSesion.ComprobarCredenciales(userId, password);
+                MessageBox.Show(mensaje); // Mostrar el mensaje devuelto por el controlador
 
-                if (string.IsNullOrEmpty(contraseña))
+                // Implementar el cambio de formulario según el rol del usuario si el inicio de sesión fue exitoso
+                if (mensaje.StartsWith("Inicio de sesión exitoso"))
                 {
-                    MessageBox.Show("Por favor, introduce una contraseña.");
-                    return;
+                    // Lógica para cambiar de formulario según el rol del usuario
                 }
-
-                if (string.IsNullOrEmpty(contraseña))
-                {
-                    MessageBox.Show("Por favor, introduce una contraseña.");
-                    return;
-                }
-                if (usuarioActual != null)
-                {
-                    MessageBox.Show("Inicio de sesión exitoso. Bienvenido " + usuarioActual.nombre);
-                    // Aquí puedes redirigir a otra ventana o realizar otras acciones
-                }
-                else
-                {
-                    MessageBox.Show("El ID de usuario o la contraseña son incorrectos.");
-                }
-
             }
-
-
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message);
+                MessageBox.Show("El ID de usuario debe ser un número.");
             }
-
         }
 
         private void Box_UserId_TextChanged(object sender, EventArgs e)
         {
 
-            int id;
-
-            if (int.TryParse(Box_UserId.Text, out id))
-            {
-                usuarioActual.idUsuario = id;
-            }
-            else
-            {
-                MessageBox.Show("Por favor, ingresa un ID de usuario válido.");
-            }
         }
     }
 }

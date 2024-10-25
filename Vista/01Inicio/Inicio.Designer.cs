@@ -64,17 +64,19 @@
             // 
             // Box_UserId
             // 
+            this.Box_UserId.Font = new System.Drawing.Font("Futura Lt BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Box_UserId.Location = new System.Drawing.Point(100, 282);
             this.Box_UserId.Name = "Box_UserId";
-            this.Box_UserId.Size = new System.Drawing.Size(644, 20);
+            this.Box_UserId.Size = new System.Drawing.Size(644, 21);
             this.Box_UserId.TabIndex = 4;
             this.Box_UserId.TextChanged += new System.EventHandler(this.Box_UserId_TextChanged);
             // 
             // BoxPassword
             // 
+            this.BoxPassword.Font = new System.Drawing.Font("Futura Lt BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BoxPassword.Location = new System.Drawing.Point(100, 350);
             this.BoxPassword.Name = "BoxPassword";
-            this.BoxPassword.Size = new System.Drawing.Size(644, 20);
+            this.BoxPassword.Size = new System.Drawing.Size(644, 21);
             this.BoxPassword.TabIndex = 6;
             this.BoxPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -125,7 +127,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(841, 716);
+            this.ClientSize = new System.Drawing.Size(843, 671);
             this.Controls.Add(this.linkContraseñaOlvidada);
             this.Controls.Add(this.Boton_Entrar);
             this.Controls.Add(this.BoxPassword);
@@ -135,7 +137,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.titulopagina);
             this.Name = "Inicio";
-            this.Text = "W";
+            this.Text = "7";
             this.Load += new System.EventHandler(this.Inicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -8,17 +8,16 @@ namespace GenteFitApp.Controlador
     {
         private string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True"; // Cambia esta cadena de conexión según sea necesario
 
-        public Usuario ComprobarCredenciales(int userId, string password)
+        public string ComprobarCredenciales(int idUsuario, string contraseña)
         {
-            Usuario usuario = null;
+            string mensaje = string.Empty;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT idUsuario, nombre, apellido, email, rol FROM Usuario WHERE idUsuario = @userId AND contraseña = @password";
+                string query = "SELECT idUsuario, nombre, apellido, email, contraseña, rol FROM Usuario WHERE idUsuario = @idUsuario";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@userId", userId);
-                    command.Parameters.AddWithValue("@password", password);
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
 
                     connection.Open();
 
@@ -26,20 +25,38 @@ namespace GenteFitApp.Controlador
                     {
                         if (reader.Read())
                         {
-                            usuario = new Usuario
+                            // Usuario encontrado
+                            if (reader["contraseña"].ToString() == contraseña)
                             {
-                                idUsuario = (int)reader["idUsuario"],
-                                nombre = reader["nombre"].ToString(),
-                                apellido = reader["apellido"].ToString(),
-                                email = reader["email"].ToString(),
-                                rol = reader["rol"].ToString()
-                            };
+                                // Contraseña correcta
+                                Usuario usuario = new Usuario
+                                {
+                                    idUsuario = (int)reader["idUsuario"],
+                                    nombre = reader["nombre"].ToString(),
+                                    apellido = reader["apellido"].ToString(),
+                                    email = reader["email"].ToString(),
+                                    rol = reader["rol"].ToString()
+                                };
+
+                                // Aquí puedes manejar el inicio de sesión exitoso
+                                mensaje = $"Inicio de sesión exitoso. Bienvenido {usuario.nombre}";
+                            }
+                            else
+                            {
+                                // Contraseña incorrecta
+                                mensaje = "Contraseña incorrecta.";
+                            }
+                        }
+                        else
+                        {
+                            // Usuario no encontrado
+                            mensaje = "Usuario no encontrado. ¿Registrar nuevo usuario? S/N";
                         }
                     }
                 }
             }
 
-            return usuario;
+            return mensaje;
         }
     }
 }
