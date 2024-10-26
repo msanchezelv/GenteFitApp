@@ -56,7 +56,7 @@ namespace GenteFit.Controlador.XML
 
 
         // Método para obtener usuarios de la Base de Datos
-        private List<Usuario> GetUsuariosFromDatabase()
+        public List<Usuario> GetUsuariosFromDatabase()
         {
             List<Usuario> usuarios = new List<Usuario>();
 
