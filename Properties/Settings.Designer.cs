@@ -33,5 +33,16 @@ namespace GenteFitApp.Properties {
                 return ((string)(this["masterConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Securi" +
+            "ty=True;Encrypt=True;TrustServerCertificate=True")]
+        public string GenteFitConnectionString {
+            get {
+                return ((string)(this["GenteFitConnectionString"]));
+            }
+        }
     }
 }
