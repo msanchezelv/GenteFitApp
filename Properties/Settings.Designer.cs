@@ -12,7 +12,7 @@ namespace GenteFitApp.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,26 +26,23 @@ namespace GenteFitApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-6VP8HCF;Initial Catalog=master;Integrated Security=True;Encry" +
-            "pt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-0P1J4U5\\SQLEXPRESS;Initial Catalog=master;Integrated Security" +
+            "=True;Encrypt=True;TrustServerCertificate=True")]
         public string masterConnectionString {
             get {
                 return ((string)(this["masterConnectionString"]));
             }
         }
-<<<<<<< Updated upstream
-=======
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-6VP8HCF;Initial Catalog=GenteFit;Integrated Security=True;Enc" +
-            "rypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Securi" +
+            "ty=True;Encrypt=True;TrustServerCertificate=True")]
         public string GenteFitConnectionString {
             get {
                 return ((string)(this["GenteFitConnectionString"]));
             }
         }
->>>>>>> Stashed changes
     }
 }

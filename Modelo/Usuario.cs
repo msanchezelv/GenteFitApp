@@ -12,7 +12,8 @@ namespace GenteFitApp.Modelo
     using System;
     using System.Collections.Generic;
     using System.Data.SqlClient;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +21,8 @@ namespace GenteFitApp.Modelo
         {
             this.Cliente = new HashSet<Cliente>();
         }
-    
+
+        [Key]
         public int idUsuario { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
