@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
+using System.Xml.Serialization;
 using GenteFitApp.Modelo;
 
 namespace GenteFitApp.controlador
@@ -63,5 +64,6 @@ namespace GenteFitApp.controlador
             }
             return proximoId;
         }
+        
     }
 }
