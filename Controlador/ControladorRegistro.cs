@@ -8,7 +8,7 @@ namespace GenteFitApp.controlador
 {
     internal class ControladorRegistro
     {
-        internal string connectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+        internal string connectionString = "Data Source=DESKTOP-6VP8HCF;Initial Catalog=GenteFit;Integrated Security=True";
 
         // Método para registrar un usuario general con rol
         public bool RegistrarUsuario(string nombre, string apellidos, string email, string contraseña, string rol)

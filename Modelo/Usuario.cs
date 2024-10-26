@@ -34,7 +34,7 @@ namespace GenteFitApp.Modelo
         public Usuario ObtenerUsuario(int idUsuario, string contraseña)
             {
                 Usuario usuario = null;
-                string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+                string connectionString = @"Data Source=DESKTOP-6VP8HCF;Initial Catalog=GenteFit;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
