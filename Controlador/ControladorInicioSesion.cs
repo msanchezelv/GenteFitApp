@@ -15,7 +15,7 @@ namespace GenteFitApp.Controlador
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT idUsuario, nombre, apellido, email, contraseña, rol FROM Usuario WHERE idUsuario = @idUsuario";
+                string query = "SELECT idUsuario, nombre, apellidos, email, contraseña, rol FROM Usuario WHERE idUsuario = @idUsuario";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@idUsuario", idUsuario);

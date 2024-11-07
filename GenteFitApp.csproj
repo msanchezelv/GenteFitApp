@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="Controlador\ControladorInicioSesion.cs" />
     <Compile Include="Controlador\ControladorRegistro.cs" />
-    <Compile Include="Controlador\ControladorRegistroCliente.cs" />
     <Compile Include="Controlador\DatabaseManager.cs" />
     <Compile Include="Controlador\XML\XMLManager.cs" />
     <Compile Include="Modelo\Actividad.cs">
@@ -102,6 +101,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\01Inicio\EscogerRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\01Inicio\EscogerRol.Designer.cs">
+      <DependentUpon>EscogerRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\01Inicio\RegistrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +177,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Vista\01Inicio\EscogerRol.resx">
+      <DependentUpon>EscogerRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\01Inicio\RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>

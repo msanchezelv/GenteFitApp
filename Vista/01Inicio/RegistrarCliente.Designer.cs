@@ -30,7 +30,7 @@
         {
             this.labelTelefono = new System.Windows.Forms.Label();
             this.textBoxTelefono = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDireccion = new System.Windows.Forms.TextBox();
             this.labelDireccion = new System.Windows.Forms.Label();
             this.BotonRegistrarCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,12 +53,12 @@
             this.textBoxTelefono.Size = new System.Drawing.Size(857, 22);
             this.textBoxTelefono.TabIndex = 34;
             // 
-            // textBox1
+            // textBoxDireccion
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 190);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(857, 22);
-            this.textBox1.TabIndex = 36;
+            this.textBoxDireccion.Location = new System.Drawing.Point(95, 190);
+            this.textBoxDireccion.Name = "textBoxDireccion";
+            this.textBoxDireccion.Size = new System.Drawing.Size(857, 22);
+            this.textBoxDireccion.TabIndex = 36;
             // 
             // labelDireccion
             // 
@@ -80,6 +80,7 @@
             this.BotonRegistrarCliente.TabIndex = 37;
             this.BotonRegistrarCliente.Text = "Registrar";
             this.BotonRegistrarCliente.UseVisualStyleBackColor = true;
+            this.BotonRegistrarCliente.Click += new System.EventHandler(this.BotonRegistrarCliente_Click);
             // 
             // RegistrarCliente
             // 
@@ -88,7 +89,7 @@
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(1043, 359);
             this.Controls.Add(this.BotonRegistrarCliente);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxDireccion);
             this.Controls.Add(this.labelDireccion);
             this.Controls.Add(this.textBoxTelefono);
             this.Controls.Add(this.labelTelefono);
@@ -102,7 +103,7 @@
         #endregion
         private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.TextBox textBoxTelefono;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.Label labelDireccion;
         private System.Windows.Forms.Button BotonRegistrarCliente;
     }
