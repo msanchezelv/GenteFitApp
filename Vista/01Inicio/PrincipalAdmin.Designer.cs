@@ -55,7 +55,6 @@
             this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxClientes = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Gestion_Clientes = new System.Windows.Forms.Button();
-            this.Boton_Salir = new System.Windows.Forms.Button();
             this.groupBoxReservas = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Gestion_Reservas = new System.Windows.Forms.Button();
             this.groupBoxAct = new System.Windows.Forms.GroupBox();
@@ -101,8 +100,9 @@
             // añadirClienteToolStripMenuItem
             // 
             this.añadirClienteToolStripMenuItem.Name = "añadirClienteToolStripMenuItem";
-            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
+            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.añadirClienteToolStripMenuItem.Text = "Añadir cliente";
+            this.añadirClienteToolStripMenuItem.Click += new System.EventHandler(this.añadirClienteToolStripMenuItem_Click);
             // 
             // editarClienteToolStripMenuItem
             // 
@@ -260,9 +260,9 @@
             this.groupBoxClientes.Controls.Add(this.Boton_Abrir_Gestion_Clientes);
             this.groupBoxClientes.Font = new System.Drawing.Font("Futura Lt BT", 14F);
             this.groupBoxClientes.Location = new System.Drawing.Point(40, 59);
-            this.groupBoxClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxClientes.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxClientes.Name = "groupBoxClientes";
-            this.groupBoxClientes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxClientes.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxClientes.Size = new System.Drawing.Size(1032, 106);
             this.groupBoxClientes.TabIndex = 2;
             this.groupBoxClientes.TabStop = false;
@@ -271,34 +271,22 @@
             // Boton_Abrir_Gestion_Clientes
             // 
             this.Boton_Abrir_Gestion_Clientes.Location = new System.Drawing.Point(19, 36);
-            this.Boton_Abrir_Gestion_Clientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Abrir_Gestion_Clientes.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Abrir_Gestion_Clientes.Name = "Boton_Abrir_Gestion_Clientes";
             this.Boton_Abrir_Gestion_Clientes.Size = new System.Drawing.Size(993, 48);
             this.Boton_Abrir_Gestion_Clientes.TabIndex = 0;
             this.Boton_Abrir_Gestion_Clientes.Text = "Abrir gestión de clientes";
             this.Boton_Abrir_Gestion_Clientes.UseVisualStyleBackColor = true;
-            this.Boton_Abrir_Gestion_Clientes.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Boton_Salir
-            // 
-            this.Boton_Salir.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Salir.Location = new System.Drawing.Point(837, 718);
-            this.Boton_Salir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Boton_Salir.Name = "Boton_Salir";
-            this.Boton_Salir.Size = new System.Drawing.Size(235, 39);
-            this.Boton_Salir.TabIndex = 8;
-            this.Boton_Salir.Text = "Salir";
-            this.Boton_Salir.UseVisualStyleBackColor = true;
-            this.Boton_Salir.Click += new System.EventHandler(this.Boton_Entrar_Click);
+            this.Boton_Abrir_Gestion_Clientes.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Clientes_Click);
             // 
             // groupBoxReservas
             // 
             this.groupBoxReservas.Controls.Add(this.Boton_Abrir_Gestion_Reservas);
             this.groupBoxReservas.Font = new System.Drawing.Font("Futura Lt BT", 14F);
             this.groupBoxReservas.Location = new System.Drawing.Point(40, 190);
-            this.groupBoxReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxReservas.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxReservas.Name = "groupBoxReservas";
-            this.groupBoxReservas.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxReservas.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxReservas.Size = new System.Drawing.Size(1032, 103);
             this.groupBoxReservas.TabIndex = 3;
             this.groupBoxReservas.TabStop = false;
@@ -307,21 +295,22 @@
             // Boton_Abrir_Gestion_Reservas
             // 
             this.Boton_Abrir_Gestion_Reservas.Location = new System.Drawing.Point(19, 36);
-            this.Boton_Abrir_Gestion_Reservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Abrir_Gestion_Reservas.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Abrir_Gestion_Reservas.Name = "Boton_Abrir_Gestion_Reservas";
             this.Boton_Abrir_Gestion_Reservas.Size = new System.Drawing.Size(993, 47);
             this.Boton_Abrir_Gestion_Reservas.TabIndex = 0;
             this.Boton_Abrir_Gestion_Reservas.Text = "Abrir gestión de reservas";
             this.Boton_Abrir_Gestion_Reservas.UseVisualStyleBackColor = true;
+            this.Boton_Abrir_Gestion_Reservas.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Reservas_Click);
             // 
             // groupBoxAct
             // 
             this.groupBoxAct.Controls.Add(this.Boton_Abrir_Gestion_Actividades);
             this.groupBoxAct.Font = new System.Drawing.Font("Futura Lt BT", 14F);
             this.groupBoxAct.Location = new System.Drawing.Point(40, 319);
-            this.groupBoxAct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxAct.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxAct.Name = "groupBoxAct";
-            this.groupBoxAct.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxAct.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxAct.Size = new System.Drawing.Size(1032, 106);
             this.groupBoxAct.TabIndex = 3;
             this.groupBoxAct.TabStop = false;
@@ -330,45 +319,46 @@
             // Boton_Abrir_Gestion_Actividades
             // 
             this.Boton_Abrir_Gestion_Actividades.Location = new System.Drawing.Point(19, 36);
-            this.Boton_Abrir_Gestion_Actividades.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Abrir_Gestion_Actividades.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Abrir_Gestion_Actividades.Name = "Boton_Abrir_Gestion_Actividades";
             this.Boton_Abrir_Gestion_Actividades.Size = new System.Drawing.Size(993, 48);
             this.Boton_Abrir_Gestion_Actividades.TabIndex = 0;
             this.Boton_Abrir_Gestion_Actividades.Text = "Abrir gestión de actividades";
             this.Boton_Abrir_Gestion_Actividades.UseVisualStyleBackColor = true;
+            this.Boton_Abrir_Gestion_Actividades.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Actividades_Click);
             // 
             // groupBoxMonitores
             // 
             this.groupBoxMonitores.Controls.Add(this.Boton_Abrir_Gestion_Monitores);
             this.groupBoxMonitores.Font = new System.Drawing.Font("Futura Lt BT", 14F);
             this.groupBoxMonitores.Location = new System.Drawing.Point(40, 455);
-            this.groupBoxMonitores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxMonitores.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxMonitores.Name = "groupBoxMonitores";
-            this.groupBoxMonitores.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxMonitores.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxMonitores.Size = new System.Drawing.Size(1032, 108);
             this.groupBoxMonitores.TabIndex = 3;
             this.groupBoxMonitores.TabStop = false;
             this.groupBoxMonitores.Text = "Gestión de monitores";
-            this.groupBoxMonitores.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
             // Boton_Abrir_Gestion_Monitores
             // 
             this.Boton_Abrir_Gestion_Monitores.Location = new System.Drawing.Point(19, 36);
-            this.Boton_Abrir_Gestion_Monitores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Abrir_Gestion_Monitores.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Abrir_Gestion_Monitores.Name = "Boton_Abrir_Gestion_Monitores";
             this.Boton_Abrir_Gestion_Monitores.Size = new System.Drawing.Size(993, 52);
             this.Boton_Abrir_Gestion_Monitores.TabIndex = 0;
             this.Boton_Abrir_Gestion_Monitores.Text = "Abrir gestión de clientes";
             this.Boton_Abrir_Gestion_Monitores.UseVisualStyleBackColor = true;
+            this.Boton_Abrir_Gestion_Monitores.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Monitores_Click);
             // 
             // groupBoxUsuarios
             // 
             this.groupBoxUsuarios.Controls.Add(this.Boton_Abrir_Gestion_Usuarios);
             this.groupBoxUsuarios.Font = new System.Drawing.Font("Futura Lt BT", 14F);
             this.groupBoxUsuarios.Location = new System.Drawing.Point(40, 593);
-            this.groupBoxUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxUsuarios.Name = "groupBoxUsuarios";
-            this.groupBoxUsuarios.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxUsuarios.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxUsuarios.Size = new System.Drawing.Size(1032, 100);
             this.groupBoxUsuarios.TabIndex = 4;
             this.groupBoxUsuarios.TabStop = false;
@@ -377,12 +367,13 @@
             // Boton_Abrir_Gestion_Usuarios
             // 
             this.Boton_Abrir_Gestion_Usuarios.Location = new System.Drawing.Point(19, 36);
-            this.Boton_Abrir_Gestion_Usuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Abrir_Gestion_Usuarios.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Abrir_Gestion_Usuarios.Name = "Boton_Abrir_Gestion_Usuarios";
             this.Boton_Abrir_Gestion_Usuarios.Size = new System.Drawing.Size(993, 44);
             this.Boton_Abrir_Gestion_Usuarios.TabIndex = 0;
             this.Boton_Abrir_Gestion_Usuarios.Text = "Abrir gestión de usuarios";
             this.Boton_Abrir_Gestion_Usuarios.UseVisualStyleBackColor = true;
+            this.Boton_Abrir_Gestion_Usuarios.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Usuarios_Click);
             // 
             // PrincipalAdmin
             // 
@@ -394,14 +385,12 @@
             this.Controls.Add(this.groupBoxMonitores);
             this.Controls.Add(this.groupBoxAct);
             this.Controls.Add(this.groupBoxReservas);
-            this.Controls.Add(this.Boton_Salir);
             this.Controls.Add(this.groupBoxClientes);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PrincipalAdmin";
             this.Text = "PrincipalAdmin";
-            this.Load += new System.EventHandler(this.PrincipalAdmin_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxClientes.ResumeLayout(false);
@@ -423,7 +412,6 @@
         private System.Windows.Forms.ToolStripMenuItem monitoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBoxClientes;
-        private System.Windows.Forms.Button Boton_Salir;
         private System.Windows.Forms.Button Boton_Abrir_Gestion_Clientes;
         private System.Windows.Forms.GroupBox groupBoxReservas;
         private System.Windows.Forms.Button Boton_Abrir_Gestion_Reservas;

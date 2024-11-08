@@ -17,13 +17,19 @@ namespace GenteFitApp.Vista
 
         private void FormularioBase_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmar salida", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;
-            }
-            
-        }
+                var result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmar salida", MessageBoxButtons.YesNo);
 
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                Application.Exit(); // Cierra la aplicación correctamente
+                Environment.Exit(0); // Forzar la salida del proceso y todos los subprocesos
+            }
+        }
     }
 }

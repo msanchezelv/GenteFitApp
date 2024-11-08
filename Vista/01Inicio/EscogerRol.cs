@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista._01Inicio
 {
-    public partial class EscogerRol : FormularioBase
+    public partial class EscogerRol : Form
     {
         private string nombre;
         private string apellidos;
@@ -76,8 +76,10 @@ namespace GenteFitApp.Vista._01Inicio
                     formulario = new PrincipalRecepcionista();
                 }
 
-                formulario.Show();
                 this.Close();
+                
+                formulario.Show();
+                
             }
             else
             {

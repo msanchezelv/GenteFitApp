@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EscogerRol));
             this.label_Escoger = new System.Windows.Forms.Label();
             this.Boton_Recepcionista = new System.Windows.Forms.Button();
             this.Boton_Encargado = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             // 
             this.Boton_Recepcionista.Font = new System.Drawing.Font("Futura Lt BT", 12F);
             this.Boton_Recepcionista.Location = new System.Drawing.Point(91, 149);
-            this.Boton_Recepcionista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Recepcionista.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Recepcionista.Name = "Boton_Recepcionista";
             this.Boton_Recepcionista.Size = new System.Drawing.Size(235, 33);
             this.Boton_Recepcionista.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             this.Boton_Encargado.Font = new System.Drawing.Font("Futura Lt BT", 12F);
             this.Boton_Encargado.Location = new System.Drawing.Point(91, 199);
-            this.Boton_Encargado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Encargado.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Encargado.Name = "Boton_Encargado";
             this.Boton_Encargado.Size = new System.Drawing.Size(235, 33);
             this.Boton_Encargado.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             this.Boton_Administrador.Font = new System.Drawing.Font("Futura Lt BT", 12F);
             this.Boton_Administrador.Location = new System.Drawing.Point(91, 250);
-            this.Boton_Administrador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_Administrador.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Administrador.Name = "Boton_Administrador";
             this.Boton_Administrador.Size = new System.Drawing.Size(235, 33);
             this.Boton_Administrador.TabIndex = 4;
@@ -90,7 +91,7 @@
             // 
             this.boton_Cliente.Font = new System.Drawing.Font("Futura Lt BT", 12F);
             this.boton_Cliente.Location = new System.Drawing.Point(91, 98);
-            this.boton_Cliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.boton_Cliente.Margin = new System.Windows.Forms.Padding(4);
             this.boton_Cliente.Name = "boton_Cliente";
             this.boton_Cliente.Size = new System.Drawing.Size(235, 33);
             this.boton_Cliente.TabIndex = 1;
@@ -109,6 +110,7 @@
             this.Controls.Add(this.Boton_Encargado);
             this.Controls.Add(this.Boton_Recepcionista);
             this.Controls.Add(this.label_Escoger);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EscogerRol";
             this.Text = "Escoger Rol";
