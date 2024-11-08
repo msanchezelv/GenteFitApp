@@ -61,12 +61,32 @@ namespace GenteFitApp.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon fitness_1551715 {
+            get {
+                object obj = ResourceManager.GetObject("fitness_1551715", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Logo_GenteFit_Negro {
             get {
                 object obj = ResourceManager.GetObject("Logo-GenteFit-Negro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon logoGenteFit {
+            get {
+                object obj = ResourceManager.GetObject("logoGenteFit", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }

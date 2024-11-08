@@ -11,8 +11,7 @@ namespace GenteFitApp.Modelo
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Actividad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,8 +21,7 @@ namespace GenteFitApp.Modelo
             this.ListaEspera = new HashSet<ListaEspera>();
             this.Monitor1 = new HashSet<Monitor>();
         }
-
-        [Key]
+    
         public int idActividad { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }

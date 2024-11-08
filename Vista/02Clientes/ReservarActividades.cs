@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista._02Clientes
 {
-    public partial class ReservarActividades : Form
+    public partial class ReservarActividades : FormularioBase
     {
         public ReservarActividades()
         {

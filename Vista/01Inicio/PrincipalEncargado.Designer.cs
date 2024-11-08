@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalEncargado));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -255,6 +256,7 @@
             this.Controls.Add(this.groupBoxAct);
             this.Controls.Add(this.groupBoxReservas);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrincipalEncargado";
             this.Text = "PrincipalEncargado";
             this.menuStrip1.ResumeLayout(false);

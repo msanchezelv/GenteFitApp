@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista
 {
-    public partial class PrincipalAdmin : Form
+    public partial class PrincipalAdmin : FormularioBase
     {
         public PrincipalAdmin()
         {

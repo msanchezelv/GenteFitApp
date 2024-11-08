@@ -30,6 +30,7 @@ namespace GenteFitApp.Vista
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrar));
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.Label_nombre = new System.Windows.Forms.Label();
             this.textBoxUserId = new System.Windows.Forms.TextBox();
@@ -48,49 +49,44 @@ namespace GenteFitApp.Vista
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(128, 425);
-            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNombre.Location = new System.Drawing.Point(96, 345);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(857, 22);
+            this.textBoxNombre.Size = new System.Drawing.Size(644, 20);
             this.textBoxNombre.TabIndex = 2;
             // 
             // Label_nombre
             // 
             this.Label_nombre.AutoSize = true;
             this.Label_nombre.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.Label_nombre.Location = new System.Drawing.Point(124, 405);
-            this.Label_nombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label_nombre.Location = new System.Drawing.Point(93, 329);
             this.Label_nombre.Name = "Label_nombre";
-            this.Label_nombre.Size = new System.Drawing.Size(66, 20);
+            this.Label_nombre.Size = new System.Drawing.Size(55, 16);
             this.Label_nombre.TabIndex = 11;
             this.Label_nombre.Text = "Nombre";
             // 
             // textBoxUserId
             // 
-            this.textBoxUserId.Location = new System.Drawing.Point(128, 361);
-            this.textBoxUserId.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxUserId.Location = new System.Drawing.Point(96, 293);
             this.textBoxUserId.Name = "textBoxUserId";
-            this.textBoxUserId.Size = new System.Drawing.Size(857, 22);
+            this.textBoxUserId.Size = new System.Drawing.Size(644, 20);
             this.textBoxUserId.TabIndex = 1;
             // 
             // label_IdUsuario
             // 
             this.label_IdUsuario.AutoSize = true;
             this.label_IdUsuario.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.label_IdUsuario.Location = new System.Drawing.Point(124, 341);
-            this.label_IdUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_IdUsuario.Location = new System.Drawing.Point(93, 277);
             this.label_IdUsuario.Name = "label_IdUsuario";
-            this.label_IdUsuario.Size = new System.Drawing.Size(63, 20);
+            this.label_IdUsuario.Size = new System.Drawing.Size(52, 16);
             this.label_IdUsuario.TabIndex = 9;
             this.label_IdUsuario.Text = "Usuario";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GenteFitApp.Properties.Resources.Logo_GenteFit_Negro;
-            this.pictureBox1.Location = new System.Drawing.Point(457, 127);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(343, 103);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 150);
+            this.pictureBox1.Size = new System.Drawing.Size(136, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
@@ -99,69 +95,62 @@ namespace GenteFitApp.Vista
             // 
             this.titulopagina.AutoSize = true;
             this.titulopagina.Font = new System.Drawing.Font("Futura Lt BT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titulopagina.Location = new System.Drawing.Point(316, 68);
-            this.titulopagina.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.titulopagina.Location = new System.Drawing.Point(237, 55);
             this.titulopagina.Name = "titulopagina";
-            this.titulopagina.Size = new System.Drawing.Size(467, 56);
+            this.titulopagina.Size = new System.Drawing.Size(369, 45);
             this.titulopagina.TabIndex = 15;
             this.titulopagina.Text = "Benvenid@ a GenteFit";
             this.titulopagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxcontraseña
             // 
-            this.textBoxcontraseña.Location = new System.Drawing.Point(127, 619);
-            this.textBoxcontraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxcontraseña.Location = new System.Drawing.Point(95, 503);
             this.textBoxcontraseña.Name = "textBoxcontraseña";
-            this.textBoxcontraseña.Size = new System.Drawing.Size(857, 22);
+            this.textBoxcontraseña.Size = new System.Drawing.Size(644, 20);
             this.textBoxcontraseña.TabIndex = 5;
             // 
             // labelcontraseña
             // 
             this.labelcontraseña.AutoSize = true;
             this.labelcontraseña.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.labelcontraseña.Location = new System.Drawing.Point(124, 599);
-            this.labelcontraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelcontraseña.Location = new System.Drawing.Point(93, 487);
             this.labelcontraseña.Name = "labelcontraseña";
-            this.labelcontraseña.Size = new System.Drawing.Size(89, 20);
+            this.labelcontraseña.Size = new System.Drawing.Size(74, 16);
             this.labelcontraseña.TabIndex = 17;
             this.labelcontraseña.Text = "Contraseña";
             // 
             // textBoxApellidos
             // 
-            this.textBoxApellidos.Location = new System.Drawing.Point(128, 489);
-            this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxApellidos.Location = new System.Drawing.Point(96, 397);
             this.textBoxApellidos.Name = "textBoxApellidos";
-            this.textBoxApellidos.Size = new System.Drawing.Size(857, 22);
+            this.textBoxApellidos.Size = new System.Drawing.Size(644, 20);
             this.textBoxApellidos.TabIndex = 3;
             // 
             // label_apellidos
             // 
             this.label_apellidos.AutoSize = true;
             this.label_apellidos.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.label_apellidos.Location = new System.Drawing.Point(124, 469);
-            this.label_apellidos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_apellidos.Location = new System.Drawing.Point(93, 381);
             this.label_apellidos.Name = "label_apellidos";
-            this.label_apellidos.Size = new System.Drawing.Size(72, 20);
+            this.label_apellidos.Size = new System.Drawing.Size(60, 16);
             this.label_apellidos.TabIndex = 19;
             this.label_apellidos.Text = "Apellidos";
             this.label_apellidos.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBoxemail
             // 
-            this.textBoxemail.Location = new System.Drawing.Point(128, 554);
-            this.textBoxemail.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxemail.Location = new System.Drawing.Point(96, 450);
             this.textBoxemail.Name = "textBoxemail";
-            this.textBoxemail.Size = new System.Drawing.Size(857, 22);
+            this.textBoxemail.Size = new System.Drawing.Size(644, 20);
             this.textBoxemail.TabIndex = 4;
             // 
             // labelemail
             // 
             this.labelemail.AutoSize = true;
             this.labelemail.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.labelemail.Location = new System.Drawing.Point(124, 534);
-            this.labelemail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelemail.Location = new System.Drawing.Point(93, 434);
             this.labelemail.Name = "labelemail";
-            this.labelemail.Size = new System.Drawing.Size(54, 20);
+            this.labelemail.Size = new System.Drawing.Size(44, 16);
             this.labelemail.TabIndex = 21;
             this.labelemail.Text = "E-mail";
             this.labelemail.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -169,10 +158,9 @@ namespace GenteFitApp.Vista
             // Boton_nuevoEmpleado
             // 
             this.Boton_nuevoEmpleado.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_nuevoEmpleado.Location = new System.Drawing.Point(750, 693);
-            this.Boton_nuevoEmpleado.Margin = new System.Windows.Forms.Padding(4);
+            this.Boton_nuevoEmpleado.Location = new System.Drawing.Point(562, 563);
             this.Boton_nuevoEmpleado.Name = "Boton_nuevoEmpleado";
-            this.Boton_nuevoEmpleado.Size = new System.Drawing.Size(235, 33);
+            this.Boton_nuevoEmpleado.Size = new System.Drawing.Size(176, 27);
             this.Boton_nuevoEmpleado.TabIndex = 7;
             this.Boton_nuevoEmpleado.Text = "Registrar";
             this.Boton_nuevoEmpleado.UseVisualStyleBackColor = true;
@@ -180,10 +168,10 @@ namespace GenteFitApp.Vista
             // 
             // Registrar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(1063, 793);
+            this.ClientSize = new System.Drawing.Size(797, 644);
             this.Controls.Add(this.Boton_nuevoEmpleado);
             this.Controls.Add(this.textBoxemail);
             this.Controls.Add(this.labelemail);
@@ -197,7 +185,7 @@ namespace GenteFitApp.Vista
             this.Controls.Add(this.Label_nombre);
             this.Controls.Add(this.textBoxUserId);
             this.Controls.Add(this.label_IdUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registrar";
             this.Text = "Registrar";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

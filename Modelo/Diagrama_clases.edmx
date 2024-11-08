@@ -52,7 +52,7 @@
           </Key>
           <Property Name="idMonitor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="idActividad" Type="int" />
         </EntityType>
         <EntityType Name="Reserva">
@@ -69,7 +69,7 @@
           </Key>
           <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="contraseña" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="rol" Type="varchar" MaxLength="50" Nullable="false" />
@@ -292,7 +292,7 @@
           </Key>
           <Property Name="idMonitor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idActividad" Type="Int32" />
           <NavigationProperty Name="Actividad" Relationship="Self.FK__Actividad__idMon__4222D4EF" FromRole="Monitor" ToRole="Actividad" />
           <NavigationProperty Name="Actividad1" Relationship="Self.FK__Monitor__idActiv__412EB0B6" FromRole="Monitor" ToRole="Actividad" />
@@ -313,7 +313,7 @@
           </Key>
           <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="contraseña" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -427,7 +427,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GenteFitEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GenteFit" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Actividad" EntityType="Self.Actividad" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Horario" EntityType="Self.Horario" />
@@ -477,7 +477,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GenteFitModelStoreContainer" CdmEntityContainer="GenteFitEntities2">
+        <EntityContainerMapping StorageEntityContainer="GenteFitModelStoreContainer" CdmEntityContainer="GenteFit">
           <EntitySetMapping Name="Actividad">
             <EntityTypeMapping TypeName="GenteFitModel.Actividad">
               <MappingFragment StoreEntitySet="Actividad">
@@ -528,7 +528,7 @@
               <MappingFragment StoreEntitySet="Monitor">
                 <ScalarProperty Name="idMonitor" ColumnName="idMonitor" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
                 <ScalarProperty Name="idActividad" ColumnName="idActividad" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -547,7 +547,7 @@
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="contraseña" ColumnName="contraseña" />
                 <ScalarProperty Name="rol" ColumnName="rol" />

@@ -13,10 +13,10 @@ namespace GenteFitApp.Modelo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GenteFitEntities2 : DbContext
+    public partial class GenteFit : DbContext
     {
-        public GenteFitEntities2()
-            : base("name=GenteFitEntities2")
+        public GenteFit()
+            : base("name=GenteFit")
         {
         }
     

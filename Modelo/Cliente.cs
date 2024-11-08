@@ -11,8 +11,7 @@ namespace GenteFitApp.Modelo
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,8 +20,7 @@ namespace GenteFitApp.Modelo
             this.ListaEspera = new HashSet<ListaEspera>();
             this.Reserva = new HashSet<Reserva>();
         }
-
-        [Key]
+    
         public int idCliente { get; set; }
         public string telefono { get; set; }
         public string direccion { get; set; }

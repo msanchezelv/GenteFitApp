@@ -25,24 +25,48 @@ namespace GenteFit.Controlador
             {
                 connection.Open();
                 string query = $"SELECT * FROM {typeof(T).Name}";
+                Console.WriteLine(query);
 
                 using (SqlCommand command = new SqlCommand(query, connection))
+
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         T item = new T();
+
                         foreach (var prop in typeof(T).GetProperties())
                         {
-                            if (!reader.IsDBNull(reader.GetOrdinal(prop.Name)))
+                            try
                             {
-                                prop.SetValue(item, reader[prop.Name]);
+                                var ordinal = reader.GetOrdinal(prop.Name);
+                                if (ordinal >= 0 && !reader.IsDBNull(ordinal))
+                                {
+                                    var value = reader.GetValue(ordinal);
+
+                                    if (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+                                    {
+                                        prop.SetValue(item, value == DBNull.Value ? null : Convert.ChangeType(value, Nullable.GetUnderlyingType(prop.PropertyType)));
+                                    }
+                                    else
+                                    {
+                                        prop.SetValue(item, Convert.ChangeType(value, prop.PropertyType));
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Error al intentar acceder a la propiedad {prop.Name}: {ex.Message}");
+                                Console.WriteLine($"Valor de la propiedad: {prop.Name}, Tipo: {prop.PropertyType}");
                             }
                         }
+
                         items.Add(item);
                     }
                 }
+
             }
+
 
             return items;
         }

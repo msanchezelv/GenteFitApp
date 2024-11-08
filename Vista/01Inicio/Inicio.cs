@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista
 {
-    public partial class Inicio : Form
+    public partial class Inicio : FormularioBase
     {
         ControladorInicioSesion controladorInicioSesion = new ControladorInicioSesion();
-
+        
         public Inicio()
         {
             InitializeComponent();
@@ -28,7 +28,6 @@ namespace GenteFitApp.Vista
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                // Simula el clic en el botón "Entrar"
                 Boton_Entrar.PerformClick();
                 e.Handled = true; // Previene el sonido de alerta al presionar Enter
             }
@@ -75,7 +74,6 @@ namespace GenteFitApp.Vista
 
                     if (result == DialogResult.Yes)
                     {
-                        // Abrir la pantalla de registro
                         Registrar nuevoUsuarioForm = new Registrar();
                         nuevoUsuarioForm.Show();
                         this.Hide();
@@ -87,7 +85,7 @@ namespace GenteFitApp.Vista
                 }
 
                 // Implementar el cambio de formulario según el rol del usuario si el inicio de sesión fue exitoso
-                if (mensaje.StartsWith("Inicio de sesión exitoso"))
+                if (mensaje.StartsWith("Inicio de sesión correcto"))
                 {
                     // Extraer el rol del usuario desde el mensaje o hacer una nueva consulta si es necesario
                     Usuario usuarioActual = controladorInicioSesion.ObtenerUsuario(userId, password);
@@ -115,7 +113,7 @@ namespace GenteFitApp.Vista
                             this.Hide();
                             break;
                         default:
-                            MessageBox.Show("Rol de usuario no reconocido.");
+                            MessageBox.Show($"Rol no reconocido: {usuarioActual.rol}");
                             break;
                     }
                 }
@@ -132,5 +130,30 @@ namespace GenteFitApp.Vista
         {
 
         }
+
+        private void linkContraseñaOlvidada_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            int userId;
+
+            if (int.TryParse(Box_UserId.Text, out userId))
+            {
+                // Obtener el usuario solo por el idUsuario
+                Usuario usuario = controladorInicioSesion.ObtenerUsuarioPorId(userId);
+
+                if (usuario != null)
+                {
+                    MessageBox.Show($"Se ha enviado un correo electrónico a {usuario.email} con instrucciones para recuperar su contraseña.");
+                }
+                else
+                {
+                    MessageBox.Show("El ID de usuario no se encuentra en el sistema.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, introduce un ID de usuario válido.");
+            }
+        }
+
     }
 }

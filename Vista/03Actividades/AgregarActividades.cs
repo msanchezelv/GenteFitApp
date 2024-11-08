@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista
 {
-    public partial class AgregarActividades : Form
+    public partial class AgregarActividades : FormularioBase
     {
         public AgregarActividades()
         {

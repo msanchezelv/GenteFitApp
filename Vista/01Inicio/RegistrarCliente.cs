@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista._01Inicio
 {
-    public partial class RegistrarCliente : Form
+    public partial class RegistrarCliente : FormularioBase
     {
         private int idUsuario;
 

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Windows.Forms;
-using GenteFitApp.controlador;
-using GenteFitApp.Modelo;
+﻿using GenteFitApp.controlador;
 using GenteFitApp.Vista._01Inicio;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System;
 
 namespace GenteFitApp.Vista
 {
-    public partial class Registrar : Form
+    public partial class Registrar : FormularioBase
     {
         private ControladorRegistro controladorRegistro;
-        
+
 
         public Registrar()
         {
@@ -25,6 +22,7 @@ namespace GenteFitApp.Vista
         {
             int proximoId = controladorRegistro.ObtenerProximoIdUsuario();
             textBoxUserId.Text = proximoId.ToString();
+            textBoxNombre.Focus();
         }
 
         private void Boton_nuevoEmpleado_Click(object sender, EventArgs e)
@@ -34,10 +32,10 @@ namespace GenteFitApp.Vista
             string email = textBoxemail.Text;
             string contraseña = textBoxcontraseña.Text;
 
-            
+
             EscogerRol escogerRolForm = new EscogerRol(nombre, apellidos, email, contraseña);
             escogerRolForm.Show();
-            this.Close(); // Cerrar el formulario actual para que solo quede el formulario EscogerRol
+            this.Close();
         }
 
     }

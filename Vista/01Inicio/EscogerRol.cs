@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista._01Inicio
 {
-    public partial class EscogerRol : Form
+    public partial class EscogerRol : FormularioBase
     {
         private string nombre;
         private string apellidos;
