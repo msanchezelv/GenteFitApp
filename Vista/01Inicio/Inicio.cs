@@ -98,6 +98,7 @@ namespace GenteFitApp.Vista
                             this.Hide();
                             break;
                         case "Cliente":
+                            int idCliente = controladorInicioSesion.ObtenerIdClientePorIdUsuario(userId);
                             PrincipalCliente clienteForm = new PrincipalCliente();
                             clienteForm.Show();
                             this.Hide();

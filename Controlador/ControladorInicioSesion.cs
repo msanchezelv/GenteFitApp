@@ -8,6 +8,11 @@ namespace GenteFitApp.Controlador
     {
         private string connectionString = @"Data Source=DESKTOP-1JIM32R\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
 
+        public static int IdUsuarioActual { get; private set; }
+        public static int IdClienteActual { get; private set; }
+
+
+
         // Método para comprobar las credenciales
         public string ComprobarCredenciales(int idUsuario, string contraseña)
         {
@@ -126,5 +131,32 @@ namespace GenteFitApp.Controlador
             return usuario;
         }
 
+
+        // Método para obtener el idCliente basado en el idUsuario
+        public int ObtenerIdClientePorIdUsuario(int idUsuario)
+        {
+            int idCliente = -1; // Retornamos -1 si no se encuentra el cliente
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT idCliente FROM Cliente WHERE idUsuario = @idUsuario";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            idCliente = (int)reader["idCliente"];
+                        }
+                    }
+                }
+            }
+
+            return idCliente;
+        }
     }
 }

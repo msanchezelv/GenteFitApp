@@ -14,6 +14,8 @@ namespace GenteFitApp.Vista
 {
     public partial class PrincipalCliente : Form
     {
+        public int IdCliente { get; set; }
+
         public PrincipalCliente()
         {
             InitializeComponent();

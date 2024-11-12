@@ -64,7 +64,6 @@
     <Compile Include="Controlador\ControladorInicioSesion.cs" />
     <Compile Include="Controlador\ControladorRegistro.cs" />
     <Compile Include="Controlador\DatabaseManager.cs" />
-    <Compile Include="Controlador\Reserva.cs" />
     <Compile Include="Controlador\XML\XMLManager.cs" />
     <Compile Include="GenteFitDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

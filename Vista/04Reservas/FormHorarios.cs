@@ -1,5 +1,7 @@
 ﻿using GenteFitApp.Modelo;
 using GenteFitApp.Modelo.GenteFitApp.Modelo;
+using GenteFitApp.Vista._04Reservas;
+using GenteFitApp.Controlador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +13,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GenteFit.Controlador;
 
 namespace GenteFitApp.Vista._06Horarios
 {
     public partial class FormHorarios : Form
     {
+        ControladorInicioSesion controladorInicioSesion = new ControladorInicioSesion();
+
         public FormHorarios()
         {
             InitializeComponent();
@@ -78,6 +83,8 @@ namespace GenteFitApp.Vista._06Horarios
                     BindingList<HorarioDTO> bindingHorariosDia = new BindingList<HorarioDTO>(grupo.ToList());
                     dataGridViewDia.DataSource = bindingHorariosDia;
 
+                    dataGridViewDia.CellClick += dataGridViewDia_CellClick;
+
                     dataGridViewDia.DataBindingComplete += (s, ev) =>
                     {
                         // Configurar encabezados de columnas
@@ -110,6 +117,70 @@ namespace GenteFitApp.Vista._06Horarios
             }
         }
 
+        private void dataGridViewDia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int idCliente = ControladorInicioSesion.IdClienteActual;
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dataGridView = (DataGridView)sender;
+                DataGridViewRow filaSeleccionada = dataGridView.Rows[e.RowIndex];
+
+                string nombreActividad = filaSeleccionada.Cells["Actividad"].Value.ToString();
+                string hora = filaSeleccionada.Cells["Hora"].Value.ToString();
+                string diaSemana = filaSeleccionada.Cells["DiaSemana"].Value.ToString();
+                string monitor = filaSeleccionada.Cells["Monitor"].Value.ToString();
+                int plazasDisponibles = Convert.ToInt32(filaSeleccionada.Cells["Plazas"].Value);
+
+                // Buscar el idHorario correspondiente basado en los otros valores de la fila
+                int idHorario = ObtenerIdHorario(nombreActividad, hora, monitor);
+
+                if (idHorario != -1 && plazasDisponibles > 0)
+                {
+                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+
+                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fecha, monitor, plazasDisponibles);
+                    formReserva.ShowDialog(); // Muestra el formulario de forma modal
+                }
+                else
+                {
+                    MessageBox.Show("No hay plazas disponibles para esta actividad o el horario no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private int ObtenerIdHorario(string actividad, string hora, string monitor)
+        {
+            int idHorario = -1;
+
+            string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
+
+            // Consulta SQL para obtener el idHorario según actividad, hora y monitor
+            string query = @"
+        SELECT idHorario 
+        FROM Horario 
+        WHERE Actividad = @Actividad AND Hora = @Hora AND Monitor = @Monitor";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Actividad", actividad);
+                command.Parameters.AddWithValue("@Hora", hora);
+                command.Parameters.AddWithValue("@Monitor", monitor);
+
+                try
+                {
+                    connection.Open();
+                    idHorario = (int)command.ExecuteScalar(); // Ejecuta la consulta y obtiene el valor del idHorario
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al obtener el idHorario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return idHorario;
+        }
 
     }
 
