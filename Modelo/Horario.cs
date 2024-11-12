@@ -26,6 +26,9 @@ namespace GenteFitApp.Modelo
         public System.TimeSpan horaInicio { get; set; }
         public System.TimeSpan horaFin { get; set; }
         public Nullable<int> idActividad { get; set; }
+        public Nullable<int> sala { get; set; }
+        public string Monitor { get; set; }
+        public Nullable<int> duracion { get; set; }
     
         public virtual Actividad Actividad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

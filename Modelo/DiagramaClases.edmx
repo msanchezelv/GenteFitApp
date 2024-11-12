@@ -35,6 +35,9 @@
           <Property Name="horaInicio" Type="time" Precision="7" Nullable="false" />
           <Property Name="horaFin" Type="time" Precision="7" Nullable="false" />
           <Property Name="idActividad" Type="int" />
+          <Property Name="sala" Type="int" />
+          <Property Name="Monitor" Type="varchar" MaxLength="100" />
+          <Property Name="duracion" Type="int" />
         </EntityType>
         <EntityType Name="ListaEspera">
           <Key>
@@ -269,6 +272,9 @@
           <Property Name="horaInicio" Type="Time" Nullable="false" Precision="7" />
           <Property Name="horaFin" Type="Time" Nullable="false" Precision="7" />
           <Property Name="idActividad" Type="Int32" />
+          <Property Name="sala" Type="Int32" />
+          <Property Name="Monitor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="duracion" Type="Int32" />
           <NavigationProperty Name="Actividad" Relationship="Self.FK__Horario__idActiv__44FF419A" FromRole="Horario" ToRole="Actividad" />
           <NavigationProperty Name="ListaEspera" Relationship="Self.FK__ListaEspe__idHor__4CA06362" FromRole="Horario" ToRole="ListaEspera" />
           <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__idHorar__48CFD27E" FromRole="Horario" ToRole="Reserva" />
@@ -427,7 +433,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GenteFit" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GenteFitEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Actividad" EntityType="Self.Actividad" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Horario" EntityType="Self.Horario" />
@@ -477,7 +483,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GenteFitModelStoreContainer" CdmEntityContainer="GenteFit">
+        <EntityContainerMapping StorageEntityContainer="GenteFitModelStoreContainer" CdmEntityContainer="GenteFitEntities">
           <EntitySetMapping Name="Actividad">
             <EntityTypeMapping TypeName="GenteFitModel.Actividad">
               <MappingFragment StoreEntitySet="Actividad">
@@ -509,6 +515,9 @@
                 <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
                 <ScalarProperty Name="horaFin" ColumnName="horaFin" />
                 <ScalarProperty Name="idActividad" ColumnName="idActividad" />
+                <ScalarProperty Name="sala" ColumnName="sala" />
+                <ScalarProperty Name="Monitor" ColumnName="Monitor" />
+                <ScalarProperty Name="duracion" ColumnName="duracion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

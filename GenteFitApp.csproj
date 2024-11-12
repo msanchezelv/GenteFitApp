@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -63,42 +64,54 @@
     <Compile Include="Controlador\ControladorInicioSesion.cs" />
     <Compile Include="Controlador\ControladorRegistro.cs" />
     <Compile Include="Controlador\DatabaseManager.cs" />
+    <Compile Include="Controlador\Reserva.cs" />
     <Compile Include="Controlador\XML\XMLManager.cs" />
+    <Compile Include="GenteFitDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenteFitDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GenteFitDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenteFitDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Actividad.cs">
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Cliente.cs">
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Diagrama_clases.Context.cs">
+    <Compile Include="Modelo\DiagramaClases.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Diagrama_clases.Context.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Diagrama_clases.cs">
+    <Compile Include="Modelo\DiagramaClases.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelo\Diagrama_clases.Designer.cs">
+    <Compile Include="Modelo\DiagramaClases.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
+      <DependentUpon>DiagramaClases.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Horario.cs">
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\HorarioDTO.cs" />
     <Compile Include="Modelo\ListaEspera.cs">
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Monitor.cs">
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Reserva.cs">
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Usuario.cs">
-      <DependentUpon>Diagrama_clases.tt</DependentUpon>
+      <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -119,11 +132,11 @@
     <Compile Include="Vista\01Inicio\RegistrarCliente.Designer.cs">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\02Clientes\ReservarActividades.cs">
+    <Compile Include="Vista\02Clientes\PerfilCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\02Clientes\ReservarActividades.Designer.cs">
-      <DependentUpon>ReservarActividades.cs</DependentUpon>
+    <Compile Include="Vista\02Clientes\PerfilCliente.Designer.cs">
+      <DependentUpon>PerfilCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\03Actividades\AgregarActividades.cs">
       <SubType>Form</SubType>
@@ -173,6 +186,24 @@
     <Compile Include="Vista\01Inicio\Registrar.Designer.cs">
       <DependentUpon>Registrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\04Reservas\FormReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\04Reservas\FormReserva.Designer.cs">
+      <DependentUpon>FormReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\05ListaEspera\ListaEspera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\05ListaEspera\ListaEspera.Designer.cs">
+      <DependentUpon>ListaEspera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\04Reservas\FormHorarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\04Reservas\FormHorarios.Designer.cs">
+      <DependentUpon>FormHorarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\FormularioBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,8 +221,8 @@
     <EmbeddedResource Include="Vista\01Inicio\RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\02Clientes\ReservarActividades.resx">
-      <DependentUpon>ReservarActividades.cs</DependentUpon>
+    <EmbeddedResource Include="Vista\02Clientes\PerfilCliente.resx">
+      <DependentUpon>PerfilCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\03Actividades\AgregarActividades.resx">
       <DependentUpon>AgregarActividades.cs</DependentUpon>
@@ -217,15 +248,46 @@
     <EmbeddedResource Include="Vista\01Inicio\Registrar.resx">
       <DependentUpon>Registrar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\04Reservas\FormReserva.resx">
+      <DependentUpon>FormReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\05ListaEspera\ListaEspera.resx">
+      <DependentUpon>ListaEspera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\04Reservas\FormHorarios.resx">
+      <DependentUpon>FormHorarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\FormularioBase.resx">
       <DependentUpon>FormularioBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Modelo\Diagrama_clases.edmx">
+    <None Include="GenteFitDataSet.xsc">
+      <DependentUpon>GenteFitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GenteFitDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GenteFitDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GenteFitDataSet.xss">
+      <DependentUpon>GenteFitDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GenteFitDataSet1.xsc">
+      <DependentUpon>GenteFitDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GenteFitDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GenteFitDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GenteFitDataSet1.xss">
+      <DependentUpon>GenteFitDataSet1.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="Modelo\DiagramaClases.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Diagrama_clases.Designer.cs</LastGenOutput>
+      <LastGenOutput>DiagramaClases.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Modelo\Diagrama_clases.edmx.diagram">
-      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
+    <None Include="Modelo\DiagramaClases.edmx.diagram">
+      <DependentUpon>DiagramaClases.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -241,25 +303,22 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vista\04Reservas\" />
-    <Folder Include="Vista\05ListaEspera\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Logo-GenteFit-Negro.png" />
     <EmbeddedResource Include="logoGenteFit.ico" />
-    <Content Include="Modelo\Diagrama_clases.Context.tt">
+    <Content Include="Modelo\DiagramaClases.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
-      <LastGenOutput>Diagrama_clases.Context.cs</LastGenOutput>
+      <DependentUpon>DiagramaClases.edmx</DependentUpon>
+      <LastGenOutput>DiagramaClases.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Modelo\Diagrama_clases.tt">
+    <Content Include="Modelo\DiagramaClases.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Diagrama_clases.edmx</DependentUpon>
-      <LastGenOutput>Diagrama_clases.cs</LastGenOutput>
+      <DependentUpon>DiagramaClases.edmx</DependentUpon>
+      <LastGenOutput>DiagramaClases.cs</LastGenOutput>
     </Content>
     <Content Include="Vista\Logo-GenteFit-Negro.png" />
   </ItemGroup>
