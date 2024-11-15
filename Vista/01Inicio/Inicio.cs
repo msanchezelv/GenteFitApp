@@ -61,70 +61,67 @@ namespace GenteFitApp.Vista
 
         private void Boton_Entrar_Click(object sender, EventArgs e)
         {
-            int userId;
-            if (int.TryParse(Box_UserId.Text, out userId))
+            string email = Box_UserId.Text;
+            string password = BoxPassword.Text;
+
+            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
             {
-                string password = BoxPassword.Text;
+                MessageBox.Show("Por favor, ingrese un correo electrónico válido.");
+                return;
+            }
 
-                string mensaje = controladorInicioSesion.ComprobarCredenciales(userId, password);
+            string mensaje = controladorInicioSesion.ComprobarCredencialesPorEmail(email, password);
 
-                if (mensaje == "Usuario no encontrado. ¿Registrar nuevo usuario? S/N")
+            if (mensaje == "Usuario no encontrado. ¿Registrar nuevo usuario? S/N")
+            {
+                DialogResult result = MessageBox.Show("Usuario no encontrado. ¿Registrar nuevo usuario?", "Usuario no encontrado", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
                 {
-                    DialogResult result = MessageBox.Show("Usuario no encontrado. ¿Registrar nuevo usuario?", "Usuario no encontrado", MessageBoxButtons.YesNo);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        Registrar nuevoUsuarioForm = new Registrar();
-                        nuevoUsuarioForm.Show();
-                        this.Hide();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show(mensaje);
-                }
-
-                // Implementar el cambio de formulario según el rol del usuario si el inicio de sesión fue exitoso
-                if (mensaje.StartsWith("Inicio de sesión correcto"))
-                {
-                    // Extraer el rol del usuario desde el mensaje o hacer una nueva consulta si es necesario
-                    Usuario usuarioActual = controladorInicioSesion.ObtenerUsuario(userId, password);
-
-                    switch (usuarioActual.rol)
-                    {
-                        case "Administrador":
-                            PrincipalAdmin adminForm = new PrincipalAdmin();
-                            adminForm.Show();
-                            this.Hide();
-                            break;
-                        case "Cliente":
-                            int idCliente = controladorInicioSesion.ObtenerIdClientePorIdUsuario(userId);
-                            PrincipalCliente clienteForm = new PrincipalCliente();
-                            clienteForm.Show();
-                            this.Hide();
-                            break;
-                        case "Encargado":
-                            PrincipalEncargado encargadoForm = new PrincipalEncargado();
-                            encargadoForm.Show();
-                            this.Hide();
-                            break;
-                        case "Recepcionista":
-                            PrincipalRecepcionista recepcionistaForm = new PrincipalRecepcionista();
-                            recepcionistaForm.Show();
-                            this.Hide();
-                            break;
-                        default:
-                            MessageBox.Show($"Rol no reconocido: {usuarioActual.rol}");
-                            break;
-                    }
+                    Registrar nuevoUsuarioForm = new Registrar();
+                    nuevoUsuarioForm.Show();
+                    this.Hide();
                 }
             }
             else
             {
-                MessageBox.Show("El ID de usuario debe ser un número.");
+                MessageBox.Show(mensaje);
             }
 
+            if (mensaje.StartsWith("Inicio de sesión correcto"))
+            {
+                Usuario usuarioActual = controladorInicioSesion.ObtenerUsuarioPorEmail(email, password);
+
+                switch (usuarioActual.rol)
+                {
+                    case "Administrador":
+                        PrincipalAdmin adminForm = new PrincipalAdmin();
+                        adminForm.Show();
+                        this.Hide();
+                        break;
+                    case "Cliente":
+                        int idCliente = controladorInicioSesion.ObtenerIdClientePorIdUsuario(usuarioActual.idUsuario);
+                        PrincipalCliente clienteForm = new PrincipalCliente();
+                        clienteForm.Show();
+                        this.Hide();
+                        break;
+                    case "Encargado":
+                        PrincipalEncargado encargadoForm = new PrincipalEncargado();
+                        encargadoForm.Show();
+                        this.Hide();
+                        break;
+                    case "Recepcionista":
+                        PrincipalRecepcionista recepcionistaForm = new PrincipalRecepcionista();
+                        recepcionistaForm.Show();
+                        this.Hide();
+                        break;
+                    default:
+                        MessageBox.Show($"Rol no reconocido: {usuarioActual.rol}");
+                        break;
+                }
+            }
         }
+
 
 
         private void Box_UserId_TextChanged(object sender, EventArgs e)

@@ -72,12 +72,12 @@ namespace GenteFitApp.Vista._06Horarios
                 {
                     DataGridView dataGridViewDia = new DataGridView
                     {
-                        AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill, // Asegura que las columnas se adapten al tamaño de la ventana
+                        AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
                         AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells,
                         Dock = DockStyle.Fill,
                         BackgroundColor = Color.Bisque,
-                        AllowUserToAddRows = false, // Elimina la fila en blanco
-                        ReadOnly = true // Hace que el DataGridView sea solo de lectura
+                        AllowUserToAddRows = false,
+                        ReadOnly = true
                     };
 
                     BindingList<HorarioDTO> bindingHorariosDia = new BindingList<HorarioDTO>(grupo.ToList());
@@ -87,7 +87,6 @@ namespace GenteFitApp.Vista._06Horarios
 
                     dataGridViewDia.DataBindingComplete += (s, ev) =>
                     {
-                        // Configurar encabezados de columnas
                         if (dataGridViewDia.Columns.Contains("Hora"))
                             dataGridViewDia.Columns["Hora"].HeaderText = "Hora";
                         if (dataGridViewDia.Columns.Contains("Actividad"))
@@ -99,17 +98,14 @@ namespace GenteFitApp.Vista._06Horarios
                         if (dataGridViewDia.Columns.Contains("Plazas"))
                             dataGridViewDia.Columns["Plazas"].HeaderText = "Plazas disponibles";
 
-                        // Ocultar la columna "DiaSemana"
                         if (dataGridViewDia.Columns.Contains("DiaSemana"))
                         {
                             dataGridViewDia.Columns["DiaSemana"].Visible = false;
                         }
 
-                        // Formato de la columna "Hora"
                         dataGridViewDia.Columns["Hora"].DefaultCellStyle.Format = "HH:mm";
 
-                        // Ocultar la columna "Sala" si no es necesario
-                        dataGridViewDia.Columns["Sala"].Visible = false;
+                        dataGridViewDia.Columns["Sala"].Visible = true;
                     };
 
                     tabPage.Controls.Add(dataGridViewDia);
@@ -132,7 +128,6 @@ namespace GenteFitApp.Vista._06Horarios
                 string monitor = filaSeleccionada.Cells["Monitor"].Value.ToString();
                 int plazasDisponibles = Convert.ToInt32(filaSeleccionada.Cells["Plazas"].Value);
 
-                // Buscar el idHorario correspondiente basado en los otros valores de la fila
                 int idHorario = ObtenerIdHorario(nombreActividad, hora, monitor);
 
                 if (idHorario != -1 && plazasDisponibles > 0)
@@ -140,7 +135,7 @@ namespace GenteFitApp.Vista._06Horarios
                     string fecha = DateTime.Now.ToString("dd/MM/yyyy");
 
                     FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fecha, monitor, plazasDisponibles);
-                    formReserva.ShowDialog(); // Muestra el formulario de forma modal
+                    formReserva.ShowDialog();
                 }
                 else
                 {
@@ -155,11 +150,15 @@ namespace GenteFitApp.Vista._06Horarios
 
             string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
 
-            // Consulta SQL para obtener el idHorario según actividad, hora y monitor
+            // Ajustamos la consulta SQL para hacer una JOIN y buscar por los parámetros correctos
             string query = @"
-        SELECT idHorario 
-        FROM Horario 
-        WHERE Actividad = @Actividad AND Hora = @Hora AND Monitor = @Monitor";
+                            SELECT h.idHorario 
+                            FROM Horario h
+                            JOIN Actividad a ON h.idActividad = a.idActividad
+                            JOIN Monitor m ON a.idMonitor = m.idMonitor
+                            WHERE a.nombre = @Actividad 
+                            AND CONCAT(FORMAT(CAST(h.horaInicio AS DATETIME), 'HH:mm'), '-', FORMAT(CAST(h.horaFin AS DATETIME), 'HH:mm')) = @Hora 
+                            AND m.nombre = @Monitor";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -171,7 +170,11 @@ namespace GenteFitApp.Vista._06Horarios
                 try
                 {
                     connection.Open();
-                    idHorario = (int)command.ExecuteScalar(); // Ejecuta la consulta y obtiene el valor del idHorario
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        idHorario = Convert.ToInt32(result);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -181,6 +184,45 @@ namespace GenteFitApp.Vista._06Horarios
 
             return idHorario;
         }
+
+        public void ActualizarPlazasDisponibles()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
+
+            string query = @"
+                    SELECT h.idHorario, h.PlazasDisponibles
+                    FROM Horario h
+                    WHERE h.idHorario = @idHorario";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                foreach (TabPage tabPage in tabControlHorarios.TabPages)
+                {
+                    foreach (Control control in tabPage.Controls)
+                    {
+                        if (control is DataGridView dataGridView)
+                        {
+                            foreach (DataGridViewRow row in dataGridView.Rows)
+                            {
+                                int idHorario = Convert.ToInt32(row.Cells["idHorario"].Value);
+
+                                SqlCommand command = new SqlCommand(query, connection);
+                                command.Parameters.AddWithValue("@idHorario", idHorario);
+
+                                object result = command.ExecuteScalar();
+                                if (result != null)
+                                {
+                                    int plazasDisponibles = Convert.ToInt32(result);
+                                    row.Cells["Plazas"].Value = plazasDisponibles; // Actualizamos las plazas en la fila correspondiente
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
     }
 

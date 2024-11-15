@@ -25,14 +25,14 @@ namespace GenteFitApp.Vista
         {
             FormHorarios formHorarios = new FormHorarios();
             formHorarios.ShowDialog();
-            this.Close();
+            // this.Close();
         }
 
         private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PerfilCliente perfilCliente = new PerfilCliente();
-            perfilCliente.Show();
-            this.Close();
+            perfilCliente.ShowDialog();
+            // this.Close();
         }
     }
 }

@@ -14,46 +14,34 @@ namespace GenteFitApp.Controlador
 
 
         // Método para comprobar las credenciales
-        public string ComprobarCredenciales(int idUsuario, string contraseña)
+        public string ComprobarCredencialesPorEmail(string email, string contraseña)
         {
             string mensaje = string.Empty;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT idUsuario, nombre, apellidos, email, contraseña, rol FROM Usuario WHERE idUsuario = @idUsuario";
+                string query = "SELECT u.idUsuario, u.nombre, u.rol, c.idCliente " +
+                               "FROM Usuario u " +
+                               "LEFT JOIN Cliente c ON u.idUsuario = c.idUsuario " +
+                               "WHERE u.email = @Email AND u.contraseña = @Contraseña";
+
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Contraseña", contraseña);
 
                     connection.Open();
-
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            // Aquí solo se obtiene el 'rol' si el usuario es encontrado
-                            if (reader["contraseña"].ToString() == contraseña)
-                            {
-                                mensaje = $"Inicio de sesión correcto. ¡Bienvenid@ {reader["nombre"]}!";
-                                // Acceder al rol solo después de validar que la contraseña es correcta
-                                string rol = reader["rol"].ToString();
-                                if (!string.IsNullOrWhiteSpace(rol))
-                                {
-                                    // Proseguir con el proceso
-                                }
-                                else
-                                {
-                                    mensaje = "El rol del usuario no está definido correctamente.";
-                                }
-                            }
-                            else
-                            {
-                                mensaje = "Contraseña incorrecta.";
-                            }
+                            IdUsuarioActual = (int)reader["idUsuario"];
+                            IdClienteActual = reader["idCliente"] != DBNull.Value ? (int)reader["idCliente"] : -1;
+                            mensaje = $"Inicio de sesión correcto. ¡Bienvenid@ {reader["nombre"]}!";
                         }
                         else
                         {
-                            mensaje = "Usuario no encontrado. ¿Registrar nuevo usuario? S/N";
+                            mensaje = "Usuario no encontrado o contraseña incorrecta.";
                         }
                     }
                 }
@@ -61,6 +49,7 @@ namespace GenteFitApp.Controlador
 
             return mensaje;
         }
+
 
 
         // Método para obtener un usuario basado en el ID y la contraseña.
@@ -108,6 +97,40 @@ namespace GenteFitApp.Controlador
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuario = new Usuario
+                            {
+                                idUsuario = (int)reader["idUsuario"],
+                                nombre = reader["nombre"].ToString(),
+                                apellidos = reader["apellidos"].ToString(),
+                                email = reader["email"].ToString(),
+                                rol = reader["rol"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+
+            return usuario;
+        }
+
+        public Usuario ObtenerUsuarioPorEmail(string email, string contraseña)
+        {
+            Usuario usuario = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT idUsuario, nombre, apellidos, email, rol FROM Usuario WHERE email = @Email AND contraseña = @contraseña";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@contraseña", contraseña);
 
                     connection.Open();
 
