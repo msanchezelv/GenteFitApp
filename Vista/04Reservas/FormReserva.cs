@@ -20,7 +20,7 @@ namespace GenteFitApp.Vista._04Reservas
             InitializeComponent();
             this.idCliente = idCliente;
             this.idHorario = idHorario;
-            labelNombreActividad.Text = "Nombre de Actividad: " + nombreActividad;
+            labelNombreActividad.Text = nombreActividad;
             labelHora.Text = "Hora: " + hora;
             labelFecha.Text = "Fecha: " + fecha;
             labelMonitor.Text = "Monitor: " + monitor;
@@ -29,8 +29,6 @@ namespace GenteFitApp.Vista._04Reservas
 
         private void buttonReservar_Click(object sender, EventArgs e)
         {
-            int plazasSolicitadas = 1;
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -39,83 +37,36 @@ namespace GenteFitApp.Vista._04Reservas
                 {
                     try
                     {
-                        string checkReservaQuery = "SELECT COUNT(1) FROM Reserva WHERE idCliente = @idCliente AND idHorario = @idHorario";
-                        using (SqlCommand checkReservaCmd = new SqlCommand(checkReservaQuery, connection, transaction))
+                        string checkReservationQuery = "SELECT COUNT(*) FROM Reserva WHERE idCliente = @idCliente AND idHorario = @idHorario";
+                        using (SqlCommand checkReservationCmd = new SqlCommand(checkReservationQuery, connection, transaction))
                         {
-                            checkReservaCmd.Parameters.AddWithValue("@idCliente", this.idCliente);
-                            checkReservaCmd.Parameters.AddWithValue("@idHorario", this.idHorario);
-                            int reservasExistentes = (int)checkReservaCmd.ExecuteScalar();
+                            checkReservationCmd.Parameters.AddWithValue("@idCliente", this.idCliente);
+                            checkReservationCmd.Parameters.AddWithValue("@idHorario", this.idHorario);
 
-                            if (reservasExistentes > 0)
+                            int existingReservations = (int)checkReservationCmd.ExecuteScalar();
+
+                            if (existingReservations > 0)
                             {
-                                MessageBox.Show("Ya has realizado una reserva para este horario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Ya tienes una reserva para este horario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 transaction.Rollback();
                                 return;
                             }
                         }
 
-                        string checkPlazasQuery = "SELECT PlazasDisponibles FROM Horario WHERE idHorario = @idHorario";
-                        using (SqlCommand checkPlazasCmd = new SqlCommand(checkPlazasQuery, connection, transaction))
+                        string storedProcedure = "dbo.ReservarClase";
+                        using (SqlCommand command = new SqlCommand(storedProcedure, connection, transaction))
                         {
-                            checkPlazasCmd.Parameters.AddWithValue("@idHorario", this.idHorario);
-                            int plazasDisponibles = (int)checkPlazasCmd.ExecuteScalar();
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("@idCliente", this.idCliente);
+                            command.Parameters.AddWithValue("@idHorario", this.idHorario);
 
-                            if (plazasDisponibles <= 0)
-                            {
-                                MessageBox.Show("No hay plazas disponibles para esta actividad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                transaction.Rollback();
-                                return;
-                            }
+                            command.ExecuteNonQuery();
 
-                            if (plazasDisponibles < plazasSolicitadas)
-                            {
-                                MessageBox.Show("No hay suficientes plazas disponibles para esta actividad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                transaction.Rollback();
-                                return;
-                            }
+                            transaction.Commit();
+
+                            MessageBox.Show("Reserva realizada con éxito.");
+                            this.Close();
                         }
-
-                        string insertReservaQuery = @"
-                    INSERT INTO Reserva (idCliente, idHorario, fechaReserva, plazasDisponiblesEnReserva)
-                    VALUES (@idCliente, @idHorario, @fechaReserva, @plazasDisponiblesEnReserva)";
-                        using (SqlCommand insertCmd = new SqlCommand(insertReservaQuery, connection, transaction))
-                        {
-                            insertCmd.Parameters.AddWithValue("@idCliente", this.idCliente);
-                            insertCmd.Parameters.AddWithValue("@idHorario", this.idHorario);
-                            insertCmd.Parameters.AddWithValue("@fechaReserva", DateTime.Now);
-                            insertCmd.Parameters.AddWithValue("@plazasDisponiblesEnReserva", plazasSolicitadas);
-                            insertCmd.ExecuteNonQuery();
-                        }
-
-                        string updatePlazasQuery = @"
-                    UPDATE Horario
-                    SET PlazasDisponibles = PlazasDisponibles - @plazasReservadas
-                    WHERE idHorario = @idHorario AND PlazasDisponibles >= @plazasReservadas";
-                        using (SqlCommand updateCmd = new SqlCommand(updatePlazasQuery, connection, transaction))
-                        {
-                            updateCmd.Parameters.AddWithValue("@idHorario", this.idHorario);
-                            updateCmd.Parameters.AddWithValue("@plazasReservadas", plazasSolicitadas);
-
-                            int rowsAffected = updateCmd.ExecuteNonQuery();
-                            if (rowsAffected == 0)
-                            {
-                                MessageBox.Show("Error al actualizar las plazas disponibles o no hay suficientes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                transaction.Rollback();
-                                return;
-                            }
-                        }
-
-                        transaction.Commit();
-
-                        FormHorarios formHorarios = Application.OpenForms.OfType<FormHorarios>().FirstOrDefault();
-                        if (formHorarios != null)
-                        {
-                            formHorarios.ActualizarPlazasDisponibles(); // Actualizamos las plazas disponibles en el FormHorarios
-                        }
-
-                        MessageBox.Show("Reserva realizada con éxito.");
-                        this.Close();
-
                     }
                     catch (Exception ex)
                     {
@@ -126,7 +77,6 @@ namespace GenteFitApp.Vista._04Reservas
             }
         }
 
-        
 
     }
 

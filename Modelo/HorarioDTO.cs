@@ -17,6 +17,7 @@ namespace GenteFitApp.Modelo
 
         public class HorarioDTO
         {
+            public int idHorario {  get; set; }
             public string DiaSemana { get; set; }
             public string Hora { get; set; }
             public string Actividad { get; set; }
@@ -48,12 +49,13 @@ namespace GenteFitApp.Modelo
                             {
                                 HorarioDTO horario = new HorarioDTO
                                 {
+                                    idHorario = Convert.ToInt32(reader["idHorario"]),
                                     DiaSemana = reader["Día"].ToString(),
                                     Hora = reader["Hora"].ToString(),
                                     Actividad = reader["Actividad"].ToString(),
                                     Sala = Convert.ToInt32(reader["Sala"]),
                                     Monitor = reader["Monitor"].ToString(),
-                                    Plazas = Convert.ToInt32(reader["Plazas"]) // Asignar el valor de las plazas
+                                    Plazas = Convert.ToInt32(reader["Plazas"])
                                 };
 
                                 horarios.Add(horario);

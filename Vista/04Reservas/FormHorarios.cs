@@ -87,6 +87,10 @@ namespace GenteFitApp.Vista._06Horarios
 
                     dataGridViewDia.DataBindingComplete += (s, ev) =>
                     {
+                        if (dataGridViewDia.Columns.Contains("idHorario"))
+                        {
+                            dataGridViewDia.Columns["idHorario"].Visible = false;
+                        }
                         if (dataGridViewDia.Columns.Contains("Hora"))
                             dataGridViewDia.Columns["Hora"].HeaderText = "Hora";
                         if (dataGridViewDia.Columns.Contains("Actividad"))
@@ -122,20 +126,20 @@ namespace GenteFitApp.Vista._06Horarios
                 DataGridView dataGridView = (DataGridView)sender;
                 DataGridViewRow filaSeleccionada = dataGridView.Rows[e.RowIndex];
 
+                int idHorario = Convert.ToInt32(filaSeleccionada.Cells["idHorario"].Value);
                 string nombreActividad = filaSeleccionada.Cells["Actividad"].Value.ToString();
                 string hora = filaSeleccionada.Cells["Hora"].Value.ToString();
                 string diaSemana = filaSeleccionada.Cells["DiaSemana"].Value.ToString();
                 string monitor = filaSeleccionada.Cells["Monitor"].Value.ToString();
                 int plazasDisponibles = Convert.ToInt32(filaSeleccionada.Cells["Plazas"].Value);
 
-                int idHorario = ObtenerIdHorario(nombreActividad, hora, monitor);
-
                 if (idHorario != -1 && plazasDisponibles > 0)
                 {
+                    // Aquí debería abrir el formulario de reserva
                     string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-
                     FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fecha, monitor, plazasDisponibles);
                     formReserva.ShowDialog();
+                    ActualizarPlazasDisponibles();
                 }
                 else
                 {
@@ -144,55 +148,15 @@ namespace GenteFitApp.Vista._06Horarios
             }
         }
 
-        private int ObtenerIdHorario(string actividad, string hora, string monitor)
-        {
-            int idHorario = -1;
-
-            string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
-
-            // Ajustamos la consulta SQL para hacer una JOIN y buscar por los parámetros correctos
-            string query = @"
-                            SELECT h.idHorario 
-                            FROM Horario h
-                            JOIN Actividad a ON h.idActividad = a.idActividad
-                            JOIN Monitor m ON a.idMonitor = m.idMonitor
-                            WHERE a.nombre = @Actividad 
-                            AND CONCAT(FORMAT(CAST(h.horaInicio AS DATETIME), 'HH:mm'), '-', FORMAT(CAST(h.horaFin AS DATETIME), 'HH:mm')) = @Hora 
-                            AND m.nombre = @Monitor";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Actividad", actividad);
-                command.Parameters.AddWithValue("@Hora", hora);
-                command.Parameters.AddWithValue("@Monitor", monitor);
-
-                try
-                {
-                    connection.Open();
-                    object result = command.ExecuteScalar();
-                    if (result != null)
-                    {
-                        idHorario = Convert.ToInt32(result);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al obtener el idHorario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            return idHorario;
-        }
 
         public void ActualizarPlazasDisponibles()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
 
             string query = @"
-                    SELECT h.idHorario, h.PlazasDisponibles
-                    FROM Horario h
-                    WHERE h.idHorario = @idHorario";
+                            SELECT h.PlazasDisponibles
+                            FROM Horario h
+                            WHERE h.idHorario = @idHorario";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -214,7 +178,7 @@ namespace GenteFitApp.Vista._06Horarios
                                 if (result != null)
                                 {
                                     int plazasDisponibles = Convert.ToInt32(result);
-                                    row.Cells["Plazas"].Value = plazasDisponibles; // Actualizamos las plazas en la fila correspondiente
+                                    row.Cells["Plazas"].Value = plazasDisponibles;
                                 }
                             }
                         }
