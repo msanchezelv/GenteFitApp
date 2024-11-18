@@ -29,7 +29,7 @@ namespace GenteFitApp.Vista
             if (e.KeyChar == (char)Keys.Enter)
             {
                 Boton_Entrar.PerformClick();
-                e.Handled = true; // Previene el sonido de alerta al presionar Enter
+                e.Handled = true;
             }
         }
 
