@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GenteFitApp.Vista._02Clientes;
+using GenteFitApp.Vista._06Horarios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,29 +9,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GenteFitApp.Controlador;
+
 
 namespace GenteFitApp.Vista
 {
-    public partial class PrincipalCliente : Form
+    public partial class PrincipalCliente : FormularioBase
     {
+        public int IdCliente = ControladorInicioSesion.IdClienteActual;
+
         public PrincipalCliente()
         {
             InitializeComponent();
         }
 
-        private void Boton_Abrir_Gestion_Reservas_Click(object sender, EventArgs e)
+        private void Boton_Abrir_Horarios_Click(object sender, EventArgs e)
+        {
+            FormHorarios formHorarios = new FormHorarios();
+            formHorarios.ShowDialog();
+            // this.Close();
+        }
+
+        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PerfilCliente perfilCliente = new PerfilCliente();
+            perfilCliente.ShowDialog();
+            // this.Close();
+        }
+
+        private void Boton_AbrirReservas_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBoxReservas_Enter(object sender, EventArgs e)
+        private void Boton_AbrirPerfil_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+            PerfilCliente perfilCliente = new PerfilCliente();
+            perfilCliente.ShowDialog();
+            // this.Close();
         }
     }
 }

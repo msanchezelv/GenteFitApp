@@ -10,39 +10,39 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista
 {
-    public partial class PrincipalAdmin : Form
+    public partial class PrincipalAdmin : FormularioBase
     {
         public PrincipalAdmin()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void Boton_Abrir_Gestion_Clientes_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Boton_Entrar_Click(object sender, EventArgs e)
+        private void Boton_Abrir_Gestion_Reservas_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Boton_Abrir_Gestion_Actividades_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox1_Enter_1(object sender, EventArgs e)
+        private void Boton_Abrir_Gestion_Monitores_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void añadirClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Boton_Abrir_Gestion_Usuarios_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void PrincipalAdmin_Load(object sender, EventArgs e)
+        private void añadirClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

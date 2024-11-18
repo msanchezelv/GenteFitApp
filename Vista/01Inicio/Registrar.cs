@@ -1,8 +1,8 @@
-﻿using System;
+﻿using GenteFitApp.controlador;
+using GenteFitApp.Vista._01Inicio;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using GenteFitApp.controlador;
-using GenteFitApp.Modelo;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace GenteFitApp.Vista
 {
@@ -24,76 +24,30 @@ namespace GenteFitApp.Vista
         {
             int proximoId = controladorRegistro.ObtenerProximoIdUsuario();
             textBoxUserId.Text = proximoId.ToString();
+
+            Task.Delay(50).ContinueWith(_ =>
+            {
+                Invoke(new Action(() =>
+                {
+                    textBoxNombre.Focus();
+                }));
+            });
         }
 
-        private void Boton_Entrar_Click(object sender, EventArgs e)
-        {
-            string nombre = textBoxNombre.Text;
-            string apellidos = textBoxApellidos.Text;
-            string email = textBoxemail.Text;
-            string contraseña = textBoxcontraseña.Text;
-            string rol = "Cliente";
-
-
-            try
-            {
-                // Registrar el usuario y obtener el ID generado
-                bool registrado = controladorRegistro.RegistrarUsuario(nombre, apellidos, email, contraseña, rol);
-
-                if (registrado)
-                {
-                    MessageBox.Show("Usuario registrado con éxito.");
-                    this.Close(); // Cerrar el formulario después de registrar
-                }
-                else
-                {
-                    MessageBox.Show("Error al registrar el usuario. Por favor, inténtelo de nuevo.");
-                }
-            }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message); // Mensaje específico para errores de argumento
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error inesperado: " + ex.Message); // Mensaje genérico para otros errores
-            }
-        }
-
-
-        private void comboBoxRolEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        private void Boton_nuevoEmpleado_Click(object sender, EventArgs e)
         {
             string nombre = textBoxNombre.Text;
             string apellidos = textBoxApellidos.Text;
             string email = textBoxemail.Text;
             string contraseña = textBoxcontraseña.Text;
 
-            // Obtener el rol seleccionado del ComboBox
-            string rol = comboBoxRolEmpleado.SelectedItem.ToString();
 
-            try
-            {
-                // Registrar el usuario y obtener el ID generado
-                bool registrado = controladorRegistro.RegistrarUsuario(nombre, apellidos, email, contraseña, rol);
-
-                if (registrado)
-                {
-                    MessageBox.Show("Usuario registrado con éxito.");
-                    this.Close(); // Cerrar el formulario después de registrar
-                }
-                else
-                {
-                    MessageBox.Show("Error al registrar el usuario. Por favor, inténtelo de nuevo.");
-                }
-            }
-            catch (ArgumentException ex)
-            {
-                MessageBox.Show(ex.Message); // Mensaje específico para errores de argumento
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error inesperado: " + ex.Message); // Mensaje genérico para otros errores
-            }
+            EscogerRol escogerRolForm = new EscogerRol(nombre, apellidos, email, contraseña);
+            escogerRolForm.ShowDialog();
+            this.Close();
         }
+
+        
+
     }
 }

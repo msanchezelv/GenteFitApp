@@ -11,8 +11,7 @@ namespace GenteFitApp.Modelo
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Horario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,13 +20,15 @@ namespace GenteFitApp.Modelo
             this.ListaEspera = new HashSet<ListaEspera>();
             this.Reserva = new HashSet<Reserva>();
         }
-
-        [Key]
+    
         public int idHorario { get; set; }
         public string diaSemana { get; set; }
         public System.TimeSpan horaInicio { get; set; }
         public System.TimeSpan horaFin { get; set; }
         public Nullable<int> idActividad { get; set; }
+        public Nullable<int> sala { get; set; }
+        public string Monitor { get; set; }
+        public Nullable<int> duracion { get; set; }
     
         public virtual Actividad Actividad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

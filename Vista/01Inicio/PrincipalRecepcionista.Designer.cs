@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalRecepcionista));
             this.Boton_Salir = new System.Windows.Forms.Button();
             this.groupBoxClientes = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Gestion_Clientes = new System.Windows.Forms.Button();
@@ -125,6 +126,7 @@
             this.Controls.Add(this.Boton_Salir);
             this.Controls.Add(this.groupBoxClientes);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrincipalRecepcionista";
             this.Text = "PrincipalRecepcionista";
             this.groupBoxClientes.ResumeLayout(false);
