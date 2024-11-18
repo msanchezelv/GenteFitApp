@@ -83,7 +83,5 @@ namespace GenteFitApp.Vista._02Clientes
             }
         }
 
-
-
     }
 }
