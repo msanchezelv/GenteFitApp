@@ -164,6 +164,7 @@
             this.Boton_AbrirReservas.TabIndex = 0;
             this.Boton_AbrirReservas.Text = "Ver mis reservas";
             this.Boton_AbrirReservas.UseVisualStyleBackColor = true;
+            this.Boton_AbrirReservas.Click += new System.EventHandler(this.Boton_AbrirReservas_Click);
             // 
             // groupBox2
             // 
@@ -187,6 +188,7 @@
             this.Boton_AbrirPerfil.TabIndex = 0;
             this.Boton_AbrirPerfil.Text = "Abrir perfil de usuario";
             this.Boton_AbrirPerfil.UseVisualStyleBackColor = true;
+            this.Boton_AbrirPerfil.Click += new System.EventHandler(this.Boton_AbrirPerfil_Click);
             // 
             // PrincipalCliente
             // 

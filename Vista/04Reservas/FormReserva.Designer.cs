@@ -113,7 +113,7 @@
             this.Controls.Add(this.labelNombreActividad);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormReserva";
-            this.Text = "FormReserva";
+            this.Text = "Reservar";
             this.ResumeLayout(false);
             this.PerformLayout();
 
