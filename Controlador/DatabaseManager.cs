@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GenteFitApp.Controlador;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace GenteFit.Controlador
 {
     public class DatabaseManager<T> where T : class, new()
     {
-        private string connectionString;
+        private readonly string connectionString = DatabaseConfig.ConnectionString;
 
         public DatabaseManager(string dbConnectionString)
         {

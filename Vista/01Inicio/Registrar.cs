@@ -1,4 +1,4 @@
-﻿using GenteFitApp.controlador;
+﻿using GenteFitApp.Controlador;
 using GenteFitApp.Vista._01Inicio;
 using System;
 using System.Threading.Tasks;

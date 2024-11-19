@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenteFitApp.Controlador;
+using GenteFitApp.Vista._04Reservas;
 
 
 namespace GenteFitApp.Vista
@@ -39,7 +40,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_AbrirReservas_Click(object sender, EventArgs e)
         {
-
+            VerReservas verReservas = new VerReservas();
+            verReservas.ShowDialog();
         }
 
         private void Boton_AbrirPerfil_Click(object sender, EventArgs e)

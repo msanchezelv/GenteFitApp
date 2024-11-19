@@ -5,16 +5,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GenteFitApp.Controlador;
+
+
 
 namespace GenteFitApp.Modelo
 {
     namespace GenteFitApp.Modelo
     {
-        using System;
-        using System.Collections.Generic;
-        using System.Data;
-        using System.Data.SqlClient;
-
+        
         public class HorarioDTO
         {
             public int idHorario {  get; set; }
@@ -23,12 +22,13 @@ namespace GenteFitApp.Modelo
             public string Actividad { get; set; }
             public int Sala { get; set; }
             public string Monitor { get; set; }
-            public int Plazas { get; set; } // Nueva propiedad para las plazas disponibles
+            public int Plazas { get; set; }
+            public DateTime Fecha { get; set; }
 
             public static List<HorarioDTO> ObtenerHorariosConActividadYMonitor(string diaSemana = null)
             {
                 List<HorarioDTO> horarios = new List<HorarioDTO>();
-                string connectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+                string connectionString = DatabaseConfig.ConnectionString;
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -55,7 +55,8 @@ namespace GenteFitApp.Modelo
                                     Actividad = reader["Actividad"].ToString(),
                                     Sala = Convert.ToInt32(reader["Sala"]),
                                     Monitor = reader["Monitor"].ToString(),
-                                    Plazas = Convert.ToInt32(reader["Plazas"])
+                                    Plazas = Convert.ToInt32(reader["Plazas"]),
+                                    Fecha = Convert.ToDateTime(reader["Fecha"])
                                 };
 
                                 horarios.Add(horario);

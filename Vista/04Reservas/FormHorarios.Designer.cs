@@ -52,8 +52,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -155,7 +153,7 @@
             this.tabPageLunes.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageLunes.Name = "tabPageLunes";
             this.tabPageLunes.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageLunes.Size = new System.Drawing.Size(901, 295);
+            this.tabPageLunes.Size = new System.Drawing.Size(901, 516);
             this.tabPageLunes.TabIndex = 0;
             this.tabPageLunes.Text = "Lunes";
             // 
@@ -166,7 +164,7 @@
             this.tabPageMartes.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageMartes.Name = "tabPageMartes";
             this.tabPageMartes.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageMartes.Size = new System.Drawing.Size(901, 295);
+            this.tabPageMartes.Size = new System.Drawing.Size(901, 516);
             this.tabPageMartes.TabIndex = 1;
             this.tabPageMartes.Text = "Martes";
             // 
@@ -176,7 +174,7 @@
             this.tabPageMiercoles.Location = new System.Drawing.Point(4, 25);
             this.tabPageMiercoles.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageMiercoles.Name = "tabPageMiercoles";
-            this.tabPageMiercoles.Size = new System.Drawing.Size(901, 295);
+            this.tabPageMiercoles.Size = new System.Drawing.Size(901, 516);
             this.tabPageMiercoles.TabIndex = 2;
             this.tabPageMiercoles.Text = "Miércoles";
             // 
@@ -186,7 +184,7 @@
             this.tabPageJueves.Location = new System.Drawing.Point(4, 25);
             this.tabPageJueves.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageJueves.Name = "tabPageJueves";
-            this.tabPageJueves.Size = new System.Drawing.Size(901, 295);
+            this.tabPageJueves.Size = new System.Drawing.Size(901, 516);
             this.tabPageJueves.TabIndex = 3;
             this.tabPageJueves.Text = "Jueves";
             // 
@@ -196,7 +194,7 @@
             this.tabPageViernes.Location = new System.Drawing.Point(4, 25);
             this.tabPageViernes.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageViernes.Name = "tabPageViernes";
-            this.tabPageViernes.Size = new System.Drawing.Size(901, 295);
+            this.tabPageViernes.Size = new System.Drawing.Size(901, 516);
             this.tabPageViernes.TabIndex = 4;
             this.tabPageViernes.Text = "Viernes";
             // 
@@ -216,7 +214,7 @@
             this.tabPageDomingo.Location = new System.Drawing.Point(4, 25);
             this.tabPageDomingo.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageDomingo.Name = "tabPageDomingo";
-            this.tabPageDomingo.Size = new System.Drawing.Size(901, 295);
+            this.tabPageDomingo.Size = new System.Drawing.Size(901, 516);
             this.tabPageDomingo.TabIndex = 6;
             this.tabPageDomingo.Text = "Domingo";
             // 
@@ -243,25 +241,11 @@
             // reservasToolStripMenuItem
             // 
             this.reservasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirReservaToolStripMenuItem,
-            this.cancelarReservaToolStripMenuItem,
             this.consultarReservasToolStripMenuItem,
             this.consultarListaDeEsperaToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
             this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.reservasToolStripMenuItem.Text = "Reservas";
-            // 
-            // añadirReservaToolStripMenuItem
-            // 
-            this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
-            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
-            // 
-            // cancelarReservaToolStripMenuItem
-            // 
-            this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
-            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
             // 
             // consultarReservasToolStripMenuItem
             // 
@@ -344,8 +328,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirReservaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarReservaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarReservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarListaDeEsperaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;

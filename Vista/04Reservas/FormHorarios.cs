@@ -33,7 +33,7 @@ namespace GenteFitApp.Vista._06Horarios
         }
 
         private void FormHorarios_Load(object sender, EventArgs e)
-        {
+        {            
             List<HorarioDTO> horarios = HorarioDTO.ObtenerHorariosConActividadYMonitor();
             var horariosAgrupados = horarios.GroupBy(h => h.DiaSemana).ToList();
 
@@ -41,6 +41,7 @@ namespace GenteFitApp.Vista._06Horarios
             {
                 string diaSemana = grupo.Key;
                 TabPage tabPage = null;
+
                 switch (diaSemana.ToLower())
                 {
                     case "lunes":
@@ -80,6 +81,7 @@ namespace GenteFitApp.Vista._06Horarios
                         ReadOnly = true
                     };
 
+                    
                     BindingList<HorarioDTO> bindingHorariosDia = new BindingList<HorarioDTO>(grupo.ToList());
                     dataGridViewDia.DataSource = bindingHorariosDia;
 
@@ -100,7 +102,14 @@ namespace GenteFitApp.Vista._06Horarios
                         if (dataGridViewDia.Columns.Contains("Monitor"))
                             dataGridViewDia.Columns["Monitor"].HeaderText = "Monitor";
                         if (dataGridViewDia.Columns.Contains("Plazas"))
-                            dataGridViewDia.Columns["Plazas"].HeaderText = "Plazas disponibles";
+                            ActualizarPlazasDisponibles();
+                        dataGridViewDia.Columns["Plazas"].HeaderText = "Plazas disponibles";
+                        if (dataGridViewDia.Columns.Contains("Fecha"))
+                            dataGridViewDia.Columns["Fecha"].HeaderText = "Fecha";
+
+                        // Hacer visible la columna Fecha
+                        if (dataGridViewDia.Columns.Contains("Fecha"))
+                            dataGridViewDia.Columns["Fecha"].Visible = true;
 
                         if (dataGridViewDia.Columns.Contains("DiaSemana"))
                         {
@@ -115,7 +124,38 @@ namespace GenteFitApp.Vista._06Horarios
                     tabPage.Controls.Add(dataGridViewDia);
                 }
             }
+
+            ActualizarPlazasDisponibles();
+
+            DayOfWeek diaActual = DateTime.Now.DayOfWeek;
+            switch (diaActual)
+            {
+                case DayOfWeek.Monday:
+                    this.tabControlHorarios.SelectedTab = tabPageLunes;
+                    break;
+                case DayOfWeek.Tuesday:
+                    this.tabControlHorarios.SelectedTab = tabPageMartes;
+                    break;
+                case DayOfWeek.Wednesday:
+                    this.tabControlHorarios.SelectedTab = tabPageMiercoles;
+                    break;
+                case DayOfWeek.Thursday:
+                    this.tabControlHorarios.SelectedTab = tabPageJueves;
+                    break;
+                case DayOfWeek.Friday:
+                    this.tabControlHorarios.SelectedTab = tabPageViernes;
+                    break;
+                case DayOfWeek.Saturday:
+                    this.tabControlHorarios.SelectedTab = tabPageSabado;
+                    break;
+                case DayOfWeek.Sunday:
+                    this.tabControlHorarios.SelectedTab = tabPageDomingo;
+                    break;
+                default:
+                    break;
+            }
         }
+
 
         private void dataGridViewDia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -132,13 +172,12 @@ namespace GenteFitApp.Vista._06Horarios
                 string diaSemana = filaSeleccionada.Cells["DiaSemana"].Value.ToString();
                 string monitor = filaSeleccionada.Cells["Monitor"].Value.ToString();
                 int plazasDisponibles = Convert.ToInt32(filaSeleccionada.Cells["Plazas"].Value);
+                string fechaDeLaActividad = filaSeleccionada.Cells["Fecha"].Value.ToString();
 
                 if (idHorario != -1 && plazasDisponibles > 0)
                 {
-                    // Aquí debería abrir el formulario de reserva
                     string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fecha, monitor, plazasDisponibles);
-                    formReserva.ShowDialog();
+                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles); formReserva.ShowDialog();
                     ActualizarPlazasDisponibles();
                 }
                 else
@@ -151,16 +190,18 @@ namespace GenteFitApp.Vista._06Horarios
 
         public void ActualizarPlazasDisponibles()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
+            string connectionString = DatabaseConfig.ConnectionString;
 
             string query = @"
-                            SELECT h.PlazasDisponibles
-                            FROM Horario h
-                            WHERE h.idHorario = @idHorario";
+                    SELECT h.PlazasDisponibles
+                    FROM Horario h
+                    WHERE h.idHorario = @idHorario";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+
+                // Aseguramos que se actualicen todas las filas de todos los días
                 foreach (TabPage tabPage in tabControlHorarios.TabPages)
                 {
                     foreach (Control control in tabPage.Controls)
@@ -186,6 +227,7 @@ namespace GenteFitApp.Vista._06Horarios
                 }
             }
         }
+
 
 
     }

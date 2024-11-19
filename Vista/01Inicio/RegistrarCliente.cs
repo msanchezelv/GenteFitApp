@@ -1,4 +1,4 @@
-﻿using GenteFitApp.controlador;
+﻿using GenteFitApp.Controlador;
 using System;
 using System.Windows.Forms;
 
