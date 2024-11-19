@@ -185,6 +185,7 @@ namespace GenteFitApp.Vista._06Horarios
                     MessageBox.Show("No hay plazas disponibles para esta actividad o el horario no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
 

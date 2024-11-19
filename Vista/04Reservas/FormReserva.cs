@@ -32,6 +32,7 @@ namespace GenteFitApp.Vista._04Reservas
         {
             DateTime fechaActividad = DateTime.Parse(labelFecha.Text.Substring(7));
             string[] horas = labelHora.Text.Substring(7).Split(new string[] { "-" }, StringSplitOptions.None);
+
             if (horas.Length == 2)
             {
                 DateTime horaInicio = DateTime.Parse(horas[0]);
@@ -39,17 +40,6 @@ namespace GenteFitApp.Vista._04Reservas
 
                 DateTime actividadInicio = fechaActividad.Date.Add(horaInicio.TimeOfDay);
                 DateTime actividadFin = fechaActividad.Date.Add(horaFin.TimeOfDay);
-                if (actividadFin < DateTime.Now)
-                {
-                    MessageBox.Show("No se puede realizar la reserva porque la actividad ya ha terminado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (DateTime.Now > actividadInicio || DateTime.Now > actividadFin)
-                {
-                    MessageBox.Show("No se puede realizar la reserva porque la actividad ya ha comenzado o ha terminado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -75,6 +65,7 @@ namespace GenteFitApp.Vista._04Reservas
                                 }
                             }
 
+                            // Ejecutar la stored procedure para hacer la reserva
                             string storedProcedure = "dbo.ReservarClase";
                             using (SqlCommand command = new SqlCommand(storedProcedure, connection, transaction))
                             {
@@ -82,12 +73,28 @@ namespace GenteFitApp.Vista._04Reservas
                                 command.Parameters.AddWithValue("@idCliente", this.idCliente);
                                 command.Parameters.AddWithValue("@idHorario", this.idHorario);
 
+                                // Utilizamos un parámetro de salida para obtener el mensaje de la stored procedure
+                                SqlParameter outputMessage = new SqlParameter("@OutputMessage", SqlDbType.NVarChar, 100);
+                                outputMessage.Direction = ParameterDirection.Output;
+                                command.Parameters.Add(outputMessage);
+
                                 command.ExecuteNonQuery();
 
-                                transaction.Commit();
+                                // Obtener el mensaje de salida
+                                string message = outputMessage.Value.ToString();
 
-                                MessageBox.Show("Reserva realizada con éxito.");
-                                this.Close();
+                                // Mostrar el mensaje correspondiente
+                                if (message == "Reserva realizada con éxito.")
+                                {
+                                    MessageBox.Show(message);
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+
+                                transaction.Commit();
                             }
                         }
                         catch (Exception ex)
@@ -97,16 +104,13 @@ namespace GenteFitApp.Vista._04Reservas
                         }
                     }
                 }
-
             }
             else
             {
                 MessageBox.Show("El formato de la hora no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
         }
+
 
     }
 
