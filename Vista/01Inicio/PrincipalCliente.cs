@@ -40,8 +40,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_AbrirReservas_Click(object sender, EventArgs e)
         {
-            VerReservas verReservas = new VerReservas();
-            verReservas.ShowDialog();
+            MisReservas misReservas = new MisReservas();
+            misReservas.ShowDialog();
         }
 
         private void Boton_AbrirPerfil_Click(object sender, EventArgs e)
