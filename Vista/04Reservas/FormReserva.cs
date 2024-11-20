@@ -68,6 +68,7 @@ namespace GenteFitApp.Vista._04Reservas
                                     {
                                         MessageBox.Show("Reserva eliminada con éxito.");
                                         this.Close();
+                                                                               
                                     }
                                     else
                                     {

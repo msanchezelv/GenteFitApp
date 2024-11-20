@@ -26,8 +26,8 @@ namespace GenteFitApp.Vista._04Reservas
             List<ReservaDTO> reservas = ReservaDTO.ObtenerReservasPorCliente(idCliente);
 
             reservas = reservas.Where(r =>
-                                DateTime.Parse(r.FechaCompleta) > DateTime.Now ||  // Si la fecha completa es posterior a la fecha y hora actuales
-                                (DateTime.Parse(r.FechaCompleta) == DateTime.Now.Date && TimeSpan.Parse(r.Hora) >= DateTime.Now.TimeOfDay)  // O si la fecha es hoy, pero la hora es mayor o igual a la hora actual
+                                DateTime.Parse(r.FechaCompleta) > DateTime.Now ||
+                                (DateTime.Parse(r.FechaCompleta) == DateTime.Now.Date && TimeSpan.Parse(r.Hora) >= DateTime.Now.TimeOfDay)
                                 ).ToList();
 
             BindingList<ReservaDTO> bindingReservas = new BindingList<ReservaDTO>(reservas);
@@ -104,6 +104,8 @@ namespace GenteFitApp.Vista._04Reservas
                                 {
                                     FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, horaFormateada, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, true);
                                     formReserva.ShowDialog();
+                                    ActualizarDataGridView();
+                                    
                                 }
 
                                 else
@@ -120,6 +122,48 @@ namespace GenteFitApp.Vista._04Reservas
                 }
             }
         }
+
+        public void ActualizarDataGridView()
+        {
+            int idCliente = ControladorInicioSesion.IdClienteActual;
+            List<ReservaDTO> reservas = ReservaDTO.ObtenerReservasPorCliente(idCliente);
+
+            reservas = reservas.Where(r =>
+                                    DateTime.Parse(r.FechaCompleta) > DateTime.Now ||
+                                    (DateTime.Parse(r.FechaCompleta) == DateTime.Now.Date && TimeSpan.Parse(r.Hora) >= DateTime.Now.TimeOfDay)
+                                    ).ToList();
+
+            BindingList<ReservaDTO> bindingReservas = new BindingList<ReservaDTO>(reservas);
+            dataGridViewReservas.DataSource = bindingReservas;
+
+            bindingReservas = new BindingList<ReservaDTO>(
+                                        reservas.OrderBy(r => DateTime.Parse(r.FechaCompleta))
+                                                .ThenBy(r => TimeSpan.Parse(r.Hora))
+                                                .ToList()
+            );
+
+            if (dataGridViewReservas.Columns.Contains("idReserva"))
+            {
+                dataGridViewReservas.Columns["idReserva"].Visible = false;
+            }
+
+            if (dataGridViewReservas.Columns.Contains("Cliente"))
+            {
+                dataGridViewReservas.Columns["Cliente"].Visible = false;
+            }
+
+            if (dataGridViewReservas.Columns.Contains("FechaReserva"))
+                dataGridViewReservas.Columns["FechaReserva"].HeaderText = "Fecha de la reserva";
+            if (dataGridViewReservas.Columns.Contains("FechaCompleta"))
+                dataGridViewReservas.Columns["FechaCompleta"].HeaderText = "Fecha";
+
+            dataGridViewReservas.AllowUserToAddRows = false;
+            dataGridViewReservas.AllowUserToDeleteRows = false;
+            dataGridViewReservas.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewReservas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewReservas.EditMode = DataGridViewEditMode.EditProgrammatically;
+        }
+
 
     }
 }
