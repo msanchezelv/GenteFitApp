@@ -30,14 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHorarios));
-            this.horarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.genteFitDataSet = new GenteFitApp.GenteFitDataSet();
-            this.horarioTableAdapter = new GenteFitApp.GenteFitDataSetTableAdapters.HorarioTableAdapter();
-            this.horarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.horarioBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.horarioBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.genteFitDataSet1 = new GenteFitApp.GenteFitDataSet1();
-            this.genteFitDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.horarioTableAdapter1 = new GenteFitApp.GenteFitDataSet1TableAdapters.HorarioTableAdapter();
             this.horarioBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewHorarios = new System.Windows.Forms.DataGridView();
@@ -56,42 +50,13 @@
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarios)).BeginInit();
             this.tabControlHorarios.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // horarioBindingSource
-            // 
-            this.horarioBindingSource.DataMember = "Horario";
-            this.horarioBindingSource.DataSource = this.genteFitDataSet;
-            // 
-            // genteFitDataSet
-            // 
-            this.genteFitDataSet.DataSetName = "GenteFitDataSet";
-            this.genteFitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // horarioTableAdapter
-            // 
-            this.horarioTableAdapter.ClearBeforeFill = true;
-            // 
-            // horarioBindingSource1
-            // 
-            this.horarioBindingSource1.DataMember = "Horario";
-            this.horarioBindingSource1.DataSource = this.genteFitDataSet;
-            // 
-            // horarioBindingSource2
-            // 
-            this.horarioBindingSource2.DataMember = "Horario";
-            this.horarioBindingSource2.DataSource = this.genteFitDataSet;
             // 
             // horarioBindingSource3
             // 
@@ -102,11 +67,6 @@
             // 
             this.genteFitDataSet1.DataSetName = "GenteFitDataSet1";
             this.genteFitDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // genteFitDataSetBindingSource
-            // 
-            this.genteFitDataSetBindingSource.DataSource = this.genteFitDataSet;
-            this.genteFitDataSetBindingSource.Position = 0;
             // 
             // horarioTableAdapter1
             // 
@@ -228,14 +188,14 @@
             this.sobreNosotrosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(904, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(904, 30);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 26);
             this.perfilToolStripMenuItem.Text = "Perfil";
             // 
             // reservasToolStripMenuItem
@@ -244,7 +204,7 @@
             this.consultarReservasToolStripMenuItem,
             this.consultarListaDeEsperaToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.reservasToolStripMenuItem.Text = "Reservas";
             // 
             // consultarReservasToolStripMenuItem
@@ -262,13 +222,13 @@
             // comprasToolStripMenuItem
             // 
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 26);
             this.comprasToolStripMenuItem.Text = "Compras";
             // 
             // sobreNosotrosToolStripMenuItem
             // 
             this.sobreNosotrosToolStripMenuItem.Name = "sobreNosotrosToolStripMenuItem";
-            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(123, 26);
             this.sobreNosotrosToolStripMenuItem.Text = "Sobre nosotros";
             // 
             // FormHorarios
@@ -284,13 +244,8 @@
             this.Name = "FormHorarios";
             this.Text = "Horarios";
             this.Load += new System.EventHandler(this.FormHorarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarios)).EndInit();
             this.tabControlHorarios.ResumeLayout(false);
@@ -302,12 +257,6 @@
         }
 
         #endregion
-        private GenteFitDataSet genteFitDataSet;
-        private System.Windows.Forms.BindingSource horarioBindingSource;
-        private GenteFitDataSetTableAdapters.HorarioTableAdapter horarioTableAdapter;
-        private System.Windows.Forms.BindingSource horarioBindingSource1;
-        private System.Windows.Forms.BindingSource horarioBindingSource2;
-        private System.Windows.Forms.BindingSource genteFitDataSetBindingSource;
         private GenteFitDataSet1 genteFitDataSet1;
         private System.Windows.Forms.BindingSource horarioBindingSource3;
         private GenteFitDataSet1TableAdapters.HorarioTableAdapter horarioTableAdapter1;

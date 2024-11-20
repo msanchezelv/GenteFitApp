@@ -13,7 +13,7 @@ namespace GenteFitApp.Vista._04Reservas
     {
         private int idCliente;
         private int idHorario;
-        string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
+        string connectionString = DatabaseConfig.ConnectionString;
 
         public FormReserva(int idCliente, int idHorario, string nombreActividad, string hora, string diaSemana, string fecha, string monitor, int plazasDisponibles)
         {

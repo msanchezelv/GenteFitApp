@@ -27,8 +27,9 @@ namespace GenteFitApp.Vista
                     return;
                 }
 
-                Application.Exit(); // Cierra la aplicación correctamente
                 Environment.Exit(0); // Forzar la salida del proceso y todos los subprocesos
+                Application.Exit(); // Cierra la aplicación correctamente
+                
             }
         }
     }
