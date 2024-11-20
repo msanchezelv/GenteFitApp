@@ -44,9 +44,7 @@
             this.dataGridViewReservas.RowTemplate.Height = 24;
             this.dataGridViewReservas.Size = new System.Drawing.Size(848, 452);
             this.dataGridViewReservas.TabIndex = 0;
-            this.Load += new System.EventHandler(this.FormMisReservas_Load);
-
-            
+            this.dataGridViewReservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReservas_CellContentClick);
             // 
             // MisReservas
             // 
@@ -56,8 +54,9 @@
             this.ClientSize = new System.Drawing.Size(846, 450);
             this.Controls.Add(this.dataGridViewReservas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormMisReservas";
+            this.Name = "MisReservas";
             this.Text = "Mis Reservas";
+            this.Load += new System.EventHandler(this.FormMisReservas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReservas)).EndInit();
             this.ResumeLayout(false);
 
