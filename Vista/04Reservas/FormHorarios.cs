@@ -177,7 +177,7 @@ namespace GenteFitApp.Vista._06Horarios
                 if (idHorario != -1 && plazasDisponibles > 0)
                 {
                     string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles); formReserva.ShowDialog();
+                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, false); formReserva.ShowDialog();
                     ActualizarPlazasDisponibles();
                 }
                 else

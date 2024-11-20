@@ -8,6 +8,7 @@ using GenteFit.Controlador;
 using GenteFit.Controlador.XML;
 using GenteFitApp.Modelo;
 using System.IO;
+using GenteFitApp.Controlador;
 
 namespace GenteFitApp
 {
@@ -25,7 +26,7 @@ namespace GenteFitApp
             var streamWriter = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true };
             Console.SetOut(streamWriter);
 
-            string dbConnectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+            string dbConnectionString = DatabaseConfig.ConnectionString;
             XMLManager xmlManager = new XMLManager(dbConnectionString);
 
             List<Usuario> usuarios = xmlManager.GetUsuariosFromDatabase();

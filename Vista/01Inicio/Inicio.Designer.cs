@@ -50,7 +50,6 @@
             this.titulopagina.TabIndex = 0;
             this.titulopagina.Text = "Benvenid@ a GenteFit";
             this.titulopagina.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            
             // 
             // label_IdUsuario
             // 
@@ -65,27 +64,27 @@
             // 
             // Box_UserId
             // 
-            this.Box_UserId.Font = new System.Drawing.Font("Futura Lt BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Box_UserId.Font = new System.Drawing.Font("Futura Lt BT", 12F);
             this.Box_UserId.Location = new System.Drawing.Point(133, 347);
             this.Box_UserId.Margin = new System.Windows.Forms.Padding(4);
             this.Box_UserId.Name = "Box_UserId";
-            this.Box_UserId.Size = new System.Drawing.Size(857, 24);
+            this.Box_UserId.Size = new System.Drawing.Size(857, 31);
             this.Box_UserId.TabIndex = 4;
             // 
             // BoxPassword
             // 
-            this.BoxPassword.Font = new System.Drawing.Font("Futura Lt BT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BoxPassword.Location = new System.Drawing.Point(133, 431);
+            this.BoxPassword.Font = new System.Drawing.Font("Futura Lt BT", 12F);
+            this.BoxPassword.Location = new System.Drawing.Point(131, 430);
             this.BoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.BoxPassword.Name = "BoxPassword";
-            this.BoxPassword.Size = new System.Drawing.Size(857, 24);
+            this.BoxPassword.Size = new System.Drawing.Size(857, 31);
             this.BoxPassword.TabIndex = 6;
             // 
             // Label_contraseña
             // 
             this.Label_contraseña.AutoSize = true;
             this.Label_contraseña.Font = new System.Drawing.Font("Futura Lt BT", 14F);
-            this.Label_contraseña.Location = new System.Drawing.Point(128, 400);
+            this.Label_contraseña.Location = new System.Drawing.Point(126, 399);
             this.Label_contraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_contraseña.Name = "Label_contraseña";
             this.Label_contraseña.Size = new System.Drawing.Size(130, 29);
@@ -95,7 +94,7 @@
             // Boton_Entrar
             // 
             this.Boton_Entrar.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Entrar.Location = new System.Drawing.Point(757, 489);
+            this.Boton_Entrar.Location = new System.Drawing.Point(755, 495);
             this.Boton_Entrar.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_Entrar.Name = "Boton_Entrar";
             this.Boton_Entrar.Size = new System.Drawing.Size(235, 39);
@@ -107,7 +106,7 @@
             // linkContraseñaOlvidada
             // 
             this.linkContraseñaOlvidada.AutoSize = true;
-            this.linkContraseñaOlvidada.Location = new System.Drawing.Point(129, 459);
+            this.linkContraseñaOlvidada.Location = new System.Drawing.Point(127, 465);
             this.linkContraseñaOlvidada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkContraseñaOlvidada.Name = "linkContraseñaOlvidada";
             this.linkContraseñaOlvidada.Size = new System.Drawing.Size(186, 16);

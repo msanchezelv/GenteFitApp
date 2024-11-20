@@ -219,11 +219,11 @@
     <Compile Include="Vista\04Reservas\FormReserva.Designer.cs">
       <DependentUpon>FormReserva.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vista\04Reservas\MisReservas.cs">
+    <Compile Include="Vista\04Reservas\VerReservas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vista\04Reservas\MisReservas.Designer.cs">
-      <DependentUpon>MisReservas.cs</DependentUpon>
+    <Compile Include="Vista\04Reservas\VerReservas.Designer.cs">
+      <DependentUpon>VerReservas.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\05ListaEspera\ListaEspera.cs">
       <SubType>Form</SubType>
@@ -287,8 +287,8 @@
     <EmbeddedResource Include="Vista\04Reservas\FormReserva.resx">
       <DependentUpon>FormReserva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vista\04Reservas\MisReservas.resx">
-      <DependentUpon>MisReservas.cs</DependentUpon>
+    <EmbeddedResource Include="Vista\04Reservas\VerReservas.resx">
+      <DependentUpon>VerReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\05ListaEspera\ListaEspera.resx">
       <DependentUpon>ListaEspera.cs</DependentUpon>

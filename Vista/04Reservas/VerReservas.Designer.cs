@@ -1,6 +1,6 @@
 ﻿namespace GenteFitApp.Vista._04Reservas
 {
-    partial class MisReservas
+    partial class VerReservas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MisReservas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerReservas));
             this.dataGridViewReservas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReservas)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +46,7 @@
             this.dataGridViewReservas.TabIndex = 0;
             this.dataGridViewReservas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReservas_CellContentClick);
             // 
-            // MisReservas
+            // VerReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -54,8 +54,8 @@
             this.ClientSize = new System.Drawing.Size(846, 450);
             this.Controls.Add(this.dataGridViewReservas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MisReservas";
-            this.Text = "Mis Reservas";
+            this.Name = "VerReservas";
+            this.Text = "Ver Reservas";
             this.Load += new System.EventHandler(this.FormMisReservas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReservas)).EndInit();
             this.ResumeLayout(false);

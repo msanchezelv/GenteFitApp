@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace GenteFitApp.Vista._04Reservas
 {
-    public partial class MisReservas : Form
+    public partial class VerReservas : Form
     {
-        public MisReservas()
+        public VerReservas()
         {
             InitializeComponent();
         }
@@ -25,8 +25,21 @@ namespace GenteFitApp.Vista._04Reservas
             int idCliente = ControladorInicioSesion.IdClienteActual;
             List<ReservaDTO> reservas = ReservaDTO.ObtenerReservasPorCliente(idCliente);
 
+            reservas = reservas.Where(r =>
+                                DateTime.Parse(r.FechaCompleta) > DateTime.Now ||  // Si la fecha completa es posterior a la fecha y hora actuales
+                                (DateTime.Parse(r.FechaCompleta) == DateTime.Now.Date && TimeSpan.Parse(r.Hora) >= DateTime.Now.TimeOfDay)  // O si la fecha es hoy, pero la hora es mayor o igual a la hora actual
+                                ).ToList();
+
             BindingList<ReservaDTO> bindingReservas = new BindingList<ReservaDTO>(reservas);
             dataGridViewReservas.DataSource = bindingReservas;
+
+            bindingReservas = new BindingList<ReservaDTO>(
+                                    reservas.OrderBy(r => DateTime.Parse(r.FechaCompleta))  // Ordenar por fecha completa
+                                            .ThenBy(r => TimeSpan.Parse(r.Hora))  // Ordenar por hora
+                                            .ToList()
+            );
+
+
 
             if (dataGridViewReservas.Columns.Contains("idReserva"))
             {
@@ -37,6 +50,11 @@ namespace GenteFitApp.Vista._04Reservas
             {
                 dataGridViewReservas.Columns["Cliente"].Visible = false;
             }
+
+            if (dataGridViewReservas.Columns.Contains("FechaReserva"))
+                dataGridViewReservas.Columns["FechaReserva"].HeaderText = "Fecha de la reserva";
+            if (dataGridViewReservas.Columns.Contains("FechaCompleta"))
+                dataGridViewReservas.Columns["FechaCompleta"].HeaderText = "Fecha";
 
             dataGridViewReservas.AllowUserToAddRows = false;
             dataGridViewReservas.AllowUserToDeleteRows = false;
@@ -54,7 +72,6 @@ namespace GenteFitApp.Vista._04Reservas
 
                 int idReserva = Convert.ToInt32(filaSeleccionada.Cells["idReserva"].Value);
 
-                // Llamar al Stored Procedure para obtener los detalles de la reserva
                 using (var connection = new SqlConnection(DatabaseConfig.ConnectionString))
                 {
                     connection.Open();
@@ -71,12 +88,11 @@ namespace GenteFitApp.Vista._04Reservas
                                 int idHorario = reader.GetInt32(reader.GetOrdinal("idHorario"));
                                 string nombreActividad = reader.GetString(reader.GetOrdinal("ActividadNombre"));
 
-                                // Obtener horaInicio como TimeSpan (solo si no es NULL o 00:00)
+
                                 TimeSpan horaInicio = reader.IsDBNull(reader.GetOrdinal("horaInicio"))
                                     ? TimeSpan.Zero // Si es NULL, asigna "Hora no disponible"
                                     : reader.GetTimeSpan(reader.GetOrdinal("horaInicio"));
 
-                                // Si horaInicio es 00:00, lo consideramos como "hora no disponible"
                                 string horaFormateada = horaInicio == TimeSpan.Zero ? "Hora no disponible" : horaInicio.ToString(@"hh\:mm");
 
                                 string diaSemana = reader.GetString(reader.GetOrdinal("diaSemana"));
@@ -84,13 +100,12 @@ namespace GenteFitApp.Vista._04Reservas
                                 int plazasDisponibles = reader.GetInt32(reader.GetOrdinal("plazasDisponibles"));
                                 string fechaDeLaActividad = reader.GetDateTime(reader.GetOrdinal("fecha")).ToString("dd/MM/yyyy");
 
-                                // Comprobar si hay plazas disponibles y mostrar el FormReserva
                                 if (plazasDisponibles > 0)
                                 {
-                                    // Si horaInicio es TimeSpan.Zero, significa que no hay hora válida
-                                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, horaFormateada, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles);
+                                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, horaFormateada, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, true);
                                     formReserva.ShowDialog();
                                 }
+
                                 else
                                 {
                                     MessageBox.Show("No hay plazas disponibles para esta actividad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
