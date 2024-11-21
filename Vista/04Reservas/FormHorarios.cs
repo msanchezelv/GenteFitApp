@@ -174,18 +174,84 @@ namespace GenteFitApp.Vista._06Horarios
                 int plazasDisponibles = Convert.ToInt32(filaSeleccionada.Cells["Plazas"].Value);
                 string fechaDeLaActividad = filaSeleccionada.Cells["Fecha"].Value.ToString();
 
-                if (idHorario != -1 && plazasDisponibles > 0)
+                if (idHorario != -1)
                 {
-                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, false); formReserva.ShowDialog();
-                    ActualizarPlazasDisponibles();
+                    // Si hay plazas disponibles, se hace la reserva
+                    if (plazasDisponibles > 0)
+                    {
+                        string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+                        FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, false);
+                        formReserva.ShowDialog();
+
+                        // Actualizamos las plazas disponibles después de realizar la reserva
+                        ActualizarPlazasDisponibles();
+                    }
+                    else
+                    {
+                        // Si no hay plazas disponibles, se agrega al cliente a la lista de espera automáticamente
+                        AgregarAListaEspera(idCliente, idHorario);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No hay plazas disponibles para esta actividad o el horario no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El horario no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void AgregarAListaEspera(int idCliente, int idHorario)
+        {
+            // Primero, calculamos la nueva posición en la lista de espera
+            int nuevaPosicion = ObtenerPosicionListaEspera(idHorario);
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfig.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Insertamos el cliente en la lista de espera
+                        string insertQuery = "INSERT INTO ListaEspera (idHorario, idCliente, posicion) VALUES (@idHorario, @idCliente, @posicion)";
+                        using (SqlCommand insertCmd = new SqlCommand(insertQuery, connection, transaction))
+                        {
+                            insertCmd.Parameters.AddWithValue("@idHorario", idHorario);
+                            insertCmd.Parameters.AddWithValue("@idCliente", idCliente);
+                            insertCmd.Parameters.AddWithValue("@posicion", nuevaPosicion);
+
+                            insertCmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        MessageBox.Show("No hay plazas disponibles. Has sido añadido a la lista de espera.");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Ocurrió un error al agregar a la lista de espera: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private int ObtenerPosicionListaEspera(int idHorario)
+        {
+            int posicion = 1;
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfig.ConnectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT COUNT(*) FROM ListaEspera WHERE idHorario = @idHorario";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@idHorario", idHorario);
+                    posicion = (int)cmd.ExecuteScalar() + 1; // La nueva posición es el número total de clientes en la lista + 1
                 }
             }
 
+            return posicion;
         }
 
 
