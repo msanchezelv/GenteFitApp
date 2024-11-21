@@ -50,5 +50,16 @@ namespace GenteFitApp.Vista
             perfilCliente.ShowDialog();
             // this.Close();
         }
+
+        private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verMisReservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerReservas misReservas = new VerReservas();
+            misReservas.ShowDialog();
+        }
     }
 }

@@ -49,17 +49,18 @@ namespace GenteFitApp.Vista
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Location = new System.Drawing.Point(128, 425);
-            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxNombre.Location = new System.Drawing.Point(96, 424);
+            this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(857, 22);
+            this.textBoxNombre.Size = new System.Drawing.Size(857, 26);
             this.textBoxNombre.TabIndex = 2;
             // 
             // Label_nombre
             // 
             this.Label_nombre.AutoSize = true;
             this.Label_nombre.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.Label_nombre.Location = new System.Drawing.Point(124, 405);
+            this.Label_nombre.Location = new System.Drawing.Point(93, 404);
             this.Label_nombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label_nombre.Name = "Label_nombre";
             this.Label_nombre.Size = new System.Drawing.Size(66, 20);
@@ -68,17 +69,18 @@ namespace GenteFitApp.Vista
             // 
             // textBoxUserId
             // 
-            this.textBoxUserId.Location = new System.Drawing.Point(128, 361);
-            this.textBoxUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxUserId.Location = new System.Drawing.Point(96, 360);
+            this.textBoxUserId.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUserId.Name = "textBoxUserId";
-            this.textBoxUserId.Size = new System.Drawing.Size(857, 22);
+            this.textBoxUserId.Size = new System.Drawing.Size(857, 26);
             this.textBoxUserId.TabIndex = 1;
             // 
             // label_IdUsuario
             // 
             this.label_IdUsuario.AutoSize = true;
             this.label_IdUsuario.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.label_IdUsuario.Location = new System.Drawing.Point(124, 341);
+            this.label_IdUsuario.Location = new System.Drawing.Point(93, 340);
             this.label_IdUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_IdUsuario.Name = "label_IdUsuario";
             this.label_IdUsuario.Size = new System.Drawing.Size(63, 20);
@@ -88,8 +90,8 @@ namespace GenteFitApp.Vista
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GenteFitApp.Properties.Resources.Logo_GenteFit_Negro;
-            this.pictureBox1.Location = new System.Drawing.Point(457, 127);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(425, 126);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(181, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,7 +102,7 @@ namespace GenteFitApp.Vista
             // 
             this.titulopagina.AutoSize = true;
             this.titulopagina.Font = new System.Drawing.Font("Futura Lt BT", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titulopagina.Location = new System.Drawing.Point(316, 68);
+            this.titulopagina.Location = new System.Drawing.Point(284, 67);
             this.titulopagina.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titulopagina.Name = "titulopagina";
             this.titulopagina.Size = new System.Drawing.Size(467, 56);
@@ -110,17 +112,18 @@ namespace GenteFitApp.Vista
             // 
             // textBoxcontraseña
             // 
-            this.textBoxcontraseña.Location = new System.Drawing.Point(127, 619);
-            this.textBoxcontraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxcontraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxcontraseña.Location = new System.Drawing.Point(95, 618);
+            this.textBoxcontraseña.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxcontraseña.Name = "textBoxcontraseña";
-            this.textBoxcontraseña.Size = new System.Drawing.Size(857, 22);
+            this.textBoxcontraseña.Size = new System.Drawing.Size(857, 26);
             this.textBoxcontraseña.TabIndex = 5;
             // 
             // labelcontraseña
             // 
             this.labelcontraseña.AutoSize = true;
             this.labelcontraseña.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.labelcontraseña.Location = new System.Drawing.Point(124, 599);
+            this.labelcontraseña.Location = new System.Drawing.Point(93, 598);
             this.labelcontraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelcontraseña.Name = "labelcontraseña";
             this.labelcontraseña.Size = new System.Drawing.Size(89, 20);
@@ -129,17 +132,18 @@ namespace GenteFitApp.Vista
             // 
             // textBoxApellidos
             // 
-            this.textBoxApellidos.Location = new System.Drawing.Point(128, 489);
-            this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxApellidos.Location = new System.Drawing.Point(96, 488);
+            this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidos.Name = "textBoxApellidos";
-            this.textBoxApellidos.Size = new System.Drawing.Size(857, 22);
+            this.textBoxApellidos.Size = new System.Drawing.Size(857, 26);
             this.textBoxApellidos.TabIndex = 3;
             // 
             // label_apellidos
             // 
             this.label_apellidos.AutoSize = true;
             this.label_apellidos.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.label_apellidos.Location = new System.Drawing.Point(124, 469);
+            this.label_apellidos.Location = new System.Drawing.Point(94, 468);
             this.label_apellidos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_apellidos.Name = "label_apellidos";
             this.label_apellidos.Size = new System.Drawing.Size(72, 20);
@@ -149,17 +153,18 @@ namespace GenteFitApp.Vista
             // 
             // textBoxemail
             // 
-            this.textBoxemail.Location = new System.Drawing.Point(128, 554);
-            this.textBoxemail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxemail.Location = new System.Drawing.Point(96, 553);
+            this.textBoxemail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxemail.Name = "textBoxemail";
-            this.textBoxemail.Size = new System.Drawing.Size(857, 22);
+            this.textBoxemail.Size = new System.Drawing.Size(857, 26);
             this.textBoxemail.TabIndex = 4;
             // 
             // labelemail
             // 
             this.labelemail.AutoSize = true;
             this.labelemail.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.labelemail.Location = new System.Drawing.Point(124, 534);
+            this.labelemail.Location = new System.Drawing.Point(93, 533);
             this.labelemail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelemail.Name = "labelemail";
             this.labelemail.Size = new System.Drawing.Size(54, 20);
@@ -170,8 +175,8 @@ namespace GenteFitApp.Vista
             // Boton_nuevoEmpleado
             // 
             this.Boton_nuevoEmpleado.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_nuevoEmpleado.Location = new System.Drawing.Point(749, 693);
-            this.Boton_nuevoEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Boton_nuevoEmpleado.Location = new System.Drawing.Point(717, 692);
+            this.Boton_nuevoEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.Boton_nuevoEmpleado.Name = "Boton_nuevoEmpleado";
             this.Boton_nuevoEmpleado.Size = new System.Drawing.Size(235, 33);
             this.Boton_nuevoEmpleado.TabIndex = 7;
@@ -199,7 +204,7 @@ namespace GenteFitApp.Vista
             this.Controls.Add(this.textBoxUserId);
             this.Controls.Add(this.label_IdUsuario);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Registrar";
             this.Text = "Registrar";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

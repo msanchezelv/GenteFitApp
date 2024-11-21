@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenteFit.Controlador;
+using GenteFitApp.Vista._02Clientes;
 
 namespace GenteFitApp.Vista._06Horarios
 {
@@ -295,8 +296,24 @@ namespace GenteFitApp.Vista._06Horarios
             }
         }
 
+        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PerfilCliente perfilCliente = new PerfilCliente();
+            perfilCliente.ShowDialog();
+            this.Close();
+        }
 
+        private void consultarReservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerReservas misReservas = new VerReservas();
+            misReservas.ShowDialog();
+            this.Close();
+        }
 
+        private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

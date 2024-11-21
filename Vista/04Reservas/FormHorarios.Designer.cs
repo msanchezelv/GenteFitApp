@@ -48,8 +48,6 @@
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource4)).BeginInit();
@@ -183,20 +181,19 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.perfilToolStripMenuItem,
-            this.reservasToolStripMenuItem,
-            this.comprasToolStripMenuItem,
-            this.sobreNosotrosToolStripMenuItem});
+            this.reservasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(904, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(904, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 26);
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
+            this.perfilToolStripMenuItem.Click += new System.EventHandler(this.perfilToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
@@ -204,7 +201,7 @@
             this.consultarReservasToolStripMenuItem,
             this.consultarListaDeEsperaToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.reservasToolStripMenuItem.Text = "Reservas";
             // 
             // consultarReservasToolStripMenuItem
@@ -212,24 +209,14 @@
             this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
             this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
+            this.consultarReservasToolStripMenuItem.Click += new System.EventHandler(this.consultarReservasToolStripMenuItem_Click);
             // 
             // consultarListaDeEsperaToolStripMenuItem
             // 
             this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
             this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
-            // 
-            // comprasToolStripMenuItem
-            // 
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 26);
-            this.comprasToolStripMenuItem.Text = "Compras";
-            // 
-            // sobreNosotrosToolStripMenuItem
-            // 
-            this.sobreNosotrosToolStripMenuItem.Name = "sobreNosotrosToolStripMenuItem";
-            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(123, 26);
-            this.sobreNosotrosToolStripMenuItem.Text = "Sobre nosotros";
+            this.consultarListaDeEsperaToolStripMenuItem.Click += new System.EventHandler(this.consultarListaDeEsperaToolStripMenuItem_Click);
             // 
             // FormHorarios
             // 
@@ -279,7 +266,5 @@
         private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarReservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarListaDeEsperaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreNosotrosToolStripMenuItem;
     }
 }

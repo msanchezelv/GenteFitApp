@@ -100,18 +100,9 @@ namespace GenteFitApp.Vista._04Reservas
                                 int plazasDisponibles = reader.GetInt32(reader.GetOrdinal("plazasDisponibles"));
                                 string fechaDeLaActividad = reader.GetDateTime(reader.GetOrdinal("fecha")).ToString("dd/MM/yyyy");
 
-                                if (plazasDisponibles > 0)
-                                {
-                                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, horaFormateada, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, true);
-                                    formReserva.ShowDialog();
-                                    ActualizarDataGridView();
-                                    
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("No hay plazas disponibles para esta actividad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, horaFormateada, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, true);
+                                formReserva.ShowDialog();
+                                ActualizarDataGridView();
                             }
                             else
                             {
