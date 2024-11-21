@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using GenteFitApp.Modelo;
-using GenteFitApp.Controlador;
 
 namespace GenteFitApp.Controlador
 {
@@ -12,20 +11,27 @@ namespace GenteFitApp.Controlador
         public static int IdUsuarioActual { get; private set; }
         public static int IdClienteActual { get; private set; }
 
+
         // Método para comprobar las credenciales
         public string ComprobarCredencialesPorEmail(string email, string contraseña)
         {
-            Usuario usuario = ObtenerUsuarioPorEmail(email, contraseña);
+            // Verifica si el email existe en la base de datos
+            if (!ExisteUsuarioPorEmail(email))
+            {
+                return "Usuario no encontrado. ¿Registrar nuevo usuario? S/N";
+            }
 
+            // Verifica si las credenciales son correctas
+            Usuario usuario = ObtenerUsuarioPorEmail(email, contraseña);
             if (usuario != null)
             {
                 IdUsuarioActual = usuario.idUsuario;
                 IdClienteActual = ObtenerIdClientePorIdUsuario(IdUsuarioActual);
                 return $"Inicio de sesión correcto. ¡Bienvenid@ {usuario.nombre}!";
             }
-
-            return "Usuario no encontrado o contraseña incorrecta.";
+            return "La contraseña es incorrecta. Por favor, inténtalo de nuevo.";
         }
+
 
         // Método para obtener un usuario basado en su email y contraseña
         public Usuario ObtenerUsuarioPorEmail(string email, string contraseña)
@@ -34,12 +40,22 @@ namespace GenteFitApp.Controlador
             return EjecutarConsultaUsuario(query, new SqlParameter("@Email", email), new SqlParameter("@Contraseña", contraseña));
         }
 
-        // Método para obtener un usuario por ID y contraseña
-        public Usuario ObtenerUsuario(int idUsuario, string contraseña)
+
+        // Método para verificar si el email existe
+        private bool ExisteUsuarioPorEmail(string email)
         {
-            string query = "SELECT idUsuario, nombre, apellidos, email, rol FROM Usuario WHERE idUsuario = @idUsuario AND contraseña = @Contraseña";
-            return EjecutarConsultaUsuario(query, new SqlParameter("@idUsuario", idUsuario), new SqlParameter("@Contraseña", contraseña));
+            string query = "SELECT 1 FROM Usuario WHERE email = @Email";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    connection.Open();
+                    return command.ExecuteScalar() != null;
+                }
+            }
         }
+
 
         // Método para recuperar contraseña basado en el email
         public Usuario ContraseñaOlvidada(string email)
@@ -48,12 +64,13 @@ namespace GenteFitApp.Controlador
             return EjecutarConsultaUsuario(query, new SqlParameter("@Email", email));
         }
 
+
         // Método para obtener el idCliente basado en el idUsuario
         public int ObtenerIdClientePorIdUsuario(int idUsuario)
         {
+            string query = "SELECT idCliente FROM Cliente WHERE idUsuario = @idUsuario";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT idCliente FROM Cliente WHERE idUsuario = @idUsuario";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@idUsuario", idUsuario);
@@ -71,6 +88,7 @@ namespace GenteFitApp.Controlador
 
             return -1; // Si no se encuentra, devuelve -1
         }
+
 
         // Método auxiliar para ejecutar consultas de usuario
         private Usuario EjecutarConsultaUsuario(string query, params SqlParameter[] parametros)

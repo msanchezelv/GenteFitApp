@@ -63,13 +63,16 @@ namespace GenteFitApp.Vista
                     this.Hide();
                 }
             }
-            else
+            else if (mensaje == "La contraseña es incorrecta. Por favor, inténtalo de nuevo.")
+            {
+                MessageBox.Show(mensaje, "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                BoxPassword.Focus();
+                BoxPassword.SelectAll();
+            }
+            else if (mensaje.StartsWith("Inicio de sesión correcto"))
             {
                 MessageBox.Show(mensaje);
-            }
 
-            if (mensaje.StartsWith("Inicio de sesión correcto"))
-            {
                 Usuario usuarioActual = controladorInicioSesion.ObtenerUsuarioPorEmail(email, password);
 
                 switch (usuarioActual.rol)
@@ -99,6 +102,10 @@ namespace GenteFitApp.Vista
                         MessageBox.Show($"Rol no reconocido: {usuarioActual.rol}");
                         break;
                 }
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
