@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Diagnostics;
+using System.Data.Entity;
+using GenteFitApp.Controlador;
 
 namespace GenteFitApp.Vista
 {
@@ -32,5 +35,7 @@ namespace GenteFitApp.Vista
                 
             }
         }
+
+        
     }
 }
