@@ -40,17 +40,18 @@
             // 
             // textBoxContraseñaActual
             // 
+            this.textBoxContraseñaActual.Font = new System.Drawing.Font("Futura Lt BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContraseñaActual.Location = new System.Drawing.Point(29, 62);
             this.textBoxContraseñaActual.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxContraseñaActual.Name = "textBoxContraseñaActual";
-            this.textBoxContraseñaActual.Size = new System.Drawing.Size(256, 22);
+            this.textBoxContraseñaActual.Size = new System.Drawing.Size(256, 28);
             this.textBoxContraseñaActual.TabIndex = 18;
             // 
             // labelContraseñaActual
             // 
             this.labelContraseñaActual.AutoSize = true;
             this.labelContraseñaActual.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.labelContraseñaActual.Location = new System.Drawing.Point(26, 42);
+            this.labelContraseñaActual.Location = new System.Drawing.Point(26, 40);
             this.labelContraseñaActual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelContraseñaActual.Name = "labelContraseñaActual";
             this.labelContraseñaActual.Size = new System.Drawing.Size(137, 20);
@@ -59,17 +60,18 @@
             // 
             // textBoxContraseñaNueva
             // 
+            this.textBoxContraseñaNueva.Font = new System.Drawing.Font("Futura Lt BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContraseñaNueva.Location = new System.Drawing.Point(29, 135);
             this.textBoxContraseñaNueva.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxContraseñaNueva.Name = "textBoxContraseñaNueva";
-            this.textBoxContraseñaNueva.Size = new System.Drawing.Size(256, 22);
+            this.textBoxContraseñaNueva.Size = new System.Drawing.Size(256, 28);
             this.textBoxContraseñaNueva.TabIndex = 20;
             // 
             // labelNuevaContraseña
             // 
             this.labelNuevaContraseña.AutoSize = true;
             this.labelNuevaContraseña.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.labelNuevaContraseña.Location = new System.Drawing.Point(26, 115);
+            this.labelNuevaContraseña.Location = new System.Drawing.Point(26, 113);
             this.labelNuevaContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNuevaContraseña.Name = "labelNuevaContraseña";
             this.labelNuevaContraseña.Size = new System.Drawing.Size(140, 20);
@@ -78,17 +80,18 @@
             // 
             // textBoxConfirmarContraseña
             // 
+            this.textBoxConfirmarContraseña.Font = new System.Drawing.Font("Futura Lt BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxConfirmarContraseña.Location = new System.Drawing.Point(29, 203);
             this.textBoxConfirmarContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxConfirmarContraseña.Name = "textBoxConfirmarContraseña";
-            this.textBoxConfirmarContraseña.Size = new System.Drawing.Size(256, 22);
+            this.textBoxConfirmarContraseña.Size = new System.Drawing.Size(256, 28);
             this.textBoxConfirmarContraseña.TabIndex = 22;
             // 
             // labelConfirmarContraseña
             // 
             this.labelConfirmarContraseña.AutoSize = true;
             this.labelConfirmarContraseña.Font = new System.Drawing.Font("Futura Lt BT", 10F);
-            this.labelConfirmarContraseña.Location = new System.Drawing.Point(26, 183);
+            this.labelConfirmarContraseña.Location = new System.Drawing.Point(26, 181);
             this.labelConfirmarContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelConfirmarContraseña.Name = "labelConfirmarContraseña";
             this.labelConfirmarContraseña.Size = new System.Drawing.Size(207, 20);
@@ -98,7 +101,7 @@
             // buttonActualizar
             // 
             this.buttonActualizar.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.buttonActualizar.Location = new System.Drawing.Point(29, 248);
+            this.buttonActualizar.Location = new System.Drawing.Point(30, 273);
             this.buttonActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonActualizar.Name = "buttonActualizar";
             this.buttonActualizar.Size = new System.Drawing.Size(256, 33);
@@ -112,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(360, 308);
+            this.ClientSize = new System.Drawing.Size(360, 345);
             this.Controls.Add(this.buttonActualizar);
             this.Controls.Add(this.textBoxConfirmarContraseña);
             this.Controls.Add(this.labelConfirmarContraseña);

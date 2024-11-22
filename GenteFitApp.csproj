@@ -124,6 +124,7 @@
     <Compile Include="Modelo\ListaEspera.cs">
       <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ListaEsperaDTO.cs" />
     <Compile Include="Modelo\Monitor.cs">
       <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>

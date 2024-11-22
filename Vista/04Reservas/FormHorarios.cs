@@ -312,7 +312,8 @@ namespace GenteFitApp.Vista._06Horarios
 
         private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ListaEspera listaEspera = new ListaEspera();
+            listaEspera.ShowDialog();
         }
     }
 
