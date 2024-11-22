@@ -170,43 +170,5 @@ namespace GenteFit.Controlador
             }
         }
 
-        // Método para verificar y resetear plazas en la tabla Horario
-        public void VerificarYResetearPlazas()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                // Obtener la fecha del último reseteo
-                string queryFechaUltimoReseteo = "SELECT TOP 1 FechaUltimoReseteo FROM Configuracion";
-                DateTime fechaUltimoReseteo;
-
-                using (SqlCommand command = new SqlCommand(queryFechaUltimoReseteo, connection))
-                {
-                    var resultado = command.ExecuteScalar();
-                    fechaUltimoReseteo = resultado != null ? Convert.ToDateTime(resultado) : DateTime.MinValue;
-                }
-
-                // Verificar si han pasado 7 días desde el último reseteo
-                if (fechaUltimoReseteo == DateTime.MinValue || (DateTime.Now - fechaUltimoReseteo).Days >= 7)
-                {
-                    // Resetear plazas disponibles
-                    string queryResetearPlazas = "UPDATE Horario SET plazasDisponibles = 8";
-                    using (SqlCommand command = new SqlCommand(queryResetearPlazas, connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-
-                    // Actualizar la fecha del último reseteo
-                    string queryActualizarFecha = "UPDATE Configuracion SET FechaUltimoReseteo = @FechaActual";
-                    using (SqlCommand command = new SqlCommand(queryActualizarFecha, connection))
-                    {
-                        command.Parameters.AddWithValue("@FechaActual", DateTime.Now);
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-        }
-
     }
 }

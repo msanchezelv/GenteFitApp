@@ -7,6 +7,7 @@ namespace GenteFitApp.Controlador
     public class ControladorInicioSesion
     {
         private readonly string connectionString = DatabaseConfig.ConnectionString;
+        private static string connectionString1 = DatabaseConfig.ConnectionString;
 
         public static int IdUsuarioActual { get; private set; }
         public static int IdClienteActual { get; private set; }
@@ -125,5 +126,56 @@ namespace GenteFitApp.Controlador
 
             return usuario;
         }
+
+
+        // Método para verificar y resetear plazas en la tabla Horario
+        public static void VerificarYProcesarDatos()
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString1))
+            {
+                connection.Open();
+
+                // Obtener la fecha del último proceso (puede ser el de reseteo o eliminación)
+                string queryFechaUltimoProceso = "SELECT TOP 1 FechaUltimoProceso FROM Configuracion";
+                DateTime fechaUltimoProceso;
+
+                using (SqlCommand command = new SqlCommand(queryFechaUltimoProceso, connection))
+                {
+                    var resultado = command.ExecuteScalar();
+                    fechaUltimoProceso = resultado != null ? Convert.ToDateTime(resultado) : DateTime.MinValue;
+                }
+
+                // Verificar si han pasado 7 días desde el último proceso
+                if (fechaUltimoProceso == DateTime.MinValue || (DateTime.Now - fechaUltimoProceso).Days >= 7)
+                {
+                    // Iniciar el reseteo de plazas disponibles
+                    string queryResetearPlazas = "UPDATE Horario SET plazasDisponibles = 8";
+                    using (SqlCommand command = new SqlCommand(queryResetearPlazas, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Eliminar registros antiguos de la lista de espera
+                    string queryEliminarRegistros = "DELETE FROM ListaEspera WHERE Fecha < @FechaActual";
+                    using (SqlCommand command = new SqlCommand(queryEliminarRegistros, connection))
+                    {
+                        command.Parameters.AddWithValue("@FechaActual", DateTime.Now);
+                        command.ExecuteNonQuery();
+                    }
+
+                    // Actualizar la fecha del último proceso (reseteo y eliminación)
+                    string queryActualizarFecha = "UPDATE Configuracion SET FechaUltimoProceso = @FechaActual";
+                    using (SqlCommand command = new SqlCommand(queryActualizarFecha, connection))
+                    {
+                        command.Parameters.AddWithValue("@FechaActual", DateTime.Now);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
+
+
     }
 }
