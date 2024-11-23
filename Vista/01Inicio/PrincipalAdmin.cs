@@ -29,7 +29,10 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Actividades_Click(object sender, EventArgs e)
         {
-
+            // Código para abrir la ventana GestionActividades
+            AgregarActividades gestionActividades = new AgregarActividades();
+            gestionActividades.Show(); // Abre la nueva ventana
+            this.Hide(); // Oculta la ventana actual (opcional)
         }
 
         private void Boton_Abrir_Gestion_Monitores_Click(object sender, EventArgs e)
