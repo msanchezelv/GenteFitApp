@@ -10,14 +10,18 @@ namespace GenteFitApp.Vista
     {
         private ControladorRegistro controladorRegistro;
         
-
-        public Registrar()
+        public Registrar(string rol)
         {
             InitializeComponent();
             controladorRegistro = new ControladorRegistro();
             textBoxcontraseña.PasswordChar = '*';
             this.Load += Registrar_Load;
+            
 
+        }
+
+        public Registrar()
+        {
         }
 
         private void Registrar_Load(object sender, EventArgs e)

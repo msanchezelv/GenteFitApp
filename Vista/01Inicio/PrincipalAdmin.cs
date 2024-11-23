@@ -1,4 +1,5 @@
-﻿using GenteFitApp.Vista._04Reservas;
+﻿using GenteFitApp.Vista._01Inicio;
+using GenteFitApp.Vista._04Reservas;
 using GenteFitApp.Vista._05ListaEspera;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,6 @@ namespace GenteFitApp.Vista
             InitializeComponent();
         }
 
-        private void Boton_Abrir_Gestion_Clientes_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Boton_Abrir_Gestion_Reservas_Click(object sender, EventArgs e)
         {
             VerReservas verReservas = new VerReservas();
@@ -32,8 +28,9 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Actividades_Click(object sender, EventArgs e)
         {
+            string usuarioRol = "Administrador"; // Asignar el rol
             // Código para abrir la ventana GestionActividades
-            AgregarActividades gestionActividades = new AgregarActividades();
+            AgregarActividades gestionActividades = new AgregarActividades(usuarioRol);
             gestionActividades.Show(); // Abre la nueva ventana
             this.Hide(); // Oculta la ventana actual (opcional)
         }
@@ -45,8 +42,11 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Usuarios_Click(object sender, EventArgs e)
         {
-
+            EscogerRol escogerRol = new EscogerRol();
+            escogerRol.Show();
+            this.Hide();
         }
+
 
         private void añadirClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -79,7 +79,8 @@ namespace GenteFitApp.Vista
 
         private void actividadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AgregarActividades gestionActividades = new AgregarActividades();
+            string usuarioRol = "Administrador";
+            AgregarActividades gestionActividades = new AgregarActividades(usuarioRol);
             gestionActividades.Show(); // Abre la nueva ventana
             this.Hide(); // Oculta la ventana actual (opcional)
         }

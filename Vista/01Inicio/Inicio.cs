@@ -100,10 +100,16 @@ namespace GenteFitApp.Vista
                         recepcionistaForm.Show();
                         this.Hide();
                         break;
+                    case "AgregarActividad":
+                        AgregarActividades agregarActividadesForm = new AgregarActividades(usuarioActual.rol);
+                        agregarActividadesForm.Show();
+                        this.Hide();
+                        break;
                     default:
                         MessageBox.Show($"Rol no reconocido: {usuarioActual.rol}");
                         break;
                 }
+
             }
             else
             {

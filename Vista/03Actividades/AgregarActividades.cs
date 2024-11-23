@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -11,13 +12,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xunit;
+using static GenteFitApp.GenteFitDataSet1;
+
 
 namespace GenteFitApp.Vista
 {
     public partial class AgregarActividades : Form
     {
 
-        public AgregarActividades()
+        private string usuarioRol;
+
+        public AgregarActividades(string rol)
         {
             InitializeComponent(); 
             this.Load += new EventHandler(AgregarActividades_Load); 
@@ -27,8 +32,10 @@ namespace GenteFitApp.Vista
             this.buttonCargar.Click += new EventHandler(buttonCargar_Click); 
             this.ButtonEliminarActividad.Click += new EventHandler(buttonEliminarActividad_Click); 
             this.buttonModificar.Click += new EventHandler(buttonModificar_Click);
-        }
+            this.FormClosing += new FormClosingEventHandler(AgregarActividades_FormClosing);
 
+            usuarioRol = rol;
+        }
 
         // Métodos que se cargan al abrirse la ventana
         private void AgregarActividades_Load(object sender, EventArgs e)
@@ -36,9 +43,46 @@ namespace GenteFitApp.Vista
             GenerarCodigoActividad();
             CargarDatosActividades();
             CargarMonitores();
+
+            if (usuarioRol == "Recepcionista")
+            {
+                // Deshabilitar y cambiar el color de los controles para operaciones no permitidas
+                buttonUpdateActividad.Enabled = false;
+                buttonUpdateActividad.BackColor = Color.Gray;
+
+                buttonModificar.Enabled = false;
+                buttonModificar.BackColor = Color.Gray;
+
+                // Deshabilitar campos de texto
+                textBoxNombreActividad.ReadOnly = true;
+                textBoxNombreActividad.BackColor = Color.LightGray;
+
+                textBoxDescripcion.ReadOnly = true;
+                textBoxDescripcion.BackColor = Color.LightGray;
+
+                comboBoxNivel.Enabled = false;
+                comboBoxNivel.BackColor = Color.LightGray;
+
+                comboBoxSala.Enabled = false;
+                comboBoxSala.BackColor = Color.LightGray;
+
+                textBoxPlazasDisponibles.ReadOnly = true;
+                textBoxPlazasDisponibles.BackColor = Color.LightGray;
+
+                comboBoxMonitor.Enabled = false;
+                comboBoxMonitor.BackColor = Color.LightGray;
+
+                textBoxIdMonitor.ReadOnly = true;
+                textBoxIdMonitor.BackColor = Color.LightGray;
+
+                textBoxIdSala.ReadOnly = true;
+                textBoxIdSala.BackColor = Color.LightGray;
+            }
         }
 
+
         SqlConnection con = new SqlConnection(DatabaseConfig.ConnectionString);
+        
 
         private void groupBoxClientes_Enter(object sender, EventArgs e)
         {
@@ -67,6 +111,7 @@ namespace GenteFitApp.Vista
                 return;
             }
 
+            // Obtener los datos del formulario
             string nombre = textBoxNombreActividad.Text;
             string descripcion = textBoxDescripcion.Text;
             string nivelIntensidad = comboBoxNivel.SelectedItem.ToString();
@@ -75,11 +120,16 @@ namespace GenteFitApp.Vista
             int idMonitor = int.Parse(comboBoxMonitor.SelectedValue.ToString());
             int idSala = int.Parse(textBoxIdSala.Text);
 
+            // Insertar la actividad y actualizar el textBox con el idActividad generado
             InsertarActividad(nombre, descripcion, nivelIntensidad, sala, plazasDisponibles, idMonitor, idSala);
 
+            // Restablecer el formulario y actualizar datos
             RestablecerFormulario();
             CargarDatosActividades();
         }
+
+
+
 
 
         private void comboBoxNivel_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,8 +156,8 @@ namespace GenteFitApp.Vista
         {
             // Código para abrir la ventana GestionActividades
             PrincipalAdmin principalAdmin = new PrincipalAdmin();
-            principalAdmin.Show(); // Abre la nueva ventana
-            this.Hide(); // Oculta la ventana actual (opcional)
+            principalAdmin.Show();
+            this.Hide();
         }
 
         private void textBoxDescripcion_TextChanged(object sender, EventArgs e)
@@ -155,14 +205,26 @@ namespace GenteFitApp.Vista
 
         private void buttonEliminarActividad_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que quiere eliminar esta actividad?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            // Mostrar ventana de confirmación una sola vez
+            DialogResult confirmacion = MessageBox.Show("¿Seguro que quiere eliminar esta actividad?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (confirmacion == DialogResult.Yes)
             {
                 if (int.TryParse(textBoxIdActividad.Text, out int idActividad))
                 {
-                    EliminarActividad(idActividad);
-                    MessageBox.Show("La actividad se ha eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RestablecerFormulario();
-                    CargarDatosActividades();
+                    try
+                    {
+                        EliminarActividad(idActividad);
+                        MessageBox.Show("La actividad se ha eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Restablecer formulario y actualizar datos fuera del bloque de confirmación
+                        RestablecerFormulario();
+                        CargarDatosActividades();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ocurrió un error al eliminar la actividad: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -170,6 +232,8 @@ namespace GenteFitApp.Vista
                 }
             }
         }
+
+
 
         private void textBoxIdMonitor_TextChanged(object sender, EventArgs e)
         {
@@ -220,7 +284,18 @@ namespace GenteFitApp.Vista
         }
 
 
-
+        // Método para cerrar del formulario sin cerrar programa
+        private void AgregarActividades_FormClosing(object sender, FormClosingEventArgs e) 
+        { 
+            if (usuarioRol == "Administrador") 
+            { 
+                PrincipalAdmin principalAdmin = new PrincipalAdmin(); principalAdmin.Show(); 
+            } 
+            else if (usuarioRol == "Recepcionista") 
+            { PrincipalRecepcionista principalRecepcionista = new PrincipalRecepcionista(); 
+                principalRecepcionista.Show(); 
+            } 
+        }
 
         // Método para generar el nuevo código de actividad basado en el idActividad
         private string GenerarNuevoCodigoActividad()
@@ -229,7 +304,7 @@ namespace GenteFitApp.Vista
             return proximoId.ToString();
         }
 
-        //Método para generar el código de actividad y actualizar el textBoxActividad
+        //Método para actualizar el textBoxActividad
         private void GenerarCodigoActividad()
         {
             string nuevoCodigo = GenerarNuevoCodigoActividad();
@@ -290,20 +365,29 @@ namespace GenteFitApp.Vista
         // Método para eliminar una actividad
         private void EliminarActividad(int idActividad)
         {
-            string connectionString = DatabaseConfig.ConnectionString;
+            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(conString))
             {
-                string query = "DELETE FROM Actividad WHERE idActividad = @idActividad";
-                SqlCommand command = new SqlCommand(query, con);
-                command.Parameters.AddWithValue("@idActividad", idActividad);
+                // Eliminar las dependencias en la tabla Reserva
+                string deleteReservaQuery = "DELETE FROM Reserva WHERE idHorario IN (SELECT idHorario FROM Horario WHERE idActividad = @idActividad)";
+                SqlCommand deleteReservaCommand = new SqlCommand(deleteReservaQuery, con);
+                deleteReservaCommand.Parameters.AddWithValue("@idActividad", idActividad);
+
+                // Eliminar la actividad
+                string deleteActividadQuery = "DELETE FROM Actividad WHERE idActividad = @idActividad";
+                SqlCommand deleteActividadCommand = new SqlCommand(deleteActividadQuery, con);
+                deleteActividadCommand.Parameters.AddWithValue("@idActividad", idActividad);
 
                 con.Open();
-                command.ExecuteNonQuery();
+
+                deleteReservaCommand.ExecuteNonQuery();
+                deleteActividadCommand.ExecuteNonQuery();
             }
 
-            CargarDatosActividades();
+            CargarDatosActividades(); // Asegurar la actualización
         }
+
 
         // Método para modiciar actividad
         private void ModificarActividad(int idActividad)
@@ -452,14 +536,15 @@ namespace GenteFitApp.Vista
         }
 
 
-        // Método para Insertar la Actividad en la Base de Dato
+        // Método para Insertar la Actividad en la Base de Datos
         private void InsertarActividad(string nombre, string descripcion, string nivelIntensidad, int sala, int plazasDisponibles, int idMonitor, int idSala)
         {
-            string connectionString = DatabaseConfig.ConnectionString;
+            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(conString))
             {
                 string query = "INSERT INTO Actividad (nombre, descripcion, nivelIntensidad, sala, plazasDisponibles, idMonitor, idSala) " +
+                               "OUTPUT INSERTED.idActividad " + 
                                "VALUES (@nombre, @descripcion, @nivelIntensidad, @sala, @plazasDisponibles, @idMonitor, @idSala)";
 
                 using (SqlCommand command = new SqlCommand(query, con))
@@ -473,13 +558,19 @@ namespace GenteFitApp.Vista
                     command.Parameters.AddWithValue("@idSala", idSala);
 
                     con.Open();
-                    command.ExecuteNonQuery();
+                    int idActividadGenerado = (int)command.ExecuteScalar();
+
+                    // Mostrar el idActividad generado en el TextBox
+                    textBoxIdActividad.Text = idActividadGenerado.ToString();
                 }
             }
 
             MessageBox.Show("Actividad agregada correctamente.");
             CargarDatosActividades();
         }
+
+
+
 
         // Método para Cargar Monitores
         private void CargarMonitores()

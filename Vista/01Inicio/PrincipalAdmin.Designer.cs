@@ -150,7 +150,6 @@
             this.Boton_Abrir_Gestion_Clientes.TabIndex = 0;
             this.Boton_Abrir_Gestion_Clientes.Text = "Abrir gestión de clientes";
             this.Boton_Abrir_Gestion_Clientes.UseVisualStyleBackColor = true;
-            this.Boton_Abrir_Gestion_Clientes.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Clientes_Click);
             // 
             // groupBoxReservas
             // 

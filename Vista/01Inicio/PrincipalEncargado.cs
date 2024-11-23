@@ -21,7 +21,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Actividades_Click(object sender, EventArgs e)
         {
-            AgregarActividades agregarActividades = new AgregarActividades();
+            string usuarioRol = "Administrador";
+            AgregarActividades agregarActividades = new AgregarActividades(usuarioRol);
             agregarActividades.ShowDialog();
         }
 
@@ -45,7 +46,8 @@ namespace GenteFitApp.Vista
 
         private void actividadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AgregarActividades agregarActividades = new AgregarActividades();
+            string usuarioRol = "Administrador";
+            AgregarActividades agregarActividades = new AgregarActividades(usuarioRol);
             agregarActividades.ShowDialog();
         }
     }

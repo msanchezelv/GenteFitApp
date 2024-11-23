@@ -11,6 +11,11 @@ namespace GenteFitApp.Vista._01Inicio
         private string email;
         private string contraseña;
 
+        public EscogerRol()
+        {
+            InitializeComponent();
+        }
+
         public EscogerRol(string nombre, string apellidos, string email, string contraseña)
         {
             InitializeComponent();
