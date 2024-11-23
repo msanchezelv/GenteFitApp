@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GenteFitApp.Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,7 @@ using Xunit;
 
 namespace GenteFitApp.Vista
 {
-    public partial class AgregarActividades : FormularioBase
+    public partial class AgregarActividades : Form
     {
 
         public AgregarActividades()
@@ -37,7 +38,7 @@ namespace GenteFitApp.Vista
             CargarMonitores();
         }
 
-        SqlConnection con = new SqlConnection("Data Source=MiniDELL; Initial Catalog=GenteFit; Integrated Security=True");
+        SqlConnection con = new SqlConnection(DatabaseConfig.ConnectionString);
 
         private void groupBoxClientes_Enter(object sender, EventArgs e)
         {
@@ -83,9 +84,9 @@ namespace GenteFitApp.Vista
 
         private void comboBoxNivel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            comboBoxNivel.Items.Add("BAJO");
-            comboBoxNivel.Items.Add("MEDIO");
-            comboBoxNivel.Items.Add("ALTO");
+            comboBoxNivel.Items.Add("Baja");
+            comboBoxNivel.Items.Add("Media");
+            comboBoxNivel.Items.Add("Alta");
         }
 
         private void comboBoxSala_SelectedIndexChanged(object sender, EventArgs e)
@@ -239,7 +240,7 @@ namespace GenteFitApp.Vista
         // Método para obtener el próximo idActividad
         private int ObtenerProximoIdActividad()
         {
-            string connectionString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
             int proximoId = 1;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -261,7 +262,7 @@ namespace GenteFitApp.Vista
         // Método para cargar actividad
         private void CargarActividad(int idActividad)
         {
-            string connectionString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -289,9 +290,9 @@ namespace GenteFitApp.Vista
         // Método para eliminar una actividad
         private void EliminarActividad(int idActividad)
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(conString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "DELETE FROM Actividad WHERE idActividad = @idActividad";
                 SqlCommand command = new SqlCommand(query, con);
@@ -315,7 +316,7 @@ namespace GenteFitApp.Vista
             int idMonitor = int.Parse(comboBoxMonitor.SelectedValue.ToString());
             int idSala = int.Parse(textBoxIdSala.Text);
 
-            string connectionString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -341,10 +342,10 @@ namespace GenteFitApp.Vista
         // Método para cargar los datos de Actividades en la BBDD
         private void CargarDatosActividades()
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
             string query = "SELECT * FROM Actividad";
 
-            using (SqlConnection con = new SqlConnection(conString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, con);
                 DataTable dataTable = new DataTable();
@@ -454,9 +455,9 @@ namespace GenteFitApp.Vista
         // Método para Insertar la Actividad en la Base de Dato
         private void InsertarActividad(string nombre, string descripcion, string nivelIntensidad, int sala, int plazasDisponibles, int idMonitor, int idSala)
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(conString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "INSERT INTO Actividad (nombre, descripcion, nivelIntensidad, sala, plazasDisponibles, idMonitor, idSala) " +
                                "VALUES (@nombre, @descripcion, @nivelIntensidad, @sala, @plazasDisponibles, @idMonitor, @idSala)";
@@ -483,10 +484,10 @@ namespace GenteFitApp.Vista
         // Método para Cargar Monitores
         private void CargarMonitores()
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
             string query = "SELECT idMonitor, nombre + ' ' + apellidos AS NombreCompleto FROM Monitor ORDER BY idMonitor";
 
-            using (SqlConnection con = new SqlConnection(conString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(query, con);
                 DataTable dataTable = new DataTable();
@@ -516,7 +517,7 @@ namespace GenteFitApp.Vista
         // Método para comprobar que existe la idActividad introducida
         private bool ExisteIdActividad(int idActividad)
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string conString = DatabaseConfig.ConnectionString;
 
             using (SqlConnection con = new SqlConnection(conString))
             {

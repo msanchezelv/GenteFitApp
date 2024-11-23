@@ -23,7 +23,7 @@ namespace GenteFitApp.Vista._04Reservas
         private void FormMisReservas_Load(object sender, EventArgs e)
         {
             int idCliente = ControladorInicioSesion.IdClienteActual;
-            List<ReservaDTO> reservas = ReservaDTO.ObtenerReservasPorCliente(idCliente);
+            List<ReservaDTO> reservas = ReservaDTO.ObtenerReservasPorCliente(idCliente != -1 ? (int?)idCliente : null);
 
             reservas = reservas.Where(r =>
                                 DateTime.Parse(r.FechaCompleta) > DateTime.Now ||
@@ -48,7 +48,7 @@ namespace GenteFitApp.Vista._04Reservas
 
             if (dataGridViewReservas.Columns.Contains("Cliente"))
             {
-                dataGridViewReservas.Columns["Cliente"].Visible = false;
+                dataGridViewReservas.Columns["Cliente"].Visible = ControladorInicioSesion.RolUsuarioActual != "Cliente";
             }
 
             if (dataGridViewReservas.Columns.Contains("FechaReserva"))

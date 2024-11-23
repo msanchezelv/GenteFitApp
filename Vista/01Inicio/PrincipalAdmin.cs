@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GenteFitApp.Vista._04Reservas;
+using GenteFitApp.Vista._05ListaEspera;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +26,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Reservas_Click(object sender, EventArgs e)
         {
-
+            VerReservas verReservas = new VerReservas();
+            verReservas.ShowDialog();
         }
 
         private void Boton_Abrir_Gestion_Actividades_Click(object sender, EventArgs e)
@@ -46,6 +49,54 @@ namespace GenteFitApp.Vista
         }
 
         private void añadirClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registrar registrar = new Registrar();
+            registrar.ShowDialog();
+
+        }
+
+        private void editarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eliminarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consultarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consultarReservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerReservas verReservas = new VerReservas();
+            verReservas.ShowDialog();
+
+        }
+
+        private void actividadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarActividades gestionActividades = new AgregarActividades();
+            gestionActividades.Show(); // Abre la nueva ventana
+            this.Hide(); // Oculta la ventana actual (opcional)
+        }
+
+        private void añadirUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registrar registrar = new Registrar();
+            registrar.ShowDialog();
+        }
+
+        private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaEspera lista = new ListaEspera();
+            lista.ShowDialog();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

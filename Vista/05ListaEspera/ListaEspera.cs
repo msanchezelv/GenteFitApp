@@ -21,18 +21,17 @@ namespace GenteFitApp.Vista._05ListaEspera
         private void ListaEspera_Load(object sender, EventArgs e)
         {
             int idCliente = ControladorInicioSesion.IdClienteActual;
-            List<ListaEsperaDTO> listaEspera = ListaEsperaDTO.ObtenerListaEsperaPorCliente(idCliente);
+            List<ListaEsperaDTO> listaEspera = ListaEsperaDTO.ObtenerListaEsperaPorCliente(idCliente != -1 ? (int?)idCliente : null);
 
-
-            listaEspera = listaEspera.Where(le =>
-                    DateTime.Parse(le.Fecha) > DateTime.Now ||
-                    (DateTime.Parse(le.Fecha) == DateTime.Now.Date &&
-                     TryParseHora(le.Hora.Split('-')[0], out TimeSpan hora) && hora >= DateTime.Now.TimeOfDay)
-                ).ToList();
+            //listaEspera = listaEspera.Where(le =>
+            //        DateTime.Parse(le.Fecha) > DateTime.Now ||
+            //        (DateTime.Parse(le.Fecha) == DateTime.Now.Date &&
+            //         TryParseHora(le.Hora.Split('-')[0], out TimeSpan hora) && hora >= DateTime.Now.TimeOfDay)
+            //    ).ToList();
 
             listaEspera = listaEspera.OrderBy(le => DateTime.Parse(le.Fecha))
                                      .ThenBy(le => TryParseHora(le.Hora.Split('-')[0], out TimeSpan hora) ? hora : TimeSpan.Zero)
-                                     .ToList();            
+                                     .ToList();
 
             BindingList<ListaEsperaDTO> bindingListaEspera = new BindingList<ListaEsperaDTO>(listaEspera);
             dataGridViewListaEspera.DataSource = bindingListaEspera;
@@ -40,6 +39,13 @@ namespace GenteFitApp.Vista._05ListaEspera
             if (dataGridViewListaEspera.Columns.Contains("IdListaEspera"))
             {
                 dataGridViewListaEspera.Columns["IdListaEspera"].Visible = false;
+            }
+
+            if (dataGridViewListaEspera.Columns.Contains("Cliente"))
+            {
+                dataGridViewListaEspera.Columns["Cliente"].Visible = ControladorInicioSesion.RolUsuarioActual != "Cliente";
+                // Colocar la columna Cliente en la segunda o tercera posición
+                
             }
 
             if (dataGridViewListaEspera.Columns.Contains("IdHorario"))
@@ -52,23 +58,32 @@ namespace GenteFitApp.Vista._05ListaEspera
                 dataGridViewListaEspera.Columns["Plazas"].Visible = false;
             }
 
+
             dataGridViewListaEspera.Columns["Fecha"].HeaderText = "Fecha";
             dataGridViewListaEspera.Columns["Dia"].HeaderText = "Día";
             dataGridViewListaEspera.Columns["Actividad"].HeaderText = "Actividad";
             dataGridViewListaEspera.Columns["Hora"].HeaderText = "Hora";
             dataGridViewListaEspera.Columns["Monitor"].HeaderText = "Monitor";
             dataGridViewListaEspera.Columns["Posicion"].HeaderText = "Posición";
+            dataGridViewListaEspera.Columns["Cliente"].HeaderText = "Cliente";
 
             dataGridViewListaEspera.Columns["Actividad"].DisplayIndex = 0;
-            dataGridViewListaEspera.Columns["Sala"].DisplayIndex = 1;
-            dataGridViewListaEspera.Columns["Monitor"].DisplayIndex = 2;
-            dataGridViewListaEspera.Columns["Fecha"].DisplayIndex = 3;
-            dataGridViewListaEspera.Columns["Dia"].DisplayIndex = 4;
-            dataGridViewListaEspera.Columns["Hora"].DisplayIndex = 5;
-            dataGridViewListaEspera.Columns["Posicion"].DisplayIndex = 6;
+            dataGridViewListaEspera.Columns["Cliente"].DisplayIndex = 1;
+            dataGridViewListaEspera.Columns["Sala"].DisplayIndex = 2;
+            dataGridViewListaEspera.Columns["Monitor"].DisplayIndex = 3;
+            dataGridViewListaEspera.Columns["Fecha"].DisplayIndex = 4;
+            dataGridViewListaEspera.Columns["Dia"].DisplayIndex = 5;
+            dataGridViewListaEspera.Columns["Hora"].DisplayIndex = 6;
+            dataGridViewListaEspera.Columns["Posicion"].DisplayIndex = 7;
+
+            foreach (DataGridViewColumn column in dataGridViewListaEspera.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
 
             dataGridViewListaEspera.Refresh();
         }
+
 
         private bool TryParseHora(string hora, out TimeSpan time)
         {

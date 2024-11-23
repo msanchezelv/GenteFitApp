@@ -30,29 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actividadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarActividadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarActividadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monitoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarMonitoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxClientes = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Gestion_Clientes = new System.Windows.Forms.Button();
             this.groupBoxReservas = new System.Windows.Forms.GroupBox();
@@ -88,172 +72,61 @@
             // 
             // clientesToolStripMenuItem
             // 
-            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirClienteToolStripMenuItem,
-            this.editarClienteToolStripMenuItem,
-            this.eliminarClienteToolStripMenuItem,
-            this.consultarClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
-            // añadirClienteToolStripMenuItem
-            // 
-            this.añadirClienteToolStripMenuItem.Name = "añadirClienteToolStripMenuItem";
-            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.añadirClienteToolStripMenuItem.Text = "Añadir cliente";
-            this.añadirClienteToolStripMenuItem.Click += new System.EventHandler(this.añadirClienteToolStripMenuItem_Click);
-            // 
-            // editarClienteToolStripMenuItem
-            // 
-            this.editarClienteToolStripMenuItem.Name = "editarClienteToolStripMenuItem";
-            this.editarClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.editarClienteToolStripMenuItem.Text = "Editar cliente";
-            // 
-            // eliminarClienteToolStripMenuItem
-            // 
-            this.eliminarClienteToolStripMenuItem.Name = "eliminarClienteToolStripMenuItem";
-            this.eliminarClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.eliminarClienteToolStripMenuItem.Text = "Eliminar cliente";
-            // 
-            // consultarClientesToolStripMenuItem
-            // 
-            this.consultarClientesToolStripMenuItem.Name = "consultarClientesToolStripMenuItem";
-            this.consultarClientesToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
-            this.consultarClientesToolStripMenuItem.Text = "Consultar clientes";
-            // 
             // reservasToolStripMenuItem
             // 
             this.reservasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirReservaToolStripMenuItem,
-            this.cancelarReservaToolStripMenuItem,
             this.consultarReservasToolStripMenuItem,
             this.consultarListaDeEsperaToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
             this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.reservasToolStripMenuItem.Text = "Reservas";
             // 
-            // añadirReservaToolStripMenuItem
-            // 
-            this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
-            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
-            // 
-            // cancelarReservaToolStripMenuItem
-            // 
-            this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
-            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
-            // 
             // consultarReservasToolStripMenuItem
             // 
             this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
             this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
+            this.consultarReservasToolStripMenuItem.Click += new System.EventHandler(this.consultarReservasToolStripMenuItem_Click);
             // 
             // consultarListaDeEsperaToolStripMenuItem
             // 
             this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
             this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
+            this.consultarListaDeEsperaToolStripMenuItem.Click += new System.EventHandler(this.consultarListaDeEsperaToolStripMenuItem_Click);
             // 
             // actividadesToolStripMenuItem
             // 
-            this.actividadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirActividadToolStripMenuItem,
-            this.modificarActividadToolStripMenuItem,
-            this.eliminarActividadToolStripMenuItem,
-            this.consultarActividadesToolStripMenuItem});
             this.actividadesToolStripMenuItem.Name = "actividadesToolStripMenuItem";
             this.actividadesToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.actividadesToolStripMenuItem.Text = "Actividades";
-            // 
-            // añadirActividadToolStripMenuItem
-            // 
-            this.añadirActividadToolStripMenuItem.Name = "añadirActividadToolStripMenuItem";
-            this.añadirActividadToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.añadirActividadToolStripMenuItem.Text = "Añadir actividad";
-            // 
-            // modificarActividadToolStripMenuItem
-            // 
-            this.modificarActividadToolStripMenuItem.Name = "modificarActividadToolStripMenuItem";
-            this.modificarActividadToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.modificarActividadToolStripMenuItem.Text = "Modificar actividad";
-            // 
-            // eliminarActividadToolStripMenuItem
-            // 
-            this.eliminarActividadToolStripMenuItem.Name = "eliminarActividadToolStripMenuItem";
-            this.eliminarActividadToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.eliminarActividadToolStripMenuItem.Text = "Eliminar actividad";
-            // 
-            // consultarActividadesToolStripMenuItem
-            // 
-            this.consultarActividadesToolStripMenuItem.Name = "consultarActividadesToolStripMenuItem";
-            this.consultarActividadesToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.consultarActividadesToolStripMenuItem.Text = "Consultar actividades";
+            this.actividadesToolStripMenuItem.Click += new System.EventHandler(this.actividadesToolStripMenuItem_Click);
             // 
             // monitoresToolStripMenuItem
             // 
-            this.monitoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirMonitorToolStripMenuItem,
-            this.editarMonitorToolStripMenuItem,
-            this.eliminarMonitorToolStripMenuItem,
-            this.consultarMonitoresToolStripMenuItem});
             this.monitoresToolStripMenuItem.Name = "monitoresToolStripMenuItem";
             this.monitoresToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.monitoresToolStripMenuItem.Text = "Monitores";
             // 
-            // añadirMonitorToolStripMenuItem
-            // 
-            this.añadirMonitorToolStripMenuItem.Name = "añadirMonitorToolStripMenuItem";
-            this.añadirMonitorToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.añadirMonitorToolStripMenuItem.Text = "Añadir monitor";
-            // 
-            // editarMonitorToolStripMenuItem
-            // 
-            this.editarMonitorToolStripMenuItem.Name = "editarMonitorToolStripMenuItem";
-            this.editarMonitorToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.editarMonitorToolStripMenuItem.Text = "Editar monitor";
-            // 
-            // eliminarMonitorToolStripMenuItem
-            // 
-            this.eliminarMonitorToolStripMenuItem.Name = "eliminarMonitorToolStripMenuItem";
-            this.eliminarMonitorToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.eliminarMonitorToolStripMenuItem.Text = "Eliminar monitor";
-            // 
-            // consultarMonitoresToolStripMenuItem
-            // 
-            this.consultarMonitoresToolStripMenuItem.Name = "consultarMonitoresToolStripMenuItem";
-            this.consultarMonitoresToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.consultarMonitoresToolStripMenuItem.Text = "Consultar monitores";
-            // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirUsuarioToolStripMenuItem,
-            this.editarUsuarioToolStripMenuItem,
-            this.eliminarUsuarioToolStripMenuItem});
+            this.añadirUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // añadirUsuarioToolStripMenuItem
             // 
             this.añadirUsuarioToolStripMenuItem.Name = "añadirUsuarioToolStripMenuItem";
-            this.añadirUsuarioToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.añadirUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.añadirUsuarioToolStripMenuItem.Text = "Añadir usuario";
-            // 
-            // editarUsuarioToolStripMenuItem
-            // 
-            this.editarUsuarioToolStripMenuItem.Name = "editarUsuarioToolStripMenuItem";
-            this.editarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
-            this.editarUsuarioToolStripMenuItem.Text = "Editar usuario";
-            // 
-            // eliminarUsuarioToolStripMenuItem
-            // 
-            this.eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            this.eliminarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
-            this.eliminarUsuarioToolStripMenuItem.Text = "Eliminar usuario";
+            this.añadirUsuarioToolStripMenuItem.Click += new System.EventHandler(this.añadirUsuarioToolStripMenuItem_Click);
             // 
             // groupBoxClientes
             // 
@@ -347,7 +220,7 @@
             this.Boton_Abrir_Gestion_Monitores.Name = "Boton_Abrir_Gestion_Monitores";
             this.Boton_Abrir_Gestion_Monitores.Size = new System.Drawing.Size(993, 52);
             this.Boton_Abrir_Gestion_Monitores.TabIndex = 0;
-            this.Boton_Abrir_Gestion_Monitores.Text = "Abrir gestión de clientes";
+            this.Boton_Abrir_Gestion_Monitores.Text = "Abrir gestión de monitores";
             this.Boton_Abrir_Gestion_Monitores.UseVisualStyleBackColor = true;
             this.Boton_Abrir_Gestion_Monitores.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Monitores_Click);
             // 
@@ -421,24 +294,8 @@
         private System.Windows.Forms.Button Boton_Abrir_Gestion_Monitores;
         private System.Windows.Forms.GroupBox groupBoxUsuarios;
         private System.Windows.Forms.Button Boton_Abrir_Gestion_Usuarios;
-        private System.Windows.Forms.ToolStripMenuItem añadirClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarClientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirReservaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarReservaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarReservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarListaDeEsperaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirActividadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarActividadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarActividadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarActividadesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirMonitorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarMonitorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarMonitorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarMonitoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem añadirUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
     }
 }

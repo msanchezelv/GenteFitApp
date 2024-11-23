@@ -17,8 +17,9 @@ public class ListaEsperaDTO
     public int Plazas { get; set; }
     public int Posicion { get; set; }
     public string Fecha { get; set; }
+    public string Cliente { get; set; }  // Nueva propiedad para el nombre del cliente
 
-    public static List<ListaEsperaDTO> ObtenerListaEsperaPorCliente(int idCliente)
+    public static List<ListaEsperaDTO> ObtenerListaEsperaPorCliente(int? idCliente)
     {
         List<ListaEsperaDTO> listaEspera = new List<ListaEsperaDTO>();
 
@@ -29,7 +30,16 @@ public class ListaEsperaDTO
             using (var command = new SqlCommand("dbo.ConsultarListaEspera", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@idCliente", idCliente);
+
+                // Si el idCliente es 0 o no se pasa, el parámetro es nulo
+                if (idCliente > 0)
+                {
+                    command.Parameters.AddWithValue("@idCliente", idCliente);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@idCliente", DBNull.Value);
+                }
 
                 using (var reader = command.ExecuteReader())
                 {
@@ -49,17 +59,12 @@ public class ListaEsperaDTO
                             Fecha = reader.GetDateTime(reader.GetOrdinal("Fecha")).ToString("dd/MM/yyyy")
                         };
 
-                        // Imprimir los datos por consola para verificar
-                        Console.WriteLine($"IdListaEspera: {item.IdListaEspera}, " +
-                                          $"IdHorario: {item.IdHorario}, " +
-                                          $"Día: {item.Dia}, " +
-                                          $"Hora: {item.Hora}, " +
-                                          $"Actividad: {item.Actividad}, " +
-                                          $"Sala: {item.Sala}, " +
-                                          $"Monitor: {item.Monitor}, " +
-                                          $"Plazas: {item.Plazas}, " +
-                                          $"Posición: {item.Posicion}, " +
-                                          $"Fecha: {item.Fecha}");
+                        if (reader["Cliente"] != DBNull.Value)
+                        {
+                            item.Cliente = reader.GetString(reader.GetOrdinal("Cliente"));
+                        }
+
+                        
 
                         listaEspera.Add(item);
                     }
@@ -69,5 +74,4 @@ public class ListaEsperaDTO
 
         return listaEspera;
     }
-
 }

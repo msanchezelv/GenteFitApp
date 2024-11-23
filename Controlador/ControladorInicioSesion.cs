@@ -9,6 +9,7 @@ namespace GenteFitApp.Controlador
         private readonly string connectionString = DatabaseConfig.ConnectionString;
         private static string connectionString1 = DatabaseConfig.ConnectionString;
 
+        public static string RolUsuarioActual { get; private set; }
         public static int IdUsuarioActual { get; private set; }
         public static int IdClienteActual { get; private set; }
 
@@ -26,6 +27,7 @@ namespace GenteFitApp.Controlador
             {
                 IdUsuarioActual = usuario.idUsuario;
                 IdClienteActual = ObtenerIdClientePorIdUsuario(IdUsuarioActual);
+                RolUsuarioActual = usuario.rol;
                 return $"Inicio de sesión correcto. ¡Bienvenid@ {usuario.nombre}!";
             }
             return "La contraseña es incorrecta. Por favor, inténtalo de nuevo.";
