@@ -28,15 +28,13 @@ namespace GenteFitApp.Vista
         private void Boton_Abrir_Horarios_Click(object sender, EventArgs e)
         {
             FormHorarios formHorarios = new FormHorarios();
-            formHorarios.ShowDialog();
-            // this.Close();
+            formHorarios.ShowDialog();            
         }
 
         private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PerfilCliente perfilCliente = new PerfilCliente();
             perfilCliente.ShowDialog();
-            // this.Close();
         }
 
         private void Boton_AbrirReservas_Click(object sender, EventArgs e)
@@ -49,7 +47,6 @@ namespace GenteFitApp.Vista
         {
             PerfilCliente perfilCliente = new PerfilCliente();
             perfilCliente.ShowDialog();
-            // this.Close();
         }
 
         private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)

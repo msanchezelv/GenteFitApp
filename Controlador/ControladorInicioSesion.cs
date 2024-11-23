@@ -16,13 +16,11 @@ namespace GenteFitApp.Controlador
         // Método para comprobar las credenciales
         public string ComprobarCredencialesPorEmail(string email, string contraseña)
         {
-            // Verifica si el email existe en la base de datos
             if (!ExisteUsuarioPorEmail(email))
             {
                 return "Usuario no encontrado. ¿Registrar nuevo usuario? S/N";
             }
 
-            // Verifica si las credenciales son correctas
             Usuario usuario = ObtenerUsuarioPorEmail(email, contraseña);
             if (usuario != null)
             {
@@ -87,7 +85,7 @@ namespace GenteFitApp.Controlador
                 }
             }
 
-            return -1; // Si no se encuentra, devuelve -1
+            return -1;
         }
 
 
@@ -137,17 +135,17 @@ namespace GenteFitApp.Controlador
                 connection.Open();
 
                 // Obtener la fecha del último proceso (puede ser el de reseteo o eliminación)
-                string queryFechaUltimoProceso = "SELECT TOP 1 FechaUltimoProceso FROM Configuracion";
-                DateTime fechaUltimoProceso;
+                string queryFechaUltimoReseteo = "SELECT TOP 1 FechaUltimoReseteo FROM Configuracion";
+                DateTime fechaUltimoReseteo;
 
-                using (SqlCommand command = new SqlCommand(queryFechaUltimoProceso, connection))
+                using (SqlCommand command = new SqlCommand(queryFechaUltimoReseteo, connection))
                 {
                     var resultado = command.ExecuteScalar();
-                    fechaUltimoProceso = resultado != null ? Convert.ToDateTime(resultado) : DateTime.MinValue;
+                    fechaUltimoReseteo = resultado != null ? Convert.ToDateTime(resultado) : DateTime.MinValue;
                 }
 
                 // Verificar si han pasado 7 días desde el último proceso
-                if (fechaUltimoProceso == DateTime.MinValue || (DateTime.Now - fechaUltimoProceso).Days >= 7)
+                if (fechaUltimoReseteo == DateTime.MinValue || (DateTime.Now - fechaUltimoReseteo).Days >= 7)
                 {
                     // Iniciar el reseteo de plazas disponibles
                     string queryResetearPlazas = "UPDATE Horario SET plazasDisponibles = 8";
@@ -165,7 +163,7 @@ namespace GenteFitApp.Controlador
                     }
 
                     // Actualizar la fecha del último proceso (reseteo y eliminación)
-                    string queryActualizarFecha = "UPDATE Configuracion SET FechaUltimoProceso = @FechaActual";
+                    string queryActualizarFecha = "UPDATE Configuracion SET FechaUltimoReseteo = @FechaActual";
                     using (SqlCommand command = new SqlCommand(queryActualizarFecha, connection))
                     {
                         command.Parameters.AddWithValue("@FechaActual", DateTime.Now);
