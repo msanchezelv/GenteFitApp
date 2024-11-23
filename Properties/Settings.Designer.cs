@@ -26,7 +26,7 @@ namespace GenteFitApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-0P1J4U5\\SQLEXPRESS;Initial Catalog=master;Integrated Security" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MiniDELL-0P1J4U5\\SQLEXPRESS;Initial Catalog=master;Integrated Security" +
             "=True;Encrypt=True;TrustServerCertificate=True")]
         public string masterConnectionString {
             get {
@@ -37,7 +37,7 @@ namespace GenteFitApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Securi" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MiniDELL\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Securi" +
             "ty=True;Encrypt=True;TrustServerCertificate=True")]
         public string GenteFitConnectionString {
             get {
