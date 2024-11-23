@@ -49,11 +49,11 @@ namespace GenteFitApp.Vista
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxNombre.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxNombre.Location = new System.Drawing.Point(96, 424);
             this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(857, 26);
+            this.textBoxNombre.Size = new System.Drawing.Size(857, 28);
             this.textBoxNombre.TabIndex = 2;
             // 
             // Label_nombre
@@ -69,11 +69,11 @@ namespace GenteFitApp.Vista
             // 
             // textBoxUserId
             // 
-            this.textBoxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxUserId.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxUserId.Location = new System.Drawing.Point(96, 360);
             this.textBoxUserId.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUserId.Name = "textBoxUserId";
-            this.textBoxUserId.Size = new System.Drawing.Size(857, 26);
+            this.textBoxUserId.Size = new System.Drawing.Size(857, 28);
             this.textBoxUserId.TabIndex = 1;
             // 
             // label_IdUsuario
@@ -112,11 +112,11 @@ namespace GenteFitApp.Vista
             // 
             // textBoxcontraseña
             // 
-            this.textBoxcontraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxcontraseña.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxcontraseña.Location = new System.Drawing.Point(95, 618);
             this.textBoxcontraseña.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxcontraseña.Name = "textBoxcontraseña";
-            this.textBoxcontraseña.Size = new System.Drawing.Size(857, 26);
+            this.textBoxcontraseña.Size = new System.Drawing.Size(857, 28);
             this.textBoxcontraseña.TabIndex = 5;
             // 
             // labelcontraseña
@@ -132,11 +132,11 @@ namespace GenteFitApp.Vista
             // 
             // textBoxApellidos
             // 
-            this.textBoxApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxApellidos.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxApellidos.Location = new System.Drawing.Point(96, 488);
             this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidos.Name = "textBoxApellidos";
-            this.textBoxApellidos.Size = new System.Drawing.Size(857, 26);
+            this.textBoxApellidos.Size = new System.Drawing.Size(857, 28);
             this.textBoxApellidos.TabIndex = 3;
             // 
             // label_apellidos
@@ -153,11 +153,11 @@ namespace GenteFitApp.Vista
             // 
             // textBoxemail
             // 
-            this.textBoxemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxemail.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxemail.Location = new System.Drawing.Point(96, 553);
             this.textBoxemail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxemail.Name = "textBoxemail";
-            this.textBoxemail.Size = new System.Drawing.Size(857, 26);
+            this.textBoxemail.Size = new System.Drawing.Size(857, 28);
             this.textBoxemail.TabIndex = 4;
             // 
             // labelemail

@@ -33,13 +33,13 @@
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMisReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxReservas = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Horarios = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Boton_AbrirReservas = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Boton_AbrirPerfil = new System.Windows.Forms.Button();
-            this.verMisReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxReservas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -48,6 +48,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.perfilToolStripMenuItem,
@@ -61,7 +62,7 @@
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
             this.perfilToolStripMenuItem.Click += new System.EventHandler(this.perfilToolStripMenuItem_Click);
             // 
@@ -71,15 +72,22 @@
             this.consultarListaDeEsperaToolStripMenuItem,
             this.verMisReservasToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.reservasToolStripMenuItem.Text = "Reservas";
             // 
             // consultarListaDeEsperaToolStripMenuItem
             // 
             this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
-            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
             this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
             this.consultarListaDeEsperaToolStripMenuItem.Click += new System.EventHandler(this.consultarListaDeEsperaToolStripMenuItem_Click);
+            // 
+            // verMisReservasToolStripMenuItem
+            // 
+            this.verMisReservasToolStripMenuItem.Name = "verMisReservasToolStripMenuItem";
+            this.verMisReservasToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
+            this.verMisReservasToolStripMenuItem.Text = "Ver mis reservas";
+            this.verMisReservasToolStripMenuItem.Click += new System.EventHandler(this.verMisReservasToolStripMenuItem_Click);
             // 
             // groupBoxReservas
             // 
@@ -152,13 +160,6 @@
             this.Boton_AbrirPerfil.Text = "Abrir perfil de usuario";
             this.Boton_AbrirPerfil.UseVisualStyleBackColor = true;
             this.Boton_AbrirPerfil.Click += new System.EventHandler(this.Boton_AbrirPerfil_Click);
-            // 
-            // verMisReservasToolStripMenuItem
-            // 
-            this.verMisReservasToolStripMenuItem.Name = "verMisReservasToolStripMenuItem";
-            this.verMisReservasToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.verMisReservasToolStripMenuItem.Text = "Ver mis reservas";
-            this.verMisReservasToolStripMenuItem.Click += new System.EventHandler(this.verMisReservasToolStripMenuItem_Click);
             // 
             // PrincipalCliente
             // 

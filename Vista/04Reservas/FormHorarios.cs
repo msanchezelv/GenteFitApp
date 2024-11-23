@@ -1,6 +1,7 @@
 ﻿using GenteFitApp.Modelo;
 using GenteFitApp.Modelo.GenteFitApp.Modelo;
 using GenteFitApp.Vista._04Reservas;
+using GenteFitApp.Vista._05ListaEspera;
 using GenteFitApp.Controlador;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenteFit.Controlador;
 using GenteFitApp.Vista._02Clientes;
+using ListaEspera = GenteFitApp.Vista._05ListaEspera.ListaEspera;
 
 namespace GenteFitApp.Vista._06Horarios
 {
@@ -312,7 +314,8 @@ namespace GenteFitApp.Vista._06Horarios
 
         private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            _05ListaEspera.ListaEspera listaEspera = new ListaEspera();
+            listaEspera.ShowDialog();
         }
     }
 

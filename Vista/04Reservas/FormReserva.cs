@@ -41,7 +41,6 @@ namespace GenteFitApp.Vista._04Reservas
 
         private void buttonReservar_Click(object sender, EventArgs e)
         {
-            // Si el botón dice "Eliminar reserva", mostramos un mensaje de confirmación
             if (buttonReservar.Text == "Eliminar reserva")
             {
                 var confirmResult = MessageBox.Show("¿Estás seguro de que quieres eliminar la reserva?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

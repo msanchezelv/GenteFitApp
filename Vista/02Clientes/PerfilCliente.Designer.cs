@@ -59,10 +59,11 @@
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxEmail.Location = new System.Drawing.Point(37, 267);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(857, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(857, 28);
             this.textBoxEmail.TabIndex = 25;
             // 
             // labelemail
@@ -79,10 +80,11 @@
             // 
             // textBoxApellidos
             // 
+            this.textBoxApellidos.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxApellidos.Location = new System.Drawing.Point(37, 202);
             this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidos.Name = "textBoxApellidos";
-            this.textBoxApellidos.Size = new System.Drawing.Size(857, 22);
+            this.textBoxApellidos.Size = new System.Drawing.Size(857, 28);
             this.textBoxApellidos.TabIndex = 24;
             // 
             // label_apellidos
@@ -99,10 +101,11 @@
             // 
             // textBoxNombre
             // 
+            this.textBoxNombre.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxNombre.Location = new System.Drawing.Point(37, 138);
             this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(857, 22);
+            this.textBoxNombre.Size = new System.Drawing.Size(857, 28);
             this.textBoxNombre.TabIndex = 23;
             // 
             // Label_nombre
@@ -118,10 +121,11 @@
             // 
             // textBoxClienteId
             // 
+            this.textBoxClienteId.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxClienteId.Location = new System.Drawing.Point(37, 74);
             this.textBoxClienteId.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxClienteId.Name = "textBoxClienteId";
-            this.textBoxClienteId.Size = new System.Drawing.Size(857, 22);
+            this.textBoxClienteId.Size = new System.Drawing.Size(857, 28);
             this.textBoxClienteId.TabIndex = 22;
             // 
             // label_IdUsuario
@@ -137,9 +141,10 @@
             // 
             // textBoxDireccion
             // 
+            this.textBoxDireccion.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxDireccion.Location = new System.Drawing.Point(38, 401);
             this.textBoxDireccion.Name = "textBoxDireccion";
-            this.textBoxDireccion.Size = new System.Drawing.Size(857, 22);
+            this.textBoxDireccion.Size = new System.Drawing.Size(857, 28);
             this.textBoxDireccion.TabIndex = 40;
             // 
             // labelDireccion
@@ -155,9 +160,10 @@
             // 
             // textBoxTelefono
             // 
+            this.textBoxTelefono.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxTelefono.Location = new System.Drawing.Point(38, 338);
             this.textBoxTelefono.Name = "textBoxTelefono";
-            this.textBoxTelefono.Size = new System.Drawing.Size(857, 22);
+            this.textBoxTelefono.Size = new System.Drawing.Size(857, 28);
             this.textBoxTelefono.TabIndex = 38;
             // 
             // labelTelefono

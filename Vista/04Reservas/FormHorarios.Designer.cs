@@ -96,7 +96,7 @@
             this.tabControlHorarios.Controls.Add(this.tabPageViernes);
             this.tabControlHorarios.Controls.Add(this.tabPageSabado);
             this.tabControlHorarios.Controls.Add(this.tabPageDomingo);
-            this.tabControlHorarios.Font = new System.Drawing.Font("Futura Lt BT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlHorarios.Font = new System.Drawing.Font("Futura Lt BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlHorarios.Location = new System.Drawing.Point(2, 45);
             this.tabControlHorarios.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlHorarios.Name = "tabControlHorarios";
@@ -107,11 +107,12 @@
             // tabPageLunes
             // 
             this.tabPageLunes.BackColor = System.Drawing.Color.Bisque;
-            this.tabPageLunes.Location = new System.Drawing.Point(4, 25);
+            this.tabPageLunes.Font = new System.Drawing.Font("Futura Lt BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPageLunes.Location = new System.Drawing.Point(4, 33);
             this.tabPageLunes.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageLunes.Name = "tabPageLunes";
             this.tabPageLunes.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageLunes.Size = new System.Drawing.Size(901, 516);
+            this.tabPageLunes.Size = new System.Drawing.Size(901, 508);
             this.tabPageLunes.TabIndex = 0;
             this.tabPageLunes.Text = "Lunes";
             // 

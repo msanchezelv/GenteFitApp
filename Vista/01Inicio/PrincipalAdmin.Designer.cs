@@ -100,7 +100,7 @@
             // añadirClienteToolStripMenuItem
             // 
             this.añadirClienteToolStripMenuItem.Name = "añadirClienteToolStripMenuItem";
-            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.añadirClienteToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.añadirClienteToolStripMenuItem.Text = "Añadir cliente";
             this.añadirClienteToolStripMenuItem.Click += new System.EventHandler(this.añadirClienteToolStripMenuItem_Click);
             // 
@@ -390,7 +390,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PrincipalAdmin";
-            this.Text = "PrincipalAdmin";
+            this.Text = "Inicio";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxClientes.ResumeLayout(false);

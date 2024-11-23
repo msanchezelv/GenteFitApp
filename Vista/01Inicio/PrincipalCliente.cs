@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenteFitApp.Controlador;
 using GenteFitApp.Vista._04Reservas;
+using GenteFitApp.Vista._05ListaEspera;
 
 
 namespace GenteFitApp.Vista
@@ -53,7 +54,8 @@ namespace GenteFitApp.Vista
 
         private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ListaEspera listaEspera = new ListaEspera();
+            listaEspera.ShowDialog();
         }
 
         private void verMisReservasToolStripMenuItem_Click(object sender, EventArgs e)

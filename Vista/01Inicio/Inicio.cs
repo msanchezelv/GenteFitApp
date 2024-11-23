@@ -36,6 +36,7 @@ namespace GenteFitApp.Vista
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            ControladorInicioSesion.VerificarYProcesarDatos();
             // No eliminar este método, no sé por qué pero da errores si se elimina!
         }
 
@@ -43,6 +44,7 @@ namespace GenteFitApp.Vista
         {
             string email = Box_UserId.Text;
             string password = BoxPassword.Text;
+            
 
             if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
             {

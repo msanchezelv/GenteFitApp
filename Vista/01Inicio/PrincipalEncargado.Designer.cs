@@ -60,13 +60,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reservasToolStripMenuItem,
             this.actividadesToolStripMenuItem,
             this.monitoresToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(840, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1120, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,31 +79,31 @@
             this.consultarReservasToolStripMenuItem,
             this.consultarListaDeEsperaToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.reservasToolStripMenuItem.Text = "Reservas";
             // 
             // añadirReservaToolStripMenuItem
             // 
             this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
-            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
             // 
             // cancelarReservaToolStripMenuItem
             // 
             this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
-            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
             // 
             // consultarReservasToolStripMenuItem
             // 
             this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
-            this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
             // 
             // consultarListaDeEsperaToolStripMenuItem
             // 
             this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
-            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
             // 
             // actividadesToolStripMenuItem
@@ -113,31 +114,31 @@
             this.eliminarActividadToolStripMenuItem,
             this.consultarActividadesToolStripMenuItem});
             this.actividadesToolStripMenuItem.Name = "actividadesToolStripMenuItem";
-            this.actividadesToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.actividadesToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
             this.actividadesToolStripMenuItem.Text = "Actividades";
             // 
             // añadirActividadToolStripMenuItem
             // 
             this.añadirActividadToolStripMenuItem.Name = "añadirActividadToolStripMenuItem";
-            this.añadirActividadToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.añadirActividadToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.añadirActividadToolStripMenuItem.Text = "Añadir actividad";
             // 
             // modificarActividadToolStripMenuItem
             // 
             this.modificarActividadToolStripMenuItem.Name = "modificarActividadToolStripMenuItem";
-            this.modificarActividadToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.modificarActividadToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.modificarActividadToolStripMenuItem.Text = "Modificar actividad";
             // 
             // eliminarActividadToolStripMenuItem
             // 
             this.eliminarActividadToolStripMenuItem.Name = "eliminarActividadToolStripMenuItem";
-            this.eliminarActividadToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.eliminarActividadToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.eliminarActividadToolStripMenuItem.Text = "Eliminar actividad";
             // 
             // consultarActividadesToolStripMenuItem
             // 
             this.consultarActividadesToolStripMenuItem.Name = "consultarActividadesToolStripMenuItem";
-            this.consultarActividadesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.consultarActividadesToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.consultarActividadesToolStripMenuItem.Text = "Consultar actividades";
             // 
             // monitoresToolStripMenuItem
@@ -148,49 +149,52 @@
             this.eliminarMonitorToolStripMenuItem,
             this.consultarMonitoresToolStripMenuItem});
             this.monitoresToolStripMenuItem.Name = "monitoresToolStripMenuItem";
-            this.monitoresToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.monitoresToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.monitoresToolStripMenuItem.Text = "Monitores";
             // 
             // añadirMonitorToolStripMenuItem
             // 
             this.añadirMonitorToolStripMenuItem.Name = "añadirMonitorToolStripMenuItem";
-            this.añadirMonitorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.añadirMonitorToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.añadirMonitorToolStripMenuItem.Text = "Añadir monitor";
             // 
             // editarMonitorToolStripMenuItem
             // 
             this.editarMonitorToolStripMenuItem.Name = "editarMonitorToolStripMenuItem";
-            this.editarMonitorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.editarMonitorToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.editarMonitorToolStripMenuItem.Text = "Editar monitor";
             // 
             // eliminarMonitorToolStripMenuItem
             // 
             this.eliminarMonitorToolStripMenuItem.Name = "eliminarMonitorToolStripMenuItem";
-            this.eliminarMonitorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.eliminarMonitorToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.eliminarMonitorToolStripMenuItem.Text = "Eliminar monitor";
             // 
             // consultarMonitoresToolStripMenuItem
             // 
             this.consultarMonitoresToolStripMenuItem.Name = "consultarMonitoresToolStripMenuItem";
-            this.consultarMonitoresToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.consultarMonitoresToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.consultarMonitoresToolStripMenuItem.Text = "Consultar monitores";
             // 
             // groupBoxMonitores
             // 
             this.groupBoxMonitores.Controls.Add(this.Boton_Abrir_Gestion_Monitores);
             this.groupBoxMonitores.Font = new System.Drawing.Font("Futura Lt BT", 14F);
-            this.groupBoxMonitores.Location = new System.Drawing.Point(26, 296);
+            this.groupBoxMonitores.Location = new System.Drawing.Point(35, 364);
+            this.groupBoxMonitores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxMonitores.Name = "groupBoxMonitores";
-            this.groupBoxMonitores.Size = new System.Drawing.Size(774, 88);
+            this.groupBoxMonitores.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxMonitores.Size = new System.Drawing.Size(1032, 108);
             this.groupBoxMonitores.TabIndex = 4;
             this.groupBoxMonitores.TabStop = false;
             this.groupBoxMonitores.Text = "Gestión de monitores";
             // 
             // Boton_Abrir_Gestion_Monitores
             // 
-            this.Boton_Abrir_Gestion_Monitores.Location = new System.Drawing.Point(14, 29);
+            this.Boton_Abrir_Gestion_Monitores.Location = new System.Drawing.Point(19, 36);
+            this.Boton_Abrir_Gestion_Monitores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Boton_Abrir_Gestion_Monitores.Name = "Boton_Abrir_Gestion_Monitores";
-            this.Boton_Abrir_Gestion_Monitores.Size = new System.Drawing.Size(745, 42);
+            this.Boton_Abrir_Gestion_Monitores.Size = new System.Drawing.Size(993, 52);
             this.Boton_Abrir_Gestion_Monitores.TabIndex = 0;
             this.Boton_Abrir_Gestion_Monitores.Text = "Abrir gestión de clientes";
             this.Boton_Abrir_Gestion_Monitores.UseVisualStyleBackColor = true;
@@ -199,18 +203,21 @@
             // 
             this.groupBoxAct.Controls.Add(this.Boton_Abrir_Gestion_Actividades);
             this.groupBoxAct.Font = new System.Drawing.Font("Futura Lt BT", 14F);
-            this.groupBoxAct.Location = new System.Drawing.Point(26, 185);
+            this.groupBoxAct.Location = new System.Drawing.Point(35, 228);
+            this.groupBoxAct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxAct.Name = "groupBoxAct";
-            this.groupBoxAct.Size = new System.Drawing.Size(774, 86);
+            this.groupBoxAct.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxAct.Size = new System.Drawing.Size(1032, 106);
             this.groupBoxAct.TabIndex = 5;
             this.groupBoxAct.TabStop = false;
             this.groupBoxAct.Text = "Gestión de actividades";
             // 
             // Boton_Abrir_Gestion_Actividades
             // 
-            this.Boton_Abrir_Gestion_Actividades.Location = new System.Drawing.Point(14, 29);
+            this.Boton_Abrir_Gestion_Actividades.Location = new System.Drawing.Point(19, 36);
+            this.Boton_Abrir_Gestion_Actividades.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Boton_Abrir_Gestion_Actividades.Name = "Boton_Abrir_Gestion_Actividades";
-            this.Boton_Abrir_Gestion_Actividades.Size = new System.Drawing.Size(745, 39);
+            this.Boton_Abrir_Gestion_Actividades.Size = new System.Drawing.Size(993, 48);
             this.Boton_Abrir_Gestion_Actividades.TabIndex = 0;
             this.Boton_Abrir_Gestion_Actividades.Text = "Abrir gestión de actividades";
             this.Boton_Abrir_Gestion_Actividades.UseVisualStyleBackColor = true;
@@ -219,18 +226,21 @@
             // 
             this.groupBoxReservas.Controls.Add(this.Boton_Abrir_Gestion_Reservas);
             this.groupBoxReservas.Font = new System.Drawing.Font("Futura Lt BT", 14F);
-            this.groupBoxReservas.Location = new System.Drawing.Point(26, 80);
+            this.groupBoxReservas.Location = new System.Drawing.Point(35, 98);
+            this.groupBoxReservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxReservas.Name = "groupBoxReservas";
-            this.groupBoxReservas.Size = new System.Drawing.Size(774, 84);
+            this.groupBoxReservas.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxReservas.Size = new System.Drawing.Size(1032, 103);
             this.groupBoxReservas.TabIndex = 6;
             this.groupBoxReservas.TabStop = false;
             this.groupBoxReservas.Text = "Gestión de reservas";
             // 
             // Boton_Abrir_Gestion_Reservas
             // 
-            this.Boton_Abrir_Gestion_Reservas.Location = new System.Drawing.Point(14, 29);
+            this.Boton_Abrir_Gestion_Reservas.Location = new System.Drawing.Point(19, 36);
+            this.Boton_Abrir_Gestion_Reservas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Boton_Abrir_Gestion_Reservas.Name = "Boton_Abrir_Gestion_Reservas";
-            this.Boton_Abrir_Gestion_Reservas.Size = new System.Drawing.Size(745, 38);
+            this.Boton_Abrir_Gestion_Reservas.Size = new System.Drawing.Size(993, 47);
             this.Boton_Abrir_Gestion_Reservas.TabIndex = 0;
             this.Boton_Abrir_Gestion_Reservas.Text = "Abrir gestión de reservas";
             this.Boton_Abrir_Gestion_Reservas.UseVisualStyleBackColor = true;
@@ -238,27 +248,29 @@
             // Boton_Salir
             // 
             this.Boton_Salir.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Salir.Location = new System.Drawing.Point(624, 560);
+            this.Boton_Salir.Location = new System.Drawing.Point(832, 689);
+            this.Boton_Salir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Boton_Salir.Name = "Boton_Salir";
-            this.Boton_Salir.Size = new System.Drawing.Size(176, 32);
+            this.Boton_Salir.Size = new System.Drawing.Size(235, 39);
             this.Boton_Salir.TabIndex = 9;
             this.Boton_Salir.Text = "Salir";
             this.Boton_Salir.UseVisualStyleBackColor = true;
             // 
             // PrincipalEncargado
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(840, 628);
+            this.ClientSize = new System.Drawing.Size(1120, 773);
             this.Controls.Add(this.Boton_Salir);
             this.Controls.Add(this.groupBoxMonitores);
             this.Controls.Add(this.groupBoxAct);
             this.Controls.Add(this.groupBoxReservas);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PrincipalEncargado";
-            this.Text = "PrincipalEncargado";
+            this.Text = "Inicio";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxMonitores.ResumeLayout(false);

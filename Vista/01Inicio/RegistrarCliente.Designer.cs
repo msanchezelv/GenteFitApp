@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarCliente));
             this.labelTelefono = new System.Windows.Forms.Label();
             this.textBoxTelefono = new System.Windows.Forms.TextBox();
             this.textBoxDireccion = new System.Windows.Forms.TextBox();
@@ -48,16 +49,18 @@
             // 
             // textBoxTelefono
             // 
+            this.textBoxTelefono.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxTelefono.Location = new System.Drawing.Point(95, 127);
             this.textBoxTelefono.Name = "textBoxTelefono";
-            this.textBoxTelefono.Size = new System.Drawing.Size(857, 22);
+            this.textBoxTelefono.Size = new System.Drawing.Size(519, 28);
             this.textBoxTelefono.TabIndex = 34;
             // 
             // textBoxDireccion
             // 
+            this.textBoxDireccion.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxDireccion.Location = new System.Drawing.Point(95, 190);
             this.textBoxDireccion.Name = "textBoxDireccion";
-            this.textBoxDireccion.Size = new System.Drawing.Size(857, 22);
+            this.textBoxDireccion.Size = new System.Drawing.Size(519, 28);
             this.textBoxDireccion.TabIndex = 36;
             // 
             // labelDireccion
@@ -87,12 +90,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(1043, 359);
+            this.ClientSize = new System.Drawing.Size(768, 359);
             this.Controls.Add(this.BotonRegistrarCliente);
             this.Controls.Add(this.textBoxDireccion);
             this.Controls.Add(this.labelDireccion);
             this.Controls.Add(this.textBoxTelefono);
             this.Controls.Add(this.labelTelefono);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrarCliente";
             this.Text = "Registrar cliente";
             this.ResumeLayout(false);
