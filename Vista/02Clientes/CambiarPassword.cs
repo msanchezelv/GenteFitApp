@@ -46,7 +46,7 @@ namespace GenteFitApp.Vista._02Clientes
 
         private bool ActualizarContraseña(string contraseñaActual, string contraseñaNueva)
         {
-            string connectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
             string storedProcedure = "dbo.ActualizarContraseña";
 
             try

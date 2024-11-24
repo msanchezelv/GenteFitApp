@@ -33,36 +33,18 @@ namespace GenteFitApp.Vista
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-
+            ControladorInicioSesion.VerificarYProcesarDatos();
+            // No eliminar este método, no sé por qué pero da errores si se elimina!
         }
 
         private void Boton_Entrar_Click(object sender, EventArgs e)
         {
             string email = Box_UserId.Text;
             string password = BoxPassword.Text;
+            
 
             if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
             {
@@ -83,13 +65,16 @@ namespace GenteFitApp.Vista
                     this.Hide();
                 }
             }
-            else
+            else if (mensaje == "La contraseña es incorrecta. Por favor, inténtalo de nuevo.")
+            {
+                MessageBox.Show(mensaje, "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                BoxPassword.Focus();
+                BoxPassword.SelectAll();
+            }
+            else if (mensaje.StartsWith("Inicio de sesión correcto"))
             {
                 MessageBox.Show(mensaje);
-            }
 
-            if (mensaje.StartsWith("Inicio de sesión correcto"))
-            {
                 Usuario usuarioActual = controladorInicioSesion.ObtenerUsuarioPorEmail(email, password);
 
                 switch (usuarioActual.rol)
@@ -115,28 +100,31 @@ namespace GenteFitApp.Vista
                         recepcionistaForm.Show();
                         this.Hide();
                         break;
+                    case "AgregarActividad":
+                        AgregarActividades agregarActividadesForm = new AgregarActividades(usuarioActual.rol);
+                        agregarActividadesForm.Show();
+                        this.Hide();
+                        break;
                     default:
                         MessageBox.Show($"Rol no reconocido: {usuarioActual.rol}");
                         break;
                 }
+
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
-
-        private void Box_UserId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkContraseñaOlvidada_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            int userId;
+            string email = Box_UserId.Text.Trim();
 
-            if (int.TryParse(Box_UserId.Text, out userId))
+            if (!string.IsNullOrEmpty(email))
             {
-                // Obtener el usuario solo por el idUsuario
-                Usuario usuario = controladorInicioSesion.ObtenerUsuarioPorId(userId);
+                Usuario usuario = controladorInicioSesion.ContraseñaOlvidada(email);
 
                 if (usuario != null)
                 {
@@ -144,14 +132,15 @@ namespace GenteFitApp.Vista
                 }
                 else
                 {
-                    MessageBox.Show("El ID de usuario no se encuentra en el sistema.");
+                    MessageBox.Show("El correo electrónico no se encuentra en el sistema.");
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, introduce un ID de usuario válido.");
+                MessageBox.Show("Por favor, introduce un correo electrónico válido.");
             }
         }
+
 
     }
 }

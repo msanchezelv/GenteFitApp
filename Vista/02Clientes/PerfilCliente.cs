@@ -21,7 +21,7 @@ namespace GenteFitApp.Vista._02Clientes
 
         private void CargarDatosCliente()
         {
-            string connectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
             string storedProcedure = "dbo.ObtenerPerfilCliente";
 
             try
@@ -100,7 +100,7 @@ namespace GenteFitApp.Vista._02Clientes
 
         private void ActualizarDatosCliente()
         {
-            string connectionString = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
+            string connectionString = DatabaseConfig.ConnectionString;
             string storedProcedure = "dbo.ActualizarDatosCliente";
 
             try

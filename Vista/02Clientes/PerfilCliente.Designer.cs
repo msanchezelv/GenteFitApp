@@ -43,16 +43,6 @@
             this.textBoxTelefono = new System.Windows.Forms.TextBox();
             this.labelTelefono = new System.Windows.Forms.Label();
             this.botonModContrasena = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // botonModificarDatos
@@ -69,10 +59,11 @@
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxEmail.Location = new System.Drawing.Point(37, 267);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(857, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(857, 28);
             this.textBoxEmail.TabIndex = 25;
             // 
             // labelemail
@@ -89,10 +80,11 @@
             // 
             // textBoxApellidos
             // 
+            this.textBoxApellidos.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxApellidos.Location = new System.Drawing.Point(37, 202);
             this.textBoxApellidos.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidos.Name = "textBoxApellidos";
-            this.textBoxApellidos.Size = new System.Drawing.Size(857, 22);
+            this.textBoxApellidos.Size = new System.Drawing.Size(857, 28);
             this.textBoxApellidos.TabIndex = 24;
             // 
             // label_apellidos
@@ -109,10 +101,11 @@
             // 
             // textBoxNombre
             // 
+            this.textBoxNombre.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxNombre.Location = new System.Drawing.Point(37, 138);
             this.textBoxNombre.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(857, 22);
+            this.textBoxNombre.Size = new System.Drawing.Size(857, 28);
             this.textBoxNombre.TabIndex = 23;
             // 
             // Label_nombre
@@ -128,10 +121,11 @@
             // 
             // textBoxClienteId
             // 
+            this.textBoxClienteId.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxClienteId.Location = new System.Drawing.Point(37, 74);
             this.textBoxClienteId.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxClienteId.Name = "textBoxClienteId";
-            this.textBoxClienteId.Size = new System.Drawing.Size(857, 22);
+            this.textBoxClienteId.Size = new System.Drawing.Size(857, 28);
             this.textBoxClienteId.TabIndex = 22;
             // 
             // label_IdUsuario
@@ -147,9 +141,10 @@
             // 
             // textBoxDireccion
             // 
+            this.textBoxDireccion.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxDireccion.Location = new System.Drawing.Point(38, 401);
             this.textBoxDireccion.Name = "textBoxDireccion";
-            this.textBoxDireccion.Size = new System.Drawing.Size(857, 22);
+            this.textBoxDireccion.Size = new System.Drawing.Size(857, 28);
             this.textBoxDireccion.TabIndex = 40;
             // 
             // labelDireccion
@@ -165,9 +160,10 @@
             // 
             // textBoxTelefono
             // 
+            this.textBoxTelefono.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.textBoxTelefono.Location = new System.Drawing.Point(38, 338);
             this.textBoxTelefono.Name = "textBoxTelefono";
-            this.textBoxTelefono.Size = new System.Drawing.Size(857, 22);
+            this.textBoxTelefono.Size = new System.Drawing.Size(857, 28);
             this.textBoxTelefono.TabIndex = 38;
             // 
             // labelTelefono
@@ -193,80 +189,12 @@
             this.botonModContrasena.UseVisualStyleBackColor = true;
             this.botonModContrasena.Click += new System.EventHandler(this.botonModContrasena_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.perfilToolStripMenuItem,
-            this.reservasToolStripMenuItem,
-            this.comprasToolStripMenuItem,
-            this.sobreNosotrosToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(955, 28);
-            this.menuStrip1.TabIndex = 42;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // perfilToolStripMenuItem
-            // 
-            this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
-            this.perfilToolStripMenuItem.Text = "Perfil";
-            // 
-            // reservasToolStripMenuItem
-            // 
-            this.reservasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirReservaToolStripMenuItem,
-            this.cancelarReservaToolStripMenuItem,
-            this.consultarReservasToolStripMenuItem,
-            this.consultarListaDeEsperaToolStripMenuItem});
-            this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
-            this.reservasToolStripMenuItem.Text = "Reservas";
-            // 
-            // añadirReservaToolStripMenuItem
-            // 
-            this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
-            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
-            // 
-            // cancelarReservaToolStripMenuItem
-            // 
-            this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
-            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
-            // 
-            // consultarReservasToolStripMenuItem
-            // 
-            this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
-            this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
-            // 
-            // consultarListaDeEsperaToolStripMenuItem
-            // 
-            this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
-            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
-            // 
-            // comprasToolStripMenuItem
-            // 
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
-            this.comprasToolStripMenuItem.Text = "Compras";
-            // 
-            // sobreNosotrosToolStripMenuItem
-            // 
-            this.sobreNosotrosToolStripMenuItem.Name = "sobreNosotrosToolStripMenuItem";
-            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.sobreNosotrosToolStripMenuItem.Text = "Sobre nosotros";
-            // 
             // PerfilCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(955, 553);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.botonModContrasena);
             this.Controls.Add(this.textBoxDireccion);
             this.Controls.Add(this.labelDireccion);
@@ -284,8 +212,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PerfilCliente";
             this.Text = "Perfil";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,14 +233,5 @@
         private System.Windows.Forms.TextBox textBoxTelefono;
         private System.Windows.Forms.Label labelTelefono;
         private System.Windows.Forms.Button botonModContrasena;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirReservaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarReservaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarReservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarListaDeEsperaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreNosotrosToolStripMenuItem;
     }
 }

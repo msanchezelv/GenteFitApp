@@ -30,14 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHorarios));
-            this.horarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.genteFitDataSet = new GenteFitApp.GenteFitDataSet();
-            this.horarioTableAdapter = new GenteFitApp.GenteFitDataSetTableAdapters.HorarioTableAdapter();
-            this.horarioBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.horarioBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.horarioBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.genteFitDataSet1 = new GenteFitApp.GenteFitDataSet1();
-            this.genteFitDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.horarioTableAdapter1 = new GenteFitApp.GenteFitDataSet1TableAdapters.HorarioTableAdapter();
             this.horarioBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewHorarios = new System.Windows.Forms.DataGridView();
@@ -52,48 +46,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarios)).BeginInit();
             this.tabControlHorarios.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // horarioBindingSource
-            // 
-            this.horarioBindingSource.DataMember = "Horario";
-            this.horarioBindingSource.DataSource = this.genteFitDataSet;
-            // 
-            // genteFitDataSet
-            // 
-            this.genteFitDataSet.DataSetName = "GenteFitDataSet";
-            this.genteFitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // horarioTableAdapter
-            // 
-            this.horarioTableAdapter.ClearBeforeFill = true;
-            // 
-            // horarioBindingSource1
-            // 
-            this.horarioBindingSource1.DataMember = "Horario";
-            this.horarioBindingSource1.DataSource = this.genteFitDataSet;
-            // 
-            // horarioBindingSource2
-            // 
-            this.horarioBindingSource2.DataMember = "Horario";
-            this.horarioBindingSource2.DataSource = this.genteFitDataSet;
             // 
             // horarioBindingSource3
             // 
@@ -104,11 +65,6 @@
             // 
             this.genteFitDataSet1.DataSetName = "GenteFitDataSet1";
             this.genteFitDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // genteFitDataSetBindingSource
-            // 
-            this.genteFitDataSetBindingSource.DataSource = this.genteFitDataSet;
-            this.genteFitDataSetBindingSource.Position = 0;
             // 
             // horarioTableAdapter1
             // 
@@ -140,7 +96,7 @@
             this.tabControlHorarios.Controls.Add(this.tabPageViernes);
             this.tabControlHorarios.Controls.Add(this.tabPageSabado);
             this.tabControlHorarios.Controls.Add(this.tabPageDomingo);
-            this.tabControlHorarios.Font = new System.Drawing.Font("Futura Lt BT", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlHorarios.Font = new System.Drawing.Font("Futura Lt BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlHorarios.Location = new System.Drawing.Point(2, 45);
             this.tabControlHorarios.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlHorarios.Name = "tabControlHorarios";
@@ -151,11 +107,12 @@
             // tabPageLunes
             // 
             this.tabPageLunes.BackColor = System.Drawing.Color.Bisque;
-            this.tabPageLunes.Location = new System.Drawing.Point(4, 25);
+            this.tabPageLunes.Font = new System.Drawing.Font("Futura Lt BT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPageLunes.Location = new System.Drawing.Point(4, 33);
             this.tabPageLunes.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageLunes.Name = "tabPageLunes";
             this.tabPageLunes.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageLunes.Size = new System.Drawing.Size(901, 295);
+            this.tabPageLunes.Size = new System.Drawing.Size(901, 508);
             this.tabPageLunes.TabIndex = 0;
             this.tabPageLunes.Text = "Lunes";
             // 
@@ -166,7 +123,7 @@
             this.tabPageMartes.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageMartes.Name = "tabPageMartes";
             this.tabPageMartes.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageMartes.Size = new System.Drawing.Size(901, 295);
+            this.tabPageMartes.Size = new System.Drawing.Size(901, 516);
             this.tabPageMartes.TabIndex = 1;
             this.tabPageMartes.Text = "Martes";
             // 
@@ -176,7 +133,7 @@
             this.tabPageMiercoles.Location = new System.Drawing.Point(4, 25);
             this.tabPageMiercoles.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageMiercoles.Name = "tabPageMiercoles";
-            this.tabPageMiercoles.Size = new System.Drawing.Size(901, 295);
+            this.tabPageMiercoles.Size = new System.Drawing.Size(901, 516);
             this.tabPageMiercoles.TabIndex = 2;
             this.tabPageMiercoles.Text = "Miércoles";
             // 
@@ -186,7 +143,7 @@
             this.tabPageJueves.Location = new System.Drawing.Point(4, 25);
             this.tabPageJueves.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageJueves.Name = "tabPageJueves";
-            this.tabPageJueves.Size = new System.Drawing.Size(901, 295);
+            this.tabPageJueves.Size = new System.Drawing.Size(901, 516);
             this.tabPageJueves.TabIndex = 3;
             this.tabPageJueves.Text = "Jueves";
             // 
@@ -196,7 +153,7 @@
             this.tabPageViernes.Location = new System.Drawing.Point(4, 25);
             this.tabPageViernes.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageViernes.Name = "tabPageViernes";
-            this.tabPageViernes.Size = new System.Drawing.Size(901, 295);
+            this.tabPageViernes.Size = new System.Drawing.Size(901, 516);
             this.tabPageViernes.TabIndex = 4;
             this.tabPageViernes.Text = "Viernes";
             // 
@@ -216,7 +173,7 @@
             this.tabPageDomingo.Location = new System.Drawing.Point(4, 25);
             this.tabPageDomingo.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageDomingo.Name = "tabPageDomingo";
-            this.tabPageDomingo.Size = new System.Drawing.Size(901, 295);
+            this.tabPageDomingo.Size = new System.Drawing.Size(901, 516);
             this.tabPageDomingo.TabIndex = 6;
             this.tabPageDomingo.Text = "Domingo";
             // 
@@ -225,9 +182,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.perfilToolStripMenuItem,
-            this.reservasToolStripMenuItem,
-            this.comprasToolStripMenuItem,
-            this.sobreNosotrosToolStripMenuItem});
+            this.reservasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(904, 28);
@@ -239,53 +194,30 @@
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
             this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
+            this.perfilToolStripMenuItem.Click += new System.EventHandler(this.perfilToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
             this.reservasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirReservaToolStripMenuItem,
-            this.cancelarReservaToolStripMenuItem,
             this.consultarReservasToolStripMenuItem,
             this.consultarListaDeEsperaToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
             this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.reservasToolStripMenuItem.Text = "Reservas";
             // 
-            // añadirReservaToolStripMenuItem
-            // 
-            this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
-            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
-            // 
-            // cancelarReservaToolStripMenuItem
-            // 
-            this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
-            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
-            // 
             // consultarReservasToolStripMenuItem
             // 
             this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
             this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
+            this.consultarReservasToolStripMenuItem.Click += new System.EventHandler(this.consultarReservasToolStripMenuItem_Click);
             // 
             // consultarListaDeEsperaToolStripMenuItem
             // 
             this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
             this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
             this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
-            // 
-            // comprasToolStripMenuItem
-            // 
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
-            this.comprasToolStripMenuItem.Text = "Compras";
-            // 
-            // sobreNosotrosToolStripMenuItem
-            // 
-            this.sobreNosotrosToolStripMenuItem.Name = "sobreNosotrosToolStripMenuItem";
-            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.sobreNosotrosToolStripMenuItem.Text = "Sobre nosotros";
+            this.consultarListaDeEsperaToolStripMenuItem.Click += new System.EventHandler(this.consultarListaDeEsperaToolStripMenuItem_Click);
             // 
             // FormHorarios
             // 
@@ -300,13 +232,8 @@
             this.Name = "FormHorarios";
             this.Text = "Horarios";
             this.Load += new System.EventHandler(this.FormHorarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genteFitDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.horarioBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHorarios)).EndInit();
             this.tabControlHorarios.ResumeLayout(false);
@@ -318,12 +245,6 @@
         }
 
         #endregion
-        private GenteFitDataSet genteFitDataSet;
-        private System.Windows.Forms.BindingSource horarioBindingSource;
-        private GenteFitDataSetTableAdapters.HorarioTableAdapter horarioTableAdapter;
-        private System.Windows.Forms.BindingSource horarioBindingSource1;
-        private System.Windows.Forms.BindingSource horarioBindingSource2;
-        private System.Windows.Forms.BindingSource genteFitDataSetBindingSource;
         private GenteFitDataSet1 genteFitDataSet1;
         private System.Windows.Forms.BindingSource horarioBindingSource3;
         private GenteFitDataSet1TableAdapters.HorarioTableAdapter horarioTableAdapter1;
@@ -344,11 +265,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirReservaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarReservaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarReservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarListaDeEsperaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sobreNosotrosToolStripMenuItem;
     }
 }

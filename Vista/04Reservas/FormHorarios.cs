@@ -1,6 +1,7 @@
 ﻿using GenteFitApp.Modelo;
 using GenteFitApp.Modelo.GenteFitApp.Modelo;
 using GenteFitApp.Vista._04Reservas;
+using GenteFitApp.Vista._05ListaEspera;
 using GenteFitApp.Controlador;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenteFit.Controlador;
+using GenteFitApp.Vista._02Clientes;
+using ListaEspera = GenteFitApp.Vista._05ListaEspera.ListaEspera;
 
 namespace GenteFitApp.Vista._06Horarios
 {
@@ -33,7 +36,7 @@ namespace GenteFitApp.Vista._06Horarios
         }
 
         private void FormHorarios_Load(object sender, EventArgs e)
-        {
+        {            
             List<HorarioDTO> horarios = HorarioDTO.ObtenerHorariosConActividadYMonitor();
             var horariosAgrupados = horarios.GroupBy(h => h.DiaSemana).ToList();
 
@@ -41,6 +44,7 @@ namespace GenteFitApp.Vista._06Horarios
             {
                 string diaSemana = grupo.Key;
                 TabPage tabPage = null;
+
                 switch (diaSemana.ToLower())
                 {
                     case "lunes":
@@ -80,6 +84,7 @@ namespace GenteFitApp.Vista._06Horarios
                         ReadOnly = true
                     };
 
+                    
                     BindingList<HorarioDTO> bindingHorariosDia = new BindingList<HorarioDTO>(grupo.ToList());
                     dataGridViewDia.DataSource = bindingHorariosDia;
 
@@ -100,7 +105,14 @@ namespace GenteFitApp.Vista._06Horarios
                         if (dataGridViewDia.Columns.Contains("Monitor"))
                             dataGridViewDia.Columns["Monitor"].HeaderText = "Monitor";
                         if (dataGridViewDia.Columns.Contains("Plazas"))
-                            dataGridViewDia.Columns["Plazas"].HeaderText = "Plazas disponibles";
+                            ActualizarPlazasDisponibles();
+                        dataGridViewDia.Columns["Plazas"].HeaderText = "Plazas disponibles";
+                        if (dataGridViewDia.Columns.Contains("Fecha"))
+                            dataGridViewDia.Columns["Fecha"].HeaderText = "Fecha";
+
+                        // Hacer visible la columna Fecha
+                        if (dataGridViewDia.Columns.Contains("Fecha"))
+                            dataGridViewDia.Columns["Fecha"].Visible = true;
 
                         if (dataGridViewDia.Columns.Contains("DiaSemana"))
                         {
@@ -115,7 +127,38 @@ namespace GenteFitApp.Vista._06Horarios
                     tabPage.Controls.Add(dataGridViewDia);
                 }
             }
+
+            ActualizarPlazasDisponibles();
+
+            DayOfWeek diaActual = DateTime.Now.DayOfWeek;
+            switch (diaActual)
+            {
+                case DayOfWeek.Monday:
+                    this.tabControlHorarios.SelectedTab = tabPageLunes;
+                    break;
+                case DayOfWeek.Tuesday:
+                    this.tabControlHorarios.SelectedTab = tabPageMartes;
+                    break;
+                case DayOfWeek.Wednesday:
+                    this.tabControlHorarios.SelectedTab = tabPageMiercoles;
+                    break;
+                case DayOfWeek.Thursday:
+                    this.tabControlHorarios.SelectedTab = tabPageJueves;
+                    break;
+                case DayOfWeek.Friday:
+                    this.tabControlHorarios.SelectedTab = tabPageViernes;
+                    break;
+                case DayOfWeek.Saturday:
+                    this.tabControlHorarios.SelectedTab = tabPageSabado;
+                    break;
+                case DayOfWeek.Sunday:
+                    this.tabControlHorarios.SelectedTab = tabPageDomingo;
+                    break;
+                default:
+                    break;
+            }
         }
+
 
         private void dataGridViewDia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -132,35 +175,103 @@ namespace GenteFitApp.Vista._06Horarios
                 string diaSemana = filaSeleccionada.Cells["DiaSemana"].Value.ToString();
                 string monitor = filaSeleccionada.Cells["Monitor"].Value.ToString();
                 int plazasDisponibles = Convert.ToInt32(filaSeleccionada.Cells["Plazas"].Value);
+                string fechaDeLaActividad = filaSeleccionada.Cells["Fecha"].Value.ToString();
 
-                if (idHorario != -1 && plazasDisponibles > 0)
+                if (idHorario != -1)
                 {
-                    // Aquí debería abrir el formulario de reserva
-                    string fecha = DateTime.Now.ToString("dd/MM/yyyy");
-                    FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fecha, monitor, plazasDisponibles);
-                    formReserva.ShowDialog();
-                    ActualizarPlazasDisponibles();
+                    // Si hay plazas disponibles, se hace la reserva
+                    if (plazasDisponibles > 0)
+                    {
+                        string fecha = DateTime.Now.ToString("dd/MM/yyyy");
+                        FormReserva formReserva = new FormReserva(idCliente, idHorario, nombreActividad, hora, diaSemana, fechaDeLaActividad, monitor, plazasDisponibles, false);
+                        formReserva.ShowDialog();
+
+                        // Actualizamos las plazas disponibles después de realizar la reserva
+                        ActualizarPlazasDisponibles();
+                    }
+                    else
+                    {
+                        // Si no hay plazas disponibles, se agrega al cliente a la lista de espera automáticamente
+                        AgregarAListaEspera(idCliente, idHorario);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No hay plazas disponibles para esta actividad o el horario no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El horario no se encontró.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void AgregarAListaEspera(int idCliente, int idHorario)
+        {
+            // Primero, calculamos la nueva posición en la lista de espera
+            int nuevaPosicion = ObtenerPosicionListaEspera(idHorario);
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfig.ConnectionString))
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        // Insertamos el cliente en la lista de espera
+                        string insertQuery = "INSERT INTO ListaEspera (idHorario, idCliente, posicion) VALUES (@idHorario, @idCliente, @posicion)";
+                        using (SqlCommand insertCmd = new SqlCommand(insertQuery, connection, transaction))
+                        {
+                            insertCmd.Parameters.AddWithValue("@idHorario", idHorario);
+                            insertCmd.Parameters.AddWithValue("@idCliente", idCliente);
+                            insertCmd.Parameters.AddWithValue("@posicion", nuevaPosicion);
+
+                            insertCmd.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        MessageBox.Show("No hay plazas disponibles. Has sido añadido a la lista de espera.");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show("Ocurrió un error al agregar a la lista de espera: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private int ObtenerPosicionListaEspera(int idHorario)
+        {
+            int posicion = 1;
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfig.ConnectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT COUNT(*) FROM ListaEspera WHERE idHorario = @idHorario";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@idHorario", idHorario);
+                    posicion = (int)cmd.ExecuteScalar() + 1; // La nueva posición es el número total de clientes en la lista + 1
+                }
+            }
+
+            return posicion;
         }
 
 
         public void ActualizarPlazasDisponibles()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["GenteFitApp.Properties.Settings.GenteFitConnectionString"].ConnectionString;
+            string connectionString = DatabaseConfig.ConnectionString;
 
             string query = @"
-                            SELECT h.PlazasDisponibles
-                            FROM Horario h
-                            WHERE h.idHorario = @idHorario";
+                    SELECT h.PlazasDisponibles
+                    FROM Horario h
+                    WHERE h.idHorario = @idHorario";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+
+                // Aseguramos que se actualicen todas las filas de todos los días
                 foreach (TabPage tabPage in tabControlHorarios.TabPages)
                 {
                     foreach (Control control in tabPage.Controls)
@@ -187,7 +298,25 @@ namespace GenteFitApp.Vista._06Horarios
             }
         }
 
+        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PerfilCliente perfilCliente = new PerfilCliente();
+            perfilCliente.ShowDialog();
+            this.Close();
+        }
 
+        private void consultarReservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerReservas misReservas = new VerReservas();
+            misReservas.ShowDialog();
+            this.Close();
+        }
+
+        private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _05ListaEspera.ListaEspera listaEspera = new ListaEspera();
+            listaEspera.ShowDialog();
+        }
     }
 
 }

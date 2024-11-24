@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Diagnostics;
+using System.Data.Entity;
+using GenteFitApp.Controlador;
 
 namespace GenteFitApp.Vista
 {
@@ -10,7 +13,7 @@ namespace GenteFitApp.Vista
         {
             InitializeComponent();
             this.BackColor = Color.Bisque;
-            this.Icon = new Icon("C:\\Users\\Marina\\source\\repos\\GenteFitApp\\GenteFitApp\\logoGenteFit.ico");
+            this.Icon = new Icon("C:\\Users\\Sergio\\source\\repos\\msanchezelv\\GenteFitApp\\logoGenteFit.ico");
 
             this.FormClosing += FormularioBase_FormClosing;
         }
@@ -27,9 +30,12 @@ namespace GenteFitApp.Vista
                     return;
                 }
 
-                Application.Exit(); // Cierra la aplicación correctamente
                 Environment.Exit(0); // Forzar la salida del proceso y todos los subprocesos
+                Application.Exit(); // Cierra la aplicación correctamente
+                
             }
         }
+
+        
     }
 }

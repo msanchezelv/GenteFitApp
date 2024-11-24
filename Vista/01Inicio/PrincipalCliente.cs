@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenteFitApp.Controlador;
+using GenteFitApp.Vista._04Reservas;
+using GenteFitApp.Vista._05ListaEspera;
 
 
 namespace GenteFitApp.Vista
@@ -26,27 +28,37 @@ namespace GenteFitApp.Vista
         private void Boton_Abrir_Horarios_Click(object sender, EventArgs e)
         {
             FormHorarios formHorarios = new FormHorarios();
-            formHorarios.ShowDialog();
-            // this.Close();
+            formHorarios.ShowDialog();            
         }
 
         private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PerfilCliente perfilCliente = new PerfilCliente();
             perfilCliente.ShowDialog();
-            // this.Close();
         }
 
         private void Boton_AbrirReservas_Click(object sender, EventArgs e)
         {
-
+            VerReservas misReservas = new VerReservas();
+            misReservas.ShowDialog();
         }
 
         private void Boton_AbrirPerfil_Click(object sender, EventArgs e)
         {
             PerfilCliente perfilCliente = new PerfilCliente();
             perfilCliente.ShowDialog();
-            // this.Close();
+        }
+
+        private void consultarListaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListaEspera listaEspera = new ListaEspera();
+            listaEspera.ShowDialog();
+        }
+
+        private void verMisReservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerReservas misReservas = new VerReservas();
+            misReservas.ShowDialog();
         }
     }
 }

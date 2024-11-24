@@ -32,12 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.añadirReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarListaDeEsperaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sobreNosotrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMisReservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxReservas = new System.Windows.Forms.GroupBox();
             this.Boton_Abrir_Horarios = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -52,12 +48,11 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Futura Lt BT", 10.2F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.perfilToolStripMenuItem,
-            this.reservasToolStripMenuItem,
-            this.comprasToolStripMenuItem,
-            this.sobreNosotrosToolStripMenuItem});
+            this.reservasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1108, 28);
@@ -67,56 +62,32 @@
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
             this.perfilToolStripMenuItem.Click += new System.EventHandler(this.perfilToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
             this.reservasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirReservaToolStripMenuItem,
-            this.cancelarReservaToolStripMenuItem,
-            this.consultarReservasToolStripMenuItem,
-            this.consultarListaDeEsperaToolStripMenuItem});
+            this.consultarListaDeEsperaToolStripMenuItem,
+            this.verMisReservasToolStripMenuItem});
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.reservasToolStripMenuItem.Text = "Reservas";
-            // 
-            // añadirReservaToolStripMenuItem
-            // 
-            this.añadirReservaToolStripMenuItem.Name = "añadirReservaToolStripMenuItem";
-            this.añadirReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.añadirReservaToolStripMenuItem.Text = "Añadir reserva";
-            // 
-            // cancelarReservaToolStripMenuItem
-            // 
-            this.cancelarReservaToolStripMenuItem.Name = "cancelarReservaToolStripMenuItem";
-            this.cancelarReservaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.cancelarReservaToolStripMenuItem.Text = "Cancelar reserva";
-            // 
-            // consultarReservasToolStripMenuItem
-            // 
-            this.consultarReservasToolStripMenuItem.Name = "consultarReservasToolStripMenuItem";
-            this.consultarReservasToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
-            this.consultarReservasToolStripMenuItem.Text = "Consultar reservas";
             // 
             // consultarListaDeEsperaToolStripMenuItem
             // 
             this.consultarListaDeEsperaToolStripMenuItem.Name = "consultarListaDeEsperaToolStripMenuItem";
-            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(254, 26);
+            this.consultarListaDeEsperaToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
             this.consultarListaDeEsperaToolStripMenuItem.Text = "Consultar lista de espera";
+            this.consultarListaDeEsperaToolStripMenuItem.Click += new System.EventHandler(this.consultarListaDeEsperaToolStripMenuItem_Click);
             // 
-            // comprasToolStripMenuItem
+            // verMisReservasToolStripMenuItem
             // 
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
-            this.comprasToolStripMenuItem.Text = "Compras";
-            // 
-            // sobreNosotrosToolStripMenuItem
-            // 
-            this.sobreNosotrosToolStripMenuItem.Name = "sobreNosotrosToolStripMenuItem";
-            this.sobreNosotrosToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.sobreNosotrosToolStripMenuItem.Text = "Sobre nosotros";
+            this.verMisReservasToolStripMenuItem.Name = "verMisReservasToolStripMenuItem";
+            this.verMisReservasToolStripMenuItem.Size = new System.Drawing.Size(263, 26);
+            this.verMisReservasToolStripMenuItem.Text = "Ver mis reservas";
+            this.verMisReservasToolStripMenuItem.Click += new System.EventHandler(this.verMisReservasToolStripMenuItem_Click);
             // 
             // groupBoxReservas
             // 
@@ -218,18 +189,14 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirReservaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelarReservaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarReservasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarListaDeEsperaToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBoxReservas;
         private System.Windows.Forms.Button Boton_Abrir_Horarios;
         private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Boton_AbrirReservas;
-        private System.Windows.Forms.ToolStripMenuItem sobreNosotrosToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Boton_AbrirPerfil;
+        private System.Windows.Forms.ToolStripMenuItem verMisReservasToolStripMenuItem;
     }
 }

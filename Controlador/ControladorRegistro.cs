@@ -2,97 +2,104 @@
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
-using System.Windows.Forms;
+using GenteFitApp.Controlador;
 using GenteFitApp.Modelo;
-using GenteFitApp.Vista;
-using GenteFitApp.Vista._01Inicio;
 
-namespace GenteFitApp.controlador
+namespace GenteFitApp.Controlador
 {
     internal class ControladorRegistro
     {
+<<<<<<< HEAD
         internal string connectionString = "Data Source=DESKTOP-6VP8HCF;Initial Catalog=GenteFit;Integrated Security=True";
+=======
+        private readonly string connectionString = DatabaseConfig.ConnectionString;
+>>>>>>> main
 
-        // Método para registrar un usuario con rol y abrir la pantalla correspondiente
+        // Método para registrar un usuario con rol
         public int RegistrarUsuario(string nombre, string apellidos, string email, string contraseña, string rol)
         {
-            int idUsuario = -1;
+            string query = "INSERT INTO Usuario (Nombre, Apellidos, Email, Contraseña, Rol) " +
+                           "VALUES (@Nombre, @Apellidos, @Email, @Contraseña, @Rol); " +
+                           "SELECT SCOPE_IDENTITY();";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            var parametros = new[]
             {
-                string query = "INSERT INTO Usuario (Nombre, Apellidos, Email, Contraseña, Rol) " +
-                               "VALUES (@Nombre, @Apellidos, @Email, @Contraseña, @Rol); " +
-                               "SELECT SCOPE_IDENTITY();";
+                new SqlParameter("@Nombre", nombre),
+                new SqlParameter("@Apellidos", apellidos),
+                new SqlParameter("@Email", email),
+                new SqlParameter("@Contraseña", HashContraseña(contraseña)),
+                new SqlParameter("@Rol", rol)
+            };
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Nombre", nombre);
-                    cmd.Parameters.AddWithValue("@Apellidos", apellidos);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Contraseña", contraseña);
-                    cmd.Parameters.AddWithValue("@Rol", rol);
-
-                    conn.Open();
-                    idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
-                }
-            }
-
-            return idUsuario;
+            return EjecutarConsultaValorUnico(query, parametros);
         }
 
+        // Método para registrar un cliente asociado a un usuario
+        public bool RegistrarCliente(int idUsuario, string telefono, string direccion)
+        {
+            string query = "INSERT INTO Cliente (idUsuario, telefono, direccion) VALUES (@idUsuario, @telefono, @direccion)";
 
+            var parametros = new[]
+            {
+                new SqlParameter("@idUsuario", idUsuario),
+                new SqlParameter("@telefono", telefono),
+                new SqlParameter("@direccion", direccion)
+            };
 
+            return EjecutarConsultaNoValorUnico(query, parametros);
+        }
+
+        // Método para obtener el próximo ID de usuario (si es necesario manualmente)
+        public int ObtenerProximoIdUsuario()
+        {
+            string query = "SELECT ISNULL(MAX(idUsuario), 0) + 1 FROM Usuario";
+            return EjecutarConsultaValorUnico(query);
+        }
+
+        // Método privado para hashear contraseñas
         private string HashContraseña(string contraseña)
         {
             using (var sha256 = SHA256.Create())
             {
                 byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(contraseña));
-                StringBuilder builder = new StringBuilder();
-                foreach (byte b in bytes)
-                {
-                    builder.Append(b.ToString("x2"));
-                }
-                return builder.ToString();
+                return BitConverter.ToString(bytes).Replace("-", "").ToLower();
             }
         }
 
-        internal int ObtenerProximoIdUsuario()
-        {
-            int proximoId = 1;
-            string query = "SELECT ISNULL(MAX(idUsuario), 0) + 1 FROM Usuario";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    connection.Open();
-                    proximoId = (int)command.ExecuteScalar();
-                }
-            }
-            return proximoId;
-        }
-
-        public bool RegistrarCliente(int idUsuario, string telefono, string direccion)
+        // Método auxiliar para ejecutar consultas que devuelven un escalar
+        private int EjecutarConsultaValorUnico(string query, params SqlParameter[] parametros)
         {
             using (var connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-
-                string query = "INSERT INTO Cliente (idUsuario, telefono, direccion) VALUES (@idUsuario, @telefono, @direccion)";
                 using (var command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
-                    command.Parameters.AddWithValue("@telefono", telefono);
-                    command.Parameters.AddWithValue("@direccion", direccion);
+                    if (parametros != null)
+                    {
+                        command.Parameters.AddRange(parametros);
+                    }
 
-                    // Ejecutamos la consulta de inserción
-                    int filasAfectadas = command.ExecuteNonQuery();
-
-                    // Si se insertaron filas, la operación fue exitosa
-                    return filasAfectadas > 0;
+                    connection.Open();
+                    return Convert.ToInt32(command.ExecuteScalar());
                 }
             }
         }
 
+        // Método auxiliar para ejecutar consultas que no devuelven resultados (INSERT, UPDATE, DELETE)
+        private bool EjecutarConsultaNoValorUnico(string query, params SqlParameter[] parametros)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand(query, connection))
+                {
+                    if (parametros != null)
+                    {
+                        command.Parameters.AddRange(parametros);
+                    }
 
+                    connection.Open();
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }
