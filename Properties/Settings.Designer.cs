@@ -26,10 +26,29 @@ namespace GenteFitApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+<<<<<<< Updated upstream
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Juan\\SQLEXPRESS;Integrated Security=True;Encrypt=False")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));
+=======
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Juan\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Secur" +
+            "ity=True")]
+        public string masterConnectionString {
+            get {
+                return ((string)(this["masterConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Juan\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Secur" +
+            "ity=True")]
+        public string GenteFitConnectionString {
+            get {
+                return ((string)(this["GenteFitConnectionString"]));
+>>>>>>> Stashed changes
             }
         }
     }
