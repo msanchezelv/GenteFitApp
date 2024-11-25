@@ -40,19 +40,22 @@
             // groupBoxClientes
             // 
             this.groupBoxClientes.Controls.Add(this.Boton_Abrir_Gestion_Clientes);
-            this.groupBoxClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxClientes.Location = new System.Drawing.Point(30, 83);
+            this.groupBoxClientes.Font = new System.Drawing.Font("Futura Lt BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxClientes.Location = new System.Drawing.Point(40, 102);
+            this.groupBoxClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxClientes.Name = "groupBoxClientes";
-            this.groupBoxClientes.Size = new System.Drawing.Size(774, 86);
+            this.groupBoxClientes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxClientes.Size = new System.Drawing.Size(1032, 106);
             this.groupBoxClientes.TabIndex = 10;
             this.groupBoxClientes.TabStop = false;
             this.groupBoxClientes.Text = "Gestión de clientes";
             // 
             // Boton_Abrir_Gestion_Clientes
             // 
-            this.Boton_Abrir_Gestion_Clientes.Location = new System.Drawing.Point(14, 29);
+            this.Boton_Abrir_Gestion_Clientes.Location = new System.Drawing.Point(19, 36);
+            this.Boton_Abrir_Gestion_Clientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Boton_Abrir_Gestion_Clientes.Name = "Boton_Abrir_Gestion_Clientes";
-            this.Boton_Abrir_Gestion_Clientes.Size = new System.Drawing.Size(745, 39);
+            this.Boton_Abrir_Gestion_Clientes.Size = new System.Drawing.Size(993, 48);
             this.Boton_Abrir_Gestion_Clientes.TabIndex = 0;
             this.Boton_Abrir_Gestion_Clientes.Text = "Abrir gestión de clientes";
             this.Boton_Abrir_Gestion_Clientes.UseVisualStyleBackColor = true;
@@ -61,19 +64,22 @@
             // groupBoxAct
             // 
             this.groupBoxAct.Controls.Add(this.Boton_Abrir_Gestion_Actividades);
-            this.groupBoxAct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.groupBoxAct.Location = new System.Drawing.Point(30, 190);
+            this.groupBoxAct.Font = new System.Drawing.Font("Futura Lt BT", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxAct.Location = new System.Drawing.Point(40, 234);
+            this.groupBoxAct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBoxAct.Name = "groupBoxAct";
-            this.groupBoxAct.Size = new System.Drawing.Size(774, 86);
+            this.groupBoxAct.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxAct.Size = new System.Drawing.Size(1032, 106);
             this.groupBoxAct.TabIndex = 11;
             this.groupBoxAct.TabStop = false;
             this.groupBoxAct.Text = "Gestión de actividades";
             // 
             // Boton_Abrir_Gestion_Actividades
             // 
-            this.Boton_Abrir_Gestion_Actividades.Location = new System.Drawing.Point(14, 29);
+            this.Boton_Abrir_Gestion_Actividades.Location = new System.Drawing.Point(19, 36);
+            this.Boton_Abrir_Gestion_Actividades.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Boton_Abrir_Gestion_Actividades.Name = "Boton_Abrir_Gestion_Actividades";
-            this.Boton_Abrir_Gestion_Actividades.Size = new System.Drawing.Size(745, 39);
+            this.Boton_Abrir_Gestion_Actividades.Size = new System.Drawing.Size(993, 48);
             this.Boton_Abrir_Gestion_Actividades.TabIndex = 0;
             this.Boton_Abrir_Gestion_Actividades.Text = "Abrir gestión de actividades";
             this.Boton_Abrir_Gestion_Actividades.UseVisualStyleBackColor = true;
@@ -81,13 +87,14 @@
             // 
             // PrincipalRecepcionista
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(833, 392);
+            this.ClientSize = new System.Drawing.Size(1111, 482);
             this.Controls.Add(this.groupBoxAct);
             this.Controls.Add(this.groupBoxClientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PrincipalRecepcionista";
             this.Text = "Inicio";
             this.groupBoxClientes.ResumeLayout(false);

@@ -71,14 +71,13 @@ namespace GenteFitApp.Vista._01Inicio
         }
 
         private bool EsTelefonoValido(string telefono)
-        {
-            // Implementa aquí la lógica para validar el formato del teléfono
+        {            
             return System.Text.RegularExpressions.Regex.IsMatch(telefono, @"^\d{9}$");
         }
 
         private void GuardarDatosCliente()
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string conString = DatabaseConfig.ConnectionString;
 
             using (SqlConnection con = new SqlConnection(conString))
             {

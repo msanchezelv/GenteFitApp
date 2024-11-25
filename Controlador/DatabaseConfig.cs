@@ -8,6 +8,7 @@ namespace GenteFitApp.Controlador
 {
     public static class DatabaseConfig
     {
-        public static string ConnectionString { get; } = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+        public static string ConnectionString { get; } = "Data Source=DESKTOP-1JIM32R\\SQLEXPRESS;Initial Catalog=GenteFit;Integrated Security=True";
     }
 }
+ 

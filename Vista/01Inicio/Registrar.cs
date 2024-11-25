@@ -126,7 +126,7 @@ namespace GenteFitApp.Vista
 
         private void GuardarUsuario()
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string conString = DatabaseConfig.ConnectionString;
 
             using (SqlConnection con = new SqlConnection(conString))
             {

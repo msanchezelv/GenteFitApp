@@ -23,7 +23,6 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Actividades_Click_1(object sender, EventArgs e)
         {
-            // Abre el formulario AgregarActividades
             AgregarActividades agregarActividadesForm = new AgregarActividades(usuarioRol);
             agregarActividadesForm.Show();
             this.Hide(); // Oculta la ventana actual (opcional)

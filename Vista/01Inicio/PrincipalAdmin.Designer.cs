@@ -119,12 +119,11 @@
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // añadirUsuarioToolStripMenuItem
             // 
             this.añadirUsuarioToolStripMenuItem.Name = "añadirUsuarioToolStripMenuItem";
-            this.añadirUsuarioToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.añadirUsuarioToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.añadirUsuarioToolStripMenuItem.Text = "Añadir usuario";
             this.añadirUsuarioToolStripMenuItem.Click += new System.EventHandler(this.añadirUsuarioToolStripMenuItem_Click);
             // 
@@ -150,6 +149,7 @@
             this.Boton_Abrir_Gestion_Clientes.TabIndex = 0;
             this.Boton_Abrir_Gestion_Clientes.Text = "Abrir gestión de clientes";
             this.Boton_Abrir_Gestion_Clientes.UseVisualStyleBackColor = true;
+            this.Boton_Abrir_Gestion_Clientes.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Clientes_Click);
             // 
             // groupBoxReservas
             // 
@@ -252,7 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(1123, 786);
+            this.ClientSize = new System.Drawing.Size(1123, 750);
             this.Controls.Add(this.groupBoxUsuarios);
             this.Controls.Add(this.groupBoxMonitores);
             this.Controls.Add(this.groupBoxAct);

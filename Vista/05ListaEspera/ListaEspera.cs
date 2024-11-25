@@ -23,11 +23,11 @@ namespace GenteFitApp.Vista._05ListaEspera
             int idCliente = ControladorInicioSesion.IdClienteActual;
             List<ListaEsperaDTO> listaEspera = ListaEsperaDTO.ObtenerListaEsperaPorCliente(idCliente != -1 ? (int?)idCliente : null);
 
-            //listaEspera = listaEspera.Where(le =>
-            //        DateTime.Parse(le.Fecha) > DateTime.Now ||
-            //        (DateTime.Parse(le.Fecha) == DateTime.Now.Date &&
-            //         TryParseHora(le.Hora.Split('-')[0], out TimeSpan hora) && hora >= DateTime.Now.TimeOfDay)
-            //    ).ToList();
+            listaEspera = listaEspera.Where(le =>
+                    DateTime.Parse(le.Fecha) > DateTime.Now ||
+                    (DateTime.Parse(le.Fecha) == DateTime.Now.Date &&
+                     TryParseHora(le.Hora.Split('-')[0], out TimeSpan hora) && hora >= DateTime.Now.TimeOfDay)
+                ).ToList();
 
             listaEspera = listaEspera.OrderBy(le => DateTime.Parse(le.Fecha))
                                      .ThenBy(le => TryParseHora(le.Hora.Split('-')[0], out TimeSpan hora) ? hora : TimeSpan.Zero)

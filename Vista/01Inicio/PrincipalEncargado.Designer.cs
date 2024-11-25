@@ -116,8 +116,9 @@
             this.Boton_Abrir_Gestion_Monitores.Name = "Boton_Abrir_Gestion_Monitores";
             this.Boton_Abrir_Gestion_Monitores.Size = new System.Drawing.Size(993, 52);
             this.Boton_Abrir_Gestion_Monitores.TabIndex = 0;
-            this.Boton_Abrir_Gestion_Monitores.Text = "Abrir gestión de clientes";
+            this.Boton_Abrir_Gestion_Monitores.Text = "Abrir gestión de monitores";
             this.Boton_Abrir_Gestion_Monitores.UseVisualStyleBackColor = true;
+            this.Boton_Abrir_Gestion_Monitores.Click += new System.EventHandler(this.Boton_Abrir_Gestion_Monitores_Click);
             // 
             // groupBoxAct
             // 

@@ -1,6 +1,7 @@
 ﻿using GenteFitApp.Vista._01Inicio;
 using GenteFitApp.Vista._04Reservas;
 using GenteFitApp.Vista._05ListaEspera;
+using GenteFitApp.Vista._06Usuario;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,8 +29,7 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Actividades_Click(object sender, EventArgs e)
         {
-            string usuarioRol = "Administrador"; // Asignar el rol
-            // Código para abrir la ventana GestionActividades
+            string usuarioRol = "Administrador";            
             AgregarActividades gestionActividades = new AgregarActividades(usuarioRol);
             gestionActividades.Show(); // Abre la nueva ventana
             this.Hide(); // Oculta la ventana actual (opcional)
@@ -42,9 +42,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Usuarios_Click(object sender, EventArgs e)
         {
-            EscogerRol escogerRol = new EscogerRol();
-            escogerRol.Show();
-            this.Hide();
+            EscogerUsuario escogerUsuario = new EscogerUsuario();
+            escogerUsuario.ShowDialog();
         }
 
 
@@ -97,7 +96,8 @@ namespace GenteFitApp.Vista
             lista.ShowDialog();
         }
 
-        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+       
+        private void Boton_Abrir_Gestion_Clientes_Click(object sender, EventArgs e)
         {
 
         }

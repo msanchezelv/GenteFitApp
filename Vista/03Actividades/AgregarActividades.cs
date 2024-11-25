@@ -365,7 +365,7 @@ namespace GenteFitApp.Vista
         // Método para eliminar una actividad
         private void EliminarActividad(int idActividad)
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string conString = DatabaseConfig.ConnectionString;
 
             using (SqlConnection con = new SqlConnection(conString))
             {
@@ -539,7 +539,7 @@ namespace GenteFitApp.Vista
         // Método para Insertar la Actividad en la Base de Datos
         private void InsertarActividad(string nombre, string descripcion, string nivelIntensidad, int sala, int plazasDisponibles, int idMonitor, int idSala)
         {
-            string conString = "Data Source=MiniDELL;Initial Catalog=GenteFit;Integrated Security=True";
+            string conString = DatabaseConfig.ConnectionString;
 
             using (SqlConnection con = new SqlConnection(conString))
             {
