@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GenteFitApp.Vista
 {
     public partial class PrincipalRecepcionista : Form
