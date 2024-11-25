@@ -43,22 +43,10 @@ namespace GenteFitApp.Vista._06Usuario
                             dataGridViewUsuarios.Columns["apellidos"].HeaderText = "Apellidos";
                         if (dataGridViewUsuarios.Columns.Contains("email"))
                             dataGridViewUsuarios.Columns["email"].HeaderText = "Correo Electrónico";
-                        if (dataGridViewUsuarios.Columns.Contains("contraseña"))
-                        {
+                        if (dataGridViewUsuarios.Columns.Contains("contraseña"))                        
                             dataGridViewUsuarios.Columns["contraseña"].HeaderText = "Contraseña";
-                            foreach (DataGridViewRow row in dataGridViewUsuarios.Rows)
-                            {
-                                if (row.Cells["contraseña"] != null && row.Cells["contraseña"].Value != null)
-                                {
-                                    row.Cells["contraseña"].Tag = row.Cells["contraseña"].Value.ToString();
-                                    row.Cells["contraseña"].Value = new string('*', row.Cells["contraseña"].Value.ToString().Length);
-                                }
-                            }
-                        }
                         if (dataGridViewUsuarios.Columns.Contains("rol"))
-                            dataGridViewUsuarios.Columns["rol"].HeaderText = "Rol";
-
-                        dataGridViewUsuarios.CellMouseClick += DataGridViewUsuarios_CellMouseClick;
+                            dataGridViewUsuarios.Columns["rol"].HeaderText = "Rol";                      
                     }
                 }
             }
@@ -70,49 +58,28 @@ namespace GenteFitApp.Vista._06Usuario
 
 
 
-        private void DataGridViewUsuarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        
+
+        private void dataGridViewUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                var cell = dataGridViewUsuarios.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                var row = dataGridViewUsuarios.Rows[e.RowIndex];
 
-                if (cell.OwningColumn.Name == "contraseña" && cell.Tag != null)
-                {
-                    Console.WriteLine("Se hizo clic en la celda de la contraseña");
+                string idUsuario = row.Cells["idUsuario"].Value.ToString();
+                string nombre = row.Cells["nombre"].Value.ToString();
+                string apellidos = row.Cells["apellidos"].Value.ToString();
+                string email = row.Cells["email"].Value.ToString();
+                string contraseña = row.Cells["contraseña"].Value.ToString();
+                string rol = row.Cells["rol"].Value.ToString();
 
-                    if (cell.Value.ToString() == new string('*', cell.Value.ToString().Length))
-                    {
-                        Console.WriteLine("Mostrando la contraseña real");
-                        cell.Value = cell.Tag.ToString();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ocultando la contraseña con asteriscos");
-                        cell.Value = new string('*', cell.Tag.ToString().Length);
-                    }
-                }
+                GestionUsuarios gestionForm = new GestionUsuarios();
+                gestionForm.CargarDatosUsuario(idUsuario, nombre, apellidos, email, contraseña, rol);
+
+
+                gestionForm.ShowDialog();
             }
         }
 
-
-
-
-        private void dataGridViewUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private void DataGridViewUsuarios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (dataGridViewUsuarios.Columns[e.ColumnIndex].Name == "contraseña" && e.Value != null)
-            {
-                string contraseña = e.Value.ToString();
-                e.Value = new string('*', contraseña.Length);
-                e.FormattingApplied = true;
-            }
-        }
-
-       
     }
 }

@@ -1,4 +1,5 @@
-﻿using GenteFitApp.Vista._04Reservas;
+﻿using GenteFitApp.Vista._01Inicio;
+using GenteFitApp.Vista._04Reservas;
 using GenteFitApp.Vista._05ListaEspera;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,14 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Monitores_Click(object sender, EventArgs e)
         {
+            RegistrarMonitor registrarMonitor = new RegistrarMonitor();
+            registrarMonitor.ShowDialog();
+        }
 
+        private void monitoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrarMonitor registrarMonitor = new RegistrarMonitor();
+            registrarMonitor.ShowDialog();
         }
     }
 }

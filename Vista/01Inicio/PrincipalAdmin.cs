@@ -1,4 +1,5 @@
 ﻿using GenteFitApp.Vista._01Inicio;
+using GenteFitApp.Vista._02Clientes;
 using GenteFitApp.Vista._04Reservas;
 using GenteFitApp.Vista._05ListaEspera;
 using GenteFitApp.Vista._06Usuario;
@@ -37,7 +38,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Monitores_Click(object sender, EventArgs e)
         {
-
+            RegistrarMonitor registrarMonitor = new RegistrarMonitor();
+            registrarMonitor.ShowDialog();
         }
 
         private void Boton_Abrir_Gestion_Usuarios_Click(object sender, EventArgs e)
@@ -45,29 +47,7 @@ namespace GenteFitApp.Vista
             EscogerUsuario escogerUsuario = new EscogerUsuario();
             escogerUsuario.ShowDialog();
         }
-
-
-        private void añadirClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Registrar registrar = new Registrar();
-            registrar.ShowDialog();
-
-        }
-
-        private void editarClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void eliminarClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void consultarClientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+                
 
         private void consultarReservasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -99,7 +79,20 @@ namespace GenteFitApp.Vista
        
         private void Boton_Abrir_Gestion_Clientes_Click(object sender, EventArgs e)
         {
+            GestionCliente cliente = new GestionCliente();
+            cliente.ShowDialog();
+        }
 
+        private void monitoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistrarMonitor registrarMonitor = new RegistrarMonitor();
+            registrarMonitor.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GestionCliente cliente = new GestionCliente();
+            cliente.ShowDialog();
         }
     }
 }

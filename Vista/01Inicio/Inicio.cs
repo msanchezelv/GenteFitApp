@@ -37,7 +37,7 @@ namespace GenteFitApp.Vista
         private void Inicio_Load(object sender, EventArgs e)
         {
             ControladorInicioSesion.VerificarYProcesarDatos();
-            // No eliminar este método, no sé por qué pero da errores si se elimina!
+           
         }
 
         private void Boton_Entrar_Click(object sender, EventArgs e)

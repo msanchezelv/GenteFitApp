@@ -18,7 +18,7 @@ namespace GenteFitApp.Vista
         public PrincipalRecepcionista()
         {
             InitializeComponent();
-            usuarioRol = "Recepcionista"; // Asignar el rol del usuario
+            usuarioRol = "Recepcionista";
         }
 
         private void Boton_Abrir_Gestion_Actividades_Click_1(object sender, EventArgs e)
@@ -30,10 +30,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_Abrir_Gestion_Clientes_Click_1(object sender, EventArgs e)
         {
-            // Abre el formulario PerfilCliente
-            PerfilCliente perfilClienteForm = new PerfilCliente();
-            perfilClienteForm.Show();
-            this.Hide(); // Oculta la ventana actual (opcional)
+            GestionCliente gestionCliente = new GestionCliente();
+            gestionCliente.ShowDialog();
         }
     }
 

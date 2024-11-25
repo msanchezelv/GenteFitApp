@@ -95,6 +95,7 @@
             this.monitoresToolStripMenuItem.Name = "monitoresToolStripMenuItem";
             this.monitoresToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.monitoresToolStripMenuItem.Text = "Monitores";
+            this.monitoresToolStripMenuItem.Click += new System.EventHandler(this.monitoresToolStripMenuItem_Click);
             // 
             // groupBoxMonitores
             // 

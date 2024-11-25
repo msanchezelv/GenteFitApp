@@ -34,8 +34,8 @@ namespace GenteFitApp.Vista._04Reservas
             dataGridViewReservas.DataSource = bindingReservas;
 
             bindingReservas = new BindingList<ReservaDTO>(
-                                    reservas.OrderBy(r => DateTime.Parse(r.FechaCompleta))  // Ordenar por fecha completa
-                                            .ThenBy(r => TimeSpan.Parse(r.Hora))  // Ordenar por hora
+                                    reservas.OrderBy(r => DateTime.Parse(r.FechaCompleta))
+                                            .ThenBy(r => TimeSpan.Parse(r.Hora))
                                             .ToList()
             );
 

@@ -177,6 +177,7 @@
             this.botonEliminar.TabIndex = 34;
             this.botonEliminar.Text = "Eliminar usuario";
             this.botonEliminar.UseVisualStyleBackColor = true;
+            this.botonEliminar.Click += new System.EventHandler(this.botonEliminar_Click);
             // 
             // buttonModificarDatos
             // 
@@ -188,6 +189,7 @@
             this.buttonModificarDatos.TabIndex = 35;
             this.buttonModificarDatos.Text = "Modificar datos";
             this.buttonModificarDatos.UseVisualStyleBackColor = true;
+            this.buttonModificarDatos.Click += new System.EventHandler(this.buttonModificarDatos_Click);
             // 
             // GestionUsuarios
             // 

@@ -48,10 +48,7 @@ namespace GenteFitApp.Vista._02Clientes
                                     textBoxDireccion.Text = reader["direccion"].ToString();
                                 }
                             }
-                            else
-                            {
-                                MessageBox.Show("No se encontraron datos para el cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            
                         }
                     }
                 }

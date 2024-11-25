@@ -75,6 +75,7 @@
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem
             // 
@@ -111,6 +112,7 @@
             this.monitoresToolStripMenuItem.Name = "monitoresToolStripMenuItem";
             this.monitoresToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.monitoresToolStripMenuItem.Text = "Monitores";
+            this.monitoresToolStripMenuItem.Click += new System.EventHandler(this.monitoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
