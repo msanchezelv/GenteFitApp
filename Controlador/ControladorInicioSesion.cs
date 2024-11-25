@@ -136,7 +136,7 @@ namespace GenteFitApp.Controlador
             {
                 connection.Open();
 
-                // Obtener la fecha del último proceso (puede ser el de reseteo o eliminación)
+                
                 string queryFechaUltimoReseteo = "SELECT TOP 1 FechaUltimoReseteo FROM Configuracion";
                 DateTime fechaUltimoReseteo;
 
@@ -144,20 +144,23 @@ namespace GenteFitApp.Controlador
                 {
                     var resultado = command.ExecuteScalar();
                     fechaUltimoReseteo = resultado != null ? Convert.ToDateTime(resultado) : DateTime.MinValue;
+                    Console.WriteLine("Se ha comprobado la fecha del último reseteo");
                 }
 
                 // Verificar si han pasado 7 días desde el último proceso
                 if (fechaUltimoReseteo == DateTime.MinValue || (DateTime.Now - fechaUltimoReseteo).Days >= 7)
                 {
+                    Console.WriteLine("Se va a proceder a restablecer la base de datos");
                     // Iniciar el reseteo de plazas disponibles
                     string queryResetearPlazas = "UPDATE Horario SET plazasDisponibles = 8";
                     using (SqlCommand command = new SqlCommand(queryResetearPlazas, connection))
                     {
                         command.ExecuteNonQuery();
+                        Console.WriteLine("Se han establecido las plazas disponibles en 8");
                     }
 
                     // Eliminar registros antiguos de la lista de espera
-                    string queryEliminarRegistros = "DELETE FROM ListaEspera WHERE Fecha < @FechaActual";
+                    string queryEliminarRegistros = "EXEC [dbo].[EliminarListaEsperaAntigua];";
                     using (SqlCommand command = new SqlCommand(queryEliminarRegistros, connection))
                     {
                         command.Parameters.AddWithValue("@FechaActual", DateTime.Now);

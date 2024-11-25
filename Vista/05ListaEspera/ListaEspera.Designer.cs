@@ -53,6 +53,7 @@ namespace GenteFitApp.Vista._05ListaEspera
             this.dataGridViewListaEspera.RowTemplate.Height = 24;
             this.dataGridViewListaEspera.Size = new System.Drawing.Size(763, 547);
             this.dataGridViewListaEspera.TabIndex = 0;
+            this.dataGridViewListaEspera.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListaEspera_CellContentClick);
             // 
             // ListaEspera
             // 
