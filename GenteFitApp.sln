@@ -5,7 +5,10 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenteFitApp", "GenteFitApp.csproj", "{4D576FA5-019D-4E61-925C-BB3AF181D5CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGenteFitApp", "..\TestGenteFitApp\TestGenteFitApp.csproj", "{6AE488AA-FFFE-4E0F-BCFB-7434962C5D69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGenteFitApp", "..\TestGenteFitApp\TestGenteFitApp.csproj", "{6AE488AA-FFFE-4E0F-BCFB-7434962C5D69}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4D576FA5-019D-4E61-925C-BB3AF181D5CD} = {4D576FA5-019D-4E61-925C-BB3AF181D5CD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
