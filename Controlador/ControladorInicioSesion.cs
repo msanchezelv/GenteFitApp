@@ -43,7 +43,7 @@ namespace GenteFitApp.Controlador
 
 
         // Método para verificar si el email existe
-        private bool ExisteUsuarioPorEmail(string email)
+        public bool ExisteUsuarioPorEmail(string email)
         {
             string query = "SELECT 1 FROM Usuario WHERE email = @Email";
             using (SqlConnection connection = new SqlConnection(connectionString))

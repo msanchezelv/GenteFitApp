@@ -7,7 +7,7 @@ using GenteFitApp.Modelo;
 
 namespace GenteFitApp.Controlador
 {
-    internal class ControladorRegistro
+    public class ControladorRegistro
     {
         private readonly string connectionString = DatabaseConfig.ConnectionString;
 
@@ -63,7 +63,7 @@ namespace GenteFitApp.Controlador
         }
 
         // Método auxiliar para ejecutar consultas que devuelven un escalar
-        private int EjecutarConsultaValorUnico(string query, params SqlParameter[] parametros)
+        public int EjecutarConsultaValorUnico(string query, params SqlParameter[] parametros)
         {
             using (var connection = new SqlConnection(connectionString))
             {
