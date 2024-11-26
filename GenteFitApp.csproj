@@ -107,7 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controlador\XMLManager.cs" />
     <Compile Include="Controlador\ControladorInicioSesion.cs" />
     <Compile Include="Controlador\ControladorRegistro.cs" />
     <Compile Include="Controlador\DatabaseConfig.cs" />
@@ -188,6 +187,12 @@
     <Compile Include="Vista\02Clientes\CambiarPassword.Designer.cs">
       <DependentUpon>CambiarPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\02Clientes\GestionCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\02Clientes\GestionCliente.Designer.cs">
+      <DependentUpon>GestionCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\02Clientes\PerfilCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +265,18 @@
     <Compile Include="Vista\04Reservas\FormHorarios.Designer.cs">
       <DependentUpon>FormHorarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\06Usuario\EscogerUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\06Usuario\EscogerUsuario.Designer.cs">
+      <DependentUpon>EscogerUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\06Usuario\GestionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\06Usuario\GestionUsuarios.Designer.cs">
+      <DependentUpon>GestionUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\FormularioBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,8 +294,14 @@
     <EmbeddedResource Include="Vista\01Inicio\RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\01Inicio\RegistrarMonitor.resx">
+      <DependentUpon>RegistrarMonitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\02Clientes\CambiarPassword.resx">
       <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\02Clientes\GestionCliente.resx">
+      <DependentUpon>GestionCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\02Clientes\PerfilCliente.resx">
       <DependentUpon>PerfilCliente.cs</DependentUpon>
@@ -315,6 +338,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\04Reservas\FormHorarios.resx">
       <DependentUpon>FormHorarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\06Usuario\EscogerUsuario.resx">
+      <DependentUpon>EscogerUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\06Usuario\GestionUsuarios.resx">
+      <DependentUpon>GestionUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vista\FormularioBase.resx">
       <DependentUpon>FormularioBase.cs</DependentUpon>

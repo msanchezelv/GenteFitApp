@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenteFitApp", "GenteFitApp.csproj", "{4D576FA5-019D-4E61-925C-BB3AF181D5CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenteFitApp.test", "..\GenteFitApp.test\GenteFitApp.test.csproj", "{9943ACF3-B74F-4ACD-9621-45EAAD35A860}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GenteFitSetup", "..\GenteFitSetup\GenteFitSetup.vdproj", "{149A5971-33F2-4BAB-B102-BEB94A6EC2FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,12 @@ Global
 		{4D576FA5-019D-4E61-925C-BB3AF181D5CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D576FA5-019D-4E61-925C-BB3AF181D5CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D576FA5-019D-4E61-925C-BB3AF181D5CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9943ACF3-B74F-4ACD-9621-45EAAD35A860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9943ACF3-B74F-4ACD-9621-45EAAD35A860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9943ACF3-B74F-4ACD-9621-45EAAD35A860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9943ACF3-B74F-4ACD-9621-45EAAD35A860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149A5971-33F2-4BAB-B102-BEB94A6EC2FE}.Debug|Any CPU.ActiveCfg = Debug
+		{149A5971-33F2-4BAB-B102-BEB94A6EC2FE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,11 +9,8 @@ namespace GenteFitApp.Controlador
 {
     internal class ControladorRegistro
     {
-<<<<<<< HEAD
-        internal string connectionString = "Data Source=DESKTOP-6VP8HCF;Initial Catalog=GenteFit;Integrated Security=True";
-=======
+        // Mantén solo una declaración de connectionString
         private readonly string connectionString = DatabaseConfig.ConnectionString;
->>>>>>> main
 
         // Método para registrar un usuario con rol
         public int RegistrarUsuario(string nombre, string apellidos, string email, string contraseña, string rol)
@@ -35,7 +32,7 @@ namespace GenteFitApp.Controlador
         }
 
         // Método para registrar un cliente asociado a un usuario
-        public bool RegistrarCliente(int idUsuario, string telefono, string direccion)
+        public virtual bool RegistrarCliente(int idUsuario, string telefono, string direccion)
         {
             string query = "INSERT INTO Cliente (idUsuario, telefono, direccion) VALUES (@idUsuario, @telefono, @direccion)";
 
@@ -50,7 +47,7 @@ namespace GenteFitApp.Controlador
         }
 
         // Método para obtener el próximo ID de usuario (si es necesario manualmente)
-        public int ObtenerProximoIdUsuario()
+        public virtual int ObtenerProximoIdUsuario()
         {
             string query = "SELECT ISNULL(MAX(idUsuario), 0) + 1 FROM Usuario";
             return EjecutarConsultaValorUnico(query);

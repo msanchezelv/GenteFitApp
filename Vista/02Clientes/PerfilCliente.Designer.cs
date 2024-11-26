@@ -219,19 +219,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Button botonModificarDatos;
-        private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.Label labelemail;
-        private System.Windows.Forms.TextBox textBoxApellidos;
-        private System.Windows.Forms.Label label_apellidos;
-        private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.Label Label_nombre;
-        private System.Windows.Forms.TextBox textBoxClienteId;
-        private System.Windows.Forms.Label label_IdUsuario;
-        private System.Windows.Forms.TextBox textBoxDireccion;
-        private System.Windows.Forms.Label labelDireccion;
-        private System.Windows.Forms.TextBox textBoxTelefono;
-        private System.Windows.Forms.Label labelTelefono;
-        private System.Windows.Forms.Button botonModContrasena;
+        public System.Windows.Forms.Button botonModificarDatos;
+        public System.Windows.Forms.TextBox textBoxEmail;
+        public System.Windows.Forms.Label labelemail;
+        public System.Windows.Forms.TextBox textBoxApellidos;
+        public System.Windows.Forms.Label label_apellidos;
+        public System.Windows.Forms.TextBox textBoxNombre;
+        public System.Windows.Forms.Label Label_nombre;
+        public System.Windows.Forms.TextBox textBoxClienteId;
+        public System.Windows.Forms.Label label_IdUsuario;
+        public System.Windows.Forms.TextBox textBoxDireccion;
+        public System.Windows.Forms.Label labelDireccion;
+        public System.Windows.Forms.TextBox textBoxTelefono;
+        public System.Windows.Forms.Label labelTelefono;
+        public System.Windows.Forms.Button botonModContrasena;
+
     }
 }

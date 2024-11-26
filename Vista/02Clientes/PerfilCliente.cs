@@ -19,6 +19,12 @@ namespace GenteFitApp.Vista._02Clientes
             DeshabilitarCampos();
         }
 
+        public string ClienteId
+        {
+            get { return textBoxClienteId.Text; }
+            set { textBoxClienteId.Text = value; }
+        }
+
         private void CargarDatosCliente()
         {
             string connectionString = DatabaseConfig.ConnectionString;
@@ -40,7 +46,7 @@ namespace GenteFitApp.Vista._02Clientes
                             {
                                 if (reader.Read())
                                 {
-                                    textBoxClienteId.Text = idCliente.ToString();
+                                    ClienteId = idCliente.ToString();
                                     textBoxNombre.Text = reader["nombre"].ToString();
                                     textBoxApellidos.Text = reader["apellidos"].ToString();
                                     textBoxEmail.Text = reader["email"].ToString();

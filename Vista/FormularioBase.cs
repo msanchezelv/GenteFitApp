@@ -13,7 +13,10 @@ namespace GenteFitApp.Vista
         {
             InitializeComponent();
             this.BackColor = Color.Bisque;
-            this.Icon = new Icon("C:\\Users\\Sergio\\source\\repos\\msanchezelv\\GenteFitApp\\logoGenteFit.ico");
+
+            this.Icon = new Icon("C:\\Users\\Sergio\\Documents\\Github\\GenteFitApp\\logoGenteFit.ico");
+            this.Icon = new Icon("C:\\Users\\Sergio\\Documents\\Github\\GenteFitApp\\logoGenteFit.ico");
+
 
             this.FormClosing += FormularioBase_FormClosing;
         }
