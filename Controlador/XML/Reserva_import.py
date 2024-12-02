@@ -1,0 +1,46 @@
+﻿import xml.etree.ElementTree as ET
+from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
+
+# Función para leer el XML y obtener los datos de Reserva
+def leer_xml_reserva(xml_file):
+    # Parsear el archivo XML
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+
+    reservas = []
+    
+    # Iterar sobre cada elemento 'Reserva' en el XML
+    for reserva_elem in root.findall('Reserva'):
+        reserva = {
+            'idReserva': int(reserva_elem.find('idReserva').text),
+            'idCliente': int(reserva_elem.find('idCliente').text) if reserva_elem.find('idCliente') is not None else None,
+            'idHorario': int(reserva_elem.find('idHorario').text) if reserva_elem.find('idHorario') is not None else None,
+        }
+        reservas.append(reserva)
+
+    return reservas
+
+# Función para crear las reservas en Odoo
+def crear_reserva_en_odoo(reservas):
+    models, uid = conectar_odoo()
+
+    for reserva in reservas:
+        try:
+            reserva_data = {
+                'cliente_id': reserva['idCliente'],
+                'horario_id': reserva['idHorario'],
+            }
+
+            # Crear la reserva en Odoo
+            reserva_id = models.execute_kw(
+                ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
+                'gentefit.reserva', 'create', [reserva_data]
+            )
+            print(f"Reserva creada en Odoo con ID: {reserva_id}")
+        except Exception as e:
+            print(f"Error al crear reserva en Odoo: {e}")
+
+# Llamar a la función para leer el XML y luego crear las reservas en Odoo
+xml_file = 'reservas.xml'  # Nombre del archivo XML generado
+reservas = leer_xml_reserva(xml_file)
+crear_reserva_en_odoo(reservas)

@@ -410,6 +410,15 @@
   <ItemGroup>
     <None Include="Logo-GenteFit-Negro.png" />
     <EmbeddedResource Include="logoGenteFit.ico" />
+    <Content Include="Controlador\XML\ConexionOdoo.py" />
+    <Content Include="Controlador\XML\actividad_import.py" />
+    <Content Include="Controlador\XML\cliente_import.py" />
+    <Content Include="Controlador\XML\horario_import.py" />
+    <Content Include="Controlador\XML\listaEspera_import.py" />
+    <Content Include="Controlador\XML\monitor_import.py" />
+    <Content Include="Controlador\XML\Reserva_import.py" />
+    <Content Include="Controlador\XML\usuario_import.py" />
+    <Content Include="Controlador\XML\__init__.py" />
     <Content Include="Modelo\DiagramaClases.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiagramaClases.edmx</DependentUpon>
