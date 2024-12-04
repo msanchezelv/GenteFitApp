@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml.Linq;
 using GenteFitApp.Modelo;
 
-namespace GenteFit.Controlador.XML
+namespace GenteFit.Controlador.XMLManager
 {
     public class XMLManager
     {
@@ -64,41 +64,44 @@ namespace GenteFit.Controlador.XML
             }
         }
 
+
         // Métodos para obtener datos de la base de datos utilizando DatabaseManager
-
-        public List<Usuario> GetUsuariosFromDatabase()
+        public void ExportarTabla<T>(string nombreTabla, List<T> datos, string fileName) where T : class
         {
-            return dbManagerUsuario.GetAll();
+            if (datos != null && datos.Count > 0)
+            {
+                ExportToXML(datos, nombreTabla, fileName);
+                Console.WriteLine($"Tabla '{nombreTabla}' exportada correctamente a {fileName}.");
+            }
+            else
+            {
+                Console.WriteLine($"No se encontraron datos para la tabla '{nombreTabla}'.");
+            }
         }
 
-        public List<Cliente> GetClientesFromDatabase()
+        public void ExportarTodasLasTablas()
         {
-            return dbManagerCliente.GetAll();
+            Console.WriteLine("Iniciando la exportación de todas las tablas...");
+
+            ExportarTabla("Usuarios", GetUsuariosFromDatabase(), "usuarios.xml");
+            ExportarTabla("Clientes", GetClientesFromDatabase(), "clientes.xml");
+            ExportarTabla("Actividades", GetActividadesFromDatabase(), "actividades.xml");
+            ExportarTabla("Horarios", GetHorariosFromDatabase(), "horarios.xml");
+            ExportarTabla("ListaEspera", GetListaEsperaFromDatabase(), "lista_espera.xml");
+            ExportarTabla("Monitores", GetMonitoresFromDatabase(), "monitores.xml");
+            ExportarTabla("Reservas", GetReservasFromDatabase(), "reservas.xml");
+
+            Console.WriteLine("Exportación de todas las tablas completada.");
         }
 
-        public List<Actividad> GetActividadesFromDatabase()
-        {
-            return dbManagerActividad.GetAll();
-        }
-
-        public List<Horario> GetHorariosFromDatabase()
-        {
-            return dbManagerHorario.GetAll();
-        }
-
-        public List<ListaEspera> GetListaEsperaFromDatabase()
-        {
-            return dbManagerListaEspera.GetAll();
-        }
-
-        public List<Monitor> GetMonitoresFromDatabase()
-        {
-            return dbManagerMonitor.GetAll();
-        }
-
-        public List<Reserva> GetReservasFromDatabase()
-        {
-            return dbManagerReserva.GetAll();
-        }
+        
+        public List<Usuario> GetUsuariosFromDatabase() => dbManagerUsuario.GetAll();
+        public List<Cliente> GetClientesFromDatabase() => dbManagerCliente.GetAll();
+        public List<Actividad> GetActividadesFromDatabase() => dbManagerActividad.GetAll();
+        public List<Horario> GetHorariosFromDatabase() => dbManagerHorario.GetAll();
+        public List<ListaEspera> GetListaEsperaFromDatabase() => dbManagerListaEspera.GetAll();
+        public List<Monitor> GetMonitoresFromDatabase() => dbManagerMonitor.GetAll();
+        public List<Reserva> GetReservasFromDatabase() => dbManagerReserva.GetAll();
     }
+}
 }

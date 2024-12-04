@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GenteFitApp.Vista;
 using GenteFit.Controlador;
-using GenteFit.Controlador.XML;
+using GenteFit.Controlador.XMLManager;
 using GenteFitApp.Modelo;
 using System.IO;
 using GenteFitApp.Controlador;
@@ -17,29 +17,24 @@ namespace GenteFitApp
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Inicio());
+
             var streamWriter = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true };
             Console.SetOut(streamWriter);
 
-            string dbConnectionString = DatabaseConfig.ConnectionString;
-            XMLManager xmlManager = new XMLManager(dbConnectionString);
+            // Des-comentar esto si se quiere hacer el XML desde el programa, si no se hará solo con Encargado y con Admin desde la interfaz!
+            //string dbConnectionString = DatabaseConfig.ConnectionString;
+            //XMLManager xmlManager = new XMLManager(dbConnectionString);
 
-            List<Usuario> usuarios = xmlManager.GetUsuariosFromDatabase();
-            
-            if (usuarios == null || usuarios.Count == 0)
-            {
-                MessageBox.Show("No se encontraron usuarios para exportar.");
-                return;
-            }
-
-            
-            xmlManager.ExportToXML(usuarios, "Usuarios", "usuarios.xml");
-        }
+            //// Exportar todas las tablas
+            //ExportarTodasLasTablas(xmlManager);
+        }             
 
     }
 }

@@ -202,6 +202,12 @@
     <Compile Include="Vista\01Inicio\RegistrarMonitor.Designer.cs">
       <DependentUpon>RegistrarMonitor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vista\01Inicio\TablasXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\01Inicio\TablasXML.Designer.cs">
+      <DependentUpon>TablasXML.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vista\02Clientes\CambiarPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +324,9 @@
     <EmbeddedResource Include="Vista\01Inicio\RegistrarMonitor.resx">
       <DependentUpon>RegistrarMonitor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\01Inicio\TablasXML.resx">
+      <DependentUpon>TablasXML.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\02Clientes\CambiarPassword.resx">
       <DependentUpon>CambiarPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -410,13 +419,13 @@
   <ItemGroup>
     <None Include="Logo-GenteFit-Negro.png" />
     <EmbeddedResource Include="logoGenteFit.ico" />
-    <Content Include="Controlador\XML\ConexionOdoo.py" />
+    <Content Include="Controlador\XML\conexionOdoo.py" />
     <Content Include="Controlador\XML\actividad_import.py" />
     <Content Include="Controlador\XML\cliente_import.py" />
     <Content Include="Controlador\XML\horario_import.py" />
     <Content Include="Controlador\XML\listaEspera_import.py" />
     <Content Include="Controlador\XML\monitor_import.py" />
-    <Content Include="Controlador\XML\Reserva_import.py" />
+    <Content Include="Controlador\XML\reserva_import.py" />
     <Content Include="Controlador\XML\usuario_import.py" />
     <Content Include="Controlador\XML\__init__.py" />
     <Content Include="Modelo\DiagramaClases.Context.tt">

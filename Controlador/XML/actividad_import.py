@@ -26,7 +26,8 @@ def leer_xml_actividad(xml_file):
 
 # Función para crear actividades en Odoo
 def crear_actividad_en_odoo(actividades):
-    models, uid = ConexionOdoo.conectar_odoo()
+
+    models, uid = conectar_odoo()
 
     for actividad in actividades:
         try:

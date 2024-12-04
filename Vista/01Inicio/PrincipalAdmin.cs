@@ -94,5 +94,16 @@ namespace GenteFitApp.Vista
             GestionCliente cliente = new GestionCliente();
             cliente.ShowDialog();
         }
+
+        private void Boton_Odoo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXML_Click(object sender, EventArgs e)
+        {
+            TablasXML tablasXML = new TablasXML();
+            tablasXML.ShowDialog();
+        }
     }
 }

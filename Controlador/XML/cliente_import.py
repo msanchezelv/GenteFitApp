@@ -1,6 +1,7 @@
 ﻿import xml.etree.ElementTree as ET
 from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
 
+
 # Función para leer el XML y obtener los datos de clientes
 def leer_xml_cliente(xml_file):
     # Parsear el archivo XML
@@ -23,7 +24,7 @@ def leer_xml_cliente(xml_file):
 
 # Función para enviar los clientes a Odoo
 def enviar_clientes_a_odoo(clientes):
-    models, uid = ConexionOdoo.conectar_odoo()  # Conectar a Odoo
+    models, uid = conectar_odoo()  # Conectar a Odoo
     
     for cliente in clientes:
         # Preparar los datos para el registro en Odoo

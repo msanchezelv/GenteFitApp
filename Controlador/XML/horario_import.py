@@ -1,6 +1,4 @@
-﻿from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
-
-import xml.etree.ElementTree as ET
+﻿import xml.etree.ElementTree as ET
 from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
 
 # Función para leer el XML y obtener los datos de Horario

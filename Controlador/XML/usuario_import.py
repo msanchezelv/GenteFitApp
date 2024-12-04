@@ -25,7 +25,7 @@ def leer_xml_usuario(xml_file):
 
 # Función para enviar los usuarios a Odoo
 def enviar_usuarios_a_odoo(usuarios):
-    models, uid = ConexionOdoo.conectar_odoo()  # Conectar a Odoo
+    models, uid = conectar_odoo()  # Conectar a Odoo
     
     for usuario in usuarios:
         # Preparar los datos para el registro en Odoo
