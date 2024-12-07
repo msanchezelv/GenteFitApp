@@ -141,6 +141,7 @@
     <Compile Include="Modelo\Actividad.cs">
       <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ActividadDTO.cs" />
     <Compile Include="Modelo\Cliente.cs">
       <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
@@ -189,6 +190,12 @@
     </Compile>
     <Compile Include="Vista\01Inicio\EscogerRol.Designer.cs">
       <DependentUpon>EscogerRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\01Inicio\ExportaraOdoo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\01Inicio\ExportaraOdoo.Designer.cs">
+      <DependentUpon>ExportaraOdoo.cs</DependentUpon>
     </Compile>
     <Compile Include="Vista\01Inicio\RegistrarCliente.cs">
       <SubType>Form</SubType>
@@ -318,6 +325,9 @@
     <EmbeddedResource Include="Vista\01Inicio\EscogerRol.resx">
       <DependentUpon>EscogerRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vista\01Inicio\ExportaraOdoo.resx">
+      <DependentUpon>ExportaraOdoo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vista\01Inicio\RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +438,7 @@
     <Content Include="Controlador\XML\reserva_import.py" />
     <Content Include="Controlador\XML\usuario_import.py" />
     <Content Include="Controlador\XML\__init__.py" />
+    <Content Include="Controlador\__init__.py" />
     <Content Include="Modelo\DiagramaClases.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiagramaClases.edmx</DependentUpon>

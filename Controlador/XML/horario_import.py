@@ -1,5 +1,5 @@
 ﻿import xml.etree.ElementTree as ET
-from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
+from .conexionOdoo import ODOO_CONFIG, conectar_odoo
 
 # Función para leer el XML y obtener los datos de Horario
 def leer_xml_horario(xml_file):

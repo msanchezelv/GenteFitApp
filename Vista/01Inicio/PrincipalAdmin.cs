@@ -97,7 +97,8 @@ namespace GenteFitApp.Vista
 
         private void Boton_Odoo_Click(object sender, EventArgs e)
         {
-
+            ExportaraOdoo exportaraOdoo = new ExportaraOdoo();
+            exportaraOdoo.ShowDialog();
         }
 
         private void buttonXML_Click(object sender, EventArgs e)

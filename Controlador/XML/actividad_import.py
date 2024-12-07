@@ -1,5 +1,7 @@
 ﻿import xml.etree.ElementTree as ET
-from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
+from .conexionOdoo import ODOO_CONFIG
+from .conexionOdoo import conectar_odoo
+
 
 # Función para leer el XML y obtener los datos de Actividad
 def leer_xml_actividad(xml_file):

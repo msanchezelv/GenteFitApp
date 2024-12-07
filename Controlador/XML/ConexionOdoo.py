@@ -5,7 +5,7 @@ from .cliente_import import leer_xml_cliente, crear_cliente_en_odoo
 from .horario_import import leer_xml_horario, crear_horario_en_odoo
 from .listaEspera_import import leer_xml_lista_espera, crear_lista_espera_en_odoo
 from .monitor_import import leer_xml_monitor, crear_monitor_en_odoo
-from .Reserva_import import leer_xml_reserva, crear_reserva_en_odoo
+from .reserva_import import leer_xml_reserva, crear_reserva_en_odoo
 from .usuario_import import leer_xml_usuario, crear_usuario_en_odoo
 
 
@@ -13,10 +13,10 @@ from .usuario_import import leer_xml_usuario, crear_usuario_en_odoo
 conn_str = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-1JIM32R\\SQLEXPRESS;DATABASE=GenteFit;Trusted_Connection=yes;'
 
 ODOO_CONFIG = {
-    'url': 'http://192.168.1.138:8069',  # IP de la máquina virtual
-    'db': 'GenteFit',  # Nombre de la base de datos en Odoo
-    'username': 'msanchezelv@uoc.edu',  # Usuario con acceso a Odoo
-    'password': 'UOC.edu1'  # Contraseña del usuario
+    'url': 'http://192.168.1.144:8069',  # IP de la máquina virtual
+    'db': 'GenteFit',                    # Nombre de la base de datos en Odoo
+    'username': 'msanchezelv@uoc.edu',   # Usuario con acceso a Odoo
+    'password': 'UOC.edu1'               # Contraseña del usuario
 }
 
 
@@ -44,11 +44,18 @@ def conectar_odoo():
     
     # Autenticación con el servidor
     uid = common.authenticate(db, username, password, {})
+
+    # Verificar si la autenticación fue exitosa
+    if uid:
+        print("Conexión a Odoo exitosa.")
+    else:
+        print("Error de autenticación con Odoo.")
     
     # Conexión con el modelo de objetos de Odoo
     models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
     
     return models, uid
+    
 
 
 def enviar_todo_a_odoo():

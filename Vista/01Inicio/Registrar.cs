@@ -1,6 +1,7 @@
 ﻿using GenteFitApp.Controlador;
 using GenteFitApp.Vista._01Inicio;
 using System;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -32,6 +33,13 @@ namespace GenteFitApp.Vista
 
         public Registrar()
         {
+            InitializeComponent();
+
+            // Deshabilitar y cambiar el color de fondo del textBoxUserId
+            textBoxUserId.ReadOnly = true;
+            textBoxUserId.BackColor = Color.LightGray;
+
+            this.FormClosing += new FormClosingEventHandler(Registrar_FormClosing);
         }
 
         private void Boton_nuevoEmpleado_Click(object sender, EventArgs e)

@@ -60,8 +60,8 @@ namespace GenteFitApp.Vista
 
                 if (result == DialogResult.Yes)
                 {
-                    Registrar nuevoUsuarioForm = new Registrar();
-                    nuevoUsuarioForm.Show();
+                    Registrar Registrar = new Registrar();
+                    Registrar.Show();
                     this.Hide();
                 }
             }

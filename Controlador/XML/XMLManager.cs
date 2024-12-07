@@ -45,8 +45,24 @@ namespace GenteFit.Controlador.XMLManager
 
                 foreach (var property in typeof(T).GetProperties())
                 {
-                    itemElement.Add(new XElement(property.Name, property.GetValue(item) ?? string.Empty));
+                    // Ignorar propiedades que no sean valores simples
+                    if (property.PropertyType.IsPrimitive ||
+                        property.PropertyType == typeof(string) ||
+                        property.PropertyType == typeof(decimal) ||
+                        property.PropertyType == typeof(DateTime) ||
+                        property.PropertyType.IsValueType)
+                    {
+                        try
+                        {
+                            itemElement.Add(new XElement(property.Name, property.GetValue(item) ?? string.Empty));
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error al intentar acceder a la propiedad {property.Name}: {ex.Message}");
+                        }
+                    }
                 }
+
 
                 xmlDoc.Root.Add(itemElement);
             }
@@ -104,4 +120,4 @@ namespace GenteFit.Controlador.XMLManager
         public List<Reserva> GetReservasFromDatabase() => dbManagerReserva.GetAll();
     }
 }
-}
+
