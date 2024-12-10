@@ -79,5 +79,12 @@ namespace GenteFitApp.Vista._01Inicio
             xmlManager.ExportarTodasLasTablas();
             MessageBox.Show("Todas las tablas han sido exportadas a XML.");
         }
+
+        private void botonSala_Click(object sender, EventArgs e)
+        {
+            var salas = xmlManager. GetSalasFromDatabase();
+            xmlManager.ExportarTabla("Salas", salas, "salas.xml");
+            MessageBox.Show("Tabla 'Salas' exportada a XML.");
+        }
     }
 }

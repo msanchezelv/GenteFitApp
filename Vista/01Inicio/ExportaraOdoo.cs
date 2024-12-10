@@ -56,6 +56,11 @@ namespace GenteFitApp.Vista._01Inicio
             EjecutarScriptPython("usuario_import.py");
         }
 
+        private void botonSala_Click(object sender, EventArgs e)
+        {
+            EjecutarScriptPython("sala_import.py");
+        }
+
         public void Boton_Todas_Click(object sender, EventArgs e)
         {
             EjecutarScriptPython("conexionOdoo.py");
@@ -78,13 +83,20 @@ namespace GenteFitApp.Vista._01Inicio
 
             string pythonExePath = GetPythonPath();
 
+            if (string.IsNullOrEmpty(pythonExePath))
+            {
+                MessageBox.Show("No se encontró Python instalado en el sistema.");
+                return;
+            }
+
             try
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
                     FileName = pythonExePath,
-                    Arguments = $"\"{scriptPath}\"",
+                    Arguments = $"\"{fullScriptPath}\"",
                     RedirectStandardOutput = true,
+                    RedirectStandardError = true,
                     UseShellExecute = false,
                     CreateNoWindow = true
                 };
@@ -92,42 +104,66 @@ namespace GenteFitApp.Vista._01Inicio
                 using (Process process = Process.Start(startInfo))
                 {
                     string output = process.StandardOutput.ReadToEnd();
+                    string errors = process.StandardError.ReadToEnd();
                     process.WaitForExit();
-                    MessageBox.Show($"{scriptName} se exportó correctamente a Odoo.");
+
+                    Console.WriteLine(output);
+
+                    if (!string.IsNullOrEmpty(errors))
+                    {
+                        Console.WriteLine(errors);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{scriptName} se ejecutó correctamente.");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al ejecutar {scriptName}: " + ex.Message);
+                Console.WriteLine($"Error general al ejecutar {scriptName}: {ex.Message}");
             }
         }
 
+
         // Método para encontrar el path del ejecutable de python
-        public static string GetPythonPath()
+        string GetPythonPath()
         {
             string pythonPath = null;
-
-            // Buscar en el registro de Windows la ubicación de Python
-            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Python\PythonCore"))
+            try
             {
-                if (key != null)
+                // Usa "where python" para localizar Python automáticamente
+                var process = new Process
                 {
-                    // Obtenemos la versión de Python
-                    string version = key.GetSubKeyNames()[0]; // Primera versión en el registro
-                    using (RegistryKey pythonVersionKey = key.OpenSubKey(version + @"\InstallPath"))
+                    StartInfo = new ProcessStartInfo
                     {
-                        if (pythonVersionKey != null)
-                        {
-                            pythonPath = pythonVersionKey.GetValue("").ToString();
-                        }
+                        FileName = "where",
+                        Arguments = "python",
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true
                     }
+                };
+                process.Start();
+                pythonPath = process.StandardOutput.ReadLine(); // Obtiene la primera línea (mejor instalación)
+                process.WaitForExit();
+
+                if (string.IsNullOrEmpty(pythonPath))
+                {
+                    Console.WriteLine("No se encontró una instalación válida de Python.");
+                }
+                else
+                {
+                    Console.WriteLine($"Ruta de Python detectada: {pythonPath}");
                 }
             }
-
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error detectando Python: {ex.Message}");
+            }
             return pythonPath;
         }
 
-
-
+        
     }
 }

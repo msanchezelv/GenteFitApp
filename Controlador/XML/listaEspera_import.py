@@ -1,8 +1,7 @@
-﻿import xml.etree.ElementTree as ET
-from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
-
-# Función para leer el XML y obtener los datos de ListaEspera
+﻿# Función para leer el XML y obtener los datos de ListaEspera
 def leer_xml_lista_espera(xml_file):
+    import xml.etree.ElementTree as ET
+
     # Parsear el archivo XML
     tree = ET.parse(xml_file)
     root = tree.getroot()
@@ -24,6 +23,9 @@ def leer_xml_lista_espera(xml_file):
 
 # Función para crear las entradas en ListaEspera en Odoo
 def crear_lista_espera_en_odoo(lista_espera):
+    from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
+    from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
+
     models, uid = conectar_odoo()
 
     for espera in lista_espera:

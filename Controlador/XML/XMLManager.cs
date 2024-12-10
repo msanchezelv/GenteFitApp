@@ -15,6 +15,7 @@ namespace GenteFit.Controlador.XMLManager
         private DatabaseManager<ListaEspera> dbManagerListaEspera;
         private DatabaseManager<Monitor> dbManagerMonitor;
         private DatabaseManager<Reserva> dbManagerReserva;
+        private DatabaseManager<Sala> dbManagerSala;
 
         public XMLManager(string dbConnectionString)
         {
@@ -24,6 +25,7 @@ namespace GenteFit.Controlador.XMLManager
             dbManagerHorario = new DatabaseManager<Horario>(dbConnectionString);
             dbManagerListaEspera = new DatabaseManager<ListaEspera>(dbConnectionString);
             dbManagerMonitor = new DatabaseManager<Monitor>(dbConnectionString);
+            dbManagerSala = new DatabaseManager<Sala>(dbConnectionString);
             dbManagerReserva = new DatabaseManager<Reserva>(dbConnectionString);
         }
 
@@ -105,6 +107,7 @@ namespace GenteFit.Controlador.XMLManager
             ExportarTabla("Horarios", GetHorariosFromDatabase(), "horarios.xml");
             ExportarTabla("ListaEspera", GetListaEsperaFromDatabase(), "lista_espera.xml");
             ExportarTabla("Monitores", GetMonitoresFromDatabase(), "monitores.xml");
+            ExportarTabla("Salas", GetSalasFromDatabase(), "salas.xml");
             ExportarTabla("Reservas", GetReservasFromDatabase(), "reservas.xml");
 
             Console.WriteLine("Exportación de todas las tablas completada.");
@@ -118,6 +121,7 @@ namespace GenteFit.Controlador.XMLManager
         public List<ListaEspera> GetListaEsperaFromDatabase() => dbManagerListaEspera.GetAll();
         public List<Monitor> GetMonitoresFromDatabase() => dbManagerMonitor.GetAll();
         public List<Reserva> GetReservasFromDatabase() => dbManagerReserva.GetAll();
+        public List<Sala> GetSalasFromDatabase() => dbManagerSala.GetAll();
     }
 }
 

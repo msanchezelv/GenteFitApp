@@ -38,6 +38,7 @@
             this.Boton_Reserva = new System.Windows.Forms.Button();
             this.Boton_Usuario = new System.Windows.Forms.Button();
             this.Boton_Todas = new System.Windows.Forms.Button();
+            this.botonSala = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // boton_Cliente
@@ -130,7 +131,7 @@
             // Boton_Usuario
             // 
             this.Boton_Usuario.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Usuario.Location = new System.Drawing.Point(98, 391);
+            this.Boton_Usuario.Location = new System.Drawing.Point(98, 443);
             this.Boton_Usuario.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Usuario.Name = "Boton_Usuario";
             this.Boton_Usuario.Size = new System.Drawing.Size(235, 33);
@@ -142,7 +143,7 @@
             // Boton_Todas
             // 
             this.Boton_Todas.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Todas.Location = new System.Drawing.Point(98, 444);
+            this.Boton_Todas.Location = new System.Drawing.Point(98, 496);
             this.Boton_Todas.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Todas.Name = "Boton_Todas";
             this.Boton_Todas.Size = new System.Drawing.Size(235, 33);
@@ -151,12 +152,25 @@
             this.Boton_Todas.UseVisualStyleBackColor = true;
             this.Boton_Todas.Click += new System.EventHandler(this.Boton_Todas_Click);
             // 
+            // botonSala
+            // 
+            this.botonSala.Font = new System.Drawing.Font("Futura Lt BT", 12F);
+            this.botonSala.Location = new System.Drawing.Point(98, 390);
+            this.botonSala.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.botonSala.Name = "botonSala";
+            this.botonSala.Size = new System.Drawing.Size(235, 33);
+            this.botonSala.TabIndex = 20;
+            this.botonSala.Text = "Sala";
+            this.botonSala.UseVisualStyleBackColor = true;
+            this.botonSala.Click += new System.EventHandler(this.botonSala_Click);
+            // 
             // TablasXML
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(442, 545);
+            this.ClientSize = new System.Drawing.Size(442, 584);
+            this.Controls.Add(this.botonSala);
             this.Controls.Add(this.Boton_Todas);
             this.Controls.Add(this.Boton_Usuario);
             this.Controls.Add(this.Boton_Reserva);
@@ -185,5 +199,6 @@
         private System.Windows.Forms.Button Boton_Reserva;
         private System.Windows.Forms.Button Boton_Usuario;
         private System.Windows.Forms.Button Boton_Todas;
+        private System.Windows.Forms.Button botonSala;
     }
 }

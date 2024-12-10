@@ -1,8 +1,6 @@
-﻿import xml.etree.ElementTree as ET
-from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
-
-# Función para leer el XML y obtener los datos de Reserva
+﻿# Función para leer el XML y obtener los datos de Reserva
 def leer_xml_reserva(xml_file):
+    import xml.etree.ElementTree as ET
     # Parsear el archivo XML
     tree = ET.parse(xml_file)
     root = tree.getroot()
@@ -22,6 +20,9 @@ def leer_xml_reserva(xml_file):
 
 # Función para crear las reservas en Odoo
 def crear_reserva_en_odoo(reservas):
+    from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
+    from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
+
     models, uid = conectar_odoo()
 
     for reserva in reservas:

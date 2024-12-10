@@ -175,6 +175,7 @@
       <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo\ReservaDTO.cs" />
+    <Compile Include="Modelo\Sala.cs" />
     <Compile Include="Modelo\Usuario.cs">
       <DependentUpon>DiagramaClases.tt</DependentUpon>
     </Compile>
@@ -388,6 +389,7 @@
     <EmbeddedResource Include="Vista\FormularioBase.resx">
       <DependentUpon>FormularioBase.cs</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Controlador\XML\config.py" />
     <None Include="GenteFitDataSet1.xsc">
       <DependentUpon>GenteFitDataSet1.xsd</DependentUpon>
     </None>
@@ -427,6 +429,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controlador\XML\sala_import.py" />
+    <Content Include="Controlador\__init__.py" />
+    <Content Include="__init__.py" />
     <None Include="Logo-GenteFit-Negro.png" />
     <EmbeddedResource Include="logoGenteFit.ico" />
     <Content Include="Controlador\XML\conexionOdoo.py" />
@@ -438,7 +443,7 @@
     <Content Include="Controlador\XML\reserva_import.py" />
     <Content Include="Controlador\XML\usuario_import.py" />
     <Content Include="Controlador\XML\__init__.py" />
-    <Content Include="Controlador\__init__.py" />
+    <Content Include="Controlador\XML\__main__.py" />
     <Content Include="Modelo\DiagramaClases.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DiagramaClases.edmx</DependentUpon>

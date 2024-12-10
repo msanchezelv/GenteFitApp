@@ -38,15 +38,16 @@
             this.Boton_Horario = new System.Windows.Forms.Button();
             this.Boton_Actividad = new System.Windows.Forms.Button();
             this.label_Escoger = new System.Windows.Forms.Label();
+            this.botonSala = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Boton_Todas
             // 
             this.Boton_Todas.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Todas.Location = new System.Drawing.Point(92, 376);
-            this.Boton_Todas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Boton_Todas.Location = new System.Drawing.Point(123, 515);
+            this.Boton_Todas.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Todas.Name = "Boton_Todas";
-            this.Boton_Todas.Size = new System.Drawing.Size(176, 27);
+            this.Boton_Todas.Size = new System.Drawing.Size(235, 33);
             this.Boton_Todas.TabIndex = 28;
             this.Boton_Todas.Text = "Todas";
             this.Boton_Todas.UseVisualStyleBackColor = true;
@@ -55,10 +56,10 @@
             // Boton_Usuario
             // 
             this.Boton_Usuario.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Usuario.Location = new System.Drawing.Point(92, 333);
-            this.Boton_Usuario.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Boton_Usuario.Location = new System.Drawing.Point(123, 462);
+            this.Boton_Usuario.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Usuario.Name = "Boton_Usuario";
-            this.Boton_Usuario.Size = new System.Drawing.Size(176, 27);
+            this.Boton_Usuario.Size = new System.Drawing.Size(235, 33);
             this.Boton_Usuario.TabIndex = 27;
             this.Boton_Usuario.Text = "Usuario";
             this.Boton_Usuario.UseVisualStyleBackColor = true;
@@ -67,10 +68,10 @@
             // Boton_Reserva
             // 
             this.Boton_Reserva.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Reserva.Location = new System.Drawing.Point(92, 290);
-            this.Boton_Reserva.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Boton_Reserva.Location = new System.Drawing.Point(123, 357);
+            this.Boton_Reserva.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Reserva.Name = "Boton_Reserva";
-            this.Boton_Reserva.Size = new System.Drawing.Size(176, 27);
+            this.Boton_Reserva.Size = new System.Drawing.Size(235, 33);
             this.Boton_Reserva.TabIndex = 26;
             this.Boton_Reserva.Text = "Reserva";
             this.Boton_Reserva.UseVisualStyleBackColor = true;
@@ -79,10 +80,10 @@
             // Boton_Monitor
             // 
             this.Boton_Monitor.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Monitor.Location = new System.Drawing.Point(92, 246);
-            this.Boton_Monitor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Boton_Monitor.Location = new System.Drawing.Point(123, 303);
+            this.Boton_Monitor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Monitor.Name = "Boton_Monitor";
-            this.Boton_Monitor.Size = new System.Drawing.Size(176, 27);
+            this.Boton_Monitor.Size = new System.Drawing.Size(235, 33);
             this.Boton_Monitor.TabIndex = 25;
             this.Boton_Monitor.Text = "Monitor";
             this.Boton_Monitor.UseVisualStyleBackColor = true;
@@ -91,10 +92,10 @@
             // boton_Cliente
             // 
             this.boton_Cliente.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.boton_Cliente.Location = new System.Drawing.Point(92, 121);
-            this.boton_Cliente.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.boton_Cliente.Location = new System.Drawing.Point(123, 149);
+            this.boton_Cliente.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.boton_Cliente.Name = "boton_Cliente";
-            this.boton_Cliente.Size = new System.Drawing.Size(176, 27);
+            this.boton_Cliente.Size = new System.Drawing.Size(235, 33);
             this.boton_Cliente.TabIndex = 20;
             this.boton_Cliente.Text = "Cliente";
             this.boton_Cliente.UseVisualStyleBackColor = true;
@@ -103,10 +104,10 @@
             // Boton_ListaEspera
             // 
             this.Boton_ListaEspera.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_ListaEspera.Location = new System.Drawing.Point(92, 203);
-            this.Boton_ListaEspera.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Boton_ListaEspera.Location = new System.Drawing.Point(123, 250);
+            this.Boton_ListaEspera.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_ListaEspera.Name = "Boton_ListaEspera";
-            this.Boton_ListaEspera.Size = new System.Drawing.Size(176, 27);
+            this.Boton_ListaEspera.Size = new System.Drawing.Size(235, 33);
             this.Boton_ListaEspera.TabIndex = 23;
             this.Boton_ListaEspera.Text = "Lista de espera";
             this.Boton_ListaEspera.UseVisualStyleBackColor = true;
@@ -115,10 +116,10 @@
             // Boton_Horario
             // 
             this.Boton_Horario.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Horario.Location = new System.Drawing.Point(92, 162);
-            this.Boton_Horario.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Boton_Horario.Location = new System.Drawing.Point(123, 199);
+            this.Boton_Horario.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Horario.Name = "Boton_Horario";
-            this.Boton_Horario.Size = new System.Drawing.Size(176, 27);
+            this.Boton_Horario.Size = new System.Drawing.Size(235, 33);
             this.Boton_Horario.TabIndex = 22;
             this.Boton_Horario.Text = "Horario";
             this.Boton_Horario.UseVisualStyleBackColor = true;
@@ -127,10 +128,10 @@
             // Boton_Actividad
             // 
             this.Boton_Actividad.Font = new System.Drawing.Font("Futura Lt BT", 12F);
-            this.Boton_Actividad.Location = new System.Drawing.Point(92, 79);
-            this.Boton_Actividad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Boton_Actividad.Location = new System.Drawing.Point(123, 97);
+            this.Boton_Actividad.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Boton_Actividad.Name = "Boton_Actividad";
-            this.Boton_Actividad.Size = new System.Drawing.Size(176, 27);
+            this.Boton_Actividad.Size = new System.Drawing.Size(235, 33);
             this.Boton_Actividad.TabIndex = 21;
             this.Boton_Actividad.Text = "Actividad";
             this.Boton_Actividad.UseVisualStyleBackColor = true;
@@ -143,20 +144,33 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Escoger.AutoSize = true;
             this.label_Escoger.Font = new System.Drawing.Font("Futura Lt BT", 9F);
-            this.label_Escoger.Location = new System.Drawing.Point(51, 48);
-            this.label_Escoger.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label_Escoger.Location = new System.Drawing.Point(68, 59);
+            this.label_Escoger.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label_Escoger.Name = "label_Escoger";
-            this.label_Escoger.Size = new System.Drawing.Size(279, 15);
+            this.label_Escoger.Size = new System.Drawing.Size(348, 18);
             this.label_Escoger.TabIndex = 24;
             this.label_Escoger.Text = "Por favor, escoge la tabla que quieres exportar a Odoo";
             this.label_Escoger.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // botonSala
+            // 
+            this.botonSala.Font = new System.Drawing.Font("Futura Lt BT", 12F);
+            this.botonSala.Location = new System.Drawing.Point(123, 410);
+            this.botonSala.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.botonSala.Name = "botonSala";
+            this.botonSala.Size = new System.Drawing.Size(235, 33);
+            this.botonSala.TabIndex = 29;
+            this.botonSala.Text = "Sala";
+            this.botonSala.UseVisualStyleBackColor = true;
+            this.botonSala.Click += new System.EventHandler(this.botonSala_Click);
+            // 
             // ExportaraOdoo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(371, 450);
+            this.ClientSize = new System.Drawing.Size(495, 635);
+            this.Controls.Add(this.botonSala);
             this.Controls.Add(this.Boton_Todas);
             this.Controls.Add(this.Boton_Usuario);
             this.Controls.Add(this.Boton_Reserva);
@@ -167,6 +181,7 @@
             this.Controls.Add(this.Boton_Actividad);
             this.Controls.Add(this.label_Escoger);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ExportaraOdoo";
             this.Text = "Exportar a Odoo";
             this.ResumeLayout(false);
@@ -185,5 +200,6 @@
         private System.Windows.Forms.Button Boton_Horario;
         private System.Windows.Forms.Button Boton_Actividad;
         private System.Windows.Forms.Label label_Escoger;
+        private System.Windows.Forms.Button botonSala;
     }
 }

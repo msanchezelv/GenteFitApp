@@ -19,7 +19,6 @@ namespace GenteFitApp.Modelo
         {
             this.Horario = new HashSet<Horario>();
             this.ListaEspera = new HashSet<ListaEspera>();
-            this.Monitor1 = new HashSet<Monitor>();
         }
     
         public int idActividad { get; set; }
@@ -35,7 +34,6 @@ namespace GenteFitApp.Modelo
         public virtual ICollection<Horario> Horario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListaEspera> ListaEspera { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Monitor> Monitor1 { get; set; }
+        
     }
 }

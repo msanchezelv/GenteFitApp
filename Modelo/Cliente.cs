@@ -25,7 +25,7 @@ namespace GenteFitApp.Modelo
         public string telefono { get; set; }
         public string direccion { get; set; }
         public Nullable<int> idUsuario { get; set; }
-    
+
         public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListaEspera> ListaEspera { get; set; }

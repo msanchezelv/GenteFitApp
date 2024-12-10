@@ -1,10 +1,13 @@
-﻿import xml.etree.ElementTree as ET
-from .conexionOdoo import ODOO_CONFIG
-from .conexionOdoo import conectar_odoo
+﻿import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
 
 # Función para leer el XML y obtener los datos de Actividad
 def leer_xml_actividad(xml_file):
+    import xml.etree.ElementTree as ET
+
     # Parsear el archivo XML
     tree = ET.parse(xml_file)
     root = tree.getroot()
@@ -28,28 +31,33 @@ def leer_xml_actividad(xml_file):
 
 # Función para crear actividades en Odoo
 def crear_actividad_en_odoo(actividades):
+    from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
+    from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
 
     models, uid = conectar_odoo()
 
     for actividad in actividades:
         try:
+            # Asegúrate de que los nombres de los campos coincidan con los definidos en Odoo
             actividad_data = {
-                'name': actividad['nombre'],
-                'description': actividad['descripcion'],
-                'intensity_level': actividad['nivelIntensidad'],
-                'room': actividad['sala'],
-                'available_seats': actividad['plazasDisponibles'],
-                'monitor_id': actividad['idMonitor'],
+                'x_idActividad': actividad['idActividad'],
+                'x_nombre': actividad['nombre'],
+                'x_descripcion': actividad['descripcion'],
+                'x_nivelIntensidad': actividad['nivelIntensidad'],
+                'x_plazasDisponibles': actividad['plazasDisponibles'],
+                'x_idmonitor': actividad['idMonitor'],
+                'x_idsala': actividad['sala']
             }
 
             # Crear la actividad en Odoo
             actividad_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'gentefit.activity', 'create', [actividad_data]
+                'x_actividad', 'create', [actividad_data]
             )
             print(f"Actividad creada en Odoo con ID: {actividad_id}")
         except Exception as e:
             print(f"Error al crear actividad en Odoo: {e}")
+
 
 # Llamar a la función para leer el XML y luego crear las actividades en Odoo
 xml_file = 'actividades.xml'  # Nombre del archivo XML generado

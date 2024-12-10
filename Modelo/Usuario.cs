@@ -15,10 +15,10 @@ namespace GenteFitApp.Modelo
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuario()
-        {
-            this.Cliente = new HashSet<Cliente>();
-        }
+        //public Usuario()
+        //{
+        //    this.Cliente = new HashSet<Cliente>();
+        //}
     
         public int idUsuario { get; set; }
         public string nombre { get; set; }
@@ -27,7 +27,7 @@ namespace GenteFitApp.Modelo
         public string contraseña { get; set; }
         public string rol { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cliente> Cliente { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Cliente> Cliente { get; set; }
     }
 }

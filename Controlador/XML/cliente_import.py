@@ -1,9 +1,12 @@
-﻿import xml.etree.ElementTree as ET
-from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
+﻿import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
 
 # Función para leer el XML y obtener los datos de clientes
 def leer_xml_cliente(xml_file):
+    import xml.etree.ElementTree as ET
     # Parsear el archivo XML
     tree = ET.parse(xml_file)
     root = tree.getroot()
@@ -24,21 +27,25 @@ def leer_xml_cliente(xml_file):
 
 # Función para enviar los clientes a Odoo
 def enviar_clientes_a_odoo(clientes):
+    from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
+    from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
+
     models, uid = conectar_odoo()  # Conectar a Odoo
     
     for cliente in clientes:
         # Preparar los datos para el registro en Odoo
         values = {
-            'phone': cliente['telefono'],
-            'address': cliente['direccion'],
-            'user_id': cliente['idUsuario']  # Se supone que idUsuario corresponde al campo 'user_id' en Odoo
+            'x_idcliente': cliente['idCliente'],
+            'x_telefono': cliente['telefono'],
+            'x_direccion': cliente['direccion'],
+            'x_idusuario': cliente['idUsuario']
         }
 
         try:
-            # Crear el cliente en Odoo (suponiendo que el modelo de cliente es 'res.partner')
+            # Crear el cliente en Odoo
             cliente_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'res.partner', 'create', [values]
+                'x_cliente', 'create', [values]
             )
             print(f"Cliente creado en Odoo con ID: {cliente_id}")
         except Exception as e:

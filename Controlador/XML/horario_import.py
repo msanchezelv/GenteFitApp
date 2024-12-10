@@ -1,8 +1,7 @@
-﻿import xml.etree.ElementTree as ET
-from .conexionOdoo import ODOO_CONFIG, conectar_odoo
-
-# Función para leer el XML y obtener los datos de Horario
+﻿# Función para leer el XML y obtener los datos de Horario
 def leer_xml_horario(xml_file):
+    import xml.etree.ElementTree as ET
+
     # Parsear el archivo XML
     tree = ET.parse(xml_file)
     root = tree.getroot()
@@ -27,6 +26,9 @@ def leer_xml_horario(xml_file):
 
 # Función para crear horarios en Odoo
 def crear_horario_en_odoo(horarios):
+    from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
+    from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
+
     models, uid = conectar_odoo()
 
     for horario in horarios:

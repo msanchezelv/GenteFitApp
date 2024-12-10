@@ -1,8 +1,7 @@
-﻿import xml.etree.ElementTree as ET
-from .ConexionOdoo import ODOO_CONFIG, conectar_odoo
-
-# Función para leer el XML y obtener los datos de usuarios
+﻿# Función para leer el XML y obtener los datos de usuarios
 def leer_xml_usuario(xml_file):
+    import xml.etree.ElementTree as ET
+
     # Parsear el archivo XML
     tree = ET.parse(xml_file)
     root = tree.getroot()
@@ -25,6 +24,9 @@ def leer_xml_usuario(xml_file):
 
 # Función para enviar los usuarios a Odoo
 def enviar_usuarios_a_odoo(usuarios):
+    from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
+    from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
+
     models, uid = conectar_odoo()  # Conectar a Odoo
     
     for usuario in usuarios:
