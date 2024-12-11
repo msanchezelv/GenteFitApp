@@ -28,14 +28,15 @@ def crear_reserva_en_odoo(reservas):
     for reserva in reservas:
         try:
             reserva_data = {
-                'cliente_id': reserva['idCliente'],
-                'horario_id': reserva['idHorario'],
+                'id_reserva': reserva['idReserva'],
+                'id_cliente': reserva['idCliente'],
+                'id_horario': reserva['idHorario'],
             }
 
             # Crear la reserva en Odoo
             reserva_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'gentefit.reserva', 'create', [reserva_data]
+                'reserva.custom', 'create', [reserva_data]
             )
             print(f"Reserva creada en Odoo con ID: {reserva_id}")
         except Exception as e:

@@ -26,33 +26,35 @@ def leer_xml_sala(xml_file):
 
 
 # Función para enviar las salas a Odoo
-def enviar_salas_a_odoo(salas):
+def crear_salas_en_odoo(salas):
     from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
     from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
 
     models, uid = conectar_odoo()  # Conectar a Odoo
     
     for sala in salas:
-        # Preparar los datos para el registro en Odoo
+        # Preparar los datos para el registro en Odoo (no incluir 'id_sala' ya que es generado automáticamente)
         values = {
-            'x_idsala': sala['idsala'],
-            'x_nombre': sala['nombre'],
+            'id_sala': sala['idSala'],
+            'nombre': sala['nombre'],
         }
 
         try:
             # Crear sala en Odoo
             sala_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'x_sala', 'create', [values]
+                'sala.custom', 'create', [values]
             )
             print(f"Sala creada en Odoo con ID: {sala_id}")
         except Exception as e:
-            print(f"Error al crear cliente en Odoo: {e}")
+            print(f"Error al crear sala en Odoo: {e}")
+
+
 
 # Llamar a la función y mostrar salas
 xml_file = 'salas.xml'  # Nombre del archivo XML generado
 salas = leer_xml_sala(xml_file)
 
 # Enviar salass a Odoo
-enviar_salas_a_odoo(salas)
+crear_salas_en_odoo(salas)
 

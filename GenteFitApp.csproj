@@ -132,6 +132,7 @@
     <Compile Include="Controlador\ControladorRegistro.cs" />
     <Compile Include="Controlador\DatabaseConfig.cs" />
     <Compile Include="Controlador\DatabaseManager.cs" />
+    <Compile Include="Controlador\OdooConnector.cs" />
     <Compile Include="Controlador\XML\XMLManager.cs" />
     <Compile Include="GenteFitDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>

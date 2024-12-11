@@ -38,25 +38,24 @@ def crear_actividad_en_odoo(actividades):
 
     for actividad in actividades:
         try:
-            # Asegúrate de que los nombres de los campos coincidan con los definidos en Odoo
             actividad_data = {
-                'x_idActividad': actividad['idActividad'],
-                'x_nombre': actividad['nombre'],
-                'x_descripcion': actividad['descripcion'],
-                'x_nivelIntensidad': actividad['nivelIntensidad'],
-                'x_plazasDisponibles': actividad['plazasDisponibles'],
-                'x_idmonitor': actividad['idMonitor'],
-                'x_idsala': actividad['sala']
+                'id_actividad': actividad['idActividad'],
+                'nombre': actividad['nombre'],
+                'descripcion': actividad['descripcion'],
+                'nivel_intensidad': actividad['nivelIntensidad'],
+                'plazas_disponibles': actividad['plazasDisponibles'],
+                'id_monitor': actividad['idMonitor'],
+                'sala': actividad['sala']
             }
 
-            # Crear la actividad en Odoo
             actividad_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'x_actividad', 'create', [actividad_data]
+                'actividad.custom', 'create', [actividad_data]
             )
             print(f"Actividad creada en Odoo con ID: {actividad_id}")
         except Exception as e:
             print(f"Error al crear actividad en Odoo: {e}")
+
 
 
 # Llamar a la función para leer el XML y luego crear las actividades en Odoo

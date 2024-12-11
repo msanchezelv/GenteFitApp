@@ -31,20 +31,21 @@ def crear_lista_espera_en_odoo(lista_espera):
     for espera in lista_espera:
         try:
             espera_data = {
-                'activity_id': espera['idActividad'],
-                'schedule_id': espera['idHorario'],
-                'client_id': espera['idCliente'],
-                'position': espera['posicion']
+                'id_actividad': espera['idActividad'],
+                'id_horario': espera['idHorario'],
+                'id_cliente': espera['idCliente'],
+                'posicion': espera['posicion']
             }
 
             # Crear la entrada en la lista de espera en Odoo
             lista_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'gentefit.waiting_list', 'create', [espera_data]
+                'lista.espera.custom', 'create', [espera_data]
             )
             print(f"Entrada en Lista de Espera creada en Odoo con ID: {lista_id}")
         except Exception as e:
             print(f"Error al crear entrada en Lista de Espera en Odoo: {e}")
+
 
 # Llamar a la función para leer el XML y luego crear las entradas en la lista de espera en Odoo
 xml_file = 'lista_espera.xml'  # Nombre del archivo XML generado

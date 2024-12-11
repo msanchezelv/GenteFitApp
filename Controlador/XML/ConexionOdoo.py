@@ -1,7 +1,10 @@
 ﻿# conexionOdoo.py
 import pyodbc
 import xmlrpc.client
-from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
 def conectar_sql():
     try:
@@ -13,6 +16,8 @@ def conectar_sql():
         return None
 
 def conectar_odoo():
+    from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
+
     url = ODOO_CONFIG['url']
     db = ODOO_CONFIG['db']
     username = ODOO_CONFIG['username']
@@ -36,36 +41,43 @@ def enviar_todo_a_odoo(
     lista_espera_file='lista_espera.xml',
     monitor_file='monitores.xml',
     reserva_file='reservas.xml',
+    sala_file='salas.xml',
     usuario_file='usuarios.xml'
 ):
+    from GenteFitApp.Controlador.XML import actividad_import, cliente_import, horario_import,listaEspera_import, monitor_import, reserva_import, sala_import, usuario_import
+
     try:
         # Actividades
-        actividades = leer_xml_actividad(actividad_file)
-        crear_actividad_en_odoo(actividades)
+        actividades = actividad_import.leer_xml_actividad(actividad_file)
+        actividad_import.crear_actividad_en_odoo(actividades)
 
         # Clientes
-        clientes = leer_xml_cliente(cliente_file)
-        crear_cliente_en_odoo(clientes)
+        clientes = cliente_import.leer_xml_cliente(cliente_file)
+        cliente_import.crear_cliente_en_odoo(clientes)
 
         # Horarios
-        horarios = leer_xml_horario(horario_file)
-        crear_horario_en_odoo(horarios)
+        horarios = horario_import.leer_xml_horario(horario_file)
+        horario_import.crear_horario_en_odoo(horarios)
 
         # Lista de espera
-        listas_espera = leer_xml_lista_espera(lista_espera_file)
-        crear_lista_espera_en_odoo(listas_espera)
+        listas_espera = listaEspera_import.leer_xml_lista_espera(lista_espera_file)
+        listaEspera_import.crear_lista_espera_en_odoo(listas_espera)
 
         # Monitores
-        monitores = leer_xml_monitor(monitor_file)
-        crear_monitor_en_odoo(monitores)
+        monitores = monitor_import.leer_xml_monitor(monitor_file)
+        monitor_import.crear_monitor_en_odoo(monitores)
 
         # Reservas
-        reservas = leer_xml_reserva(reserva_file)
-        crear_reserva_en_odoo(reservas)
+        reservas = reserva_import.leer_xml_reserva(reserva_file)
+        reserva_import.crear_reserva_en_odoo(reservas)
+
+        # Salas
+        salas = sala_import.leer_xml_sala(sala_file)
+        sala_import.crear_salas_en_odoo(salas)
 
         # Usuarios
-        usuarios = leer_xml_usuario(usuario_file)
-        crear_usuario_en_odoo(usuarios)
+        usuarios = usuario_import.leer_xml_usuario(usuario_file)
+        usuario_import.crear_usuario_en_odoo(usuarios)
 
         print("¡Toda la información se ha enviado a Odoo con éxito!")
     except Exception as e:
