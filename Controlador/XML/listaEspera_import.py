@@ -1,4 +1,10 @@
-﻿# Función para leer el XML y obtener los datos de ListaEspera
+﻿import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+
+
+# Función para leer el XML y obtener los datos de ListaEspera
 def leer_xml_lista_espera(xml_file):
     import xml.etree.ElementTree as ET
 
@@ -40,7 +46,7 @@ def crear_lista_espera_en_odoo(lista_espera):
             # Crear la entrada en la lista de espera en Odoo
             lista_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'lista.espera.custom', 'create', [espera_data]
+                'x_listaespera', 'create', [espera_data]
             )
             print(f"Entrada en Lista de Espera creada en Odoo con ID: {lista_id}")
         except Exception as e:
@@ -48,6 +54,6 @@ def crear_lista_espera_en_odoo(lista_espera):
 
 
 # Llamar a la función para leer el XML y luego crear las entradas en la lista de espera en Odoo
-xml_file = 'lista_espera.xml'  # Nombre del archivo XML generado
+xml_file = 'lista_espera.xml'
 lista_espera = leer_xml_lista_espera(xml_file)
 crear_lista_espera_en_odoo(lista_espera)

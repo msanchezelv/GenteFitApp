@@ -26,7 +26,7 @@ def leer_xml_cliente(xml_file):
     return clientes
 
 # Función para enviar los clientes a Odoo
-def crear_clientes_a_odoo(clientes):
+def crear_cliente_en_odoo(clientes):
     from GenteFitApp.Controlador.XML.conexionOdoo import conectar_odoo
     from GenteFitApp.Controlador.XML.config import ODOO_CONFIG
 
@@ -43,7 +43,7 @@ def crear_clientes_a_odoo(clientes):
 
             cliente_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'cliente.custom', 'create', [values]
+                'x_cliente', 'create', [values]
             )
             print(f"Cliente creado en Odoo con ID: {cliente_id}")
         except Exception as e:
@@ -54,4 +54,4 @@ xml_file = 'clientes.xml'  # Nombre del archivo XML generado
 clientes = leer_xml_cliente(xml_file)
 
 # Enviar los clientes a Odoo
-enviar_clientes_a_odoo(clientes)
+crear_cliente_en_odoo(clientes)

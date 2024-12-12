@@ -1,4 +1,10 @@
-﻿# Función para leer el XML y obtener los datos de Reserva
+﻿import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+
+
+# Función para leer el XML y obtener los datos de Reserva
 def leer_xml_reserva(xml_file):
     import xml.etree.ElementTree as ET
     # Parsear el archivo XML
@@ -36,7 +42,7 @@ def crear_reserva_en_odoo(reservas):
             # Crear la reserva en Odoo
             reserva_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'reserva.custom', 'create', [reserva_data]
+                'x_reserva', 'create', [reserva_data]
             )
             print(f"Reserva creada en Odoo con ID: {reserva_id}")
         except Exception as e:

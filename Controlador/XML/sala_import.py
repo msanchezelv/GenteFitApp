@@ -43,7 +43,7 @@ def crear_salas_en_odoo(salas):
             # Crear sala en Odoo
             sala_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'sala.custom', 'create', [values]
+                'x_sala', 'create', [values]
             )
             print(f"Sala creada en Odoo con ID: {sala_id}")
         except Exception as e:
@@ -52,7 +52,7 @@ def crear_salas_en_odoo(salas):
 
 
 # Llamar a la función y mostrar salas
-xml_file = 'salas.xml'  # Nombre del archivo XML generado
+xml_file = 'salas.xml'
 salas = leer_xml_sala(xml_file)
 
 # Enviar salass a Odoo

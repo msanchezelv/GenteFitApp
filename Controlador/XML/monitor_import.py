@@ -50,13 +50,13 @@ def crear_monitor_en_odoo(monitores):
                 'id_monitor': monitor['idMonitor'],
                 'nombre': monitor['nombre'],
                 'apellidos': monitor['apellidos'],
-                'id_actividad': id_actividad,  # Enviar el valor vacío o un valor por defecto
+                # 'id_actividad': id_actividad, 
             }
 
             # Crear el monitor en Odoo
             monitor_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'monitor.custom', 'create', [monitor_data]
+                'x_monitor', 'create', [monitor_data]
             )
             print(f"Monitor creado en Odoo con ID: {monitor_id}")
         except Exception as e:

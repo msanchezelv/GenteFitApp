@@ -52,7 +52,7 @@ def crear_horario_en_odoo(horarios):
             # Crear el horario en Odoo
             horario_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'horario.custom', 'create', [horario_data]
+                'x_horario', 'create', [horario_data]
             )
             print(f"Horario creado en Odoo con ID: {horario_id}")
         except Exception as e:
@@ -61,3 +61,7 @@ def crear_horario_en_odoo(horarios):
 
 # Llamar a la función para leer el XML y luego crear los horarios en Odoo
 xml_file = 'horarios.xml'  # Nombre del archivo XML
+horarios = leer_xml_horario(xml_file)
+
+# Enviar los clientes a Odoo
+crear_horario_en_odoo(horarios)

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using GenteFitApp.Modelo;
+using Newtonsoft.Json;
+using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 public class OdooConnector
 {
-    private readonly string odooUrl = "http://tudominio.com/gente_fit_actividad/crear";  // URL de tu endpoint
+    private readonly string odooUrl = "http://192.168.1.160:8069";  // URL de tu endpoint
 
     public async Task CrearActividadEnOdoo(Actividad actividad)
     {

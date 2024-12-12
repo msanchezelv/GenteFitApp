@@ -50,12 +50,11 @@ def crear_actividad_en_odoo(actividades):
 
             actividad_id = models.execute_kw(
                 ODOO_CONFIG['db'], uid, ODOO_CONFIG['password'],
-                'actividad.custom', 'create', [actividad_data]
+                'x_actividad', 'create', [actividad_data]
             )
             print(f"Actividad creada en Odoo con ID: {actividad_id}")
         except Exception as e:
             print(f"Error al crear actividad en Odoo: {e}")
-
 
 
 # Llamar a la función para leer el XML y luego crear las actividades en Odoo
