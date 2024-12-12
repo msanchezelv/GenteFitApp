@@ -35,8 +35,8 @@ def crear_salas_en_odoo(salas):
     for sala in salas:
         # Preparar los datos para el registro en Odoo (no incluir 'id_sala' ya que es generado automáticamente)
         values = {
-            'id_sala': sala['idSala'],
-            'nombre': sala['nombre'],
+            'x_id_sala': sala['idsala'],
+            'x_nombre': sala['nombre'],
         }
 
         try:

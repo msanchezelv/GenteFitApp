@@ -18,8 +18,8 @@ def leer_xml_horario(xml_file):
         horario = {
             'idHorario': int(horario_elem.find('idHorario').text),
             'diaSemana': horario_elem.find('diaSemana').text,
-            'horaInicio': horario_elem.find('horaInicio').text,  # Suponiendo formato "HH:MM:SS"
-            'horaFin': horario_elem.find('horaFin').text,  # Suponiendo formato "HH:MM:SS"
+            'horaInicio': float(horario_elem.find('horaInicio').text),
+            'horaFin': float(horario_elem.find('horaFin').text),
             'idActividad': int(horario_elem.find('idActividad').text) if horario_elem.find('idActividad') is not None else None,
             'sala': int(horario_elem.find('sala').text) if horario_elem.find('sala') is not None else None,
             'Monitor': horario_elem.find('Monitor').text,
@@ -39,14 +39,14 @@ def crear_horario_en_odoo(horarios):
     for horario in horarios:
         try:
             horario_data = {
-                'id_horario': horario['idHorario'],
-                'dia_semana': horario['diaSemana'],
-                'hora_inicio': horario['horaInicio'],
-                'hora_fin': horario['horaFin'],
-                'id_actividad': horario['idActividad'],
-                'sala': horario['sala'],
-                'monitor': horario['Monitor'],
-                'duracion': horario['duracion']
+                'x_id_horario': horario['idHorario'],
+                'x_dia_semana': horario['diaSemana'],
+                'x_hora_inicio': horario['horaInicio'],
+                'x_hora_fin': horario['horaFin'],
+                'x_id_actividad': horario['idActividad'],
+                'x_sala': horario['sala'],
+                'x_monitor': horario['Monitor'],
+                'x_duracion': horario['duracion']
             }
 
             # Crear el horario en Odoo

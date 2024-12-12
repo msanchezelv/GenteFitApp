@@ -39,13 +39,13 @@ def crear_actividad_en_odoo(actividades):
     for actividad in actividades:
         try:
             actividad_data = {
-                'id_actividad': actividad['idActividad'],
-                'nombre': actividad['nombre'],
-                'descripcion': actividad['descripcion'],
-                'nivel_intensidad': actividad['nivelIntensidad'],
-                'plazas_disponibles': actividad['plazasDisponibles'],
-                'id_monitor': actividad['idMonitor'],
-                'sala': actividad['sala']
+                'x_id_actividad': actividad['idActividad'],
+                'x_nombre': actividad['nombre'],
+                'x_descripcion': actividad['descripcion'],
+                'x_nivel_intensidad': actividad['nivelIntensidad'],
+                'x_plazas_disponibles': actividad['plazasDisponibles'],
+                'x_id_monitor': actividad['idMonitor'],
+                'x_sala': actividad['sala']
             }
 
             actividad_id = models.execute_kw(

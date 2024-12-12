@@ -47,10 +47,10 @@ def crear_monitor_en_odoo(monitores):
             id_actividad = id_actividad if id_actividad is not None else ''
 
             monitor_data = {
-                'id_monitor': monitor['idMonitor'],
-                'nombre': monitor['nombre'],
-                'apellidos': monitor['apellidos'],
-                # 'id_actividad': id_actividad, 
+                'x_id_monitor': monitor['idMonitor'],
+                'x_nombre': monitor['nombre'],
+                'x_apellidos': monitor['apellidos'],
+                'x_idactividad': id_actividad, 
             }
 
             # Crear el monitor en Odoo

@@ -18,10 +18,10 @@ def leer_xml_lista_espera(xml_file):
     for lista_elem in root.findall('ListaEspera'):
         espera = {
             'idListaEspera': int(lista_elem.find('idListaEspera').text),
-            'idActividad': int(lista_elem.find('idActividad').text) if lista_elem.find('idActividad') is not None else None,
-            'idHorario': int(lista_elem.find('idHorario').text) if lista_elem.find('idHorario') is not None else None,
-            'idCliente': int(lista_elem.find('idCliente').text) if lista_elem.find('idCliente') is not None else None,
-            'posicion': int(lista_elem.find('posicion').text) if lista_elem.find('posicion') is not None else None,
+            'idActividad': int(lista_elem.find('idActividad').text) if lista_elem.find('idActividad'),
+            'idHorario': int(lista_elem.find('idHorario').text) if lista_elem.find('idHorario'),
+            'idCliente': int(lista_elem.find('idCliente').text) if lista_elem.find('idCliente'),
+            'posicion': int(lista_elem.find('posicion').text) if lista_elem.find('posicion'),
         }
         lista_espera.append(espera)
 
@@ -37,10 +37,10 @@ def crear_lista_espera_en_odoo(lista_espera):
     for espera in lista_espera:
         try:
             espera_data = {
-                'id_actividad': espera['idActividad'],
-                'id_horario': espera['idHorario'],
-                'id_cliente': espera['idCliente'],
-                'posicion': espera['posicion']
+                'x_id_actividad': espera['idActividad'],
+                'x_id_horario': espera['idHorario'],
+                'x_id_cliente': espera['idCliente'],
+                'x_posicion': espera['posicion']
             }
 
             # Crear la entrada en la lista de espera en Odoo

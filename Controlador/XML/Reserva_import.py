@@ -34,9 +34,9 @@ def crear_reserva_en_odoo(reservas):
     for reserva in reservas:
         try:
             reserva_data = {
-                'id_reserva': reserva['idReserva'],
-                'id_cliente': reserva['idCliente'],
-                'id_horario': reserva['idHorario'],
+                'x_id_reserva': reserva['idReserva'],
+                'x_id_cliente': reserva['idCliente'],
+                'x_id_horario': reserva['idHorario'],
             }
 
             # Crear la reserva en Odoo

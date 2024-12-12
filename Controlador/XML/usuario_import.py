@@ -20,7 +20,7 @@ def leer_xml_usuario(xml_file):
             'nombre': usuario_elem.find('nombre').text,
             'apellidos': usuario_elem.find('apellidos').text,
             'email': usuario_elem.find('email').text,
-            'password': usuario_elem.find('contraseña').text,
+            'contrasena': usuario_elem.find('contraseña').text,
             'rol': usuario_elem.find('rol').text,
         }
         usuarios.append(usuario)
@@ -37,12 +37,12 @@ def crear_usuarios_en_odoo(usuarios):
     for usuario in usuarios:
         try:
             usuario_data = {
-                'idusuario': usuario['idUsuario'],
-                'nombre': usuario['nombre'],
-                'apellidos': usuario['apellidos'],
-                'email': usuario['email'],
-                'contrasena': usuario['password'],
-                'rol': usuario['rol']
+                'x_idusuario': usuario['idUsuario'],
+                'x_nombre': usuario['nombre'],
+                'x_apellidos': usuario['apellidos'],
+                'x_email': usuario['email'],
+                'x_contrasena': usuario['contrasena'],
+                'x_rol': usuario['rol']
             }
 
             usuario_id = models.execute_kw(

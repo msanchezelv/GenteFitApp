@@ -35,10 +35,10 @@ def crear_cliente_en_odoo(clientes):
     for cliente in clientes:
         try:
             values = {
-                'id_cliente': cliente['idCliente'],
-                'telefono': cliente['telefono'],
-                'direccion': cliente['direccion'],
-                'id_usuario': cliente['idUsuario']
+                'x_id_cliente': cliente['idCliente'],
+                'x_telefono': cliente['telefono'],
+                'x_direccion': cliente['direccion'],
+                'x_id_usuario': cliente['idUsuario']
             }
 
             cliente_id = models.execute_kw(
