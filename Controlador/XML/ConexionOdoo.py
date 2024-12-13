@@ -8,9 +8,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../.
 
 def conectar_sql():
     try:
-        conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-1JIM32R\\SQLEXPRESS;DATABASE=GenteFit;Trusted_Connection=yes;')
+        connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=DESKTOP-1JIM32R\\SQLEXPRESS;DATABASE=GenteFit;Trusted_Connection=yes;')
         print("Conexión a SQL Server exitosa.")
-        return conn
+        return connection
     except Exception as e:
         print(f"Error al conectar a SQL Server: {e}")
         return None
@@ -82,7 +82,6 @@ def enviar_todo_a_odoo(
         print("¡Toda la información se ha enviado a Odoo con éxito!")
     except Exception as e:
         print(f"Error al enviar información a Odoo: {e}")
-
 
 def validar_configuracion_odoo(config):
     required_keys = ['url', 'db', 'username', 'password']

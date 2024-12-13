@@ -47,7 +47,7 @@ def crear_monitor_en_odoo(monitores):
             id_actividad = id_actividad if id_actividad is not None else ''
 
             monitor_data = {
-                'x_id_monitor': monitor['idMonitor'],
+                'x_idmonitor': monitor['idMonitor'],
                 'x_nombre': monitor['nombre'],
                 'x_apellidos': monitor['apellidos'],
                 'x_idactividad': id_actividad, 

@@ -35,7 +35,7 @@ def crear_salas_en_odoo(salas):
     for sala in salas:
         # Preparar los datos para el registro en Odoo (no incluir 'id_sala' ya que es generado automáticamente)
         values = {
-            'x_id_sala': sala['idsala'],
+            'x_idsala': sala['idsala'],
             'x_nombre': sala['nombre'],
         }
 
@@ -48,8 +48,6 @@ def crear_salas_en_odoo(salas):
             print(f"Sala creada en Odoo con ID: {sala_id}")
         except Exception as e:
             print(f"Error al crear sala en Odoo: {e}")
-
-
 
 # Llamar a la función y mostrar salas
 xml_file = 'salas.xml'

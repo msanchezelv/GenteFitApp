@@ -50,7 +50,7 @@ def crear_cliente_en_odoo(clientes):
             print(f"Error al crear cliente en Odoo: {e}")
 
 # Llamar a la función y mostrar los clientes
-xml_file = 'clientes.xml'  # Nombre del archivo XML generado
+xml_file = 'clientes.xml'
 clientes = leer_xml_cliente(xml_file)
 
 # Enviar los clientes a Odoo

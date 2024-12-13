@@ -58,7 +58,6 @@ def crear_horario_en_odoo(horarios):
         except Exception as e:
             print(f"Error al crear horario en Odoo: {e}")
 
-
 # Llamar a la función para leer el XML y luego crear los horarios en Odoo
 xml_file = 'horarios.xml'  # Nombre del archivo XML
 horarios = leer_xml_horario(xml_file)

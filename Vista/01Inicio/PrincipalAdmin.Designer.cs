@@ -51,6 +51,7 @@
             this.Boton_Odoo = new System.Windows.Forms.Button();
             this.groupBoxXML = new System.Windows.Forms.GroupBox();
             this.buttonXML = new System.Windows.Forms.Button();
+            this.Boton_obtenerOdoo = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBoxClientes.SuspendLayout();
             this.groupBoxReservas.SuspendLayout();
@@ -261,13 +262,14 @@
             // 
             // groupBoxOdoo
             // 
+            this.groupBoxOdoo.Controls.Add(this.Boton_obtenerOdoo);
             this.groupBoxOdoo.Controls.Add(this.Boton_Odoo);
             this.groupBoxOdoo.Font = new System.Drawing.Font("Futura Lt BT", 12F);
             this.groupBoxOdoo.Location = new System.Drawing.Point(40, 570);
             this.groupBoxOdoo.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxOdoo.Name = "groupBoxOdoo";
             this.groupBoxOdoo.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxOdoo.Size = new System.Drawing.Size(1032, 80);
+            this.groupBoxOdoo.Size = new System.Drawing.Size(1032, 127);
             this.groupBoxOdoo.TabIndex = 5;
             this.groupBoxOdoo.TabStop = false;
             this.groupBoxOdoo.Text = "Gestión Odoo";
@@ -309,12 +311,25 @@
             this.buttonXML.UseVisualStyleBackColor = true;
             this.buttonXML.Click += new System.EventHandler(this.buttonXML_Click);
             // 
+            // Boton_obtenerOdoo
+            // 
+            this.Boton_obtenerOdoo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Boton_obtenerOdoo.Font = new System.Drawing.Font("Futura Lt BT", 12F);
+            this.Boton_obtenerOdoo.Location = new System.Drawing.Point(19, 76);
+            this.Boton_obtenerOdoo.Margin = new System.Windows.Forms.Padding(4);
+            this.Boton_obtenerOdoo.Name = "Boton_obtenerOdoo";
+            this.Boton_obtenerOdoo.Size = new System.Drawing.Size(993, 40);
+            this.Boton_obtenerOdoo.TabIndex = 1;
+            this.Boton_obtenerOdoo.Text = "Obtener información desde Odoo";
+            this.Boton_obtenerOdoo.UseVisualStyleBackColor = true;
+            this.Boton_obtenerOdoo.Click += new System.EventHandler(this.Boton_obtenerOdoo_Click);
+            // 
             // PrincipalAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(1123, 704);
+            this.ClientSize = new System.Drawing.Size(1123, 736);
             this.Controls.Add(this.groupBoxXML);
             this.Controls.Add(this.groupBoxOdoo);
             this.Controls.Add(this.groupBoxUsuarios);
@@ -366,5 +381,6 @@
         private System.Windows.Forms.Button Boton_Odoo;
         private System.Windows.Forms.GroupBox groupBoxXML;
         private System.Windows.Forms.Button buttonXML;
+        private System.Windows.Forms.Button Boton_obtenerOdoo;
     }
 }

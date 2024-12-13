@@ -27,8 +27,9 @@ namespace GenteFitApp.Vista
         }
 
         private void Registrar_FormClosing(object sender, FormClosingEventArgs e) 
-        { EscogerRol escogerRolForm = new EscogerRol(); 
-            escogerRolForm.Show(); 
+        {
+            Environment.Exit(0); // Forzar la salida del proceso y todos los subprocesos
+            Application.Exit(); // Cierra la aplicación correctamente
         }
 
         public Registrar()

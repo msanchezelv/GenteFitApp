@@ -54,9 +54,4 @@ def crear_usuarios_en_odoo(usuarios):
             print(f"Error al crear usuario en Odoo: {e}")
 
 
-# Llamar a la función y mostrar los usuarios
-xml_file = 'usuarios.xml'  # Nombre del archivo XML generado
-usuarios = leer_xml_usuario(xml_file)
 
-# Enviar los usuarios a Odoo
-crear_usuarios_en_odoo(usuarios)
